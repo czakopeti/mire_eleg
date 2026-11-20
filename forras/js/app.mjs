@@ -64,24 +64,45 @@ function szamlal(el) {
   requestAnimationFrame(lep);
 }
 const elojel = x => `${x >= 0 ? '+' : '−'}${szamHu(Math.abs(x) * 100, 1)}%`;
-const nyomtat = el => { if (csendes) return; el.classList.remove('nyom'); void el.offsetWidth; el.classList.add('nyom'); el.querySelectorAll('[data-szamlal]').forEach(szamlal); };
 
-// ---- site search (list page) and the home hero, where picking an occupation prints its payslip
-const hosSzalag = $('[data-hos-szalag]');
-if (hosSzalag) nyomtat(hosSzalag);
-function hosNyom(f, db) {
-  const szja = Math.round(f.brutto * 0.15), tb = f.brutto - szja - f.netto;
-  hosSzalag.innerHTML = `<p class="szalag-fej">${esc(f.nev)}<span>FEOR ${f.kod}</span></p>
-${sor('Bruttó átlagkereset', ft(f.brutto))}${sor('Szja (15%)', `− ${ft(szja)}`)}${sor('Tb-járulék (18,5%)', `− ${ft(tb)}`)}${sor('Nettó', `<span data-szamlal="${f.netto}">${ft(f.netto)}</span>`, 'ossz')}
-<p class="szalag-lab">A ${db} szakma között a ${f.rang}.${f.real == null ? '' : ` A bér vásárlóértéke 2019 óta ${elojel(f.real)}.`}</p>
-<p class="muveletek"><a class="gomb" href="/fizetes/${f.slug}/">A teljes oldal</a><a class="gomb masod" href="/hol-allsz/?f=${f.kod}">Hol állsz?</a></p>`;
-  nyomtat(hosSzalag);
+// ---- the strip of all occupations: tooltip on hover, click opens the occupation
+let savBub;
+for (const sv of document.querySelectorAll('[data-sav]')) {
+  const hos = sv.closest('.hos');
+  if (hos && !csendes) { const v = [...sv.querySelectorAll('.sv-v')]; v.forEach((e, i) => e.style.setProperty('--d', Math.round(i / v.length * 700))); }
+  const mutat = e => { const t = e.target; if (!t.classList?.contains('sv-v')) return; savBub ??= document.body.appendChild(Object.assign(document.createElement('div'), { className: 'sav-buborek' })); const r = t.getBoundingClientRect(); savBub.innerHTML = `<b>${esc(t.dataset.n)}</b>${ft(Number(t.dataset.b))}`; savBub.style.left = `${Math.min(Math.max(r.left, 100), innerWidth - 100)}px`; savBub.style.top = `${r.top}px`; savBub.hidden = false; };
+  sv.addEventListener('pointerover', mutat);
+  sv.addEventListener('pointerout', () => { if (savBub) savBub.hidden = true; });
+  sv.addEventListener('click', async e => { const t = e.target; if (!t.classList?.contains('sv-v')) return; if (hos) { const l = await foglalkozasok(); const f = l.find(x => x.kod === t.dataset.k); if (f) hosValaszt(f, l.length); } else location.href = `/fizetes/${t.dataset.s}/`; });
+}
+function savKiemel(sv, f) {
+  sv.querySelector('.sv-v.ki')?.classList.remove('ki');
+  const v = sv.querySelector(`.sv-v[data-k="${f.kod}"]`); if (!v) return;
+  v.classList.add('ki'); v.parentNode.appendChild(v);
+  const x = Number(v.getAttribute('x1')), W = sv.viewBox.baseVal.width, horg = x > W - 170 ? 'end' : x < 170 ? 'start' : 'middle';
+  const j = sv.querySelector('.sv-jelolo'); j.removeAttribute('hidden'); sv.appendChild(j);
+  const [n, e] = j.querySelectorAll('text'); for (const t of [n, e]) { t.setAttribute('x', x); t.setAttribute('text-anchor', horg); }
+  n.textContent = f.nev; e.textContent = ft(f.brutto);
+}
+
+// ---- site search (list page) and the home hero, where picking an occupation updates the card and the strip
+const hosKartya = $('[data-hos-kartya]');
+if (hosKartya) hosKartya.querySelectorAll('[data-szamlal]').forEach(szamlal);
+function hosValaszt(f, db) {
+  hosKartya.innerHTML = `<p class="hk-fej">${esc(f.nev)}</p><p class="hk-szam"><span data-szamlal="${f.netto}">${ft(f.netto)}</span></p><p class="hk-al">nettó havonta, bruttó ${ft(f.brutto)}</p>
+<dl><dt>Helyezés</dt><dd>${f.rang}. / ${db}</dd>${f.real == null ? '' : `<dt>Reálbér 2019 óta</dt><dd>${elojel(f.real)}</dd>`}</dl>
+<p class="hk-gomb"><a class="gomb feher" href="/fizetes/${f.slug}/">A teljes oldal</a><a class="gomb atlatszo" href="/hol-allsz/?f=${f.kod}">Hol állsz?</a></p>`;
+  if (!csendes) { hosKartya.classList.remove('valt'); void hosKartya.offsetWidth; hosKartya.classList.add('valt'); hosKartya.querySelectorAll('[data-szamlal]').forEach(szamlal); }
+  savKiemel($('.hos [data-sav]'), f);
+  document.querySelectorAll('[data-hos-kod]').forEach(g => g.classList.toggle('akt', g.dataset.hosKod === f.kod));
 }
 for (const k of document.querySelectorAll('[data-kereso]')) {
-  const szalagra = k.dataset.kereso === 'szalag' && hosSzalag;
-  kombo($('input', k), $('ul', k), foglalkozasok, fogSor, async f => { if (szalagra) { $('input', k).value = f.nev; hosNyom(f, (await foglalkozasok()).length); } else location.href = `/fizetes/${f.slug}/`; });
+  const hos = k.dataset.kereso === 'hos' && hosKartya;
+  kombo($('input', k), $('ul', k), foglalkozasok, fogSor, async f => { if (hos) { $('input', k).value = f.nev; hosValaszt(f, (await foglalkozasok()).length); } else location.href = `/fizetes/${f.slug}/`; });
 }
-for (const g of document.querySelectorAll('[data-hos-kod]')) g.addEventListener('click', async () => { const l = await foglalkozasok(); const f = l.find(x => x.kod === g.dataset.hosKod); if (f) hosNyom(f, l.length); });
+for (const g of document.querySelectorAll('[data-hos-kod]')) g.addEventListener('click', async () => { const l = await foglalkozasok(); const f = l.find(x => x.kod === g.dataset.hosKod); if (f) hosValaszt(f, l.length); });
+// header menu: close on Escape, and close the mobile menu when a link is used
+document.addEventListener('keydown', e => { if (e.key === 'Escape') { document.activeElement?.blur?.(); $('.mobilmenu')?.removeAttribute('open'); } });
 
 // ---- gross -> net
 const nk = $('[data-netto-kalk]');

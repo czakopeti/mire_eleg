@@ -1,27 +1,29 @@
 # Dizájn
 
-2026. november 20-án újraterveztük. A korábbi krémszínű, talpas betűs változat megszűnt.
+2026. november 20-án harmadszor, teljesen újraterveztük. A korábbi krémszínű és sötétzöld változat megszűnt. Az arculat szándékosan nem hasonlít az autózomra és az Ingatlanmérlegre.
 
-## Honnan jön a szerkezet
+## Szerkezet
 
-A nagy amerikai bér- és pénzügyi termékek (Levels.fyi, Carta, Ramp, Wise) bevált rendje: a főoldal tetején maga a termék működik, alatta az eszközök csempéi, az aloldalakon bal oldalt a mezők, jobb oldalt az élő eredmény. A szerkezetet vettük át, az arculatukat nem.
+A főoldalt és a menüt ugyanaz a négy kérdés rendezi: **A szakmád**, **A fizetésed**, **A lakóhelyed**, **HR-eseknek**. Minden eszköz pontosan egy csoportba tartozik. A főoldalon a csoportok eszközei sorokként jelennek meg, mindegyik mellett egy élő szám az adatból (nem dísz: a sor tartalmát mutatja).
+
+Az aloldalak sorrendje: címke, cím, **egy számokkal teli összegző bekezdés, amely maga a válasz**, frissességi sor, a fő számok, a sávábra, részletek, „Számolj tovább”, gyakori kérdések.
 
 ## Elemek
 
 | Elem | Szabály |
 |---|---|
-| Színek | Fehér alap, köd `#F1F4F2` a felületekhez, tinta `#101613`, bankjegyzöld `#0B6B43`, mélyzöld `#073B28` a főoldali sávhoz, menta `#CDF2DA` a végösszegekhez. Borostyán `#C9820A` és kék `#3B5BDB` csak ábrákban. Sötét módban külön ellenőrzött lépések. |
-| Betű | Egyetlen család: Geist (OFL, saját tárhelyről). A címek 650-es súllyal, szoros betűközzel; a számok táblázatos szélességűek. |
-| Bérszalag (`.szalag`) | Az oldal egyetlen hangsúlyos eleme: fehér kártya szaggatott fejléccel, menta végösszeggel, fogazott alsó széllel. Minden eredmény ebben jelenik meg. |
-| Főoldal | Mélyzöld sáv, benne a kereső és egy bérszalag. A szalag mintával indul (felirata: „Minta”); ha a látogató beír vagy kiválaszt egy szakmát, annak a bérszalagja „nyomtatódik ki”. |
-| Csempék | Az eszközök eltérő méretű csempéi, valódi adatból rajzolt kis ábrával (megyetérkép, pontfelhő, országos medián). |
-| Ábrák | Zöld a fő adatsor, borostyán a második, kék a harmadik; a vonalak szaggatása is eltér, és van jelmagyarázat. A színpárok színtévesztő-ellenőrzésen átmentek. A térkép egyszínű, világostól sötétig. Minden ábra alatt ott a táblázat vagy a pontos érték. |
-| Űrlapok | Üresen nyílnak. Minta csak a „Minta betöltése” gombbal kerül beléjük, mellette kiírva, mi a minta. |
+| Színek | Fehér alap, tinta `#0C1230`, kobaltkék `#2447F0`, halvány kék `#EEF1FB` a felületekhez. Korall `#F2603C` a kiemeléshez és a második adatsorhoz, türkiz `#0E9384` a harmadikhoz. Sötét módban külön ellenőrzött lépések. |
+| Betű | Egyetlen család két hangon: Archivo (OFL, saját tárhelyről). A címek keskenyítve (66–78%) és 800-as súllyal, a szöveg normál szélességgel. |
+| Sávábra (`.sav`) | Az oldal jellegzetes eleme: mind a 461 szakma egy-egy vonás a bruttó bér logaritmikus skáláján. A főoldalon a kiválasztott szakma korall színnel kiemelkedik; a szakmaoldalakon az adott szakma. A vonásokra kattintva a szakma oldala nyílik. |
+| Körvonal és árnyék | 2 px tinta körvonal a kártyákon, mezőkön, táblázatokon. Kemény, eltolt árnyék (6 px) csak az eredménykártyán, a legördülő menün és a kereső mezőn. |
+| Fő szám | A legfontosabb szám kobaltkék blokkon, nagy keskeny számmal (nettó a szakmaoldalon, végösszeg a kalkulátorokban). |
+| Ábrák | Kék a fő adatsor, korall a második (szaggatott), türkiz a harmadik (pontozott). A színek színtévesztő-ellenőrzésen átmentek. A térkép egyszínű, világostól sötétig. |
+| Űrlapok | Üresen nyílnak. Minta csak a „Minta betöltése” gombbal. |
 | Forrás | Minden számblokk alatt forrássor: forrás neve linkkel, az adat éve, a letöltés napja. |
 
 ## Mozgás
 
-Egy hangsúlyos mozzanat van: a bérszalag kinyomtatódik, és a végösszeg felszámol. Az ábrák egyszer rajzolódnak ki, amikor a látómezőbe érnek (az oszlopok felnőnek, a vonalak balról jobbra megjelennek). A térkép színe átúszik, amikor bért váltasz. Oldalváltáskor a böngésző áttűnést ad, ahol támogatja. A `prefers-reduced-motion` beállításnál minden mozgás kikapcsol.
+A főoldalon a sávábra vonásai balról jobbra felnőnek, a kiválasztott szakma kártyája váltáskor megmozdul, a nettó felszámol. Az ábrák egyszer rajzolódnak ki, amikor a látómezőbe érnek. A térkép színe átúszik. A `prefers-reduced-motion` beállításnál minden mozgás kikapcsol.
 
 ## Amit nem csinálunk
 

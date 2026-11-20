@@ -1,5 +1,5 @@
 // Page contents. Every number comes from the data files; nothing is typed in by hand.
-import { esc, datum, evBan, evOs, forras, korOszlopok, trendVonal, szoras, megyeTerkep, haviVonal, nagy } from './sablon.mjs';
+import { esc, datum, evBan, evOs, forras, korOszlopok, trendVonal, szoras, megyeTerkep, haviVonal, sav, nagy } from './sablon.mjs';
 import * as S from './js/szamitas.mjs';
 const { ft, szamHu, szazalek, idotartam } = S;
 
@@ -12,6 +12,7 @@ const MINTA_TELEPULES = ['Budapest XIII. kerület', 'Budapest XI. kerület', 'De
 
 const az = s => /^[aáeéiíoóöőuúüű5]|^1(\d{3})?\b/i.test(String(s).trim()) ? 'az' : 'a';
 const KOR_NEV = ['30 év alattiak', '30–39 évesek', '40–49 évesek', '50 év felettiek'];
+const HONEV = ['január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december'];
 const elojel = x => `${x >= 0 ? '+' : '−'}${szamHu(Math.abs(x) * 100, 1)}%`;
 const adatBlokk = (id, o) => `<script type="application/json" id="${id}">${JSON.stringify(o).replace(/</g, '\\u003c')}</script>`;
 const kerForras = A => forras({ ...A.ker.forras, letoltve: A.ker.ellenorizve }, `${A.utolso}. évi adat`);
@@ -34,40 +35,59 @@ export function fooldal(A) {
   const valt = A.fog.filter(f => f.realValt != null);
   const nott = [...valt].sort((a, b) => b.realValt - a.realValt).slice(0, 8);
   const nyert = valt.filter(f => f.realValt > 0).length;
-  const m = A.minta, f = m.f;
+  const f = A.minta.f, u = A.havi.sor.at(-1), T = A.T;
+  const mintaNetto = S.netto(A.sz, { brutto: 600000 }).netto;
   const lista = (cim, fogl, ertek, megj) => `<section class="lista"><h3>${cim}</h3><ol>${fogl.map(g => `<li>${fogLink(g)}<b>${ertek(g)}</b></li>`).join('')}</ol><p class="apro">${megj}</p></section>`;
+  const sorE = (ut, cim, leir, szam, alatta) => `<li><a href="/${ut}"><span class="s-cim">${cim}</span><span class="s-leir">${leir}</span><span class="s-szam"><b>${szam}</b>${alatta}</span></a></li>`;
+  const rovat = (id, cim, leir, sorok) => `<section class="rovat" id="${id}"><div class="rovat-fej"><h2>${cim}</h2><p>${leir}</p></div><ul class="sorok">${sorok.join('')}</ul></section>`;
   return {
     ut: '', cim: `Mire elég a fizetésed? Fizetések foglalkozásonként ${A.utolso}`,
-    leiras: `${A.fog.length} foglalkozás bruttó és nettó átlagkeresete a KSH ${A.utolso}. évi adataiból: korcsoportok, reálbér ${A.evek[0]} óta, és hogy hány év alatt jön ki belőle egy lakás.`,
+    leiras: `${A.fog.length} foglalkozás bruttó és nettó átlagkeresete a KSH ${A.utolso}. évi adataiból: korcsoportok, reálbér ${A.evek[0]} óta, ${T.telep.length} település keresete, és hogy hány év alatt jön ki belőle egy lakás.`,
     jsonld: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: A.cfg.marka, url: `${A.cfg.domain}/`, inLanguage: 'hu', description: A.cfg.szlogen },
       { '@context': 'https://schema.org', '@type': 'Dataset', name: `Bruttó és nettó átlagkeresetek foglalkozásonként, ${A.evek[0]}–${A.utolso}`, description: `A teljes munkaidőben alkalmazásban állók bruttó átlagkeresete ${A.fog.length} FEOR-08 foglalkozásra, korcsoportonként, a KSH adataiból, számított nettóval és bérküszöbbel.`, url: `${A.cfg.domain}/adatok/`, license: 'https://creativecommons.org/licenses/by/4.0/', isBasedOn: A.ker.forras.url, temporalCoverage: `${A.evek[0]}/${A.utolso}`, dateModified: A.ker.letoltve, creator: { '@type': 'Organization', name: A.cfg.marka } }],
     tartalom: `<section class="hos teljes">
-  <div class="hos-szoveg">
-    <h1>Mire elég a fizetésed?</h1>
-    <p class="bevezeto">${A.fog.length} szakma hivatalos béradata egy helyen. Írd be a tiédet, és kinyomtatjuk a bérszalagját: mennyi a bruttó, mennyi marad belőle, és hol áll a többi szakma között.</p>
-    ${kereso('pl. ápoló, programozó, 7524', 'Írd be a szakmádat', 'szalag')}
-    <p class="gyors">${A.nepszeru.map(g => `<button type="button" data-hos-kod="${g.kod}">${esc(g.nev)}</button>`).join('')}</p>
+  <div class="hos-fent">
+    <div class="hos-szoveg">
+      <h1>Mire elég a&nbsp;fizetésed?</h1>
+      <p class="bevezeto">${A.fog.length} szakma hivatalos béradata. Keresd meg a tiédet, és nézd meg, hol áll a többi között.</p>
+      ${kereso('pl. ápoló, programozó, 7524', 'Írd be a szakmádat', 'hos')}
+      <p class="gyors">${A.nepszeru.map(g => `<button type="button" data-hos-kod="${g.kod}">${esc(g.nev)}</button>`).join('')}</p>
+    </div>
+    <aside class="hos-kartya" data-hos-kartya aria-live="polite">
+      <p class="hk-fej">Minta: ${esc(f.nev.toLocaleLowerCase('hu'))}</p>
+      <p class="hk-szam"><span data-szamlal="${f.netto}">${ft(f.netto)}</span></p>
+      <p class="hk-al">nettó havonta, bruttó ${ft(f.brutto)}</p>
+      <dl><dt>Helyezés</dt><dd>${f.rang}. / ${A.rangsor.length}</dd><dt>Reálbér ${A.evek[0]} óta</dt><dd>${elojel(f.realValt)}</dd></dl>
+      <p class="hk-gomb"><a class="gomb feher" href="/fizetes/${f.slug}/">A teljes oldal</a></p>
+    </aside>
   </div>
-  <aside class="szalag hos-szalag" data-hos-szalag aria-live="polite">
-    <p class="szalag-fej">Minta: ${esc(f.nev.toLocaleLowerCase('hu'))}<span>KSH, ${A.utolso}</span></p>
-    ${sor('Bruttó átlagkereset', ft(f.brutto))}
-    ${sor('Szja (15%)', `− ${ft(f.nbont.szja)}`)}
-    ${sor('Tb-járulék (18,5%)', `− ${ft(f.nbont.tb)}`)}
-    ${sor('Nettó', `<span data-szamlal="${f.netto}">${ft(f.netto)}</span>`, 'ossz')}
-    <p class="szalag-lab">A ${A.rangsor.length} szakma között a ${f.rang}. A bér vásárlóértéke ${A.evek[0]} óta ${elojel(f.realValt)}. <a href="/fizetes/${f.slug}/">A teljes oldal</a></p>
-  </aside>
+  <div class="hos-sav">
+    <p class="hos-sav-cim">Minden vonás egy szakma. Balra a legkevesebbet, jobbra a legtöbbet fizetők.</p>
+    <div class="sav-gordul">${sav(A.fog, { kiemelt: f.kod, median: A.orsz.bruttoMedian })}</div>
+  </div>
 </section>
-<section class="bento" aria-label="Eszközök">
-  <a class="csempe nagy" href="/terkep/"><div><h2>Hol ér a legtöbbet a fizetésed?</h2><p>Térkép ${A.lak.tel.length} település lakásáraival. Megmutatja, a te béredből hol hány év alatt jön ki egy lakás.</p></div>${megyeTerkep(A.geo.vb, A.geo.m)}</a>
-  <a class="csempe" href="/hol-allsz/"><h2>Hol állsz?</h2><p>Hasonlítsd a béredet a szakmád, a korosztályod és az ország átlagához.</p><p class="csempe-szam"><b>${ft(A.orsz.bruttoMedian)}</b>az országos bruttó medián, ${A.orsz.ev}. ${esc(A.orsz.idoszak)}</p></a>
-  <a class="csempe" href="/nyertesek-vesztesek/"><h2>Nyertesek és vesztesek</h2><p>${valt.length} szakmából ${nyert}-ben ér többet a bér, mint ${evBan(A.evek[0])}.</p>${szoras(A.fog, { mini: true })}</a>
-  <a class="csempe" href="/osszehasonlitas/"><h2>Szakmák egymás mellett</h2><p>Két-három foglalkozás bére, pályaíve és reálbére egy ábrán.</p></a>
-  <a class="csempe" href="/telepulesek/"><h2>Mennyit keresnek a településeden?</h2><p>Nettó átlagkereset lakóhely szerint, ${A.T.telep.length} településre.</p></a>
-  <a class="csempe" href="/berbarometer/"><h2>Bérbarométer</h2><p>Havi országos átlag és medián, magától frissülve.</p></a>
-  <a class="csempe" href="/brutto-netto-kalkulator/"><h2>Bruttó–nettó kalkulátor</h2><p>A ${evOs(A.szEv)} szabályokkal, családi és anyakedvezménnyel.</p></a>
-  <a class="csempe" href="/hr/"><h2>HR-eseknek</h2><p>Bérküszöb, bérsáv-javaslat, minimálbér, letölthető táblák.</p></a>
-  <a class="csempe" href="/mikor-keresel-egymilliot/"><h2>Mikor keresel egymilliót?</h2><p>Játék a szakmád béremelkedési ütemével.</p></a>
-</section>
+${rovat('szakma', 'A szakmád', 'Mennyit keresnek benne, hol állsz te, és mi lenne, ha váltanál.', [
+    sorE('foglalkozasok/', 'Minden foglalkozás', 'Bruttó, nettó, pályaív és reálbér szakmánként', A.fog.length, 'szakma'),
+    sorE('hol-allsz/', 'Hol állsz?', 'A béred a szakmád, a korosztályod és az ország átlagához mérve', ft(A.orsz.bruttoMedian), 'országos medián'),
+    sorE('osszehasonlitas/', 'Szakmák összehasonlítása', 'Két-három foglalkozás egymás mellett', '3', 'szakma egy ábrán'),
+    sorE('nyertesek-vesztesek/', 'Nyertesek és vesztesek', `Hol ér többet a bér, mint ${evBan(A.evek[0])}`, `${nyert} / ${valt.length}`, 'szakmában nőtt'),
+    sorE('mikor-keresel-egymilliot/', 'Mikor keresel egymilliót?', 'Játék a szakmád béremelkedési ütemével', '1 M Ft', 'a cél'),
+  ])}
+${rovat('fizetes', 'A fizetésed', 'Mennyi marad a bruttóból, és hogyan áll az ország.', [
+    sorE('brutto-netto-kalkulator/', 'Bruttó–nettó kalkulátor', `A ${evOs(A.szEv)} szabályokkal, családi és anyakedvezménnyel`, ft(mintaNetto), 'marad bruttó 600 ezerből'),
+    sorE('minimalber/', 'Minimálbér', `Minimálbér és garantált bérminimum ${A.minber.ev}`, ft(A.minber.minimalber), 'bruttó'),
+    sorE('berbarometer/', 'Bérbarométer', 'Havi országos átlag és medián, magától frissül', ft(u.brutto), `${u.ev}. ${HONEV[u.ho - 1]}`),
+  ])}
+${rovat('lakohely', 'A lakóhelyed', 'Mennyit keresnek ott, ahol élsz, és mire elég belőle.', [
+    sorE('telepulesek/', 'Települések és megyék', 'Nettó átlagkereset lakóhely szerint', szamHu(T.telep.length), 'település'),
+    sorE('terkep/', 'Megfizethetőségi térkép', 'Hol hány év alatt jön ki a béredből egy lakás', idotartam(A.minta.lakas.honap), `${esc(f.nev.toLocaleLowerCase('hu'))}, ${esc(A.minta.t.n)}`),
+    sorE('mire-eleg/', 'Mire elég?', 'Lakás és autó a saját fizetésedből', `${szamHu(A.lak.tel.length)}`, 'település ára'),
+  ])}
+${rovat('hr', 'HR-eseknek', 'Küszöbök és viszonyítási pontok hivatalos adatból, letölthetően.', [
+    sorE('berkuszob-kereso/', 'Bérküszöb-kereső', 'Harmadik országbeli munkavállalók: a FEOR-átlag 80%-a', '80%', 'fölött kell lennie'),
+    sorE('bertranszparencia/', 'Bérsáv és bértranszparencia', 'Mihez mérd a hirdetésbe írt bérsávot', '2023/970', 'EU-irányelv'),
+    sorE('adatok/', 'Letölthető adatok', 'CSV és JSON, szabad felhasználással', 'CC BY', 'licenc'),
+  ])}
 <section class="harom">
   ${lista('A legjobban fizető foglalkozások', top, g => ft(g.brutto), `Bruttó átlagkereset, ${A.utolso}.`)}
   ${lista('A legkevésbé fizetők', also, g => ft(g.brutto), `Bruttó átlagkereset, ${A.utolso}.`)}
@@ -76,9 +96,9 @@ export function fooldal(A) {
 ${kerForras(A)}
 ${forras({ ...A.orsz.forras, letoltve: A.orsz.ellenorizve }, `országos medián, ${A.orsz.ev}. ${A.orsz.idoszak}`)}
 <section class="szoveg">
-  <h2>Miben más ez, mint egy fizetési toplista?</h2>
-  <p>A számok a KSH hivatalos adatai. Minden foglalkozásnak saját oldala van a köznapi nevével együtt, így a „programozó” és a „villanyszerelő” is megtalálható akkor is, ha a hivatalos FEOR-megnevezést nem ismered.</p>
-  <p>Az oldal magától frissül. Amikor a KSH közzéteszi a következő év adatait, minden szám, ábra és rangsor átáll. Az adószabályokat hetente összevetjük a NAV és a Nemzeti Jogszabálytár oldalaival. Minden szám mellett ott a forrása és a letöltés napja.</p>
+  <h2>Honnan vannak a számok?</h2>
+  <p>A keresetek a KSH hivatalos adatai. Minden foglalkozásnak saját oldala van a köznapi nevével együtt, így a „programozó” és a „villanyszerelő” is megtalálható akkor is, ha a hivatalos FEOR-megnevezést nem ismered.</p>
+  <p>Az oldal magától frissül. Amikor a KSH közzéteszi az új adatokat, minden szám, ábra és rangsor átáll. Minden szám mellett ott a forrása és a letöltés napja. <a href="/forrasok/">Források és módszertan</a></p>
   <p>Egy korlátot érdemes ismerned. A KSH foglalkozásonként átlagot közöl, mediánt nem. Az átlagot néhány kiugróan magas fizetés felfelé húzza, ezért a szakmádban dolgozók többsége jellemzően az átlag alatt keres.</p>
 </section>`,
   };
@@ -125,27 +145,26 @@ export function foglalkozas(A, f) {
 <header class="fog-fej">
   <p class="cimkek"><span>FEOR ${f.kod}</span><a href="/szakterulet/${f.kat}/">${esc(f.katNev)}</a></p>
   <h1>${egy ? `Mennyit keres ${esc(egy)}?` : `${esc(f.n)}: fizetés ${A.utolso}`}</h1>
-  ${f.alias ? `<p class="hivatalos">Hivatalos megnevezés: <b>${esc(f.n)}</b>${f.aliasok.length > 1 ? `. Így is keresik: ${f.aliasok.slice(1).map(esc).join(', ')}` : ''}.</p>` : ''}
+  <p class="osszegzes">${evBan(A.utolso)} ${f.alias ? `egy ${esc(kisNev)}` : 'ebben a foglalkozásban egy dolgozó'} bruttó átlagkeresete havi <b>${ft(f.brutto)}</b> volt, ami kedvezmények nélkül nettó <b>${ft(f.netto)}</b>. Ezzel a ${A.rangsor.length} szakma között a ${f.rang}. helyen áll.${f.realValt != null ? ` A bér vásárlóértéke ${elsoEv} óta ${szamHu(Math.abs(f.realValt) * 100, 1)}%-kal ${f.realValt >= 0 ? 'nőtt' : 'csökkent'}.` : ''}${vanKor ? ` A legtöbbet ${az(KOR_NEV[csucsIx])} ${KOR_NEV[csucsIx]} keresik, bruttó ${ft(kor[csucsIx])}-ot.` : ''}${bp ? ` Egy 50 m²-es lakás ára itt: ${esc(tel[0].n)}, ${szamHu(bp.ev, 1)} évnyi nettó bér.` : ''}</p>
+  ${f.alias ? `<p class="hivatalos">Hivatalos megnevezés: ${esc(f.n)}${f.aliasok.length > 1 ? `. Így is keresik: ${f.aliasok.slice(1).map(esc).join(', ')}` : ''}.</p>` : ''}
+  <p class="friss"><i></i>KSH, ${A.utolso}. évi adat. Letöltve: ${datum(A.ker.ellenorizve)} <a href="/forrasok/">Honnan vannak a számok?</a></p>
 </header>
-<div class="ketto">
-  <div class="szalag">
-    <p class="szalag-fej">Havi átlagkereset<span>KSH, ${A.utolso}</span></p>
-    ${sor('Bruttó', ft(f.brutto))}
-    ${sor('Szja (15%)', `− ${ft(f.nbont.szja)}`)}
-    ${sor('Tb-járulék (18,5%)', `− ${ft(f.nbont.tb)}`)}
-    ${sor('Nettó', ft(f.netto), 'ossz')}
-    <p class="szalag-lab">${szabalyJegy(A)}. Kedvezménnyel több marad: <a href="/brutto-netto-kalkulator/?b=${f.brutto}">számold ki a sajátodat</a>.</p>
-  </div>
-  <div class="tenyek">
-    <div class="teny"><span>Helyezés</span><b>${f.rang}.</b><small>a ${A.rangsor.length} foglalkozás közül</small></div>
-    ${eloz != null ? `<div class="teny"><span>Egy év alatt</span><b>${elojel(f.brutto / eloz - 1)}</b><small>${A.evek[u - 1]} → ${A.utolso}, bruttó</small></div>` : ''}
-    ${f.realValt != null ? `<div class="teny"><span>Reálbér ${elsoEv} óta</span><b>${elojel(f.realValt)}</b><small>inflációval korrigálva</small></div>` : ''}
-    <div class="teny"><span>A minimálbér</span><b>${szamHu(f.brutto / A.minber.minimalber, 1)}×</b><small><a href="/minimalber/">${A.minber.ev}: ${ft(A.minber.minimalber)}</a></small></div>
-    <div class="teny"><span>Az országos nettó átlaghoz képest</span><b>${szamHu(f.netto / A.orszagNetto * 100)}%</b><small>országos: ${ft(A.orszagNetto)} (KSH, ${A.nettoEv})</small></div>
-  </div>
+<div class="fo-szamok">
+  <div class="fo-netto"><span>Nettó havonta</span><b>${ft(f.netto)}</b><small>bruttó ${ft(f.brutto)} − szja ${ft(f.nbont.szja)} − tb-járulék ${ft(f.nbont.tb)}</small><a href="/brutto-netto-kalkulator/?b=${f.brutto}">Kedvezménnyel több marad: számold ki</a></div>
+  <div class="teny"><span>Bruttó átlag</span><b>${ft(f.brutto)}</b><small>${A.utolso}, teljes munkaidő</small></div>
+  <div class="teny"><span>Helyezés</span><b>${f.rang}.</b><small>a ${A.rangsor.length} foglalkozás közül</small></div>
+  ${f.realValt != null ? `<div class="teny"><span>Reálbér ${elsoEv} óta</span><b>${elojel(f.realValt)}</b><small>inflációval korrigálva</small></div>` : ''}
+  ${eloz != null ? `<div class="teny"><span>Egy év alatt</span><b>${elojel(f.brutto / eloz - 1)}</b><small>${A.evek[u - 1]} → ${A.utolso}, bruttó</small></div>` : ''}
+  <div class="teny"><span>A minimálbér</span><b>${szamHu(f.brutto / A.minber.minimalber, 1)}×</b><small><a href="/minimalber/">${A.minber.ev}: ${ft(A.minber.minimalber)}</a></small></div>
+  <div class="teny"><span>Az országos nettó átlag</span><b>${szamHu(f.netto / A.orszagNetto * 100)}%-a</b><small>országos: ${ft(A.orszagNetto)} (KSH, ${A.nettoEv})</small></div>
 </div>
-${kerForras(A)}
-<p class="muveletek"><a class="gomb" href="/hol-allsz/?f=${f.kod}">Hol állsz ebben a szakmában?</a><a class="gomb masod" href="/osszehasonlitas/?a=${f.kod}">Összehasonlítás más szakmával</a><a class="gomb masod" href="/terkep/?f=${f.kod}">Térképen</a></p>
+<p class="apro">${szabalyJegy(A)}.</p>
+<section>
+  <h2>Hol áll a többi szakma között?</h2>
+  <div class="sav-doboz"><div class="sav-gordul">${sav(A.fog, { kiemelt: f.kod, median: A.orsz.bruttoMedian })}</div></div>
+  <p class="apro">Minden vonás egy foglalkozás bruttó átlagkeresete, logaritmikus skálán. Vidd fölé az egeret, vagy kattints rá a szakma oldaláért. A szaggatott vonal az országos bruttó medián (${ft(A.orsz.bruttoMedian)}, ${A.orsz.ev}. ${esc(A.orsz.idoszak)}).</p>
+  ${kerForras(A)}
+</section>
 
 ${vanKor ? `<section>
   <h2>Pályaív: mennyit keresnek korcsoportonként?</h2>
@@ -197,6 +216,7 @@ ${tel.length ? `<section>
 </section>
 
 ${hasonlo.length ? `<section><h2>Rokon foglalkozások</h2><ul class="rokon">${hasonlo.map(g => `<li>${fogLink(g)}<span>${ft(g.brutto)}</span></li>`).join('')}</ul>${kerForras(A)}</section>` : ''}
+<section><h2>Számolj tovább</h2><ul class="tovabb"><li><a href="/hol-allsz/?f=${f.kod}">Hol állsz ebben a szakmában a saját béreddel?</a></li><li><a href="/osszehasonlitas/?a=${f.kod}">Hasonlítsd össze egy másik szakmával</a></li><li><a href="/terkep/?f=${f.kod}">Nézd meg térképen, hol ér a legtöbbet ez a fizetés</a></li><li><a href="/brutto-netto-kalkulator/?b=${f.brutto}">Számold ki a nettót a saját kedvezményeiddel</a></li></ul></section>
 ${gyik(kerdesek)}
 </article>`,
   };
@@ -484,7 +504,6 @@ ${tabla(veszt >= 15 ? 'A 15 legnagyobb vesztes' : 'A 15 leggyengébb', rend.slic
 // ================================================================== settlements and counties
 const tForras = A => forras(A.T.forras, `${A.T.reszleges ? `${A.T.frissEv}: évközi, előzetes adat; ` : ''}${A.T.teljesEv}: teljes év`);
 const telLink = t => `<a href="/telepules/${t.slug}/">${esc(t.n)}</a>`;
-const HONEV = ['január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december'];
 const frissCimke = A => A.T.reszleges ? `${A.T.frissEv}, évközi adat` : `${A.T.frissEv}`;
 
 export function telepulesek(A) {

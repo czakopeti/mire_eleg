@@ -25,9 +25,16 @@ export function forras(f, extra = '') {
   return `<p class="forras">Forrás: <a href="${esc(f.url)}" rel="noopener">${esc(f.nev)}</a>${extra ? `, ${extra}` : ''}. Letöltve: ${datum(f.letoltve || f.ellenorizve)}</p>`;
 }
 
-const JEL = `<svg class="jel" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--zold)"/><path d="M10 7h12v18l-2-1.3-2 1.3-2-1.3-2 1.3-2-1.3-2 1.3z" fill="#fff"/><path d="M13 12h6M13 16h6" stroke="var(--zold)" stroke-width="1.8" stroke-linecap="round"/></svg>`;
+const JEL = `<svg class="jel" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="6" fill="var(--kek)"/><path d="M7 22V10M12 22v-8M17 22V8M22 22v-5M26 22v-9" stroke="#fff" stroke-width="2.6" stroke-linecap="round"/></svg>`;
 
-export const MENU = [['foglalkozasok/', 'Foglalkozások'], ['telepulesek/', 'Települések'], ['hol-allsz/', 'Hol állsz?'], ['osszehasonlitas/', 'Összehasonlítás'], ['terkep/', 'Térkép'], ['berbarometer/', 'Bérbarométer'], ['brutto-netto-kalkulator/', 'Kalkulátor'], ['hr/', 'HR-eseknek']];
+/** Menu groups: the same four questions organise the home page. */
+export const MENU = [
+  ['A szakmád', [['foglalkozasok/', 'Minden foglalkozás'], ['hol-allsz/', 'Hol állsz?'], ['osszehasonlitas/', 'Szakmák összehasonlítása'], ['nyertesek-vesztesek/', 'Nyertesek és vesztesek'], ['mikor-keresel-egymilliot/', 'Mikor keresel egymilliót?']]],
+  ['A fizetésed', [['brutto-netto-kalkulator/', 'Bruttó–nettó kalkulátor'], ['minimalber/', 'Minimálbér'], ['berbarometer/', 'Bérbarométer']]],
+  ['A lakóhelyed', [['telepulesek/', 'Települések és megyék'], ['terkep/', 'Megfizethetőségi térkép'], ['mire-eleg/', 'Mire elég? Lakás és autó']]],
+  ['HR-eseknek', [['hr/', 'Minden HR-eszköz'], ['berkuszob-kereso/', 'Bérküszöb-kereső'], ['bertranszparencia/', 'Bérsáv és bértranszparencia'], ['en/wage-threshold/', 'Wage threshold (EN)']]],
+];
+const menuHtml = ut => MENU.map(([cim, l]) => `<div class="csop${l.some(([u]) => ut.startsWith(u)) ? ' itt' : ''}"><button type="button" aria-haspopup="true">${cim}</button><ul>${l.map(([u, n]) => `<li><a href="/${u}"${ut.startsWith(u) ? ' aria-current="page"' : ''}>${n}</a></li>`).join('')}</ul></div>`).join('');
 
 /**
  * o: { ut, cim, leiras, tartalom, jsonld?: object[], morzsa?: [[ut, nev]], szkript?: bool }
@@ -55,10 +62,10 @@ ${cfg.eles ? '' : '<meta name="robots" content="noindex">\n'}<meta property="og:
 <meta property="og:title" content="${esc(o.cim)}">
 <meta property="og:description" content="${esc(o.leiras)}">
 <meta property="og:url" content="${esc(teljes)}">
-<meta name="theme-color" content="#073B28">
+<meta name="theme-color" content="#2447F0">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/geist-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/archivo-latin-ext-wdth-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/alap.css?v=${k.v}">
 <script>document.documentElement.classList.add('js')</script>
 <link rel="alternate" type="application/rss+xml" title="Bérbarométer" href="/rss.xml">
@@ -69,7 +76,8 @@ ${ld.map(x => `<script type="application/ld+json">${JSON.stringify(x).replace(/<
 <header class="fej">
   <div class="fej-bel">
     <a class="logo" href="/" aria-label="${esc(cfg.marka)}, főoldal">${JEL}<span>mire elég?</span></a>
-    <nav aria-label="Fő menü">${MENU.map(([u, n]) => `<a href="/${u}"${o.ut.startsWith(u) ? ' aria-current="page"' : ''}>${n}</a>`).join('')}</nav>
+    <nav class="fomenu" aria-label="Fő menü">${menuHtml(o.ut)}</nav>
+    <details class="mobilmenu"><summary>Menü</summary><nav aria-label="Fő menü, mobil">${MENU.map(([cim, l]) => `<p>${cim}</p><ul>${l.map(([u, n]) => `<li><a href="/${u}">${n}</a></li>`).join('')}</ul>`).join('')}</nav></details>
   </div>
 </header>
 <main id="tartalom">
@@ -82,9 +90,7 @@ ${o.tartalom}
       <a class="logo" href="/">${JEL}<span>mire elég?</span></a>
       <p>${esc(cfg.szlogen)}</p>
     </div>
-    <nav aria-label="Lábléc">
-      <a href="/foglalkozasok/">Minden foglalkozás</a><a href="/telepulesek/">Települések és megyék</a><a href="/hol-allsz/">Hol állsz?</a><a href="/osszehasonlitas/">Szakmák összehasonlítása</a><a href="/terkep/">Megfizethetőségi térkép</a><a href="/nyertesek-vesztesek/">Nyertesek és vesztesek</a><a href="/brutto-netto-kalkulator/">Bruttó–nettó kalkulátor</a><a href="/mire-eleg/">Mire elég?</a><a href="/berkuszob-kereso/">Bérküszöb-kereső</a><a href="/bertranszparencia/">Bértranszparencia</a><a href="/minimalber/">Minimálbér</a><a href="/berbarometer/">Bérbarométer</a><a href="/mikor-keresel-egymilliot/">Mikor keresel egymilliót?</a><a href="/en/wage-threshold/" lang="en">Wage threshold (EN)</a><a href="/forrasok/">Források és módszertan</a><a href="/adatok/">Letölthető adatok</a><a href="/impresszum/">Impresszum, adatkezelés</a>
-    </nav>
+    <nav aria-label="Lábléc">${MENU.map(([cim, l]) => `<div><p>${cim}</p>${l.map(([u, n]) => `<a href="/${u}">${n}</a>`).join('')}</div>`).join('')}<div><p>Az oldalról</p><a href="/forrasok/">Források és módszertan</a><a href="/adatok/">Letölthető adatok</a><a href="/rss.xml">RSS</a><a href="/impresszum/">Impresszum, adatkezelés</a></div></nav>
     <p class="lab-apro">Az adatok hetente, maguktól frissülnek; az utolsó ellenőrzés napja a <a href="/forrasok/">források oldalán</a> áll. A keresetek a KSH hivatalos adatai, a nettó bér saját számítás a hatályos szabályok alapján. Tájékoztató jellegű, nem minősül adó- vagy jogi tanácsadásnak.</p>
   </div>
 </footer>
@@ -202,4 +208,22 @@ export function haviVonal(sor) {
   g += `<text class="d-ertek kesobb" x="${x(sor.length - 1) + 9}" y="${y(u.brutto) + 4}">${rovid(u.brutto)} Ft</text><text class="d-ertek kesobb" x="${x(sor.length - 1) + 9}" y="${y(u.median) + 4}">${rovid(u.median)} Ft</text>`;
   return `<svg class="abra" data-latvany viewBox="0 0 ${W} ${H}" role="img" aria-label="Vonaldiagram: a bruttó átlagkereset és a bruttó mediánkereset havonta, ${sor[0].ev} és ${u.ev} között. A pontos értékek a lenti táblázatban vannak.">${g}</svg>
 <p class="jelmagy"><span><i class="j nevl"></i>Bruttó átlagkereset</span><span><i class="j real"></i>Bruttó mediánkereset</span></p>`;
+}
+
+/**
+ * The signature chart: every occupation as one tick on a log scale of gross pay.
+ * fog: [{ kod, nev, slug, brutto }]; o: { kiemelt?: kod, median?: number, medianCimke?: string }
+ */
+export function sav(fog, o = {}) {
+  const W = 1080, H = 190, bal = 16, jobb = 16, yT = 92, m = 28;
+  const lo = Math.log(Math.min(...fog.map(f => f.brutto)) * 0.93), hi = Math.log(Math.max(...fog.map(f => f.brutto)) * 1.05);
+  const x = v => bal + (W - bal - jobb) * (Math.log(v) - lo) / (hi - lo);
+  const horg = v => x(v) > W - 170 ? 'end' : x(v) < 170 ? 'start' : 'middle';
+  let g = '';
+  for (const t of [250000, 500000, 1000000, 2000000, 4000000]) if (Math.log(t) > lo && Math.log(t) < hi) g += `<text class="sv-tengely" x="${x(t)}" y="${H - 6}" text-anchor="${x(t) > W - 60 ? 'end' : 'middle'}">${rovid(t)} Ft</text>`;
+  if (o.median) g += `<line class="sv-median" x1="${x(o.median)}" x2="${x(o.median)}" y1="${yT - m - 6}" y2="${yT + m + 12}"/><text class="sv-tengely" x="${x(o.median)}" y="${yT + m + 28}" text-anchor="${horg(o.median)}">${esc(o.medianCimke || 'országos medián')}</text>`;
+  g += fog.map(f => `<line class="sv-v${f.kod === o.kiemelt ? ' ki' : ''}" x1="${x(f.brutto).toFixed(1)}" x2="${x(f.brutto).toFixed(1)}" y1="${yT - m}" y2="${yT + m}" data-k="${f.kod}" data-n="${esc(f.nev)}" data-b="${f.brutto}" data-s="${f.slug}"/>`).join('');
+  const k = fog.find(f => f.kod === o.kiemelt);
+  g += `<g class="sv-jelolo"${k ? '' : ' hidden'}><text class="sv-nev" x="${k ? x(k.brutto) : 0}" y="${yT - m - 32}" text-anchor="${k ? horg(k.brutto) : 'middle'}">${k ? esc(k.nev) : ''}</text><text class="sv-ertek" x="${k ? x(k.brutto) : 0}" y="${yT - m - 13}" text-anchor="${k ? horg(k.brutto) : 'middle'}">${k ? ft(k.brutto) : ''}</text></g>`;
+  return `<svg class="sav" data-sav viewBox="0 0 ${W} ${H}" role="img" aria-label="Sávábra: ${fog.length} foglalkozás bruttó átlagkeresete logaritmikus skálán${k ? `, kiemelve: ${esc(k.nev)}, ${ft(k.brutto)}` : ''}.">${g}</svg>`;
 }
