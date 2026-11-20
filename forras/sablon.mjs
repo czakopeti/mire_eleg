@@ -27,7 +27,7 @@ export function forras(f, extra = '') {
 
 const JEL = `<svg class="jel" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--zold)"/><path d="M10 7h12v18l-2-1.3-2 1.3-2-1.3-2 1.3-2-1.3-2 1.3z" fill="#fff"/><path d="M13 12h6M13 16h6" stroke="var(--zold)" stroke-width="1.8" stroke-linecap="round"/></svg>`;
 
-export const MENU = [['foglalkozasok/', 'Foglalkozások'], ['hol-allsz/', 'Hol állsz?'], ['osszehasonlitas/', 'Összehasonlítás'], ['terkep/', 'Térkép'], ['nyertesek-vesztesek/', 'Nyertesek'], ['brutto-netto-kalkulator/', 'Kalkulátor'], ['berkuszob-kereso/', 'Bérküszöb']];
+export const MENU = [['foglalkozasok/', 'Foglalkozások'], ['telepulesek/', 'Települések'], ['hol-allsz/', 'Hol állsz?'], ['osszehasonlitas/', 'Összehasonlítás'], ['terkep/', 'Térkép'], ['berbarometer/', 'Bérbarométer'], ['brutto-netto-kalkulator/', 'Kalkulátor'], ['hr/', 'HR-eseknek']];
 
 /**
  * o: { ut, cim, leiras, tartalom, jsonld?: object[], morzsa?: [[ut, nev]], szkript?: bool }
@@ -42,7 +42,7 @@ export function oldal(o, k) {
     itemListElement: [['', 'Főoldal'], ...o.morzsa].map(([ut, nev], i) => ({ '@type': 'ListItem', position: i + 1, name: nev, item: `${cfg.domain}/${ut}` })),
   });
   return `<!doctype html>
-<html lang="hu">
+<html lang="${o.nyelv || 'hu'}">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -61,6 +61,7 @@ ${cfg.eles ? '' : '<meta name="robots" content="noindex">\n'}<meta property="og:
 <link rel="preload" href="/assets/fonts/geist-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="/assets/alap.css?v=${k.v}">
 <script>document.documentElement.classList.add('js')</script>
+<link rel="alternate" type="application/rss+xml" title="Bérbarométer" href="/rss.xml">
 ${ld.map(x => `<script type="application/ld+json">${JSON.stringify(x).replace(/</g, '\\u003c')}</script>`).join('\n')}
 </head>
 <body${o.ut === '' ? ' class="fooldal"' : ''}>
@@ -82,9 +83,9 @@ ${o.tartalom}
       <p>${esc(cfg.szlogen)}</p>
     </div>
     <nav aria-label="Lábléc">
-      <a href="/foglalkozasok/">Minden foglalkozás</a><a href="/hol-allsz/">Hol állsz?</a><a href="/osszehasonlitas/">Szakmák összehasonlítása</a><a href="/terkep/">Megfizethetőségi térkép</a><a href="/nyertesek-vesztesek/">Nyertesek és vesztesek</a><a href="/brutto-netto-kalkulator/">Bruttó–nettó kalkulátor</a><a href="/mire-eleg/">Mire elég?</a><a href="/berkuszob-kereso/">Bérküszöb-kereső</a><a href="/forrasok/">Források és módszertan</a><a href="/adatok/">Letölthető adatok</a><a href="/impresszum/">Impresszum, adatkezelés</a>
+      <a href="/foglalkozasok/">Minden foglalkozás</a><a href="/telepulesek/">Települések és megyék</a><a href="/hol-allsz/">Hol állsz?</a><a href="/osszehasonlitas/">Szakmák összehasonlítása</a><a href="/terkep/">Megfizethetőségi térkép</a><a href="/nyertesek-vesztesek/">Nyertesek és vesztesek</a><a href="/brutto-netto-kalkulator/">Bruttó–nettó kalkulátor</a><a href="/mire-eleg/">Mire elég?</a><a href="/berkuszob-kereso/">Bérküszöb-kereső</a><a href="/bertranszparencia/">Bértranszparencia</a><a href="/minimalber/">Minimálbér</a><a href="/berbarometer/">Bérbarométer</a><a href="/mikor-keresel-egymilliot/">Mikor keresel egymilliót?</a><a href="/en/wage-threshold/" lang="en">Wage threshold (EN)</a><a href="/forrasok/">Források és módszertan</a><a href="/adatok/">Letölthető adatok</a><a href="/impresszum/">Impresszum, adatkezelés</a>
     </nav>
-    <p class="lab-apro">Az adatok utolsó ellenőrzése: ${datum(k.frissitve)}. A keresetek a KSH hivatalos adatai, a nettó bér saját számítás a hatályos szabályok alapján. Tájékoztató jellegű, nem minősül adó- vagy jogi tanácsadásnak.</p>
+    <p class="lab-apro">Az adatok hetente, maguktól frissülnek; az utolsó ellenőrzés napja a <a href="/forrasok/">források oldalán</a> áll. A keresetek a KSH hivatalos adatai, a nettó bér saját számítás a hatályos szabályok alapján. Tájékoztató jellegű, nem minősül adó- vagy jogi tanácsadásnak.</p>
   </div>
 </footer>
 ${o.szkript === false ? '' : `<script type="module" src="/assets/app.mjs?v=${k.v}"></script>`}
@@ -120,7 +121,7 @@ export function korOszlopok(cimkek, ertekek, alCimkek = []) {
 }
 
 /** Two lines over the years: nominal (solid) and real (dashed). Both are direct-labelled. */
-export function trendVonal(evek, nevleges, real, utolsoEv) {
+export function trendVonal(evek, nevleges, real, utolsoEv, mi = 'bruttó átlagkereset') {
   const W = 420, H = 250, bal = 24, jobb = 84, felso = 18, also = 34;
   const mind = [...nevleges, ...real].filter(v => v != null);
   const max = Math.max(...mind) * 1.06;
@@ -144,7 +145,7 @@ export function trendVonal(evek, nevleges, real, utolsoEv) {
     g += `<text class="d-nev" x="${x(r0) + 6}" y="${y(real[r0]) + (fent ? -10 : 18)}">mai áron</text>`;
     g += `<text class="d-nev" x="${x(n0) + 6}" y="${y(nevleges[n0]) + (fent ? 18 : -10)}">akkori áron</text>`;
   }
-  return `<svg class="abra" data-latvany viewBox="0 0 ${W} ${H}" role="img" aria-label="A bruttó átlagkereset alakulása ${evek[0]} és ${evek[veg]} között, akkori áron és ${utolsoEv}. évi áron. A pontos értékek az ábra alatti táblázatban vannak.">${g}</svg>
+  return `<svg class="abra" data-latvany viewBox="0 0 ${W} ${H}" role="img" aria-label="A ${mi} alakulása ${evek[0]} és ${evek[veg]} között, akkori áron és ${utolsoEv}. évi áron. A pontos értékek az ábra alatti táblázatban vannak.">${g}</svg>
 <p class="jelmagy"><span><i class="j nevl"></i>Akkori áron (névleges)</span><span><i class="j real"></i>${utolsoEv}. évi áron (inflációval korrigálva)</span></p>`;
 }
 
@@ -183,4 +184,22 @@ export function szoras(pontok, { mini = false, elsoEv, utolsoEv } = {}) {
 /** County outlines as a small decorative map (home tile). megyek: [[name, path]], vb: viewBox */
 export function megyeTerkep(vb, megyek) {
   return `<svg class="mini-terkep" viewBox="${vb}" aria-hidden="true">${megyek.map(m => `<path d="${m[1]}"/>`).join('')}</svg>`;
+}
+
+/** Monthly national series: average (solid) and median (dashed). sor: [{ ev, ho, brutto, median }] */
+export function haviVonal(sor) {
+  const W = 860, H = 320, bal = 60, jobb = 96, felso = 16, also = 34;
+  const max = Math.max(...sor.map(h => h.brutto)) * 1.05, min = Math.min(...sor.map(h => h.median)) * 0.9;
+  const x = i => bal + (W - bal - jobb) * i / (sor.length - 1), y = v => felso + (H - felso - also) * (1 - (v - min) / (max - min));
+  let g = '';
+  const lep = 100000 * Math.max(1, Math.round((max - min) / 5 / 100000));
+  for (let t = Math.ceil(min / lep) * lep; t < max; t += lep) g += `<line class="racs" x1="${bal}" x2="${W - jobb}" y1="${y(t)}" y2="${y(t)}"/><text class="d-al" x="${bal - 8}" y="${y(t) + 4}" text-anchor="end">${rovid(t)} Ft</text>`;
+  sor.forEach((h, i) => { if (h.ho === 1) g += `<line class="racs" x1="${x(i)}" x2="${x(i)}" y1="${felso}" y2="${H - also}"/><text class="d-cimke" x="${x(i) + 4}" y="${H - also + 20}">${h.ev}</text>`; });
+  const ut = (k) => sor.map((h, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)} ${y(h[k]).toFixed(1)}`).join('');
+  const pont = (k, o, nev) => sor.map((h, i) => `<circle class="pont ${o} kicsi" cx="${x(i).toFixed(1)}" cy="${y(h[k]).toFixed(1)}" r="3"><title>${h.ev}. ${h.ho}. hó, ${nev}: ${ft(h[k])}</title></circle>`).join('');
+  const u = sor.at(-1);
+  g += `<g class="rajz"><path class="vonal real" d="${ut('median')}"/><path class="vonal nevl" d="${ut('brutto')}"/>${pont('median', 'real', 'medián')}${pont('brutto', 'nevl', 'átlag')}</g>`;
+  g += `<text class="d-ertek kesobb" x="${x(sor.length - 1) + 9}" y="${y(u.brutto) + 4}">${rovid(u.brutto)} Ft</text><text class="d-ertek kesobb" x="${x(sor.length - 1) + 9}" y="${y(u.median) + 4}">${rovid(u.median)} Ft</text>`;
+  return `<svg class="abra" data-latvany viewBox="0 0 ${W} ${H}" role="img" aria-label="Vonaldiagram: a bruttó átlagkereset és a bruttó mediánkereset havonta, ${sor[0].ev} és ${u.ev} között. A pontos értékek a lenti táblázatban vannak.">${g}</svg>
+<p class="jelmagy"><span><i class="j nevl"></i>Bruttó átlagkereset</span><span><i class="j real"></i>Bruttó mediánkereset</span></p>`;
 }

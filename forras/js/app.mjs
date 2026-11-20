@@ -18,7 +18,7 @@ document.addEventListener('input', e => {
 // ---- lazy data
 let fogP, telP;
 const foglalkozasok = () => fogP ??= fetch('/adatok/kereso.json').then(r => r.json()).then(a => a.map(([kod, nev, slug, egyeb, brutto, netto, rang, real, kor]) => ({ kod, nev, slug, egyeb, brutto, netto, rang, real, kor, k: kulcs(`${nev} ${egyeb} ${kod}`) })));
-const telepulesek = () => telP ??= fetch('/adatok/telepulesek.json').then(r => r.json()).then(a => a.map(([kod, n, m, ar, ev, becsult, tipus, db]) => ({ kod, n, m, ar, ev, becsult, tipus, db, k: kulcs(n) })));
+const telepulesek = () => telP ??= fetch('/adatok/telepulesek.json').then(r => r.json()).then(a => a.map(([kod, n, m, ar, ev, becsult, tipus, db, slug]) => ({ kod, n, m, ar, ev, becsult, tipus, db, slug, k: kulcs(n) })));
 
 function talalatok(lista, q, max = 8) {
   const k = kulcs(q); if (!k) return [];
@@ -365,4 +365,83 @@ if (tk) {
   kombo($('#tk-fog'), $('#tk-lista'), foglalkozasok, fogSor, f => { fog = f; $('#tk-fog').value = f.nev; tk.netto.value = ''; if (tel) szin(); });
   tk.addEventListener('input', e => { if (e.target.id === 'tk-fog' && !e.target.value) fog = null; if (tel) szin(); });
   $('[data-minta]', tk).addEventListener('click', async e => { const m = JSON.parse(e.currentTarget.dataset.minta); fog = (await foglalkozasok()).find(f => f.kod === m.fog); $('#tk-fog').value = fog.nev; tk.netto.value = ''; if (tel) szin(); });
+}
+
+// ---- settlement search
+const tks = $('[data-telkereso]');
+if (tks) kombo($('input', tks), $('ul', tks), async () => (await telepulesek()).filter(t => t.slug), telSor, t => { location.href = `/telepules/${t.slug}/`; });
+
+// ---- pay band helper
+const bs = $('[data-bersav]');
+if (bs) {
+  const d = adat(), ki = $('[data-bersav-eredmeny]');
+  let fog = null;
+  const kerek = n => Math.round(n / 10000) * 10000;
+  const szamol = () => {
+    if (!fog) { ki.innerHTML = '<p class="szalag-fej">Bérsáv</p><p class="ures">Válassz foglalkozást, és itt megjelennek a viszonyítási pontok.</p>'; return; }
+    const kor = (fog.kor || []).filter(v => v != null);
+    const also = kor.length ? Math.min(...kor) : fog.brutto, felso = kor.length ? Math.max(...kor) : fog.brutto;
+    const min = szamBe(bs.min.value), max = szamBe(bs.max.value);
+    let h = `<p class="szalag-fej">${esc(fog.nev)}<span>FEOR ${fog.kod}</span></p>
+${sor(`Országos bruttó átlag, ${d.ev}`, ft(fog.brutto))}
+${kor.length > 1 ? sor('Legalacsonyabb korcsoportátlag', ft(also)) + sor('Legmagasabb korcsoportátlag', ft(felso)) : ''}
+${sor(`Garantált bérminimum, ${d.mbEv}`, ft(d.garantalt), 'halk')}
+${sor('Javasolt viszonyítási sáv', `${szamHu(kerek(also) / 1000)}–${szamHu(kerek(felso) / 1000)} e Ft`, 'ossz')}`;
+    if (min && max && max >= min) {
+      const hol = v => `${szamHu(v / fog.brutto * 100)}%`;
+      const itelet = max < also ? ['rossz', 'A sáv teteje is a legalacsonyabb korcsoportátlag alatt van.'] : min > felso ? ['jo', 'A sáv alja is a legmagasabb korcsoportátlag fölött van.'] : ['jo', 'A sáv átfedi a szakma jellemző béreit.'];
+      h += `<p class="itelet ${itelet[0]}"><b>${itelet[1]}</b> A tervezett ${ft(min)} – ${ft(max)} sáv a szakmai átlag ${hol(min)}–${hol(max)}-a.${min < d.garantalt ? ` A sáv alja a garantált bérminimum (${ft(d.garantalt)}) alatt van; szakképzettséget igénylő munkakörben ez nem megengedett.` : ''}</p>
+<p class="szalag-jegy"><b>Hirdetésbe:</b> „Bruttó ${szamHu(min)}–${szamHu(max)} Ft/hó.”</p>`;
+    } else if (min || max) h += '<p class="szalag-jegy">Add meg a sáv alját és tetejét is; a tető ne legyen kisebb az aljánál.</p>';
+    h += `<p class="szalag-jegy">Forrás: KSH STADAT 20.1.1.52., ${d.ev}. évi adat, letöltve: ${datumHu(d.letoltve)} Az átlag pótlékokkal és prémiummal együtt értendő. <a href="/fizetes/${fog.slug}/">A szakma oldala</a></p>`;
+    ki.innerHTML = h;
+  };
+  kombo($('#bs-fog'), $('#bs-lista'), foglalkozasok, fogSor, f => { fog = f; $('#bs-fog').value = f.nev; szamol(); });
+  bs.addEventListener('input', e => { if (e.target.id === 'bs-fog' && !e.target.value) fog = null; szamol(); });
+  $('[data-minta]', bs).addEventListener('click', async e => { const m = JSON.parse(e.currentTarget.dataset.minta); fog = (await foglalkozasok()).find(f => f.kod === m.fog); $('#bs-fog').value = fog.nev; bs.min.value = szamHu(m.min); bs.max.value = szamHu(m.max); szamol(); });
+}
+
+// ---- when will you earn a million
+const mi = $('[data-millio]');
+if (mi) {
+  const d = adat(), ki = $('[data-millio-eredmeny]');
+  let fog = null, teljesP;
+  const teljes = () => teljesP ??= fetch('/adatok/v1/kereset.json').then(r => r.json());
+  const szamol = async () => {
+    const brutto = szamBe(mi.brutto.value), cel = szamBe(mi.cel.value) || 1000000;
+    if (!fog || !brutto) { ki.innerHTML = '<p class="szalag-fej">Mikor?</p><p class="ures">Válaszd ki a szakmádat, és írd be a bruttódat.</p>'; return; }
+    const T = await teljes(), e = T.foglalkozasok[fog.kod].e, i0 = e.findIndex(v => v != null), n = e.length - 1 - i0;
+    if (n < 2) { ki.innerHTML = '<p class="szalag-fej">Mikor?</p><p class="ures">Ehhez a szakmához nincs elég hosszú idősor.</p>'; return; }
+    const utem = Math.pow(e.at(-1) / e[i0], 1 / n) - 1;
+    const inf = Object.entries(d.index).filter(([ev]) => ev > T.evek[i0] && ev <= d.utolsoEv).map(x => x[1] / 100), infAtl = Math.pow(inf.reduce((a, b) => a * b, 1), 1 / inf.length) - 1;
+    let h = `<p class="szalag-fej">${esc(fog.nev)}<span>FEOR ${fog.kod}</span></p>${sor('A mostani bruttód', ft(brutto))}${sor(`A szakma béremelkedése évente (${T.evek[i0]}–${d.utolsoEv})`, `${szamHu(utem * 100, 1)}%`)}${sor('Ebből infláció évente', `${szamHu(infAtl * 100, 1)}%`, 'halk')}`;
+    if (brutto >= cel) h += `${sor('A cél', ft(cel))}<p class="itelet jo"><b>Már megvan.</b> A béred eléri a célt.</p>`;
+    else if (utem <= 0) h += '<p class="itelet rossz"><b>Ezzel az ütemmel soha.</b> A szakma átlagbére nem nőtt az időszakban.</p>';
+    else {
+      const ev = Math.log(cel / brutto) / Math.log(1 + utem), mikor = d.maEv + Math.ceil(ev);
+      h += `${sor('A cél', ft(cel))}${sor('Ennyi év múlva', `${szamHu(ev, 1)} év`)}${sor('Ebben az évben éred el', String(mikor), 'ossz')}<p class="szalag-jegy">Ha az infláció az időszak átlagán marad, a ${ft(cel)} akkor annyit ér majd, mint ma ${ft(cel / Math.pow(1 + infAtl, ev))}.</p>`;
+    }
+    h += `<p class="szalag-jegy">Az ütem a szakma KSH szerinti bruttó átlagkeresetéből számolt éves átlag. A múlt nem garancia a jövőre. <a href="/fizetes/${fog.slug}/">A szakma oldala</a></p>`;
+    ki.innerHTML = h;
+  };
+  kombo($('#mi-fog'), $('#mi-lista'), foglalkozasok, fogSor, f => { fog = f; $('#mi-fog').value = f.nev; szamol(); });
+  mi.addEventListener('input', e => { if (e.target.id === 'mi-fog' && !e.target.value) fog = null; szamol(); });
+  $('[data-minta]', mi).addEventListener('click', async e => { const m = JSON.parse(e.currentTarget.dataset.minta); fog = (await foglalkozasok()).find(f => f.kod === m.fog); $('#mi-fog').value = fog.nev; mi.brutto.value = szamHu(m.brutto); szamol(); });
+}
+
+// ---- wage threshold, English
+const wt = $('[data-kuszob-en]');
+if (wt) {
+  const d = adat(), ki = $('[data-kuszob-en-eredmeny]'), en = n => `HUF ${Math.round(n).toLocaleString('en-US')}`;
+  let fog = null;
+  const szamol = () => {
+    if (!fog) { ki.innerHTML = `<p class="szalag-fej">Wage threshold<span>KSH, ${d.ev}</span></p><p class="ures">Choose an occupation to see the threshold.</p>`; return; }
+    const k = S.berkuszob(fog.brutto, d.arany), ber = szamBe(wt.ber.value), nev = fog.egyeb ? fog.egyeb.split('|')[0] : fog.nev;
+    let h = `<p class="szalag-fej"><span lang="hu" style="color:inherit;font-weight:600">${esc(nev)}</span><span>FEOR ${fog.kod}</span></p>${sor(`National gross average, ${d.ev}`, en(k.atlag))}${sor('80% of the average', en(k.hatarKerek))}${sor('Lowest compliant base wage', en(k.legkisebb), 'ossz')}`;
+    if (ber) { const jo = S.berMegfelel(ber, fog.brutto, d.arany); h += `<p class="itelet ${jo ? 'jo' : 'rossz'}"><b>${jo ? 'Above the threshold.' : 'Too low.'}</b> ${en(ber)} is ${(ber / fog.brutto * 100).toFixed(1)}% of the average${jo ? '.' : `; ${en(k.legkisebb - ber)} more is needed.`}</p>`; }
+    h += `<p class="szalag-jegy">Source: KSH STADAT 20.1.1.52, ${d.ev} data, downloaded ${d.letoltve}. The threshold must be exceeded (Gov. Decree 445/2013, Sections 6 (3) and 20 (6)).</p>`;
+    ki.innerHTML = h;
+  };
+  kombo($('#wt-fog'), $('#wt-lista'), foglalkozasok, fogSor, f => { fog = f; $('#wt-fog').value = `${f.kod} ${f.egyeb ? f.egyeb.split('|')[0] : f.nev}`; szamol(); });
+  wt.addEventListener('input', e => { if (e.target.id === 'wt-fog' && !e.target.value) fog = null; szamol(); });
 }

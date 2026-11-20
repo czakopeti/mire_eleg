@@ -13,7 +13,10 @@ const J = async f => JSON.parse(await readFile(join(GY, f), 'utf8'));
 const WEB = join(GY, 'web');
 
 export async function adatModell() {
-  const [cfg, ker, nettoO, inf, lak, auto, szabalyok, nevek, allapot, orsz, geoO] = await Promise.all(['config.json', 'data/kereset.json', 'data/netto_orszagos.json', 'data/inflacio.json', 'data/lakasar.json', 'data/auto.json', 'data/szabalyok.json', 'data/nevek.json', 'data/allapot.json', 'data/orszagos.json', 'forras/geo/orszag.json'].map(J));
+  const [cfg, ker, nettoO, inf, lak, auto, szabalyok, nevek, allapot, orsz, geoO, tker, havi, katF] = await Promise.all(['config.json', 'data/kereset.json', 'data/netto_orszagos.json', 'data/inflacio.json', 'data/lakasar.json', 'data/auto.json', 'data/szabalyok.json', 'data/nevek.json', 'data/allapot.json', 'data/orszagos.json', 'forras/geo/orszag.json', 'data/telepkereset.json', 'data/havi.json', 'data/kategoriak.json'].map(J));
+  // Pages show the date the data last changed (letoltve). The weekly check date lives only on the sources page,
+  // so a run with no new data does not rewrite two thousand files.
+  for (const d of [ker, nettoO, inf, lak, auto, orsz, tker, havi]) { d.ellenorizveValodi = d.ellenorizve; d.ellenorizve = d.letoltve || d.ellenorizve; }
   const maEv = Number(new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Budapest' }).slice(0, 4));
   // Tax rules: this year's if present, otherwise the latest known year (and the page says so).
   const szEvek = Object.keys(szabalyok.evek).map(Number).sort((a, b) => a - b);
@@ -41,6 +44,31 @@ export async function adatModell() {
       realValt: elso >= 0 && elso < u && real[elso] != null ? f.e[u] / real[elso] - 1 : null,
     });
   }
+  // everyday categories: longest matching prefix wins
+  const katOf = kod => { let b = null, l = -1; for (const k of katF.kategoriak) for (const e of k.elotagok) if (kod.startsWith(e) && e.length > l) { l = e.length; b = k; } return b || katF.kategoriak.at(-1); };
+  for (const f of fog) { const k = katOf(f.kod); f.kat = k.slug; f.katNev = k.nev; }
+  const kat = katF.kategoriak.map(k => ({ ...k, fog: fog.filter(f => f.kat === k.slug).sort((a, b) => b.brutto - a.brutto) })).filter(k => k.fog.length);
+  for (const k of kat) { const l = k.fog.map(f => f.brutto).sort((a, b) => a - b); k.median = l[Math.floor(l.length / 2)]; }
+
+  // settlements: local net earnings (KSH TIMEA) joined with flat prices
+  const reszleges = /félév|negyedév|előzetes/i.test(tker.megnevezes);
+  const tEvek = tker.evek, tu = tEvek.length - 1, tt = reszleges ? tu - 1 : tu; // tt: last full year
+  const foglaltT = new Set();
+  const megyeNev = m => m.replace(/ vármegye$/, '');
+  const telep = [];
+  for (const t of lak.tel) {
+    const sor = tker.telep[t.kod.slice(0, 4)];
+    if (!sor || sor[tt] == null) continue;
+    let sl = slug(t.n); if (foglaltT.has(sl)) sl = `${sl}-${t.kod}`; foglaltT.add(sl);
+    const real = S.realErtek(tEvek.slice(0, tt + 1), sor.slice(0, tt + 1), inf.index);
+    telep.push({ ...t, megye: megyeNev(t.m), slug: sl, sor, netto: sor[tt], nettoFriss: sor[tu], real, realValt: real[0] != null ? sor[tt] / real[0] - 1 : null, m2: S.m2Ar(t), ev50: S.m2Ar(t) * 50 / sor[tu] / 12 });
+  }
+  const megyek = Object.entries(tker.megye).map(([nev, sor]) => { const real = S.realErtek(tEvek.slice(0, tt + 1), sor.slice(0, tt + 1), inf.index); return { nev, teljes: nev === 'Budapest' ? 'Budapest' : `${nev} vármegye`, slug: slug(nev), sor, netto: sor[tt], nettoFriss: sor[tu], real, realValt: sor[tt] / real[0] - 1, tel: telep.filter(t => t.megye === nev).sort((a, b) => b.netto - a.netto) }; }).sort((a, b) => b.netto - a.netto);
+  const T = { evek: tEvek, tt, tu, teljesEv: tEvek[tt], frissEv: tEvek[tu], reszleges, megnevezes: tker.megnevezes, forras: { ...tker.forras, letoltve: tker.ellenorizve }, telep, megyek };
+  const mbEvek = Object.keys(szabalyok.minimalber.evek).map(Number).sort((a, b) => a - b);
+  const mbEv = mbEvek.includes(maEv) ? maEv : mbEvek.filter(e => e <= maEv).pop() ?? mbEvek.pop();
+  const minber = { ev: mbEv, ...szabalyok.minimalber.evek[mbEv], kovetkezo: szabalyok.minimalber.kovetkezo?.ev > mbEv ? szabalyok.minimalber.kovetkezo : null };
+
   const rangsor = [...fog].sort((a, b) => b.brutto - a.brutto);
   rangsor.forEach((f, i) => { f.rang = i + 1; });
   const kodra = Object.fromEntries(fog.map(f => [f.kod, f]));
@@ -48,8 +76,8 @@ export async function adatModell() {
   const mf = kodra['7524'] || rangsor[Math.floor(rangsor.length / 2)];
   const mt = lak.tel.find(t => t.n === 'Debrecen') || lak.tel[0];
   const minta = { f: mf, t: mt, lakas: S.lakas({ nettoHavi: mf.netto, m2Ft: S.m2Ar(mt) }) };
-  const frissitve = [ker, nettoO, inf, lak, auto, orsz].map(d => d.ellenorizve).sort().pop();
-  return { orsz, geo: { vb: geoO.vb, m: geoO.m }, cfg, ker, nettoO, inf, lak, auto, szabalyok, sz, szEv, szElteres, maEv, evek, utolso, fog, rangsor, kodra, nepszeru, minta, frissitve: allapot.futott || frissitve, orszagNetto: nettoO.osszesen.at(-1), nettoEv: nettoO.evek.at(-1) };
+  const frissitve = [ker, nettoO, inf, lak, auto, orsz, tker, havi].map(d => d.ellenorizve).sort().pop();
+  return { kat, T, minber, havi, orsz, geo: { vb: geoO.vb, m: geoO.m }, cfg, ker, nettoO, inf, lak, auto, szabalyok, sz, szEv, szElteres, maEv, evek, utolso, fog, rangsor, kodra, nepszeru, minta, frissitve: allapot.futott || frissitve, orszagNetto: nettoO.osszesen.at(-1), nettoEv: nettoO.evek.at(-1) };
 }
 
 const csvSor = a => a.map(x => { const s = String(x ?? ''); return /[";\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }).join(';');
@@ -75,7 +103,7 @@ async function epit() {
   // data for the browser and for download
   const b = A.szabalyok.berkuszob.arany;
   await writeFile(join(WEB, 'adatok/kereso.json'), JSON.stringify(A.fog.map(f => [f.kod, f.nev, f.slug, f.alias ? [f.n, ...f.aliasok.slice(1)].join('|') : '', f.brutto, f.netto, f.rang, f.realValt == null ? null : Math.round(f.realValt * 1000) / 1000, f.k.at(-1)])));
-  await writeFile(join(WEB, 'adatok/telepulesek.json'), JSON.stringify(A.lak.tel.map(t => [t.kod, t.n, t.m, S.m2Ar(t), t.ev, t.szorzo ? 1 : 0, t.tipus, t.db])));
+  await writeFile(join(WEB, 'adatok/telepulesek.json'), JSON.stringify(A.lak.tel.map(t => [t.kod, t.n, t.m, S.m2Ar(t), t.ev, t.szorzo ? 1 : 0, t.tipus, t.db, A.T.telep.find(x => x.kod === t.kod)?.slug || ''])));
   await writeFile(join(WEB, 'adatok/v1/kereset.json'), JSON.stringify({ leiras: 'Teljes munkaidőben alkalmazásban állók bruttó átlagkeresete foglalkozásonként (FEOR-08), Ft/fő/hó. e: együtt, évenként; k: korcsoportonként, évenként.', licenc: 'CC BY 4.0', forras: A.ker.forras, letoltve: A.ker.letoltve, ellenorizve: A.ker.ellenorizve, evek: A.evek, korcsoportok: A.ker.korcsoportok, foglalkozasok: Object.fromEntries(A.fog.map(f => [f.kod, { nev: f.n, koznapi: f.aliasok, url: `${A.cfg.domain}/fizetes/${f.slug}/`, e: f.e, k: f.k }])) }));
   await writeFile(join(WEB, 'adatok/v1/szabalyok.json'), JSON.stringify({ licenc: 'CC BY 4.0', ...A.szabalyok }, null, 1));
   const fej = `# Forrás: ${A.ker.forras.nev}; ${A.utolso}. évi adat; letöltve: ${A.ker.ellenorizve}; ${A.cfg.domain}`;
@@ -84,7 +112,7 @@ async function epit() {
 
   // pages
   const k = { cfg: A.cfg, v, frissitve: A.frissitve };
-  const lapok = [O.fooldal(A), O.foglalkozasok(A), O.holAllsz(A), O.osszehasonlitas(A), O.terkep(A), O.nyertesek(A), O.kalkulator(A), O.mireEleg(A), O.berkuszob(A), O.forrasok(A), O.adatok(A), O.impresszum(A), ...A.fog.map(f => O.foglalkozas(A, f))];
+  const lapok = [O.fooldal(A), O.foglalkozasok(A), O.telepulesek(A), ...A.T.megyek.map(m => O.megye(A, m)), ...A.T.telep.map(t => O.telepules(A, t)), ...A.kat.map(k => O.szakterulet(A, k)), O.minimalber(A), O.bertranszparencia(A), O.berbarometer(A), O.milliomos(A), O.hr(A), O.wageThreshold(A), O.holAllsz(A), O.osszehasonlitas(A), O.terkep(A), O.nyertesek(A), O.kalkulator(A), O.mireEleg(A), O.berkuszob(A), O.forrasok(A), O.adatok(A), O.impresszum(A), ...A.fog.map(f => O.foglalkozas(A, f))];
   for (const l of lapok) {
     const mappa = join(WEB, l.ut);
     await mkdir(mappa, { recursive: true });
@@ -94,7 +122,7 @@ async function epit() {
 
   // SEO / GEO files
   const d = A.cfg.domain;
-  await writeFile(join(WEB, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${lapok.map(l => `<url><loc>${d}/${l.ut}</loc><lastmod>${l.ut.startsWith('fizetes/') || l.ut === '' || l.ut === 'foglalkozasok/' || l.ut === 'berkuszob-kereso/' ? A.ker.letoltve : A.frissitve}</lastmod></url>`).join('\n')}\n</urlset>\n`);
+  await writeFile(join(WEB, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${lapok.map(l => `<url><loc>${d}/${l.ut}</loc><lastmod>${l.ut.startsWith('fizetes/') || l.ut === '' || l.ut === 'foglalkozasok/' || l.ut === 'berkuszob-kereso/' ? A.ker.letoltve : l.ut.startsWith('telepules') || l.ut.startsWith('megye/') ? A.T.forras.letoltve : A.frissitve}</lastmod></url>`).join('\n')}\n</urlset>\n`);
   await writeFile(join(WEB, 'robots.txt'), A.cfg.eles ? `User-agent: *\nAllow: /\n\nSitemap: ${d}/sitemap.xml\n` : `# Test version: pages carry noindex until config.json "eles" is true.\nUser-agent: *\nAllow: /\n`);
   const pelda = ['2142', '3311', '7524', '2431', '8417', '5113'].map(c => A.kodra[c]).filter(Boolean);
   await writeFile(join(WEB, 'llms.txt'), `# ${A.cfg.marka}
@@ -110,6 +138,11 @@ async function epit() {
 - [Bruttó–nettó kalkulátor](${d}/brutto-netto-kalkulator/): szja 15%, tb-járulék 18,5%, 25 év alattiak kedvezménye (havi ${S.ft(A.sz.fiatal25.ertek)}-ig), anyák szja-mentessége, családi kedvezmény
 - [Mire elég?](${d}/mire-eleg/): hány év alatt jön ki egy lakás a nettó bérből, ${A.lak.tel.length} település áraival
 - [Bérküszöb-kereső](${d}/berkuszob-kereso/): harmadik országbeli munkavállaló alapbérének meg kell haladnia a FEOR-kód szerinti országos bruttó átlagkereset 80%-át (445/2013. (XI. 28.) Korm. rendelet 6. § (3), 20. § (6))
+- [Települések és megyék](${d}/telepulesek/): nettó átlagkereset lakóhely szerint ${A.T.telep.length} településre, lakásárral
+- [Minimálbér](${d}/minimalber/): ${A.minber.ev}: ${S.ft(A.minber.minimalber)}, garantált bérminimum ${S.ft(A.minber.garantalt)}
+- [Bérbarométer](${d}/berbarometer/): havi országos átlag és medián, RSS: ${d}/rss.xml
+- [Bértranszparencia](${d}/bertranszparencia/): bérsáv-javaslat álláshirdetéshez
+- [Wage threshold finder (English)](${d}/en/wage-threshold/)
 - [Források és módszertan](${d}/forrasok/)
 
 ## Példák (bruttó átlag, ${A.utolso}; nettó kedvezmények nélkül)
@@ -126,9 +159,13 @@ ${pelda.map(f => `- [${f.nev}](${d}/fizetes/${f.slug}/) (FEOR ${f.kod}, ${f.n}):
 - Forrás: ${A.ker.forras.nev} (${A.ker.forras.fajl}).
 - Idézéskor: „KSH, ${A.cfg.marka}”.
 `);
+  // RSS: one item per month of the national earnings series
+  const HONEV = ['január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december'];
+  const tetelek = A.havi.sor.slice(-12).reverse().map(h => `<item><title>${h.ev}. ${HONEV[h.ho - 1]}: bruttó ${S.ft(h.brutto)}, medián ${S.ft(h.median)}</title><link>${d}/berbarometer/</link><guid isPermaLink="false">${d}/berbarometer/#${h.ev}-${h.ho}</guid><pubDate>${new Date(Date.UTC(h.ev, h.ho + 1, 20)).toUTCString()}</pubDate><description>A teljes munkaidőben alkalmazásban állók bruttó átlagkeresete ${S.ft(h.brutto)}${h.bruttoIndex ? `, ${S.szamHu(h.bruttoIndex - 100, 1)}%-kal több az egy évvel korábbinál` : ''}. Bruttó medián: ${S.ft(h.median)}, nettó átlag: ${S.ft(h.netto)}. Forrás: KSH.</description></item>`).join('\n');
+  await writeFile(join(WEB, 'rss.xml'), `<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>${A.cfg.marka} – Bérbarométer</title><link>${d}/berbarometer/</link><description>Havi országos béradatok a KSH-tól, magától frissülve.</description><language>hu</language>\n${tetelek}\n</channel></rss>\n`);
   await writeFile(join(WEB, '_headers'), `/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n/adatok/*\n  Cache-Control: public, max-age=3600\n  Access-Control-Allow-Origin: *\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n`);
   const n = (await readdir(join(WEB, 'fizetes'))).length;
-  console.log(`Kész: ${lapok.length} oldal (${n} foglalkozás), adatok: KSH ${A.utolso}, szabályok: ${A.szEv}, verzió: ${v}`);
+  console.log(`Kész: ${lapok.length} oldal (${n} foglalkozás, ${A.T.telep.length} település), adatok: KSH ${A.utolso}, szabályok: ${A.szEv}, verzió: ${v}`);
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) await epit();

@@ -1,0 +1,253 @@
+{
+ "leiras": "Köznapi szakterületek. Egy FEOR-kód abba a kategóriába kerül, amelyiknek a leghosszabb illeszkedő előtagja van; ami sehova sem illik, az az 'egyeb'. Kézzel szerkeszthető.",
+ "kategoriak": [
+  {
+   "slug": "informatika",
+   "nev": "Informatika és telekommunikáció",
+   "elotagok": [
+    "1322",
+    "2123",
+    "214",
+    "215",
+    "2534",
+    "314",
+    "7342",
+    "2495"
+   ]
+  },
+  {
+   "slug": "egeszsegugy",
+   "nev": "Egészségügy",
+   "elotagok": [
+    "1327",
+    "221",
+    "222",
+    "223",
+    "2241",
+    "331",
+    "332",
+    "333",
+    "3341",
+    "5222"
+   ]
+  },
+  {
+   "slug": "oktatas",
+   "nev": "Oktatás",
+   "elotagok": [
+    "1328",
+    "24",
+    "3410",
+    "5221",
+    "5291"
+   ]
+  },
+  {
+   "slug": "penzugy",
+   "nev": "Pénzügy, számvitel, biztosítás",
+   "elotagok": [
+    "1323",
+    "1411",
+    "251",
+    "2624",
+    "2625",
+    "361",
+    "3621",
+    "412",
+    "4211"
+   ]
+  },
+  {
+   "slug": "jog-kozigazgatas",
+   "nev": "Jog és közigazgatás",
+   "elotagok": [
+    "11",
+    "261",
+    "364",
+    "365",
+    "2910",
+    "3910"
+   ]
+  },
+  {
+   "slug": "mernok-muszaki",
+   "nev": "Mérnöki és műszaki szakmák",
+   "elotagok": [
+    "1312",
+    "1413",
+    "211",
+    "212",
+    "213",
+    "216",
+    "311",
+    "312",
+    "313",
+    "315",
+    "316",
+    "3190"
+   ]
+  },
+  {
+   "slug": "epitoipar",
+   "nev": "Építőipar",
+   "elotagok": [
+    "1313",
+    "2115",
+    "2116",
+    "3117",
+    "3213",
+    "75",
+    "791",
+    "932",
+    "8422"
+   ]
+  },
+  {
+   "slug": "ipar-gyartas",
+   "nev": "Ipar és gyártás",
+   "elotagok": [
+    "3211",
+    "3212",
+    "71",
+    "72",
+    "73",
+    "74",
+    "81",
+    "82",
+    "83",
+    "9310"
+   ]
+  },
+  {
+   "slug": "kereskedelem-marketing",
+   "nev": "Kereskedelem, értékesítés, marketing",
+   "elotagok": [
+    "1333",
+    "1339",
+    "1415",
+    "1416",
+    "253",
+    "3622",
+    "3623",
+    "3624",
+    "363",
+    "511",
+    "512",
+    "9224",
+    "9225"
+   ]
+  },
+  {
+   "slug": "vendeglatas-turizmus",
+   "nev": "Vendéglátás és turizmus",
+   "elotagok": [
+    "1331",
+    "1332",
+    "3222",
+    "513",
+    "4221",
+    "4222",
+    "4223",
+    "5232",
+    "5233",
+    "9235",
+    "9236"
+   ]
+  },
+  {
+   "slug": "szallitas-logisztika",
+   "nev": "Szállítás és logisztika",
+   "elotagok": [
+    "1321",
+    "317",
+    "4131",
+    "4132",
+    "5231",
+    "84",
+    "9221",
+    "9223",
+    "9234"
+   ]
+  },
+  {
+   "slug": "iroda-hr",
+   "nev": "Iroda, ügyfélszolgálat, HR",
+   "elotagok": [
+    "1210",
+    "1412",
+    "1414",
+    "1419",
+    "1334",
+    "1329",
+    "252",
+    "3221",
+    "3641",
+    "3520",
+    "41",
+    "42"
+   ]
+  },
+  {
+   "slug": "mezogazdasag",
+   "nev": "Mezőgazdaság és erdészet",
+   "elotagok": [
+    "1311",
+    "2131",
+    "2132",
+    "2133",
+    "2242",
+    "3131",
+    "3132",
+    "3342",
+    "6",
+    "8421",
+    "933"
+   ]
+  },
+  {
+   "slug": "kultura-media-sport",
+   "nev": "Kultúra, média, sport",
+   "elotagok": [
+    "1335",
+    "1336",
+    "2136",
+    "2627",
+    "27",
+    "37"
+   ]
+  },
+  {
+   "slug": "rendvedelem",
+   "nev": "Rendvédelem és honvédség",
+   "elotagok": [
+    "0",
+    "525"
+   ]
+  },
+  {
+   "slug": "szocialis-szemelyi",
+   "nev": "Szociális és személyi szolgáltatások",
+   "elotagok": [
+    "1131",
+    "1324",
+    "1325",
+    "1326",
+    "23",
+    "262",
+    "35",
+    "521",
+    "522",
+    "524",
+    "529",
+    "911",
+    "921",
+    "923"
+   ]
+  },
+  {
+   "slug": "egyeb",
+   "nev": "Egyéb",
+   "elotagok": []
+  }
+ ]
+}

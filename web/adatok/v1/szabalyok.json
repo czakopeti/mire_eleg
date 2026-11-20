@@ -127,5 +127,52 @@
    "2026. június 6. óta új vendégmunkás-tartózkodási engedély iránti kérelem nem nyújtható be (92/2026. (VI. 5.) Korm. rendelet); a 2026. június 5-én érvényes engedélyek meghosszabbíthatók."
   ],
   "ellenorizve": "2026-11-20"
+ },
+ "minimalber": {
+  "leiras": "A kötelező legkisebb munkabér évenként. Évente egyszer, kormányrendeletben változik; a frissito/figyelo.mjs jelez, ha a forrásoldalról eltűnik az összeg.",
+  "evek": {
+   "2026": {
+    "minimalber": 322800,
+    "garantalt": 373200,
+    "oraber": 1856,
+    "garantaltOraber": 2145,
+    "hely": "426/2025. (XII. 23.) Korm. rendelet",
+    "forras": {
+     "nev": "426/2025. (XII. 23.) Korm. rendelet a kötelező legkisebb munkabér és a garantált bérminimum megállapításáról (Nemzeti Jogszabálytár)",
+     "url": "https://njt.jog.gov.hu/jogszabaly/2025-426-20-22"
+    },
+    "kulcs": "322 800",
+    "ellenorizve": "2026-11-20"
+   }
+  },
+  "kovetkezo": {
+   "ev": 2027,
+   "minimalber": 347000,
+   "garantalt": 396000,
+   "allapot": "megállapodás",
+   "szoveg": "A Versenyszféra és a Kormány Állandó Konzultációs Fóruma 2026. november 19-én megállapodott a 2027. évi összegekről. A kormányrendelet kihirdetéséig ez nem hatályos jogszabály.",
+   "forras": {
+    "nev": "Origo: megszületett a megállapodás a 2027-es minimálbérről (2026. november)",
+    "url": "https://www.origo.hu/belpol/2026/11/minimalber-emeles-januar-tisza-kormany-penz"
+   },
+   "ellenorizve": "2026-11-20"
+  }
+ },
+ "bertranszparencia": {
+  "nev": "Bértranszparencia (EU 2023/970 irányelv)",
+  "pontok": [
+   "Az állásra jelentkezőt a kezdő bérről vagy bérsávról az álláshirdetésben vagy az első interjú előtt tájékoztatni kell.",
+   "A munkáltató nem kérdezhet rá a jelentkező korábbi fizetésére.",
+   "A munkavállaló írásban kérhet tájékoztatást a saját bérszintjéről és az azonos vagy egyenlő értékű munkát végzők nemenkénti átlagbéréről.",
+   "A munkavállalót nem lehet eltiltani attól, hogy a saját béréről beszéljen.",
+   "A nagyobb munkáltatóknak rendszeresen jelenteniük kell a nemek közötti bérkülönbséget; az első jelentések 2027 júniusától esedékesek."
+  ],
+  "hatarido": "2026-06-07",
+  "magyarAllapot": "Az átültetés határideje 2026. június 7. volt. Az ellenőrzés napján kihirdetett magyar átültető törvényt nem találtunk; amíg nincs, hazai jogszabályra hivatkozni nem lehet, az irányelv szövege viszont ismert.",
+  "forras": {
+   "nev": "Az Európai Parlament és a Tanács (EU) 2023/970 irányelve (EUR-Lex)",
+   "url": "https://eur-lex.europa.eu/eli/dir/2023/970/oj"
+  },
+  "ellenorizve": "2026-11-20"
  }
 }

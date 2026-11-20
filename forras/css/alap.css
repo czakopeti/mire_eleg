@@ -194,3 +194,8 @@ thead th { font-size: .82rem; color: var(--halk); font-weight: 500; background: 
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } @view-transition { navigation: none; } }
 @media print { .fej nav, .lab nav, .kereso, .minta-sor, .mini, .muveletek { display: none; } .fej { position: static; } .szalag { filter: none; border: 1px solid #999; } }
+.level { background: var(--kod); border-radius: 14px; padding: 1.2rem 1.4rem; max-width: 42rem; font-size: .98rem; } .level p { margin: .5rem 0; }
+.abra .pont.kicsi { stroke-width: 1; }
+.teny small a { color: inherit; }
+@media (min-width: 64rem) { .bento .csempe:nth-child(n+4) { grid-column: span 2; } }
+.lab-apro a { color: inherit; }

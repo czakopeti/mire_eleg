@@ -13,6 +13,9 @@ Statikus oldal. Nincs adatbázis, nincs szerver, nincs süti, nincs fizetős szo
 | Keresetek foglalkozásonként, korcsoportonként | KSH STADAT mun0208 (20.1.1.52) | `frissito/futtat.mjs` letölti, ellenőrzi; új évnél minden oldal átáll |
 | Országos nettó átlag | KSH mun0188 (20.1.1.58) | ugyanígy |
 | Országos átlag és medián (év eleje óta) | KSH mun0143 (20.2.1.39) | ugyanígy |
+| Havi országos keresetek (Bérbarométer, RSS) | KSH mun0143 | ugyanígy |
+| Települési nettó keresetek | KSH TIMEA, a czakopeti/lakaskoltseg tároló data/kereset.json fájljából | ugyanígy |
+| Minimálbér | kormányrendelet | kézzel a `data/szabalyok.json`-ban; a figyelő jelez |
 | Infláció (reálbér) | KSH ara0001 (1.1.1.1) | ugyanígy |
 | Lakásárak településenként, mai becsléssel | ingatlanmerleg.hu/adatok/lakasarak/arak.json | ugyanígy |
 | Üzemanyagár | autozom.hu/adatok/v1/nav-uzemanyagar.json | ugyanígy |
@@ -26,6 +29,7 @@ Ha egy letöltés hibás vagy hihetetlen (kevés sor, más táblacím, elszállt
 | Mappa / fájl | Mi van benne |
 |---|---|
 | `data/szabalyok.json` | A bérszámítás szabályai évenként és a bérküszöb szabálya: érték, jogszabályhely, forrás, ellenőrzés napja. |
+| `data/kategoriak.json` | Köznapi szakterületek FEOR-előtagokból. Kézzel szerkeszthető. |
 | `data/nevek.json` | Köznapi nevek FEOR-kódonként. Kézzel bővíthető; az első név adja a webcímet. |
 | `data/kereset.json` stb. | A frissítő írja, kézzel ne szerkeszd. |
 | `frissito/ksh.mjs` | A forrásfájlok értelmezői és ellenőrzői (hálózat nélkül, tesztelhetően). |

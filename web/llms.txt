@@ -11,6 +11,11 @@
 - [Bruttó–nettó kalkulátor](https://mire-eleg.pages.dev/brutto-netto-kalkulator/): szja 15%, tb-járulék 18,5%, 25 év alattiak kedvezménye (havi 715 765 Ft-ig), anyák szja-mentessége, családi kedvezmény
 - [Mire elég?](https://mire-eleg.pages.dev/mire-eleg/): hány év alatt jön ki egy lakás a nettó bérből, 1608 település áraival
 - [Bérküszöb-kereső](https://mire-eleg.pages.dev/berkuszob-kereso/): harmadik országbeli munkavállaló alapbérének meg kell haladnia a FEOR-kód szerinti országos bruttó átlagkereset 80%-át (445/2013. (XI. 28.) Korm. rendelet 6. § (3), 20. § (6))
+- [Települések és megyék](https://mire-eleg.pages.dev/telepulesek/): nettó átlagkereset lakóhely szerint 1584 településre, lakásárral
+- [Minimálbér](https://mire-eleg.pages.dev/minimalber/): 2026: 322 800 Ft, garantált bérminimum 373 200 Ft
+- [Bérbarométer](https://mire-eleg.pages.dev/berbarometer/): havi országos átlag és medián, RSS: https://mire-eleg.pages.dev/rss.xml
+- [Bértranszparencia](https://mire-eleg.pages.dev/bertranszparencia/): bérsáv-javaslat álláshirdetéshez
+- [Wage threshold finder (English)](https://mire-eleg.pages.dev/en/wage-threshold/)
 - [Források és módszertan](https://mire-eleg.pages.dev/forrasok/)
 
 ## Példák (bruttó átlag, 2025; nettó kedvezmények nélkül)

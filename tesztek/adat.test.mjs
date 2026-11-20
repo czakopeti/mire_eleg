@@ -55,3 +55,17 @@ test('mun0143 parser: latest filled cumulated row, year carried over', () => {
   assert.deepEqual(K.orszagosHavi(t), { ev: 2026, idoszak: 'január–szeptember', bruttoAtlag: 762202, bruttoMedian: 609020, nettoAtlag: 534255 });
   assert.throws(() => K.orszagosHavi(t.replace('bruttó medián', 'valami')), /oszlopok/);
 });
+
+test('settlement earnings: a value repeated from the next year counts as missing', () => {
+  const telep = Object.fromEntries(Array.from({ length: 2600 }, (_, i) => [String(1000 + i), [100000, 200000, 200000, 300000]]));
+  const megye = Object.fromEntries(Array.from({ length: 20 }, (_, i) => [i ? `M${i}` : 'Budapest', [300000, 320000, 340000, 360000]]));
+  const t = K.telepKereset({ evek: [2019, 2020, 2021, 2022], megye, telep, megnevezes: 'x' });
+  assert.deepEqual(t.telep['1000'], [100000, null, 200000, 300000]);
+  assert.equal(t.potolt, 2600);
+  assert.throws(() => K.telepKereset({ evek: [2019], megye: {}, telep: {} }), /csak 0 település/);
+});
+test('monthly series: year carried over, stops at the cumulated block', () => {
+  const sorok = Array.from({ length: 12 }, (_, i) => `${i ? '' : '2025.'};${['január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december'][i]};700 000;109,0;560 000;108,0;480 000`).join('\n');
+  const h = K.haviSor(`cím;;\nÉv;Időszak\nHavonta;;\n${sorok}\nHavi kumulált adatok;;\n2025.;január–január;1;1;1;1;1\n`);
+  assert.equal(h.length, 12); assert.deepEqual(h[11], { ev: 2025, ho: 12, brutto: 700000, bruttoIndex: 109, median: 560000, netto: 480000 });
+});

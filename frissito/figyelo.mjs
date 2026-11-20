@@ -12,6 +12,7 @@ export function figyeltek(sz, ev) {
   const s = sz.evek[ev], ki = [];
   if (s.fiatal25?.kulcs) ki.push({ nev: s.fiatal25.nev, url: s.fiatal25.forras.url, kulcs: s.fiatal25.kulcs });
   for (const j of s.anyak?.jogcimek || []) if (j.kulcs) ki.push({ nev: j.nev, url: j.forras.url, kulcs: j.kulcs });
+  for (const m of Object.values(sz.minimalber?.evek || {})) if (m.kulcs) ki.push({ nev: `Minimálbér (${m.hely})`, url: m.forras.url, kulcs: m.kulcs });
   if (sz.berkuszob?.kulcs) ki.push({ nev: sz.berkuszob.nev, url: sz.berkuszob.forras.url, kulcs: sz.berkuszob.kulcs });
   return ki;
 }

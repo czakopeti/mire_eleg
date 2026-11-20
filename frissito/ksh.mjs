@@ -202,3 +202,39 @@ export function orszagosHavi(szoveg) {
   if (!ki || ki.bruttoMedian < 200000 || ki.bruttoMedian > ki.bruttoAtlag || ki.bruttoAtlag > 5000000) throw new Error('mun0143: hiányzó vagy hihetetlen országos adatok.');
   return ki;
 }
+
+const HO = ['január', 'február', 'március', 'április', 'május', 'június', 'július', 'augusztus', 'szeptember', 'október', 'november', 'december'];
+/** mun0143, "Havonta" block: monthly national series. Returns [{ ev, ho (1-12), brutto, bruttoIndex, median, netto }] */
+export function haviSor(szoveg) {
+  const sorok = csv(szoveg);
+  const kezd = sorok.findIndex(s => /^Havonta/i.test(s[0] || ''));
+  if (kezd < 0) throw new Error('mun0143: nincs „Havonta” blokk.');
+  const ki = []; let ev = null;
+  for (const s of sorok.slice(kezd + 1)) {
+    if (/kumulált/i.test(s[0] || '')) break;
+    if (/^\d{4}/.test(s[0] || '')) ev = Number(s[0].slice(0, 4));
+    const ho = HO.indexOf((s[1] || '').toLowerCase()) + 1;
+    const brutto = szam(s[2]), median = szam(s[4]), netto = szam(s[6]);
+    if (ev && ho && brutto != null && median != null && netto != null) ki.push({ ev, ho, brutto, bruttoIndex: szam(s[3]), median, netto });
+  }
+  if (ki.length < 12 || ki.some(h => h.brutto < 200000 || h.brutto > 5000000 || h.median > h.brutto)) throw new Error('mun0143: hiányos vagy hihetetlen havi adatsor.');
+  return ki;
+}
+
+/**
+ * Net earnings by place of residence (KSH TIMEA, collected by the Ingatlanmérleg updater).
+ * Keeps the structure, checks it. Keys of "telep" are the first four digits of the KSH settlement code.
+ */
+export function telepKereset(a) {
+  if (!Array.isArray(a?.evek) || !a.megye || !a.telep) throw new Error('telepkereset: hiányzik az evek, a megye vagy a telep.');
+  const n = Object.keys(a.telep).length;
+  if (n < 2500 || Object.keys(a.megye).length < 20) throw new Error(`telepkereset: csak ${n} település, ${Object.keys(a.megye).length} megye.`);
+  const bp = a.megye.Budapest?.at(-1);
+  if (!(bp > 150000 && bp < 3000000)) throw new Error('telepkereset: hihetetlen budapesti érték.');
+  for (const s of Object.values(a.telep)) if (s.length !== a.evek.length) throw new Error('telepkereset: egy sor hossza eltér az évek számától.');
+  // In the source a missing year is filled with the next year's value. Two identical consecutive
+  // values are therefore treated as "the earlier one is missing", so the trend does not show a false jump.
+  const telep = {}; let potolt = 0;
+  for (const [k, sor] of Object.entries(a.telep)) telep[k] = sor.map((v, i) => { if (v != null && i < sor.length - 1 && v === sor[i + 1]) { potolt++; return null; } return v; });
+  return { megnevezes: a.megnevezes || '', evek: a.evek, megye: a.megye, telep, potolt, eredeti: a.forras || null, forrasKelt: a.ellenorizve || null };
+}
