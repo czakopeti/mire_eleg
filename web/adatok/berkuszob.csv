@@ -1,0 +1,463 @@
+﻿# Forrás: KSH STADAT 20.1.1.52. Teljes munkaidőben alkalmazásban állók bruttó átlagkeresete foglalkozások szerint; 2025. évi adat; letöltve: 2026-11-20; https://mire-eleg.pages.dev
+feor;foglalkozas;brutto_atlag_2025;kuszob_80_szazalek;legkisebb_megfelelo_alapber
+0110;Fegyveres szervek felsőfokú képesítést igénylő foglalkozásai;1316438;1053150;1053151
+0210;Fegyveres szervek középfokú képesítést igénylő foglalkozásai;821948;657558;657559
+0310;Fegyveres szervek középfokú képesítést nem igénylő foglalkozásai;734659;587727;587728
+1110;Törvényhozó, miniszter, államtitkár;2548701;2038960;2038961
+1121;Országos és területi közigazgatás, igazságszolgáltatás vezetője;1495486;1196388;1196389
+1122;Helyi önkormányzat választott vezetője;1346173;1076938;1076939
+1123;Helyi önkormányzat kinevezett vezetője;1222458;977966;977967
+1131;Társadalmi (érdek-képviseleti) és egyéb szervezet vezetője;1378583;1102866;1102867
+1210;Gazdasági, költségvetési szervezet vezetője (igazgató, elnök, ügyvezető igazgató);1239216;991372;991373
+1311;Mezőgazdasági, erdészeti, halászati és vadászati tevékenységet folytató egység vezetője;917174;733739;733740
+1312;Ipari tevékenységet folytató egység vezetője;1488741;1190992;1190993
+1313;Építőipari tevékenységet folytató egység vezetője;948596;758876;758877
+1321;Szállítási, logisztikai és raktározási tevékenységet folytató egység vezetője;1228118;982494;982495
+1322;Informatikai és telekommunikációs tevékenységet folytató egység vezetője;1991839;1593471;1593472
+1323;Pénzintézeti tevékenységet folytató egység vezetője;2201458;1761166;1761167
+1324;Szociális tevékenységet folytató egység vezetője;787257;629805;629806
+1325;Gyermekgondozási tevékenységet folytató egység vezetője;886160;708928;708929
+1326;Idősgondozási tevékenységet folytató egység vezetője;792483;633986;633987
+1327;Egészségügyi tevékenységet folytató egység vezetője;1829402;1463521;1463522
+1328;Oktatási-nevelési tevékenységet folytató egység vezetője;1203654;962923;962924
+1329;Egyéb szolgáltatást nyújtó egység vezetője;1080502;864401;864402
+1331;Szálláshely-szolgáltatási tevékenységet folytató egység vezetője;1052726;842180;842181
+1332;Vendéglátó tevékenységet folytató egység vezetője;654250;523400;523401
+1333;Kereskedelmi tevékenységet folytató egység vezetője;918445;734756;734757
+1334;Üzleti szolgáltatási tevékenységet folytató egység vezetője;1525364;1220291;1220292
+1335;Kulturális tevékenységet folytató egység vezetője;890181;712144;712145
+1336;Sport- és rekreációs tevékenységet folytató egység vezetője;833594;666875;666876
+1339;Egyéb kereskedelmi, vendéglátó és hasonló szolgáltatási tevékenységet folytató egység vezetője;829178;663342;663343
+1411;Számviteli és pénzügyi tevékenységet folytató egység vezetője;1736137;1388909;1388910
+1412;Személyzeti vezető, humánpolitikai egység vezetője;1831361;1465088;1465089
+1413;Kutatási és fejlesztési tevékenységet folytató egység vezetője;1848637;1478909;1478910
+1414;Vállalati stratégiatervezési egység vezetője;1841393;1473114;1473115
+1415;Értékesítési és marketingtevékenységet folytató egység vezetője;1696745;1357396;1357397
+1416;Reklám-, PR- és egyéb kommunikációs tevékenységet folytató egység vezetője;1454243;1163394;1163395
+1419;Egyéb gazdasági tevékenységet segítő egység vezetője;1501738;1201390;1201391
+2111;Bányamérnök;1145210;916168;916169
+2112;Kohó- és anyagmérnök;1094179;875343;875344
+2113;Élelmiszer-ipari mérnök;854400;683520;683521
+2114;Fa- és könnyűipari mérnök;838974;671179;671180
+2115;Építészmérnök;835446;668356;668357
+2116;Építőmérnök;1096827;877461;877462
+2117;Vegyészmérnök;1087124;869699;869700
+2118;Gépészmérnök;1117271;893816;893817
+2121;Villamosmérnök (energetikai mérnök);1238587;990869;990870
+2122;Villamosmérnök (elektronikai mérnök);1235768;988614;988615
+2123;Telekommunikációs mérnök;1276573;1021258;1021259
+2131;Mezőgazdasági mérnök;851060;680848;680849
+2132;Erdő- és természetvédelmi mérnök;889846;711876;711877
+2133;Táj- és kertépítészmérnök;707842;566273;566274
+2134;Település- és közlekedéstervező mérnök;954766;763812;763813
+2135;Földmérő és térinformatikus;778832;623065;623066
+2136;Grafikus és multimédia-tervező;847098;677678;677679
+2137;Minőségbiztosítási mérnök;1131883;905506;905507
+2139;Egyéb, máshova nem sorolható mérnök;1237258;989806;989807
+2141;Rendszerelemző (informatikai);1355026;1084020;1084021
+2142;Szoftverfejlesztő;1364606;1091684;1091685
+2143;Hálózat- és multimédia-fejlesztő;1102824;882259;882260
+2144;Alkalmazásprogramozó;1093150;874520;874521
+2149;Egyéb szoftver- és alkalmazásfejlesztő, -elemző;1349764;1079811;1079812
+2151;Adatbázis-tervező és -üzemeltető;1229809;983847;983848
+2152;Rendszergazda;937570;750056;750057
+2153;Számítógép-hálózati elemző, üzemeltető;1175867;940693;940694
+2159;Egyéb adatbázis- és hálózati elemző, üzemeltető;1251168;1000934;1000935
+2161;Fizikus;1265101;1012080;1012081
+2163;Meteorológus;970381;776304;776305
+2164;Kémikus;1091544;873235;873236
+2165;Geológus;1082600;866080;866081
+2166;Matematikus;1420336;1136268;1136269
+2167;Biológus, botanikus, zoológus és rokon foglalkozású;1005233;804186;804187
+2168;Környezetfelmérő, -tanácsadó;898780;719024;719025
+2169;Egyéb természettudományi foglalkozású;1030395;824316;824317
+2211;Általános orvos;1410897;1128717;1128718
+2212;Szakorvos;2109502;1687601;1687602
+2213;Fogorvos, fogszakorvos;1001990;801592;801593
+2214;Gyógyszerész, szakgyógyszerész;990165;792132;792133
+2221;Környezet- és foglalkozás-egészségügyi foglalkozású;717884;574307;574308
+2222;Optometrista;676100;540880;540881
+2223;Dietetikus és táplálkozási tanácsadó;641490;513192;513193
+2224;Gyógytornász;642060;513648;513649
+2225;Védőnő;759443;607554;607555
+2226;Mentőtiszt;1256477;1005181;1005182
+2227;Hallás- és beszédterapeuta;816013;652810;652811
+2228;Alternatív gyógymódot alkalmazó;1040706;832564;832565
+2229;Egyéb humán-egészségügyi (társ)foglalkozású;1244161;995328;995329
+2231;Ápoló (felsőfokú képzettséghez kapcsolódó);999985;799988;799989
+2232;Szülész(nő) (felsőfokú képzettséghez kapcsolódó);854405;683524;683525
+2241;Állatorvos;697262;557809;557810
+2242;Növényorvos (növényvédelmi szakértő);803297;642637;642638
+2311;Szociálpolitikus;749812;599849;599850
+2312;Szociális munkás és tanácsadó;586724;469379;469380
+2410;Egyetemi, főiskolai oktató, tanár;1002028;801622;801623
+2421;Középiskolai tanár;877998;702398;702399
+2422;Középfokú nevelési-oktatási intézményi szakoktató, gyakorlati oktató;859141;687312;687313
+2431;Általános iskolai tanár, tanító;822507;658005;658006
+2432;Csecsemő- és kisgyermeknevelő, óvodapedagógus;731112;584889;584890
+2441;Gyógypedagógus;786358;629086;629087
+2442;Konduktor;739688;591750;591751
+2491;Pedagógiai szakértő, szaktanácsadó;766978;613582;613583
+2492;Nyelvtanár (iskolarendszeren kívül);576148;460918;460919
+2493;Zenetanár (iskolarendszeren kívül);765711;612568;612569
+2494;Egyéb művészetek tanára (iskolarendszeren kívül);769856;615884;615885
+2499;Egyéb szakképzett oktató, nevelő;751443;601154;601155
+2511;Pénzügyi elemző és befektetési tanácsadó;1244775;995820;995821
+2512;Adótanácsadó, adószakértő;1234466;987572;987573
+2513;Könyvvizsgáló, könyvelő, könyvszakértő;906836;725468;725469
+2514;Kontroller;1173051;938440;938441
+2521;Szervezetirányítási elemző, szervező;1277336;1021868;1021869
+2522;Üzletpolitikai elemző, szervező;1023319;818655;818656
+2523;Személyzeti és pályaválasztási szakértő;1034947;827957;827958
+2524;Képzési és személyzetfejlesztési szakértő;958819;767055;767056
+2531;Piackutató, reklám- és marketingtevékenységet tervező, szervező;1091070;872856;872857
+2532;PR-tevékenységet tervező, szervező;957924;766339;766340
+2533;Kereskedelmi tervező, szervező;1134156;907324;907325
+2534;Informatikai és telekommunikációs technológiai termékek értékesítését tervező, szervező;1532243;1225794;1225795
+2611;Jogász, jogtanácsos;1115095;892076;892077
+2612;Ügyész, ügyészségi fogalmazó;1556410;1245128;1245129
+2613;Bíró, bírósági fogalmazó;1524483;1219586;1219587
+2614;Közjegyző;767161;613728;613729
+2615;Ügyvéd;471208;376966;376967
+2619;Egyéb jogi foglalkozású;888417;710733;710734
+2621;Filozófus, politológus;937498;749998;749999
+2622;Történész, régész;678184;542547;542548
+2623;Néprajzkutató;625582;500465;500466
+2624;Elemző közgazdász;1336948;1069558;1069559
+2625;Statisztikus;825393;660314;660315
+2626;Szociológus, demográfus;781613;625290;625291
+2627;Nyelvész, fordító, tolmács;728534;582827;582828
+2628;Pszichológus;897165;717732;717733
+2629;Egyéb társadalomtudományi foglalkozású;836756;669404;669405
+2711;Könyvtáros, informatikus könyvtáros;543729;434983;434984
+2712;Levéltáros;578314;462651;462652
+2713;Muzeológus, múzeumi gyűjteménygondnok;576271;461016;461017
+2714;Kulturális szervező;655736;524588;524589
+2715;Könyv- és lapkiadó szerkesztője;740115;592092;592093
+2716;Újságíró, rádióműsor-, televízióműsor-szerkesztő;766783;613426;613427
+2717;Szakképzett edző, sportszervező, -irányító;727437;581949;581950
+2719;Egyéb kulturális és sportfoglalkozású (felsőfokú képzettséghez kapcsolódó);727587;582069;582070
+2721;Író (újságíró nélkül);928959;743167;743168
+2723;Iparművész, gyártmány- és ruhatervező;625569;500455;500456
+2724;Zeneszerző, zenész, énekes;745720;596576;596577
+2725;Rendező, operatőr;822162;657729;657730
+2726;Színész, bábművész;693412;554729;554730
+2727;Táncművész, koreográfus;678856;543084;543085
+2729;Egyéb alkotó- és előadó-művészi foglalkozású (felsőfokú képzettséghez kapcsolódó);744703;595762;595763
+2910;Egyéb magasan képzett ügyintéző;943819;755055;755056
+3111;Bányászati technikus;835150;668120;668121
+3112;Kohó- és anyagtechnikus;796892;637513;637514
+3113;Élelmiszer-ipari technikus;699232;559385;559386
+3114;Fa- és könnyűipari technikus;570817;456653;456654
+3115;Vegyésztechnikus;674553;539642;539643
+3116;Gépésztechnikus;815489;652391;652392
+3117;Építő- és építésztechnikus;538498;430798;430799
+3121;Villamosipari technikus (energetikai technikus);927293;741834;741835
+3122;Villamosipari technikus (elektronikai technikus);789252;631401;631402
+3131;Mezőgazdasági technikus;677774;542219;542220
+3132;Erdő- és természetvédelmi technikus;653670;522936;522937
+3133;Földmérő és térinformatikai technikus;642920;514336;514337
+3134;Környezetvédelmi technikus;706583;565266;565267
+3135;Minőségbiztosítási technikus;726656;581324;581325
+3136;Műszaki rajzoló, szerkesztő;693503;554802;554803
+3139;Egyéb, máshova nem sorolható technikus;816801;653440;653441
+3141;Informatikai és kommunikációs rendszereket kezelő technikus;895645;716516;716517
+3142;Informatikai és kommunikációs rendszerek felhasználóit támogató technikus;951276;761020;761021
+3143;Számítógéphálózat- és rendszertechnikus;921073;736858;736859
+3144;Webrendszer- (hálózati) technikus;671701;537360;537361
+3145;Műsorszóró és audiovizuális technikus;771070;616856;616857
+3146;Telekommunikációs technikus;855180;684144;684145
+3151;Energetikai (erőművi) berendezés vezérlője;1153981;923184;923185
+3152;Égető-, víz- és csatornaművi berendezés vezérlője;789142;631313;631314
+3153;Vegyipari alapanyag-feldolgozó berendezés vezérlője;807464;645971;645972
+3154;Kőolaj- és földgázfinomító berendezés vezérlője;1081157;864925;864926
+3155;Fémgyártási berendezés vezérlője;773527;618821;618822
+3159;Egyéb folyamatirányító berendezés vezérlője;787827;630261;630262
+3161;Munka- és termelésszervező;861762;689409;689410
+3162;Energetikus;968078;774462;774463
+3163;Munkavédelmi és üzembiztonsági foglalkozású;837167;669733;669734
+3171;Tengeri és belvízi hajóparancsnok, fedélzeti tiszt;884563;707650;707651
+3172;Légijármű-vezető, hajózómérnök;3201941;2561552;2561553
+3173;Légiforgalmi irányító;3912766;3130212;3130213
+3190;Egyéb műszaki foglalkozású;806604;645283;645284
+3211;Bányászati szakmai irányító, felügyelő;980015;784012;784013
+3212;Feldolgozóipari szakmai irányító, felügyelő;910549;728439;728440
+3213;Építőipari szakmai irányító, felügyelő;889768;711814;711815
+3221;Irodai szakmai irányító, felügyelő;817432;653945;653946
+3222;Konyhafőnök, séf;682816;546252;546253
+3311;Ápoló, szakápoló;774595;619676;619677
+3312;Szülész(nő)i tevékenység segítője;803882;643105;643106
+3321;Általános egészségügyi asszisztens;720387;576309;576310
+3322;Egészségügyi dokumentátor;538605;430884;430885
+3323;Orvosi képalkotó diagnosztikai és terápiás berendezések kezelője;871982;697585;697586
+3324;Orvosi laboratóriumi asszisztens;768726;614980;614981
+3325;Fogászati asszisztens;535366;428292;428293
+3326;Gyógyszertári és gyógyszerellátási asszisztens;594960;475968;475969
+3331;Környezet- és foglalkozás-egészségügyi kiegészítő foglalkozású;707041;565632;565633
+3332;Fizioterápiás asszisztens, masszőr;472692;378153;378154
+3333;Fogtechnikus;447639;358111;358112
+3334;Ortopédiai eszközkészítő;468755;375004;375005
+3335;Látszerész;458526;366820;366821
+3339;Egyéb, humánegészségügyhöz kapcsolódó foglalkozású;769263;615410;615411
+3341;Állatorvosi asszisztens;500536;400428;400429
+3342;Növényorvosi (növényvédelmi) asszisztens;627743;502194;502195
+3410;Oktatási asszisztens;458728;366982;366983
+3511;Szociális segítő;469222;375377;375378
+3513;Szociális gondozó, szakgondozó;478744;382995;382996
+3514;Jelnyelvi tolmács;563215;450572;450573
+3515;Ifjúságsegítő;512029;409623;409624
+3520;Munkaerő-piaci szolgáltatási ügyintéző;657673;526138;526139
+3611;Pénzügyi ügyintéző (a pénzintézeti ügyintéző kivételével);703512;562809;562810
+3612;Pénzintézeti ügyintéző;855103;684082;684083
+3613;Tőzsde- és pénzügyi ügynök, bróker;1780991;1424792;1424793
+3614;Számviteli ügyintéző;769592;615673;615674
+3615;Statisztikai ügyintéző;727876;582300;582301
+3616;Értékbecslő, kárbecslő, kárszakértő;658666;526932;526933
+3621;Biztosítási ügynök, ügyintéző;688680;550944;550945
+3622;Kereskedelmi ügyintéző;711358;569086;569087
+3623;Anyaggazdálkodó, felvásárló;819396;655516;655517
+3624;Ügynök (a biztosítási ügynök kivételével);885469;708375;708376
+3631;Konferencia- és rendezvényszervező;632705;506164;506165
+3632;Marketing- és PR-ügyintéző;709026;567220;567221
+3633;Ingatlanügynök, ingatlanforgalmazási ügyintéző;558264;446611;446612
+3639;Egyéb, máshova nem sorolható üzleti jellegű szolgáltatás ügyintézője;770936;616748;616749
+3641;Személyi asszisztens;711375;569100;569101
+3642;Jogi asszisztens;613964;491171;491172
+3649;Egyéb igazgatási és jogi asszisztens;665203;532162;532163
+3651;Vám- és pénzügyőr;767562;614049;614050
+3652;Adó- és illetékhivatali ügyintéző;764684;611747;611748
+3653;Társadalombiztosítási és segélyezési hatósági ügyintéző;540647;432517;432518
+3654;Hatósági engedélyek kiadásával foglalkozó ügyintéző;577741;462192;462193
+3655;Nyomozó;790767;632613;632614
+3656;Végrehajtó, adósságbehajtó;750160;600128;600129
+3659;Egyéb hatósági ügyintéző;650152;520121;520122
+3711;Segédszínész, statiszta;494214;395371;395372
+3712;Segédrendező;650652;520521;520522
+3713;Fényképész;515558;412446;412447
+3714;Díszletező, díszítő;649159;519327;519328
+3715;Kiegészítő filmgyártási és színházi foglalkozású;776341;621072;621073
+3716;Lakberendező, dekoratőr;495584;396467;396468
+3717;Kulturális intézményi szaktechnikus;504268;403414;403415
+3719;Egyéb művészeti és kulturális foglalkozású;606934;485547;485548
+3721;Sportoló;1858719;1486975;1486976
+3722;Fitnesz- és rekreációs program irányítója;465486;372388;372389
+3910;Egyéb ügyintéző;607412;485929;485930
+4111;Titkár(nő);596429;477143;477144
+4112;Általános irodai adminisztrátor;509390;407512;407513
+4113;Gépíró, szövegszerkesztő;534003;427202;427203
+4114;Adatrögzítő, kódoló;564883;451906;451907
+4121;Könyvelő (analitikus);738455;590764;590765
+4122;Bérelszámoló;710915;568732;568733
+4123;Pénzügyi, statisztikai, biztosítási adminisztrátor;618948;495158;495159
+4129;Egyéb számviteli foglalkozású;837378;669902;669903
+4131;Készlet- és anyagnyilvántartó;613673;490938;490939
+4132;Szállítási, szállítmányozási nyilvántartó;676325;541060;541061
+4133;Könyvtári, levéltári nyilvántartó;458027;366421;366422
+4134;Humánpolitikai adminisztrátor;798968;639174;639175
+4136;Iratkezelő, irattáros;498422;398737;398738
+4190;Egyéb, máshova nem sorolható irodai, ügyviteli foglalkozású;630249;504199;504200
+4211;Banki pénztáros;529998;423998;423999
+4212;Szerencsejáték-szervező;710242;568193;568194
+4221;Utazásszervező, tanácsadó;610158;488126;488127
+4222;Recepciós;493026;394420;394421
+4223;Szállodai recepciós;535378;428302;428303
+4224;Ügyfél- (vevő)tájékoztató;648629;518903;518904
+4225;Ügyfélszolgálati központ tájékoztatója;625223;500178;500179
+4226;Lakossági kérdező, összeíró;436475;349180;349181
+4229;Egyéb ügyfélkapcsolati foglalkozású;666261;533008;533009
+5111;Kereskedő;416094;332875;332876
+5112;Vezető eladó;575032;460025;460026
+5113;Bolti eladó;447845;358276;358277
+5114;Kölcsönző;523766;419012;419013
+5115;Piaci, utcai árus;349084;279267;279268
+5116;Piaci, utcai étel- és italárus;386886;309508;309509
+5117;Bolti pénztáros, jegypénztáros;480896;384716;384717
+5121;Üzemanyagtöltő állomás kezelője;460480;368384;368385
+5122;Áru- és divatbemutató;549287;439429;439430
+5123;Telefonos (multimédiás) értékesítési ügynök;530280;424224;424225
+5129;Egyéb, máshova nem sorolható kereskedelmi foglalkozású;527390;421912;421913
+5131;Vendéglős;390176;312140;312141
+5132;Pincér;415983;332786;332787
+5133;Pultos;386328;309062;309063
+5134;Szakács;446982;357585;357586
+5135;Cukrász;414610;331688;331689
+5211;Fodrász;369835;295868;295869
+5212;Kozmetikus;386294;309035;309036
+5213;Manikűrös, pedikűrös;378751;303000;303001
+5219;Egyéb személyi szolgáltatási foglalkozású;434887;347909;347910
+5221;Gyermekfelügyelő, dajka;441910;353528;353529
+5222;Segédápoló, műtőssegéd;629653;503722;503723
+5223;Házi gondozó;398648;318918;318919
+5229;Egyéb személygondozási foglalkozású;525551;420440;420441
+5231;Kalauz, menetjegyellenőr;710498;568398;568399
+5232;Utaskísérő (repülőn, hajón);768851;615080;615081
+5233;Idegenvezető;511248;408998;408999
+5241;Vezető takarító;531389;425111;425112
+5242;Házvezető;438361;350688;350689
+5243;Épületgondnok;508237;406589;406590
+5251;Rendőr;749209;599367;599368
+5252;Tűzoltó;638993;511194;511195
+5253;Büntetés-végrehajtási őr;693375;554700;554701
+5254;Vagyonőr, testőr;511131;408904;408905
+5255;Természetvédelmi őr;548375;438700;438701
+5256;Közterület-felügyelő;663555;530844;530845
+5259;Egyéb személy- és vagyonvédelmi foglalkozású;626509;501207;501208
+5291;Járművezető-oktató;479418;383534;383535
+5292;Hobbiállat-gondozó, -kozmetikus;458972;367177;367178
+5293;Temetkezési foglalkozású;469512;375609;375610
+5299;Egyéb, máshova nem sorolható szolgáltatási foglalkozású;536774;429419;429420
+6111;Szántóföldinövény-termesztő;434730;347784;347785
+6113;Zöldségtermesztő;378803;303042;303043
+6114;Szőlő-, gyümölcstermesztő;422532;338025;338026
+6115;Dísznövény-, virág- és faiskolai kertész, csemetenevelő;414237;331389;331390
+6116;Gyógynövénytermesztő;496585;397268;397269
+6119;Egyéb növénytermesztési foglalkozású;430650;344520;344521
+6121;Szarvasmarha-, ló-, sertés-, juhtartó és -tenyésztő;528538;422830;422831
+6122;Baromfitartó és -tenyésztő;520840;416672;416673
+6124;Kisállattartó és -tenyésztő;503648;402918;402919
+6130;Vegyes profilú gazdálkodó;369418;295534;295535
+6211;Erdészeti foglalkozású;349082;279265;279266
+6212;Fakitermelő (favágó);421919;337535;337536
+6220;Vadgazdálkodási foglalkozású;423646;338916;338917
+6230;Halászati foglalkozású;510532;408425;408426
+7111;Húsfeldolgozó;488247;390597;390598
+7112;Gyümölcs- és zöldségfeldolgozó, -tartósító;479950;383960;383961
+7113;Tejfeldolgozó, tejtermékgyártó;613923;491138;491139
+7114;Pék, édesiparitermék-gyártó;471844;377475;377476
+7115;Borász és egyéb szeszesital-gyártó, szikvízkészítő;497003;397602;397603
+7211;Szabásminta-készítő;401887;321509;321510
+7212;Szabó, varró;400278;320222;320223
+7213;Kalapos, kesztyűs;425166;340132;340133
+7216;Bőrdíszműves, bőröndös, bőrtermékkészítő, -javító;437563;350050;350051
+7217;Cipész, cipőkészítő, -javító;410663;328530;328531
+7221;Famegmunkáló;469228;375382;375383
+7222;Faesztergályos;418398;334718;334719
+7223;Bútorasztalos;424555;339644;339645
+7224;Kárpitos;509876;407900;407901
+7225;Kádár, bognár;494294;395435;395436
+7231;Nyomdai előkészítő;534459;427567;427568
+7232;Nyomdász, nyomdai gépmester;644580;515664;515665
+7233;Könyvkötő;532203;425762;425763
+7310;Fémöntőminta-készítő;580234;464187;464188
+7321;Lakatos;593418;474734;474735
+7322;Szerszámkészítő;850316;680252;680253
+7323;Forgácsoló;759633;607706;607707
+7324;Fémcsiszoló, köszörűs, szerszámköszörűs;612583;490066;490067
+7325;Hegesztő, lángvágó;616250;493000;493001
+7326;Kovács;620753;496602;496603
+7327;Festékszóró, fényező;612571;490056;490057
+7328;Fém- és egyéb tartószerkezet-szerelő;592480;473984;473985
+7331;Gépjármű- és motorkarbantartó, -javító;565231;452184;452185
+7332;Repülőgépmotor-karbantartó, -javító;1071656;857324;857325
+7333;Mezőgazdasági és ipari gép (motor) karbantartója, javítója;695625;556500;556501
+7334;Mechanikaigép-karbantartó, -javító (műszerész);774436;619548;619549
+7335;Kerékpár-karbantartó, -javító;432539;346031;346032
+7341;Villamos gépek és készülékek műszerésze, javítója;736032;588825;588826
+7342;Informatikai és telekommunikációs berendezések műszerésze, javítója;605556;484444;484445
+7343;Elektromoshálózat-szerelő, -javító;790169;632135;632136
+7411;Címfestő;452539;362031;362032
+7412;Ékszerkészítő, ötvös, drágakőcsiszoló;388468;310774;310775
+7413;Keramikus;499655;399724;399725
+7414;Üveggyártó;659257;527405;527406
+7415;Hangszerkészítő;469866;375892;375893
+7416;Szőr- és tollfeldolgozó;571599;457279;457280
+7417;Nád- és fűzfeldolgozó, seprű-, kefegyártó;248865;199092;199093
+7418;Textilműves, hímző, csipkeverő;347244;277795;277796
+7419;Egyéb kézműipari foglalkozású;403364;322691;322692
+7420;Finommechanikai műszerész;644898;515918;515919
+7511;Kőműves;428737;342989;342990
+7512;Gipszkartonozó, stukkózó;472573;378058;378059
+7513;Ács;444227;355381;355382
+7514;Épületasztalos;433675;346940;346941
+7515;Építményszerkezet-szerelő;632910;506328;506329
+7519;Egyéb építőmesteri foglalkozású;460960;368768;368769
+7521;Vezeték- és csőhálózat-szerelő (víz, gáz, fűtés);558143;446514;446515
+7522;Szellőző-, hűtő- és klimatizálóberendezés-szerelő;579057;463245;463246
+7523;Felvonószerelő;722218;577774;577775
+7524;Épületvillamossági szerelő, villanyszerelő;597301;477840;477841
+7529;Egyéb építési, szerelési foglalkozású;542131;433704;433705
+7531;Szigetelő;507207;405765;405766
+7532;Tetőfedő;469006;375204;375205
+7533;Épület-, építménybádogos;496289;397031;397032
+7534;Burkoló;425047;340037;340038
+7535;Festő és mázoló;444260;355408;355409
+7536;Kőfaragó, műköves;451401;361120;361121
+7538;Üvegező;442221;353776;353777
+7539;Egyéb építési szakipari foglalkozású;528936;423148;423149
+7911;Ipari búvár;695465;556372;556373
+7914;Kártevőirtó, gyomirtó;551462;441169;441170
+7915;Kéményseprő, épületszerkezet-tisztító;458697;366957;366958
+7919;Egyéb, máshova nem sorolható ipari és építőipari foglalkozású;640192;512153;512154
+8111;Élelmiszer-, italgyártó gép kezelője;651162;520929;520930
+8112;Dohánygyártó gép kezelője;621811;497448;497449
+8121;Textilipari gép kezelője és gyártósor mellett dolgozó;472875;378300;378301
+8122;Ruházati gép kezelője és gyártósor mellett dolgozó;370330;296264;296265
+8123;Bőrkikészítő és -feldolgozó gép kezelője és gyártósor mellett dolgozó;475903;380722;380723
+8124;Cipőgyártó gép kezelője és gyártósor mellett dolgozó;376047;300837;300838
+8125;Fafeldolgozó gép kezelője és gyártósor mellett dolgozó;540262;432209;432210
+8126;Papír- és cellulóztermék-gyártó gép kezelője és gyártósor mellett dolgozó;670935;536748;536749
+8131;Kőolaj- és földgázfeldolgozó gép kezelője;963628;770902;770903
+8132;Vegyi alapanyagot és terméket gyártó gép kezelője;812143;649714;649715
+8133;Gyógyszergyártó gép kezelője;797381;637904;637905
+8134;Műtrágya- és növényvédőszer-gyártó gép kezelője;796512;637209;637210
+8135;Műanyagtermék-gyártó gép kezelője;565720;452576;452577
+8136;Gumitermékgyártó gép kezelője;685601;548480;548481
+8137;Fotó- és mozgófilmlaboráns;543481;434784;434785
+8141;Kerámiaipari terméket gyártó gép kezelője;572882;458305;458306
+8142;Üveget és üvegterméket gyártó gép kezelője;568314;454651;454652
+8143;Cement-, kő- és egyéb ásványianyag-feldolgozó gép kezelője;688825;551060;551061
+8144;Papíripari alapanyagot gyártó gép kezelője;713717;570973;570974
+8151;Fémfeldolgozó gép kezelője;650320;520256;520257
+8152;Fémmegmunkáló, felületkezelő gép kezelője;610783;488626;488627
+8190;Egyéb, máshova nem sorolható feldolgozóipari gép kezelője;660193;528154;528155
+8211;Mechanikaigép-összeszerelő;578224;462579;462580
+8212;Villamosberendezés-összeszerelő;537144;429715;429716
+8219;Egyéb termék-összeszerelő;644412;515529;515530
+8311;Szilárdásvány-kitermelő gép kezelője (szén, kő);772494;617995;617996
+8312;Kútfúró, mélyfúró gép kezelője (kőolaj, földgáz, víz);959480;767584;767585
+8321;Energetikai gép kezelője;894307;715445;715446
+8322;Vízgazdálkodási gép kezelője;646948;517558;517559
+8323;Kazángépkezelő;626177;500941;500942
+8324;Sugármentesítő gép, berendezés kezelője;1176493;941194;941195
+8325;Csomagoló-, palackozó- és címkézőgép kezelője;636090;508872;508873
+8326;Mozigépész, vetítőgépész;522858;418286;418287
+8327;Mosodai gép kezelője;429937;343949;343950
+8329;Egyéb, máshova nem sorolható, helyhez kötött gép kezelője;631490;505192;505193
+8411;Mozdonyvezető;1039104;831283;831284
+8412;Vasútijármű-vezetéshez kapcsolódó foglalkozású;730337;584269;584270
+8413;Villamosvezető;821955;657564;657565
+8415;Trolibuszvezető;826596;661276;661277
+8416;Személygépkocsi-vezető;558107;446485;446486
+8417;Tehergépkocsi-vezető, kamionsofőr;451171;360936;360937
+8418;Autóbuszvezető;674243;539394;539395
+8419;Egyéb járművezető és kapcsolódó foglalkozású;596473;477178;477179
+8421;Mezőgazdasági, erdőgazdasági, növényvédő gép kezelője;524508;419606;419607
+8422;Földmunkagép és hasonló könnyű- és nehézgép kezelője;577877;462301;462302
+8423;Köztisztasági, településtisztasági gép kezelője;674444;539555;539556
+8424;Daru, felvonó és hasonló anyagmozgató gép kezelője;635452;508361;508362
+8425;Targoncavezető;628460;502768;502769
+8430;Hajószemélyzet, kormányos, matróz;623520;498816;498817
+9112;Intézményi takarító és kisegítő;361884;289507;289508
+9113;Kézi mosó, vasaló;381087;304869;304870
+9114;Járműtakarító;413134;330507;330508
+9115;Ablaktisztító;482206;385764;385765
+9119;Egyéb takarító és kisegítő;347673;278138;278139
+9211;Szemétgyűjtő, utcaseprő;404860;323888;323889
+9212;Hulladékosztályozó;413485;330788;330789
+9221;Pedálos vagy kézi hajtású gépek vezetője;450664;360531;360532
+9223;Rakodómunkás;523410;418728;418729
+9224;Pultfeltöltő, árufeltöltő;377575;302060;302061
+9225;Kézi csomagoló;450344;360275;360276
+9231;Portás, telepőr, egyszerű őr;413339;330671;330672
+9232;Mérőóra-leolvasó és hasonló egyszerű foglalkozású;509138;407310;407311
+9233;Hivatalsegéd, kézbesítő;361194;288955;288956
+9234;Hordár, csomagkihordó;377166;301732;301733
+9235;Gyorséttermi eladó;415225;332180;332181
+9236;Konyhai kisegítő;349398;279518;279519
+9238;Parkolóőr;494619;395695;395696
+9239;Egyéb, máshova nem sorolható egyszerű szolgáltatási és szállítási foglalkozású;253600;202880;202881
+9310;Egyszerű ipari foglalkozású;448231;358584;358585
+9321;Kubikos;306882;245505;245506
+9329;Egyéb egyszerű építőipari foglalkozású;364723;291778;291779
+9331;Egyszerű mezőgazdasági foglalkozású;340084;272067;272068
+9332;Egyszerű erdészeti, vadászati és halászati foglalkozású;298441;238752;238753

@@ -1,0 +1,10 @@
+{
+  "marka": "Mire elég?",
+  "domain": "https://mire-eleg.pages.dev",
+  "eles": false,
+  "szlogen": "Fizetések foglalkozásonként, és hogy mire elég belőlük.",
+  "kapcsolat_email": "",
+  "uzemelteto": { "nev": "Czakó Péter", "tipus": "magánszemély" },
+  "tarhely": { "nev": "Cloudflare, Inc.", "cim": "101 Townsend St, San Francisco, CA 94107, USA", "web": "https://www.cloudflare.com" },
+  "megjegyzes": "Tesztnév és tesztcím. Amíg az eles hamis, minden oldal noindex. Élesítéskor: a végleges domain a domain mezőbe, a márkanév a marka mezőbe, eles: true, majd node epit.mjs."
+}

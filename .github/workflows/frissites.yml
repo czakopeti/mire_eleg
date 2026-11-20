@@ -1,0 +1,49 @@
+name: Heti frissítés
+# Every Monday (and daily in February–May, when KSH publishes the yearly occupation table):
+# download the sources, validate, run the tests, rebuild the site, commit if anything changed,
+# and open an issue if something needs a human look. Free on a public repository.
+on:
+  schedule:
+    - cron: '17 4 * * 1'
+    - cron: '17 4 * 2-5 *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['frissito/**', 'forras/**', 'data/nevek.json', 'data/szabalyok.json', 'config.json', 'epit.mjs', '.github/workflows/frissites.yml']
+permissions:
+  contents: write
+  issues: write
+concurrency:
+  group: frissites
+  cancel-in-progress: false
+jobs:
+  frissit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Adatok letöltése és ellenőrzése
+        run: node frissito/futtat.mjs > /tmp/jegy.md
+      - name: Forrásfigyelő (jogszabályok, NAV)
+        run: node frissito/figyelo.mjs >> /tmp/jegy.md
+      - name: Tesztek
+        run: node --test tesztek/*.test.mjs
+      - name: Építés
+        run: node epit.mjs
+      - name: Mentés, ha változott valami
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || { git commit -m "Weekly update: refresh data and rebuild"; git push; }
+      - name: Jegy, ha valamit meg kell nézni
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          [ -s /tmp/jegy.md ] || { echo "Nincs teendő."; exit 0; }
+          gh label create teendo --color B60205 --description "A frissítő jelzése: ezt egy embernek meg kell néznie" 2>/dev/null || true
+          n=$(gh issue list --label teendo --state open --json number --jq '.[0].number')
+          if [ -n "$n" ]; then gh issue comment "$n" --body-file /tmp/jegy.md; else gh issue create --title "A frissítő jelez: ezt nézd meg" --label teendo --body-file /tmp/jegy.md; fi

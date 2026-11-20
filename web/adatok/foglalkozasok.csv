@@ -1,0 +1,463 @@
+﻿# Forrás: KSH STADAT 20.1.1.52. Teljes munkaidőben alkalmazásban állók bruttó átlagkeresete foglalkozások szerint; 2025. évi adat; letöltve: 2026-11-20; https://mire-eleg.pages.dev
+feor;foglalkozas;koznapi_nevek;brutto_2025;netto_kedvezmeny_nelkul_2026_szabalyokkal;brutto_30_alatt;brutto_30_39;brutto_40_49;brutto_50_felett;kuszob_80_szazalek;url
+3173;Légiforgalmi irányító;légiirányító, légiforgalmi irányító;3912766;2601989;1582992;;4323672;;3130212;https://mire-eleg.pages.dev/fizetes/legiiranyito/
+3172;Légijármű-vezető, hajózómérnök;pilóta, repülőgép-vezető;3201941;2129291;;2885825;4219397;3394083;2561552;https://mire-eleg.pages.dev/fizetes/pilota/
+1110;Törvényhozó, miniszter, államtitkár;országgyűlési képviselő, miniszter, államtitkár, politikus;2548701;1694886;;2163392;2615577;2616163;2038960;https://mire-eleg.pages.dev/fizetes/orszaggyulesi-kepviselo/
+1323;Pénzintézeti tevékenységet folytató egység vezetője;bankfiókvezető, banki vezető;2201458;1463969;;1864518;2243613;2316552;1761166;https://mire-eleg.pages.dev/fizetes/bankfiokvezeto/
+2212;Szakorvos;szakorvos, orvos (szakorvos), sebész, belgyógyász, főorvos;2109502;1402819;1239478;1887152;2028878;2259845;1687601;https://mire-eleg.pages.dev/fizetes/szakorvos/
+1322;Informatikai és telekommunikációs tevékenységet folytató egység vezetője;informatikai vezető, IT-vezető, CTO, IT-igazgató;1991839;1324573;1268739;1975246;2086556;1938294;1593471;https://mire-eleg.pages.dev/fizetes/informatikai-vezeto/
+3721;Sportoló;sportoló, hivatásos sportoló, focista;1858719;1236048;1627916;2795133;1083947;634024;1486975;https://mire-eleg.pages.dev/fizetes/sportolo/
+1413;Kutatási és fejlesztési tevékenységet folytató egység vezetője;;1848637;1229343;1100813;1650473;1897611;1937509;1478909;https://mire-eleg.pages.dev/fizetes/kutatasi-es-fejlesztesi-tevekenyseget-folytato-egyseg-vezetoje/
+1414;Vállalati stratégiatervezési egység vezetője;;1841393;1224526;1123629;1790431;2028559;1719020;1473114;https://mire-eleg.pages.dev/fizetes/vallalati-strategiatervezesi-egyseg-vezetoje/
+1412;Személyzeti vezető, humánpolitikai egység vezetője;HR-vezető, HR-igazgató, személyzeti vezető;1831361;1217855;988026;1583656;1939732;1910892;1465088;https://mire-eleg.pages.dev/fizetes/hr-vezeto/
+1327;Egészségügyi tevékenységet folytató egység vezetője;kórházigazgató, egészségügyi intézményvezető;1829402;1216553;955426;1267641;1527958;2006106;1463521;https://mire-eleg.pages.dev/fizetes/korhazigazgato/
+3613;Tőzsde- és pénzügyi ügynök, bróker;bróker, tőzsdeügynök;1780991;1184359;1296758;1836406;1939608;1796630;1424792;https://mire-eleg.pages.dev/fizetes/broker/
+1411;Számviteli és pénzügyi tevékenységet folytató egység vezetője;pénzügyi igazgató, gazdasági igazgató, CFO, főkönyvelő;1736137;1154531;1079825;1623712;1853312;1686163;1388909;https://mire-eleg.pages.dev/fizetes/penzugyi-igazgato/
+1415;Értékesítési és marketingtevékenységet folytató egység vezetője;értékesítési vezető, marketingvezető, sales manager, kereskedelmi igazgató;1696745;1128335;916006;1526806;1779771;1812607;1357396;https://mire-eleg.pages.dev/fizetes/ertekesitesi-vezeto/
+2612;Ügyész, ügyészségi fogalmazó;ügyész;1556410;1035012;572671;1265166;1566485;1824674;1245128;https://mire-eleg.pages.dev/fizetes/ugyesz/
+2534;Informatikai és telekommunikációs technológiai termékek értékesítését tervező, szervező;IT-értékesítő, informatikai értékesítő, presales;1532243;1018942;896950;1464945;1718597;1682328;1225794;https://mire-eleg.pages.dev/fizetes/it-ertekesito/
+1334;Üzleti szolgáltatási tevékenységet folytató egység vezetője;;1525364;1014367;802514;1446239;1657080;1484134;1220291;https://mire-eleg.pages.dev/fizetes/uzleti-szolgaltatasi-tevekenyseget-folytato-egyseg-vezetoje/
+2613;Bíró, bírósági fogalmazó;bíró;1524483;1013782;;1195170;1434317;1651970;1219586;https://mire-eleg.pages.dev/fizetes/biro/
+1419;Egyéb gazdasági tevékenységet segítő egység vezetője;;1501738;998655;879167;1415038;1637516;1447889;1201390;https://mire-eleg.pages.dev/fizetes/egyeb-gazdasagi-tevekenyseget-segito-egyseg-vezetoje/
+1121;Országos és területi közigazgatás, igazságszolgáltatás vezetője;;1495486;994498;1236728;1392413;1470794;1547967;1196388;https://mire-eleg.pages.dev/fizetes/orszagos-es-teruleti-kozigazgatas-igazsagszolgaltatas-vezetoje/
+1312;Ipari tevékenységet folytató egység vezetője;gyárigazgató, termelési vezető, üzemvezető;1488741;990013;1020063;1367099;1598344;1475198;1190992;https://mire-eleg.pages.dev/fizetes/gyarigazgato/
+1416;Reklám-, PR- és egyéb kommunikációs tevékenységet folytató egység vezetője;;1454243;967072;834187;1367692;1559408;1531313;1163394;https://mire-eleg.pages.dev/fizetes/reklam-pr-es-egyeb-kommunikacios-tevekenyseget-folytato-egyseg-vezetoje/
+2166;Matematikus;matematikus, adattudós, data scientist;1420336;944524;979839;1457508;1691006;1684671;1136268;https://mire-eleg.pages.dev/fizetes/matematikus/
+2211;Általános orvos;háziorvos, általános orvos, rezidens, orvos;1410897;938246;1201131;1463992;1297423;1750635;1128717;https://mire-eleg.pages.dev/fizetes/haziorvos/
+1131;Társadalmi (érdek-képviseleti) és egyéb szervezet vezetője;;1378583;916758;;1111940;1373112;1441329;1102866;https://mire-eleg.pages.dev/fizetes/tarsadalmi-erdek-kepviseleti-es-egyeb-szervezet-vezetoje/
+2142;Szoftverfejlesztő;programozó, szoftverfejlesztő, fejlesztő, szoftvermérnök, backend fejlesztő;1364606;907463;1095037;1472607;1473632;1296423;1091684;https://mire-eleg.pages.dev/fizetes/programozo/
+2141;Rendszerelemző (informatikai);rendszerelemző, üzleti elemző (IT), business analyst, rendszerszervező;1355026;901092;1032932;1390705;1448382;1402205;1084020;https://mire-eleg.pages.dev/fizetes/rendszerelemzo/
+2149;Egyéb szoftver- és alkalmazásfejlesztő, -elemző;szoftvertesztelő, tesztelő, QA mérnök;1349764;897593;1045449;1399096;1480401;1377873;1079811;https://mire-eleg.pages.dev/fizetes/szoftvertesztelo/
+1122;Helyi önkormányzat választott vezetője;polgármester, alpolgármester;1346173;895205;;1350532;1350341;1344509;1076938;https://mire-eleg.pages.dev/fizetes/polgarmester/
+2624;Elemző közgazdász;közgazdász, elemző közgazdász;1336948;889071;991332;1318122;1467986;1379107;1069558;https://mire-eleg.pages.dev/fizetes/kozgazdasz/
+0110;Fegyveres szervek felsőfokú képesítést igénylő foglalkozásai;hivatásos katonatiszt, katonatiszt, honvédtiszt;1316438;875431;1041519;1171220;1325283;1486469;1053150;https://mire-eleg.pages.dev/fizetes/hivatasos-katonatiszt/
+2521;Szervezetirányítási elemző, szervező;szervezetfejlesztő, folyamatszervező, projektmenedzser;1277336;849429;896154;1330071;1374099;1284600;1021868;https://mire-eleg.pages.dev/fizetes/szervezetfejleszto/
+2123;Telekommunikációs mérnök;;1276573;848921;905250;1251738;1409191;1257305;1021258;https://mire-eleg.pages.dev/fizetes/telekommunikacios-mernok/
+2161;Fizikus;;1265101;841292;886366;1188317;1454452;1429553;1012080;https://mire-eleg.pages.dev/fizetes/fizikus/
+2226;Mentőtiszt;mentőtiszt;1256477;835557;1113104;1161761;1296305;1385805;1005181;https://mire-eleg.pages.dev/fizetes/mentotiszt/
+2159;Egyéb adatbázis- és hálózati elemző, üzemeltető;;1251168;832027;944460;1273464;1367551;1242468;1000934;https://mire-eleg.pages.dev/fizetes/egyeb-adatbazis-es-halozati-elemzo-uzemelteto/
+2511;Pénzügyi elemző és befektetési tanácsadó;pénzügyi elemző, befektetési tanácsadó, elemző;1244775;827776;1000295;1323514;1340770;1220286;995820;https://mire-eleg.pages.dev/fizetes/penzugyi-elemzo/
+2229;Egyéb humán-egészségügyi (társ)foglalkozású;;1244161;827367;749740;1179871;1383607;1299512;995328;https://mire-eleg.pages.dev/fizetes/egyeb-human-egeszsegugyi-tars-foglalkozasu/
+1210;Gazdasági, költségvetési szervezet vezetője (igazgató, elnök, ügyvezető igazgató);ügyvezető igazgató, cégvezető, vezérigazgató, ügyvezető, CEO;1239216;824079;549138;894991;1201838;1370800;991372;https://mire-eleg.pages.dev/fizetes/ugyvezeto-igazgato/
+2121;Villamosmérnök (energetikai mérnök);villamosmérnök, energetikai mérnök;1238587;823660;1022088;1278644;1321116;1235076;990869;https://mire-eleg.pages.dev/fizetes/villamosmernok/
+2139;Egyéb, máshova nem sorolható mérnök;;1237258;822776;955280;1247514;1355940;1279750;989806;https://mire-eleg.pages.dev/fizetes/egyeb-mashova-nem-sorolhato-mernok/
+2122;Villamosmérnök (elektronikai mérnök);elektronikai mérnök, villamosmérnök (elektronika), hardverfejlesztő;1235768;821786;990763;1288122;1378829;1183281;988614;https://mire-eleg.pages.dev/fizetes/elektronikai-mernok/
+2512;Adótanácsadó, adószakértő;adótanácsadó, adószakértő;1234466;820920;842442;1446441;1534154;1233334;987572;https://mire-eleg.pages.dev/fizetes/adotanacsado/
+2151;Adatbázis-tervező és -üzemeltető;adatbázis-adminisztrátor, adatbázis-tervező, DBA, adatmérnök;1229809;817823;1001304;1281701;1344156;1200740;983847;https://mire-eleg.pages.dev/fizetes/adatbazis-adminisztrator/
+1321;Szállítási, logisztikai és raktározási tevékenységet folytató egység vezetője;logisztikai vezető, raktárvezető, szállítási vezető;1228118;816698;835631;1123991;1352368;1190537;982494;https://mire-eleg.pages.dev/fizetes/logisztikai-vezeto/
+1123;Helyi önkormányzat kinevezett vezetője;jegyző, aljegyző;1222458;812934;930194;1114120;1220520;1260386;977966;https://mire-eleg.pages.dev/fizetes/jegyzo/
+1328;Oktatási-nevelési tevékenységet folytató egység vezetője;iskolaigazgató, óvodavezető, intézményvezető;1203654;800430;939090;1060106;1157962;1238326;962923;https://mire-eleg.pages.dev/fizetes/iskolaigazgato/
+8324;Sugármentesítő gép, berendezés kezelője;;1176493;782368;;;1197144;1210148;941194;https://mire-eleg.pages.dev/fizetes/sugarmentesito-gep-berendezes-kezeloje/
+2153;Számítógép-hálózati elemző, üzemeltető;hálózati mérnök, hálózatüzemeltető;1175867;781952;964170;1230351;1262962;1130277;940693;https://mire-eleg.pages.dev/fizetes/halozati-mernok/
+2514;Kontroller;kontroller, controller, pénzügyi kontroller;1173051;780079;901316;1204680;1271500;1177504;938440;https://mire-eleg.pages.dev/fizetes/kontroller/
+3151;Energetikai (erőművi) berendezés vezérlője;;1153981;767398;1173106;1272723;1179230;1087912;923184;https://mire-eleg.pages.dev/fizetes/energetikai-eromuvi-berendezes-vezerloje/
+2111;Bányamérnök;;1145210;761564;920877;1217254;1166771;1149991;916168;https://mire-eleg.pages.dev/fizetes/banyamernok/
+2533;Kereskedelmi tervező, szervező;értékesítő, kereskedelmi képviselő, key account manager, sales, üzletkötő;1134156;754214;835915;1130473;1207588;1160455;907324;https://mire-eleg.pages.dev/fizetes/ertekesito/
+2137;Minőségbiztosítási mérnök;minőségbiztosítási mérnök, minőségügyi mérnök;1131883;752703;912177;1120864;1221599;1167944;905506;https://mire-eleg.pages.dev/fizetes/minosegbiztositasi-mernok/
+2118;Gépészmérnök;gépészmérnök;1117271;742985;956471;1173125;1199668;1052617;893816;https://mire-eleg.pages.dev/fizetes/gepeszmernok/
+2611;Jogász, jogtanácsos;jogász, jogtanácsos, jogi előadó;1115095;741538;744410;1081074;1241290;1164981;892076;https://mire-eleg.pages.dev/fizetes/jogasz/
+2143;Hálózat- és multimédia-fejlesztő;webfejlesztő, frontend fejlesztő, hálózatfejlesztő;1102824;733378;803124;1155198;1229433;1077885;882259;https://mire-eleg.pages.dev/fizetes/webfejleszto/
+2116;Építőmérnök;építőmérnök, statikus;1096827;729390;865299;1116966;1190737;1076332;877461;https://mire-eleg.pages.dev/fizetes/epitomernok/
+2112;Kohó- és anyagmérnök;;1094179;727629;873812;1081781;1103061;1213178;875343;https://mire-eleg.pages.dev/fizetes/koho-es-anyagmernok/
+2144;Alkalmazásprogramozó;alkalmazásprogramozó, alkalmazásfejlesztő, mobilfejlesztő;1093150;726944;898765;1163636;1178599;1037450;874520;https://mire-eleg.pages.dev/fizetes/alkalmazasprogramozo/
+2164;Kémikus;;1091544;725876;825744;998155;1147749;1315654;873235;https://mire-eleg.pages.dev/fizetes/kemikus/
+2531;Piackutató, reklám- és marketingtevékenységet tervező, szervező;marketinges, marketing manager, piackutató, marketing szakember;1091070;725561;775504;1089483;1228028;1253665;872856;https://mire-eleg.pages.dev/fizetes/marketinges/
+2117;Vegyészmérnök;vegyészmérnök;1087124;722937;824628;1074792;1187151;1223235;869699;https://mire-eleg.pages.dev/fizetes/vegyeszmernok/
+2165;Geológus;;1082600;719929;711528;941984;1195499;1278811;866080;https://mire-eleg.pages.dev/fizetes/geologus/
+3154;Kőolaj- és földgázfinomító berendezés vezérlője;;1081157;718969;;;;;864925;https://mire-eleg.pages.dev/fizetes/koolaj-es-foldgazfinomito-berendezes-vezerloje/
+1329;Egyéb szolgáltatást nyújtó egység vezetője;;1080502;718534;677098;1068856;1154545;1051271;864401;https://mire-eleg.pages.dev/fizetes/egyeb-szolgaltatast-nyujto-egyseg-vezetoje/
+7332;Repülőgépmotor-karbantartó, -javító;;1071656;712652;856913;1140484;1341868;1132173;857324;https://mire-eleg.pages.dev/fizetes/repulogepmotor-karbantarto-javito/
+1331;Szálláshely-szolgáltatási tevékenységet folytató egység vezetője;szállodaigazgató, szállodavezető;1052726;700063;709389;913698;1140791;1147029;842180;https://mire-eleg.pages.dev/fizetes/szallodaigazgato/
+2228;Alternatív gyógymódot alkalmazó;;1040706;692069;;;;1061941;832564;https://mire-eleg.pages.dev/fizetes/alternativ-gyogymodot-alkalmazo/
+8411;Mozdonyvezető;mozdonyvezető;1039104;691004;849462;1005099;1049281;1141664;831283;https://mire-eleg.pages.dev/fizetes/mozdonyvezeto/
+2523;Személyzeti és pályaválasztási szakértő;HR-es, HR generalista, toborzó, HR business partner, recruiter;1034947;688240;825567;1058257;1147835;1091952;827957;https://mire-eleg.pages.dev/fizetes/hr-es/
+2169;Egyéb természettudományi foglalkozású;;1030395;685213;785989;977887;1112875;1164602;824316;https://mire-eleg.pages.dev/fizetes/egyeb-termeszettudomanyi-foglalkozasu/
+2522;Üzletpolitikai elemző, szervező;üzleti elemző, üzleti tanácsadó, stratégiai elemző;1023319;680507;983073;1173915;1071462;881014;818655;https://mire-eleg.pages.dev/fizetes/uzleti-elemzo/
+2167;Biológus, botanikus, zoológus és rokon foglalkozású;biológus;1005233;668480;707390;925530;1112935;1204206;804186;https://mire-eleg.pages.dev/fizetes/biologus/
+2410;Egyetemi, főiskolai oktató, tanár;egyetemi oktató, egyetemi tanár, adjunktus, docens, tanársegéd;1002028;666349;713356;898076;1014689;1074671;801622;https://mire-eleg.pages.dev/fizetes/egyetemi-oktato/
+2213;Fogorvos, fogszakorvos;fogorvos;1001990;666323;741625;851451;923525;1235513;801592;https://mire-eleg.pages.dev/fizetes/fogorvos/
+2231;Ápoló (felsőfokú képzettséghez kapcsolódó);diplomás ápoló, ápoló (BSc), okleveles ápoló;999985;664990;895897;921103;987296;1061046;799988;https://mire-eleg.pages.dev/fizetes/diplomas-apolo/
+2214;Gyógyszerész, szakgyógyszerész;gyógyszerész, patikus;990165;658459;874105;994642;980790;1054028;792132;https://mire-eleg.pages.dev/fizetes/gyogyszeresz/
+3211;Bányászati szakmai irányító, felügyelő;;980015;651710;;;890119;1042978;784012;https://mire-eleg.pages.dev/fizetes/banyaszati-szakmai-iranyito-felugyelo/
+2163;Meteorológus;;970381;645304;;923840;;;776304;https://mire-eleg.pages.dev/fizetes/meteorologus/
+3162;Energetikus;;968078;643772;990771;967704;1047982;902858;774462;https://mire-eleg.pages.dev/fizetes/energetikus/
+8131;Kőolaj- és földgázfeldolgozó gép kezelője;;963628;640813;769759;886367;1021895;1018547;770902;https://mire-eleg.pages.dev/fizetes/koolaj-es-foldgazfeldolgozo-gep-kezeloje/
+8312;Kútfúró, mélyfúró gép kezelője (kőolaj, földgáz, víz);;959480;638054;856660;997136;1002981;955653;767584;https://mire-eleg.pages.dev/fizetes/kutfuro-melyfuro-gep-kezeloje-koolaj-foldgaz-viz/
+2524;Képzési és személyzetfejlesztési szakértő;tréner, képzési szakértő, HR fejlesztési szakértő;958819;637614;762431;992154;1023765;963063;767055;https://mire-eleg.pages.dev/fizetes/trener/
+2532;PR-tevékenységet tervező, szervező;PR-os, PR-szakember, kommunikációs szakember;957924;637019;753780;966708;1075517;990741;766339;https://mire-eleg.pages.dev/fizetes/pr-os/
+2134;Település- és közlekedéstervező mérnök;;954766;634919;782244;928029;979547;1018141;763812;https://mire-eleg.pages.dev/fizetes/telepules-es-kozlekedestervezo-mernok/
+3142;Informatikai és kommunikációs rendszerek felhasználóit támogató technikus;IT helpdesk, helpdesk munkatárs, IT support, informatikai ügyfélszolgálatos;951276;632599;798207;995342;1060797;925580;761020;https://mire-eleg.pages.dev/fizetes/it-helpdesk/
+1313;Építőipari tevékenységet folytató egység vezetője;építésvezető, építőipari projektvezető;948596;630817;672040;938441;973782;964172;758876;https://mire-eleg.pages.dev/fizetes/epitesvezeto/
+2910;Egyéb magasan képzett ügyintéző;;943819;627639;799629;991057;973362;928951;755055;https://mire-eleg.pages.dev/fizetes/egyeb-magasan-kepzett-ugyintezo/
+2152;Rendszergazda;rendszergazda, rendszeradminisztrátor, DevOps mérnök;937570;623484;711002;941135;1023379;975168;750056;https://mire-eleg.pages.dev/fizetes/rendszergazda/
+2621;Filozófus, politológus;;937498;623436;;;;;749998;https://mire-eleg.pages.dev/fizetes/filozofus-politologus/
+2721;Író (újságíró nélkül);;928959;617758;678706;960765;1055322;1031819;743167;https://mire-eleg.pages.dev/fizetes/iro-ujsagiro-nelkul/
+3121;Villamosipari technikus (energetikai technikus);villamosipari technikus, erősáramú technikus;927293;616650;720113;928696;1001775;957547;741834;https://mire-eleg.pages.dev/fizetes/villamosipari-technikus/
+3143;Számítógéphálózat- és rendszertechnikus;;921073;612513;731517;959238;1037637;885516;736858;https://mire-eleg.pages.dev/fizetes/szamitogephalozat-es-rendszertechnikus/
+1333;Kereskedelmi tevékenységet folytató egység vezetője;boltvezető, üzletvezető, áruházvezető;918445;610766;673418;861800;954339;949649;734756;https://mire-eleg.pages.dev/fizetes/boltvezeto/
+1311;Mezőgazdasági, erdészeti, halászati és vadászati tevékenységet folytató egység vezetője;;917174;609921;744203;824928;950360;947539;733739;https://mire-eleg.pages.dev/fizetes/mezogazdasagi-erdeszeti-halaszati-es-vadaszati-tevekenyseget-folytato-egyseg-vezetoje/
+3212;Feldolgozóipari szakmai irányító, felügyelő;művezető, csoportvezető (gyártás);910549;605515;791672;914057;947936;891497;728439;https://mire-eleg.pages.dev/fizetes/muvezeto/
+2513;Könyvvizsgáló, könyvelő, könyvszakértő;könyvelő (mérlegképes), könyvvizsgáló, mérlegképes könyvelő;906836;603046;842571;1091225;972097;807730;725468;https://mire-eleg.pages.dev/fizetes/konyvelo-merlegkepes/
+2168;Környezetfelmérő, -tanácsadó;;898780;597689;724314;865054;900544;1014324;719024;https://mire-eleg.pages.dev/fizetes/kornyezetfelmero-tanacsado/
+2628;Pszichológus;pszichológus;897165;596614;707124;898649;971906;1085161;717732;https://mire-eleg.pages.dev/fizetes/pszichologus/
+3141;Informatikai és kommunikációs rendszereket kezelő technikus;informatikus, IT-technikus, rendszerüzemeltető;895645;595604;749553;961785;964366;864862;716516;https://mire-eleg.pages.dev/fizetes/informatikus/
+8321;Energetikai gép kezelője;;894307;594714;795558;874220;907847;906234;715445;https://mire-eleg.pages.dev/fizetes/energetikai-gep-kezeloje/
+1335;Kulturális tevékenységet folytató egység vezetője;;890181;591971;691468;816786;869256;929688;712144;https://mire-eleg.pages.dev/fizetes/kulturalis-tevekenyseget-folytato-egyseg-vezetoje/
+2132;Erdő- és természetvédelmi mérnök;;889846;591747;718013;884059;949980;942256;711876;https://mire-eleg.pages.dev/fizetes/erdo-es-termeszetvedelmi-mernok/
+3213;Építőipari szakmai irányító, felügyelő;építőipari művezető, építésvezető-helyettes;889768;591696;790686;946034;926954;851396;711814;https://mire-eleg.pages.dev/fizetes/epitoipari-muvezeto/
+2619;Egyéb jogi foglalkozású;;888417;590797;616942;877816;1018098;1021516;710733;https://mire-eleg.pages.dev/fizetes/egyeb-jogi-foglalkozasu/
+1325;Gyermekgondozási tevékenységet folytató egység vezetője;;886160;589296;692297;822219;851966;935964;708928;https://mire-eleg.pages.dev/fizetes/gyermekgondozasi-tevekenyseget-folytato-egyseg-vezetoje/
+3624;Ügynök (a biztosítási ügynök kivételével);;885469;588837;715196;880680;936421;880259;708375;https://mire-eleg.pages.dev/fizetes/ugynok-a-biztositasi-ugynok-kivetelevel/
+3171;Tengeri és belvízi hajóparancsnok, fedélzeti tiszt;;884563;588235;;;;927572;707650;https://mire-eleg.pages.dev/fizetes/tengeri-es-belvizi-hajoparancsnok-fedelzeti-tiszt/
+2421;Középiskolai tanár;középiskolai tanár, gimnáziumi tanár, tanár (középiskola);877998;583868;765326;816446;857775;916113;702398;https://mire-eleg.pages.dev/fizetes/kozepiskolai-tanar/
+3323;Orvosi képalkotó diagnosztikai és terápiás berendezések kezelője;röntgenasszisztens, radiográfus, MR-asszisztens;871982;579868;816703;881254;851684;893561;697585;https://mire-eleg.pages.dev/fizetes/rontgenasszisztens/
+3161;Munka- és termelésszervező;termelésirányító, műszakvezető, termeléstervező, munkaszervező;861762;573072;750923;893567;902182;828475;689409;https://mire-eleg.pages.dev/fizetes/termelesiranyito/
+2422;Középfokú nevelési-oktatási intézményi szakoktató, gyakorlati oktató;szakoktató, gyakorlati oktató;859141;571329;787313;828307;861922;871802;687312;https://mire-eleg.pages.dev/fizetes/szakoktato/
+3146;Telekommunikációs technikus;;855180;568695;696217;845684;886828;882767;684144;https://mire-eleg.pages.dev/fizetes/telekommunikacios-technikus/
+3612;Pénzintézeti ügyintéző;banki ügyintéző, banki tanácsadó, hitelügyintéző;855103;568644;681455;837885;922064;892391;684082;https://mire-eleg.pages.dev/fizetes/banki-ugyintezo/
+2232;Szülész(nő) (felsőfokú képzettséghez kapcsolódó);szülésznő (diplomás), szülész (felsőfokú);854405;568179;823970;833016;825663;904292;683524;https://mire-eleg.pages.dev/fizetes/szuleszno-diplomas/
+2113;Élelmiszer-ipari mérnök;;854400;568176;709539;858592;910975;925918;683520;https://mire-eleg.pages.dev/fizetes/elelmiszer-ipari-mernok/
+2131;Mezőgazdasági mérnök;;851060;565955;672192;791864;911482;911815;680848;https://mire-eleg.pages.dev/fizetes/mezogazdasagi-mernok/
+7322;Szerszámkészítő;szerszámkészítő;850316;565461;773904;910162;915431;805080;680252;https://mire-eleg.pages.dev/fizetes/szerszamkeszito/
+2136;Grafikus és multimédia-tervező;grafikus, grafikai tervező, UX designer, webdesigner;847098;563320;660002;896223;960762;807061;677678;https://mire-eleg.pages.dev/fizetes/grafikus/
+2114;Fa- és könnyűipari mérnök;;838974;557918;639821;830673;931662;821620;671179;https://mire-eleg.pages.dev/fizetes/fa-es-konnyuipari-mernok/
+4129;Egyéb számviteli foglalkozású;;837378;556856;702476;954338;944953;697130;669902;https://mire-eleg.pages.dev/fizetes/egyeb-szamviteli-foglalkozasu/
+3163;Munkavédelmi és üzembiztonsági foglalkozású;munkavédelmi előadó, munkavédelmi szakember, EHS-munkatárs;837167;556716;651510;854133;881086;842849;669733;https://mire-eleg.pages.dev/fizetes/munkavedelmi-eloado/
+2629;Egyéb társadalomtudományi foglalkozású;;836756;556443;675834;799757;884794;873799;669404;https://mire-eleg.pages.dev/fizetes/egyeb-tarsadalomtudomanyi-foglalkozasu/
+2115;Építészmérnök;építész, építészmérnök;835446;555571;675801;884444;882826;815122;668356;https://mire-eleg.pages.dev/fizetes/epitesz/
+3111;Bányászati technikus;;835150;555374;;1037279;826372;765101;668120;https://mire-eleg.pages.dev/fizetes/banyaszati-technikus/
+1336;Sport- és rekreációs tevékenységet folytató egység vezetője;;833594;554340;;813733;886528;832349;666875;https://mire-eleg.pages.dev/fizetes/sport-es-rekreacios-tevekenyseget-folytato-egyseg-vezetoje/
+1339;Egyéb kereskedelmi, vendéglátó és hasonló szolgáltatási tevékenységet folytató egység vezetője;;829178;551403;617409;793642;841755;852040;663342;https://mire-eleg.pages.dev/fizetes/egyeb-kereskedelmi-vendeglato-es-hasonlo-szolgaltatasi-tevekenyseget-folytato-egyseg-vezetoje/
+8415;Trolibuszvezető;;826596;549687;709577;788619;832748;862752;661276;https://mire-eleg.pages.dev/fizetes/trolibuszvezeto/
+2625;Statisztikus;statisztikus, adatelemző;825393;548886;746199;901450;874263;765970;660314;https://mire-eleg.pages.dev/fizetes/statisztikus/
+2431;Általános iskolai tanár, tanító;tanító, általános iskolai tanár, tanár, pedagógus;822507;546967;743022;776473;805812;855177;658005;https://mire-eleg.pages.dev/fizetes/tanito/
+2725;Rendező, operatőr;;822162;546738;657559;807211;933116;802086;657729;https://mire-eleg.pages.dev/fizetes/rendezo-operator/
+8413;Villamosvezető;villamosvezető;821955;546600;775910;788718;808094;866098;657564;https://mire-eleg.pages.dev/fizetes/villamosvezeto/
+0210;Fegyveres szervek középfokú képesítést igénylő foglalkozásai;katona, hivatásos katona, altiszt, szerződéses katona;821948;546596;686704;831883;852070;884146;657558;https://mire-eleg.pages.dev/fizetes/katona/
+3623;Anyaggazdálkodó, felvásárló;beszerző, anyagbeszerző, anyaggazdálkodó;819396;544899;713548;874535;889784;731570;655516;https://mire-eleg.pages.dev/fizetes/beszerzo/
+3221;Irodai szakmai irányító, felügyelő;irodavezető, csoportvezető (iroda);817432;543592;702204;804623;829181;841583;653945;https://mire-eleg.pages.dev/fizetes/irodavezeto/
+3139;Egyéb, máshova nem sorolható technikus;;816801;543173;723574;841836;853741;811286;653440;https://mire-eleg.pages.dev/fizetes/egyeb-mashova-nem-sorolhato-technikus/
+2227;Hallás- és beszédterapeuta;logopédus, audiológus;816013;542649;693722;920023;769433;855710;652810;https://mire-eleg.pages.dev/fizetes/logopedus/
+3116;Gépésztechnikus;gépésztechnikus;815489;542301;675058;861621;879928;808048;652391;https://mire-eleg.pages.dev/fizetes/gepesztechnikus/
+8132;Vegyi alapanyagot és terméket gyártó gép kezelője;;812143;540076;716861;828388;839810;831269;649714;https://mire-eleg.pages.dev/fizetes/vegyi-alapanyagot-es-termeket-gyarto-gep-kezeloje/
+3153;Vegyipari alapanyag-feldolgozó berendezés vezérlője;;807464;536963;774665;841038;829544;782225;645971;https://mire-eleg.pages.dev/fizetes/vegyipari-alapanyag-feldolgozo-berendezes-vezerloje/
+3190;Egyéb műszaki foglalkozású;;806604;536391;728549;849910;846990;771995;645283;https://mire-eleg.pages.dev/fizetes/egyeb-muszaki-foglalkozasu/
+3312;Szülész(nő)i tevékenység segítője;szülésznő;803882;534582;;;789421;820458;643105;https://mire-eleg.pages.dev/fizetes/szuleszno/
+2242;Növényorvos (növényvédelmi szakértő);;803297;534192;739463;731164;913917;846057;642637;https://mire-eleg.pages.dev/fizetes/novenyorvos-novenyvedelmi-szakerto/
+4134;Humánpolitikai adminisztrátor;HR-adminisztrátor, HR-asszisztens, munkaügyi előadó;798968;531314;726876;868427;835169;732733;639174;https://mire-eleg.pages.dev/fizetes/hr-adminisztrator/
+8133;Gyógyszergyártó gép kezelője;;797381;530259;738034;812820;804771;809346;637904;https://mire-eleg.pages.dev/fizetes/gyogyszergyarto-gep-kezeloje/
+3112;Kohó- és anyagtechnikus;;796892;529933;636316;745323;858631;848994;637513;https://mire-eleg.pages.dev/fizetes/koho-es-anyagtechnikus/
+8134;Műtrágya- és növényvédőszer-gyártó gép kezelője;;796512;529680;772230;877002;860183;735229;637209;https://mire-eleg.pages.dev/fizetes/mutragya-es-novenyvedoszer-gyarto-gep-kezeloje/
+1326;Idősgondozási tevékenységet folytató egység vezetője;;792483;527002;;655417;765770;847289;633986;https://mire-eleg.pages.dev/fizetes/idosgondozasi-tevekenyseget-folytato-egyseg-vezetoje/
+3655;Nyomozó;nyomozó;790767;525860;574494;;878277;913648;632613;https://mire-eleg.pages.dev/fizetes/nyomozo/
+7343;Elektromoshálózat-szerelő, -javító;villamoshálózat-szerelő, hálózatszerelő;790169;525463;702172;789089;818170;816243;632135;https://mire-eleg.pages.dev/fizetes/villamoshalozat-szerelo/
+3122;Villamosipari technikus (elektronikai technikus);;789252;524852;695448;817372;845502;800521;631401;https://mire-eleg.pages.dev/fizetes/villamosipari-technikus-elektronikai-technikus/
+3152;Égető-, víz- és csatornaművi berendezés vezérlője;;789142;524780;;;849717;772145;631313;https://mire-eleg.pages.dev/fizetes/egeto-viz-es-csatornamuvi-berendezes-vezerloje/
+3159;Egyéb folyamatirányító berendezés vezérlője;;787827;523905;706390;832592;818625;756874;630261;https://mire-eleg.pages.dev/fizetes/egyeb-folyamatiranyito-berendezes-vezerloje/
+1324;Szociális tevékenységet folytató egység vezetője;;787257;523525;589263;677502;761217;838168;629805;https://mire-eleg.pages.dev/fizetes/szocialis-tevekenyseget-folytato-egyseg-vezetoje/
+2441;Gyógypedagógus;gyógypedagógus, fejlesztőpedagógus;786358;522928;728311;741265;775605;841722;629086;https://mire-eleg.pages.dev/fizetes/gyogypedagogus/
+2626;Szociológus, demográfus;;781613;519773;;;;742418;625290;https://mire-eleg.pages.dev/fizetes/szociologus-demografus/
+2135;Földmérő és térinformatikus;földmérő, térinformatikus, geodéta;778832;517923;737180;871598;768994;716514;623065;https://mire-eleg.pages.dev/fizetes/foldmero/
+3715;Kiegészítő filmgyártási és színházi foglalkozású;;776341;516267;639940;770554;829862;829650;621072;https://mire-eleg.pages.dev/fizetes/kiegeszito-filmgyartasi-es-szinhazi-foglalkozasu/
+3311;Ápoló, szakápoló;ápoló, nővér, szakápoló, ápolónő;774595;515106;694788;744062;784279;798046;619676;https://mire-eleg.pages.dev/fizetes/apolo/
+7334;Mechanikaigép-karbantartó, -javító (műszerész);műszerész, mechanikai műszerész;774436;515000;779333;838085;795364;719903;619548;https://mire-eleg.pages.dev/fizetes/muszeresz/
+3155;Fémgyártási berendezés vezérlője;;773527;514396;662335;763558;786132;813520;618821;https://mire-eleg.pages.dev/fizetes/femgyartasi-berendezes-vezerloje/
+8311;Szilárdásvány-kitermelő gép kezelője (szén, kő);;772494;513709;704093;728717;792481;787695;617995;https://mire-eleg.pages.dev/fizetes/szilardasvany-kitermelo-gep-kezeloje-szen-ko/
+3145;Műsorszóró és audiovizuális technikus;;771070;512761;649421;809843;858540;761908;616856;https://mire-eleg.pages.dev/fizetes/musorszoro-es-audiovizualis-technikus/
+3639;Egyéb, máshova nem sorolható üzleti jellegű szolgáltatás ügyintézője;;770936;512673;680184;819669;811589;732336;616748;https://mire-eleg.pages.dev/fizetes/egyeb-mashova-nem-sorolhato-uzleti-jellegu-szolgaltatas-ugyintezoje/
+2494;Egyéb művészetek tanára (iskolarendszeren kívül);;769856;511955;754199;734525;803409;778766;615884;https://mire-eleg.pages.dev/fizetes/egyeb-muveszetek-tanara-iskolarendszeren-kivul/
+3614;Számviteli ügyintéző;számviteli ügyintéző, könyvelési asszisztens;769592;511778;672709;827941;813158;733024;615673;https://mire-eleg.pages.dev/fizetes/szamviteli-ugyintezo/
+3339;Egyéb, humánegészségügyhöz kapcsolódó foglalkozású;;769263;511560;598655;805907;841936;749978;615410;https://mire-eleg.pages.dev/fizetes/egyeb-humanegeszsegugyhoz-kapcsolodo-foglalkozasu/
+5232;Utaskísérő (repülőn, hajón);légiutas-kísérő, stewardess, steward;768851;511286;701911;871380;1054574;799311;615080;https://mire-eleg.pages.dev/fizetes/legiutas-kisero/
+3324;Orvosi laboratóriumi asszisztens;laborasszisztens, orvosi laboratóriumi asszisztens;768726;511203;647138;725856;790023;808786;614980;https://mire-eleg.pages.dev/fizetes/laborasszisztens/
+3651;Vám- és pénzügyőr;pénzügyőr, vámos;767562;510429;653064;748945;800701;825611;614049;https://mire-eleg.pages.dev/fizetes/penzugyor/
+2614;Közjegyző;közjegyző;767161;510162;554698;776165;759250;828643;613728;https://mire-eleg.pages.dev/fizetes/kozjegyzo/
+2491;Pedagógiai szakértő, szaktanácsadó;;766978;510040;;691479;723659;819234;613582;https://mire-eleg.pages.dev/fizetes/pedagogiai-szakerto-szaktanacsado/
+2716;Újságíró, rádióműsor-, televízióműsor-szerkesztő;újságíró, szerkesztő, riporter;766783;509911;636116;751488;811359;804626;613426;https://mire-eleg.pages.dev/fizetes/ujsagiro/
+2493;Zenetanár (iskolarendszeren kívül);;765711;509197;751003;746612;752738;787236;612568;https://mire-eleg.pages.dev/fizetes/zenetanar-iskolarendszeren-kivul/
+3652;Adó- és illetékhivatali ügyintéző;adóügyintéző, NAV-ügyintéző, adóellenőr;764684;508514;646826;715503;777373;787257;611747;https://mire-eleg.pages.dev/fizetes/adougyintezo/
+7323;Forgácsoló;CNC-forgácsoló, forgácsoló, esztergályos, marós, CNC-s;759633;505156;650094;792743;861350;737927;607706;https://mire-eleg.pages.dev/fizetes/cnc-forgacsolo/
+2225;Védőnő;védőnő;759443;505030;628401;670821;749334;848116;607554;https://mire-eleg.pages.dev/fizetes/vedono/
+2499;Egyéb szakképzett oktató, nevelő;;751443;499710;666742;725000;746415;771109;601154;https://mire-eleg.pages.dev/fizetes/egyeb-szakkepzett-oktato-nevelo/
+3656;Végrehajtó, adósságbehajtó;;750160;498856;618247;718968;757468;780175;600128;https://mire-eleg.pages.dev/fizetes/vegrehajto-adossagbehajto/
+2311;Szociálpolitikus;;749812;498625;;;;739804;599849;https://mire-eleg.pages.dev/fizetes/szocialpolitikus/
+5251;Rendőr;rendőr;749209;498224;547383;697413;789004;867125;599367;https://mire-eleg.pages.dev/fizetes/rendor/
+2724;Zeneszerző, zenész, énekes;zenész, énekes, zeneszerző;745720;495904;701158;713833;725789;786803;596576;https://mire-eleg.pages.dev/fizetes/zenesz/
+2729;Egyéb alkotó- és előadó-művészi foglalkozású (felsőfokú képzettséghez kapcsolódó);;744703;495228;;760974;721096;793502;595762;https://mire-eleg.pages.dev/fizetes/egyeb-alkoto-es-eloado-muveszi-foglalkozasu-felsofoku-kepzettseghez-kapcsolodo/
+2715;Könyv- és lapkiadó szerkesztője;;740115;492177;591695;715809;799169;745495;592092;https://mire-eleg.pages.dev/fizetes/konyv-es-lapkiado-szerkesztoje/
+2442;Konduktor;;739688;491893;671247;716360;727681;829021;591750;https://mire-eleg.pages.dev/fizetes/konduktor/
+4121;Könyvelő (analitikus);könyvelő, analitikus könyvelő;738455;491073;648645;822142;787891;668764;590764;https://mire-eleg.pages.dev/fizetes/konyvelo/
+7341;Villamos gépek és készülékek műszerésze, javítója;villamos karbantartó, elektroműszerész, villanymotor-tekercselő;736032;489461;697824;779586;759828;714881;588825;https://mire-eleg.pages.dev/fizetes/villamos-karbantarto/
+0310;Fegyveres szervek középfokú képesítést nem igénylő foglalkozásai;;734659;488548;716509;759488;741263;738829;587727;https://mire-eleg.pages.dev/fizetes/fegyveres-szervek-kozepfoku-kepesitest-nem-igenylo-foglalkozasai/
+2432;Csecsemő- és kisgyermeknevelő, óvodapedagógus;óvónő, óvodapedagógus, óvó néni, kisgyermeknevelő, bölcsődei gondozó;731112;486189;665734;681229;725822;794899;584889;https://mire-eleg.pages.dev/fizetes/ovono/
+8412;Vasútijármű-vezetéshez kapcsolódó foglalkozású;;730337;485674;662248;727691;734723;742697;584269;https://mire-eleg.pages.dev/fizetes/vasutijarmu-vezeteshez-kapcsolodo-foglalkozasu/
+2627;Nyelvész, fordító, tolmács;fordító, tolmács, nyelvész;728534;484475;841300;827156;706892;634558;582827;https://mire-eleg.pages.dev/fizetes/fordito/
+3615;Statisztikai ügyintéző;;727876;484038;;833467;778593;668399;582300;https://mire-eleg.pages.dev/fizetes/statisztikai-ugyintezo/
+2719;Egyéb kulturális és sportfoglalkozású (felsőfokú képzettséghez kapcsolódó);;727587;483845;554881;712470;787921;771829;582069;https://mire-eleg.pages.dev/fizetes/egyeb-kulturalis-es-sportfoglalkozasu-felsofoku-kepzettseghez-kapcsolodo/
+2717;Szakképzett edző, sportszervező, -irányító;edző, sportedző;727437;483745;518507;706400;879440;766207;581949;https://mire-eleg.pages.dev/fizetes/edzo/
+3135;Minőségbiztosítási technikus;minőségellenőr, minőségbiztosítási technikus, MEO-s;726656;483227;663981;742737;750229;722486;581324;https://mire-eleg.pages.dev/fizetes/minosegellenor/
+7523;Felvonószerelő;liftszerelő, felvonószerelő;722218;480275;716004;737101;769565;689009;577774;https://mire-eleg.pages.dev/fizetes/liftszerelo/
+3321;Általános egészségügyi asszisztens;egészségügyi asszisztens, orvosi asszisztens, asszisztens (rendelő);720387;479057;611223;658670;716959;752240;576309;https://mire-eleg.pages.dev/fizetes/egeszsegugyi-asszisztens/
+2221;Környezet- és foglalkozás-egészségügyi foglalkozású;;717884;477392;624590;755520;726982;713967;574307;https://mire-eleg.pages.dev/fizetes/kornyezet-es-foglalkozas-egeszsegugyi-foglalkozasu/
+8144;Papíripari alapanyagot gyártó gép kezelője;;713717;474621;;;;;570973;https://mire-eleg.pages.dev/fizetes/papiripari-alapanyagot-gyarto-gep-kezeloje/
+3641;Személyi asszisztens;személyi asszisztens, vezetői asszisztens, igazgatói asszisztens;711375;473065;625465;711961;735167;734350;569100;https://mire-eleg.pages.dev/fizetes/szemelyi-asszisztens/
+3622;Kereskedelmi ügyintéző;kereskedelmi ügyintéző, sales asszisztens, értékesítési asszisztens;711358;473053;648161;748053;741695;678320;569086;https://mire-eleg.pages.dev/fizetes/kereskedelmi-ugyintezo/
+4122;Bérelszámoló;bérszámfejtő, bérelszámoló, bérügyintéző;710915;472759;634479;715074;728263;714452;568732;https://mire-eleg.pages.dev/fizetes/berszamfejto/
+5231;Kalauz, menetjegyellenőr;kalauz, jegyellenőr, jegyvizsgáló;710498;472481;669822;683048;713920;737556;568398;https://mire-eleg.pages.dev/fizetes/kalauz/
+4212;Szerencsejáték-szervező;;710242;472311;611764;794309;848433;742927;568193;https://mire-eleg.pages.dev/fizetes/szerencsejatek-szervezo/
+3632;Marketing- és PR-ügyintéző;marketingasszisztens, marketing-ügyintéző;709026;471502;638995;765231;750441;674227;567220;https://mire-eleg.pages.dev/fizetes/marketingasszisztens/
+2133;Táj- és kertépítészmérnök;;707842;470715;588357;722054;755856;723237;566273;https://mire-eleg.pages.dev/fizetes/taj-es-kertepiteszmernok/
+3331;Környezet- és foglalkozás-egészségügyi kiegészítő foglalkozású;;707041;470182;;;691145;680933;565632;https://mire-eleg.pages.dev/fizetes/kornyezet-es-foglalkozas-egeszsegugyi-kiegeszito-foglalkozasu/
+3134;Környezetvédelmi technikus;;706583;469878;566038;674666;759234;770579;565266;https://mire-eleg.pages.dev/fizetes/kornyezetvedelmi-technikus/
+3611;Pénzügyi ügyintéző (a pénzintézeti ügyintéző kivételével);pénzügyi ügyintéző, pénzügyi asszisztens, pénzügyes;703512;467835;652387;735029;723664;682390;562809;https://mire-eleg.pages.dev/fizetes/penzugyi-ugyintezo/
+3113;Élelmiszer-ipari technikus;;699232;464989;631940;751277;748932;663631;559385;https://mire-eleg.pages.dev/fizetes/elelmiszer-ipari-technikus/
+2241;Állatorvos;állatorvos;697262;463680;684380;710173;708103;688619;557809;https://mire-eleg.pages.dev/fizetes/allatorvos/
+7333;Mezőgazdasági és ipari gép (motor) karbantartója, javítója;karbantartó, gépszerelő, mezőgazdasági gépszerelő;695625;462590;667193;752851;737148;657336;556500;https://mire-eleg.pages.dev/fizetes/karbantarto/
+7911;Ipari búvár;;695465;462484;;;;;556372;https://mire-eleg.pages.dev/fizetes/ipari-buvar/
+3136;Műszaki rajzoló, szerkesztő;műszaki rajzoló, CAD-szerkesztő;693503;461180;619863;718083;737756;692174;554802;https://mire-eleg.pages.dev/fizetes/muszaki-rajzolo/
+2726;Színész, bábművész;színész;693412;461119;573142;695199;707051;734029;554729;https://mire-eleg.pages.dev/fizetes/szinesz/
+5253;Büntetés-végrehajtási őr;börtönőr, büntetés-végrehajtási felügyelő;693375;461095;635706;679075;719257;732737;554700;https://mire-eleg.pages.dev/fizetes/bortonor/
+8143;Cement-, kő- és egyéb ásványianyag-feldolgozó gép kezelője;;688825;458068;730255;712308;694215;654366;551060;https://mire-eleg.pages.dev/fizetes/cement-ko-es-egyeb-asvanyianyag-feldolgozo-gep-kezeloje/
+3621;Biztosítási ügynök, ügyintéző;biztosítási ügynök, biztosítási tanácsadó, biztosításközvetítő;688680;457972;575068;635188;720789;715580;550944;https://mire-eleg.pages.dev/fizetes/biztositasi-ugynok/
+8136;Gumitermékgyártó gép kezelője;;685601;455925;647342;715749;702571;662000;548480;https://mire-eleg.pages.dev/fizetes/gumitermekgyarto-gep-kezeloje/
+3222;Konyhafőnök, séf;séf, konyhafőnök;682816;454073;566724;715069;694185;669528;546252;https://mire-eleg.pages.dev/fizetes/sef/
+2727;Táncművész, koreográfus;;678856;451440;623023;714156;813100;672008;543084;https://mire-eleg.pages.dev/fizetes/tancmuvesz-koreografus/
+2622;Történész, régész;;678184;450992;581697;640647;690483;752329;542547;https://mire-eleg.pages.dev/fizetes/tortenesz-regesz/
+3131;Mezőgazdasági technikus;;677774;450720;556442;677667;701789;741483;542219;https://mire-eleg.pages.dev/fizetes/mezogazdasagi-technikus/
+4132;Szállítási, szállítmányozási nyilvántartó;szállítmányozó, fuvarszervező, diszpécser, logisztikai ügyintéző;676325;449756;637581;735632;701586;609879;541060;https://mire-eleg.pages.dev/fizetes/szallitmanyozo/
+2222;Optometrista;;676100;449606;609382;750778;632858;688516;540880;https://mire-eleg.pages.dev/fizetes/optometrista/
+3115;Vegyésztechnikus;;674553;448578;634222;693615;678425;688587;539642;https://mire-eleg.pages.dev/fizetes/vegyesztechnikus/
+8423;Köztisztasági, településtisztasági gép kezelője;;674444;448505;557226;660626;668367;693037;539555;https://mire-eleg.pages.dev/fizetes/koztisztasagi-telepulestisztasagi-gep-kezeloje/
+8418;Autóbuszvezető;buszsofőr, autóbuszvezető, buszvezető;674243;448372;677641;674173;680488;671071;539394;https://mire-eleg.pages.dev/fizetes/buszsofor/
+3144;Webrendszer- (hálózati) technikus;;671701;446681;617874;743714;646623;646778;537360;https://mire-eleg.pages.dev/fizetes/webrendszer-halozati-technikus/
+8126;Papír- és cellulóztermék-gyártó gép kezelője és gyártósor mellett dolgozó;;670935;446172;621443;737957;679282;639293;536748;https://mire-eleg.pages.dev/fizetes/papir-es-celluloztermek-gyarto-gep-kezeloje-es-gyartosor-mellett-dolgozo/
+4229;Egyéb ügyfélkapcsolati foglalkozású;;666261;443064;613973;711396;699404;625147;533008;https://mire-eleg.pages.dev/fizetes/egyeb-ugyfelkapcsolati-foglalkozasu/
+3649;Egyéb igazgatási és jogi asszisztens;;665203;442360;591641;671123;679894;661867;532162;https://mire-eleg.pages.dev/fizetes/egyeb-igazgatasi-es-jogi-asszisztens/
+5256;Közterület-felügyelő;közterület-felügyelő;663555;441264;614090;644699;695758;663801;530844;https://mire-eleg.pages.dev/fizetes/kozterulet-felugyelo/
+8190;Egyéb, máshova nem sorolható feldolgozóipari gép kezelője;gépkezelő, gyártósori gépkezelő;660193;439028;648309;695738;673028;630559;528154;https://mire-eleg.pages.dev/fizetes/gepkezelo/
+7414;Üveggyártó;;659257;438405;712941;725350;677347;613698;527405;https://mire-eleg.pages.dev/fizetes/uveggyarto/
+3616;Értékbecslő, kárbecslő, kárszakértő;kárszakértő, értékbecslő, kárrendező;658666;438013;581381;674656;672048;653931;526932;https://mire-eleg.pages.dev/fizetes/karszakerto/
+3520;Munkaerő-piaci szolgáltatási ügyintéző;;657673;437352;657562;721822;632530;616777;526138;https://mire-eleg.pages.dev/fizetes/munkaero-piaci-szolgaltatasi-ugyintezo/
+2714;Kulturális szervező;kulturális szervező, művelődésszervező;655736;436065;554409;659592;699253;658105;524588;https://mire-eleg.pages.dev/fizetes/kulturalis-szervezo/
+1332;Vendéglátó tevékenységet folytató egység vezetője;étteremvezető, üzletvezető (vendéglátás);654250;435076;655296;653410;628045;681145;523400;https://mire-eleg.pages.dev/fizetes/etteremvezeto/
+3132;Erdő- és természetvédelmi technikus;;653670;434690;558456;627425;672269;706296;522936;https://mire-eleg.pages.dev/fizetes/erdo-es-termeszetvedelmi-technikus/
+8111;Élelmiszer-, italgyártó gép kezelője;élelmiszeripari gépkezelő;651162;433023;607301;682362;676008;633216;520929;https://mire-eleg.pages.dev/fizetes/elelmiszeripari-gepkezelo/
+3712;Segédrendező;;650652;432683;;628886;;708536;520521;https://mire-eleg.pages.dev/fizetes/segedrendezo/
+8151;Fémfeldolgozó gép kezelője;fémipari gépkezelő, présgépkezelő;650320;432463;605385;666061;672537;646390;520256;https://mire-eleg.pages.dev/fizetes/femipari-gepkezelo/
+3659;Egyéb hatósági ügyintéző;;650152;432351;522884;592527;661333;705698;520121;https://mire-eleg.pages.dev/fizetes/egyeb-hatosagi-ugyintezo/
+3714;Díszletező, díszítő;;649159;431691;563003;637022;693716;669834;519327;https://mire-eleg.pages.dev/fizetes/diszletezo-diszito/
+4224;Ügyfél- (vevő)tájékoztató;ügyfélszolgálatos, ügyfélszolgálati munkatárs, ügyféltanácsadó;648629;431339;591486;673840;678069;639172;518903;https://mire-eleg.pages.dev/fizetes/ugyfelszolgalatos/
+8322;Vízgazdálkodási gép kezelője;;646948;430221;596027;645537;654690;649486;517558;https://mire-eleg.pages.dev/fizetes/vizgazdalkodasi-gep-kezeloje/
+7420;Finommechanikai műszerész;;644898;428857;594089;685856;684331;616367;515918;https://mire-eleg.pages.dev/fizetes/finommechanikai-muszeresz/
+7232;Nyomdász, nyomdai gépmester;nyomdász, gépmester;644580;428646;605758;681935;666661;623101;515664;https://mire-eleg.pages.dev/fizetes/nyomdasz/
+8219;Egyéb termék-összeszerelő;betanított összeszerelő, operátor, gyártósori operátor;644412;428534;578206;683584;665474;641440;515529;https://mire-eleg.pages.dev/fizetes/betanitott-osszeszerelo/
+3133;Földmérő és térinformatikai technikus;;642920;427542;561993;693386;708366;600528;514336;https://mire-eleg.pages.dev/fizetes/foldmero-es-terinformatikai-technikus/
+2224;Gyógytornász;gyógytornász, fizioterapeuta;642060;426970;565972;621168;696433;782702;513648;https://mire-eleg.pages.dev/fizetes/gyogytornasz/
+2223;Dietetikus és táplálkozási tanácsadó;dietetikus, táplálkozási tanácsadó;641490;426590;579907;615620;675066;690868;513192;https://mire-eleg.pages.dev/fizetes/dietetikus/
+7919;Egyéb, máshova nem sorolható ipari és építőipari foglalkozású;;640192;425727;607154;654094;654223;633687;512153;https://mire-eleg.pages.dev/fizetes/egyeb-mashova-nem-sorolhato-ipari-es-epitoipari-foglalkozasu/
+5252;Tűzoltó;tűzoltó;638993;424930;548683;616284;656865;672402;511194;https://mire-eleg.pages.dev/fizetes/tuzolto/
+8325;Csomagoló-, palackozó- és címkézőgép kezelője;csomagológép-kezelő, palackozó;636090;422999;590157;659460;657644;626819;508872;https://mire-eleg.pages.dev/fizetes/csomagologep-kezelo/
+8424;Daru, felvonó és hasonló anyagmozgató gép kezelője;darukezelő, darus;635452;422575;579960;637520;660071;629599;508361;https://mire-eleg.pages.dev/fizetes/darukezelo/
+7515;Építményszerkezet-szerelő;;632910;420885;631651;644607;642660;616734;506328;https://mire-eleg.pages.dev/fizetes/epitmenyszerkezet-szerelo/
+3631;Konferencia- és rendezvényszervező;rendezvényszervező;632705;420749;567433;696063;653462;617170;506164;https://mire-eleg.pages.dev/fizetes/rendezvenyszervezo/
+8329;Egyéb, máshova nem sorolható, helyhez kötött gép kezelője;;631490;419940;595881;656298;658191;614527;505192;https://mire-eleg.pages.dev/fizetes/egyeb-mashova-nem-sorolhato-helyhez-kotott-gep-kezeloje/
+4190;Egyéb, máshova nem sorolható irodai, ügyviteli foglalkozású;;630249;419116;604193;695881;642788;586924;504199;https://mire-eleg.pages.dev/fizetes/egyeb-mashova-nem-sorolhato-irodai-ugyviteli-foglalkozasu/
+5222;Segédápoló, műtőssegéd;segédápoló, betegkísérő, műtőssegéd;629653;418719;550762;633519;650119;649068;503722;https://mire-eleg.pages.dev/fizetes/segedapolo/
+8425;Targoncavezető;targoncás, targoncavezető;628460;417926;618011;643789;639496;611551;502768;https://mire-eleg.pages.dev/fizetes/targoncas/
+3342;Növényorvosi (növényvédelmi) asszisztens;;627743;417450;;;714829;;502194;https://mire-eleg.pages.dev/fizetes/novenyorvosi-novenyvedelmi-asszisztens/
+5259;Egyéb személy- és vagyonvédelmi foglalkozású;;626509;416629;623028;679941;657519;586507;501207;https://mire-eleg.pages.dev/fizetes/egyeb-szemely-es-vagyonvedelmi-foglalkozasu/
+8323;Kazángépkezelő;;626177;416407;662467;666732;648032;616232;500941;https://mire-eleg.pages.dev/fizetes/kazangepkezelo/
+2623;Néprajzkutató;;625582;416012;;;;;500465;https://mire-eleg.pages.dev/fizetes/neprajzkutato/
+2723;Iparművész, gyártmány- és ruhatervező;;625569;416004;628650;627827;664987;577317;500455;https://mire-eleg.pages.dev/fizetes/iparmuvesz-gyartmany-es-ruhatervezo/
+4225;Ügyfélszolgálati központ tájékoztatója;call centeres, telefonos ügyfélszolgálatos, call center operátor;625223;415774;588910;654659;651695;615957;500178;https://mire-eleg.pages.dev/fizetes/call-centeres/
+8430;Hajószemélyzet, kormányos, matróz;;623520;414641;609633;668534;618090;611134;498816;https://mire-eleg.pages.dev/fizetes/hajoszemelyzet-kormanyos-matroz/
+8112;Dohánygyártó gép kezelője;;621811;413504;576992;630404;635710;651869;497448;https://mire-eleg.pages.dev/fizetes/dohanygyarto-gep-kezeloje/
+7326;Kovács;;620753;412801;;612740;633474;617055;496602;https://mire-eleg.pages.dev/fizetes/kovacs/
+4123;Pénzügyi, statisztikai, biztosítási adminisztrátor;;618948;411601;599622;659693;614165;611119;495158;https://mire-eleg.pages.dev/fizetes/penzugyi-statisztikai-biztositasi-adminisztrator/
+7325;Hegesztő, lángvágó;hegesztő;616250;409806;565355;631317;646642;620837;493000;https://mire-eleg.pages.dev/fizetes/hegeszto/
+3642;Jogi asszisztens;jogi asszisztens, ügyvédi asszisztens;613964;408286;537503;655550;660464;648755;491171;https://mire-eleg.pages.dev/fizetes/jogi-asszisztens/
+7113;Tejfeldolgozó, tejtermékgyártó;;613923;408259;585701;620116;619495;617445;491138;https://mire-eleg.pages.dev/fizetes/tejfeldolgozo-tejtermekgyarto/
+4131;Készlet- és anyagnyilvántartó;raktári adminisztrátor, készletnyilvántartó, raktáros (nyilvántartó);613673;408092;572010;631430;633668;599293;490938;https://mire-eleg.pages.dev/fizetes/raktari-adminisztrator/
+7324;Fémcsiszoló, köszörűs, szerszámköszörűs;;612583;407368;586149;657150;629886;586453;490066;https://mire-eleg.pages.dev/fizetes/femcsiszolo-koszorus-szerszamkoszorus/
+7327;Festékszóró, fényező;fényező, autófényező;612571;407359;568918;647641;612815;608268;490056;https://mire-eleg.pages.dev/fizetes/fenyezo/
+8152;Fémmegmunkáló, felületkezelő gép kezelője;;610783;406171;583453;641736;630666;587474;488626;https://mire-eleg.pages.dev/fizetes/femmegmunkalo-feluletkezelo-gep-kezeloje/
+4221;Utazásszervező, tanácsadó;utazásszervező, utazási tanácsadó;610158;405755;471321;652269;665333;659673;488126;https://mire-eleg.pages.dev/fizetes/utazasszervezo/
+3910;Egyéb ügyintéző;;607412;403929;559619;623419;623005;603013;485929;https://mire-eleg.pages.dev/fizetes/egyeb-ugyintezo/
+3719;Egyéb művészeti és kulturális foglalkozású;;606934;403611;574482;636040;636847;578540;485547;https://mire-eleg.pages.dev/fizetes/egyeb-muveszeti-es-kulturalis-foglalkozasu/
+7342;Informatikai és telekommunikációs berendezések műszerésze, javítója;elektronikai műszerész, informatikai műszerész;605556;402695;554094;612535;625690;606522;484444;https://mire-eleg.pages.dev/fizetes/elektronikai-muszeresz/
+7524;Épületvillamossági szerelő, villanyszerelő;villanyszerelő, épületvillamossági szerelő;597301;397205;533010;598670;603782;623400;477840;https://mire-eleg.pages.dev/fizetes/villanyszerelo/
+8419;Egyéb járművezető és kapcsolódó foglalkozású;;596473;396654;548156;605979;616580;594846;477178;https://mire-eleg.pages.dev/fizetes/egyeb-jarmuvezeto-es-kapcsolodo-foglalkozasu/
+4111;Titkár(nő);titkárnő, titkár;596429;396626;538977;573573;600860;610759;477143;https://mire-eleg.pages.dev/fizetes/titkarno/
+3326;Gyógyszertári és gyógyszerellátási asszisztens;gyógyszertári asszisztens, patikai asszisztens;594960;395648;532913;576270;599583;616353;475968;https://mire-eleg.pages.dev/fizetes/gyogyszertari-asszisztens/
+7321;Lakatos;lakatos, szerkezetlakatos, géplakatos;593418;394623;545798;606509;614225;590402;474734;https://mire-eleg.pages.dev/fizetes/lakatos/
+7328;Fém- és egyéb tartószerkezet-szerelő;;592480;393999;540494;611445;618175;579547;473984;https://mire-eleg.pages.dev/fizetes/fem-es-egyeb-tartoszerkezet-szerelo/
+2312;Szociális munkás és tanácsadó;szociális munkás, családsegítő;586724;390171;505829;539346;584130;629873;469379;https://mire-eleg.pages.dev/fizetes/szocialis-munkas/
+7310;Fémöntőminta-készítő;;580234;385856;;;;562865;464187;https://mire-eleg.pages.dev/fizetes/femontominta-keszito/
+7522;Szellőző-, hűtő- és klimatizálóberendezés-szerelő;klímaszerelő, hűtőgépszerelő, hűtő- és klímaszerelő;579057;385072;516777;566919;590066;627722;463245;https://mire-eleg.pages.dev/fizetes/klimaszerelo/
+2712;Levéltáros;;578314;384579;;530964;562582;636988;462651;https://mire-eleg.pages.dev/fizetes/leveltaros/
+8211;Mechanikaigép-összeszerelő;összeszerelő, gépösszeszerelő, szerelősori dolgozó;578224;384519;534627;580993;597938;587116;462579;https://mire-eleg.pages.dev/fizetes/osszeszerelo/
+8422;Földmunkagép és hasonló könnyű- és nehézgép kezelője;földmunkagép-kezelő, kotrógépkezelő, markolós;577877;384288;538218;558697;578682;594768;462301;https://mire-eleg.pages.dev/fizetes/foldmunkagep-kezelo/
+3654;Hatósági engedélyek kiadásával foglalkozó ügyintéző;;577741;384198;462063;533827;566981;642263;462192;https://mire-eleg.pages.dev/fizetes/hatosagi-engedelyek-kiadasaval-foglalkozo-ugyintezo/
+2713;Muzeológus, múzeumi gyűjteménygondnok;;576271;383220;507074;569928;569186;601928;461016;https://mire-eleg.pages.dev/fizetes/muzeologus-muzeumi-gyujtemenygondnok/
+2492;Nyelvtanár (iskolarendszeren kívül);nyelvtanár;576148;383139;479256;558344;543924;634962;460918;https://mire-eleg.pages.dev/fizetes/nyelvtanar/
+5112;Vezető eladó;vezető eladó, műszakvezető (bolt);575032;382396;557945;601037;591336;554531;460025;https://mire-eleg.pages.dev/fizetes/vezeto-elado/
+8141;Kerámiaipari terméket gyártó gép kezelője;;572882;380967;538666;603517;590418;555877;458305;https://mire-eleg.pages.dev/fizetes/keramiaipari-termeket-gyarto-gep-kezeloje/
+7416;Szőr- és tollfeldolgozó;;571599;380113;;;;;457279;https://mire-eleg.pages.dev/fizetes/szor-es-tollfeldolgozo/
+3114;Fa- és könnyűipari technikus;;570817;379593;463517;558869;575742;604973;456653;https://mire-eleg.pages.dev/fizetes/fa-es-konnyuipari-technikus/
+8142;Üveget és üvegterméket gyártó gép kezelője;;568314;377929;495129;599594;603267;577772;454651;https://mire-eleg.pages.dev/fizetes/uveget-es-uvegtermeket-gyarto-gep-kezeloje/
+8135;Műanyagtermék-gyártó gép kezelője;műanyagfeldolgozó, fröccsöntő gépkezelő;565720;376204;532874;595611;583860;552141;452576;https://mire-eleg.pages.dev/fizetes/muanyagfeldolgozo/
+7331;Gépjármű- és motorkarbantartó, -javító;autószerelő, gépjárműszerelő, karosszérialakatos;565231;375878;490728;580716;566642;594028;452184;https://mire-eleg.pages.dev/fizetes/autoszerelo/
+4114;Adatrögzítő, kódoló;adatrögzítő;564883;375648;545635;601896;574981;537266;451906;https://mire-eleg.pages.dev/fizetes/adatrogzito/
+3514;Jelnyelvi tolmács;;563215;374538;;;;;450572;https://mire-eleg.pages.dev/fizetes/jelnyelvi-tolmacs/
+3633;Ingatlanügynök, ingatlanforgalmazási ügyintéző;ingatlanos, ingatlanközvetítő, ingatlanügynök, ingatlanértékesítő;558264;371245;525186;623499;535422;557228;446611;https://mire-eleg.pages.dev/fizetes/ingatlanos/
+7521;Vezeték- és csőhálózat-szerelő (víz, gáz, fűtés);vízvezeték-szerelő, víz-gáz-fűtésszerelő, gázszerelő, csőszerelő;558143;371166;490235;539204;557363;584775;446514;https://mire-eleg.pages.dev/fizetes/vizvezetek-szerelo/
+8416;Személygépkocsi-vezető;sofőr, személygépkocsi-vezető, taxis, taxisofőr, futár (autós);558107;371141;488781;546085;582293;564412;446485;https://mire-eleg.pages.dev/fizetes/sofor/
+7914;Kártevőirtó, gyomirtó;;551462;366723;;571820;565934;524846;441169;https://mire-eleg.pages.dev/fizetes/kartevoirto-gyomirto/
+5122;Áru- és divatbemutató;;549287;365276;520364;586087;;;439429;https://mire-eleg.pages.dev/fizetes/aru-es-divatbemutato/
+5255;Természetvédelmi őr;;548375;364670;;540840;576333;533758;438700;https://mire-eleg.pages.dev/fizetes/termeszetvedelmi-or/
+2711;Könyvtáros, informatikus könyvtáros;könyvtáros;543729;361580;478425;503446;543826;568737;434983;https://mire-eleg.pages.dev/fizetes/konyvtaros/
+8137;Fotó- és mozgófilmlaboráns;;543481;361415;;;;;434784;https://mire-eleg.pages.dev/fizetes/foto-es-mozgofilmlaborans/
+7529;Egyéb építési, szerelési foglalkozású;;542131;360517;533727;554818;544294;538311;433704;https://mire-eleg.pages.dev/fizetes/egyeb-epitesi-szerelesi-foglalkozasu/
+3653;Társadalombiztosítási és segélyezési hatósági ügyintéző;;540647;359530;;458637;525570;577446;432517;https://mire-eleg.pages.dev/fizetes/tarsadalombiztositasi-es-segelyezesi-hatosagi-ugyintezo/
+8125;Fafeldolgozó gép kezelője és gyártósor mellett dolgozó;;540262;359275;549418;565292;555879;508041;432209;https://mire-eleg.pages.dev/fizetes/fafeldolgozo-gep-kezeloje-es-gyartosor-mellett-dolgozo/
+3322;Egészségügyi dokumentátor;;538605;358172;496898;511149;541081;564717;430884;https://mire-eleg.pages.dev/fizetes/egeszsegugyi-dokumentator/
+3117;Építő- és építésztechnikus;építésztechnikus, építőipari technikus;538498;358101;506163;555902;547314;529947;430798;https://mire-eleg.pages.dev/fizetes/epitesztechnikus/
+8212;Villamosberendezés-összeszerelő;elektronikai összeszerelő, villamosberendezés-összeszerelő;537144;357200;519696;548979;548359;532279;429715;https://mire-eleg.pages.dev/fizetes/elektronikai-osszeszerelo/
+5299;Egyéb, máshova nem sorolható szolgáltatási foglalkozású;;536774;356955;508848;545420;544910;537130;429419;https://mire-eleg.pages.dev/fizetes/egyeb-mashova-nem-sorolhato-szolgaltatasi-foglalkozasu/
+4223;Szállodai recepciós;szállodai recepciós, portás (szálloda);535378;356026;530367;534505;543517;546344;428302;https://mire-eleg.pages.dev/fizetes/szallodai-recepcios/
+3325;Fogászati asszisztens;fogászati asszisztens;535366;356018;494886;511209;536433;572590;428292;https://mire-eleg.pages.dev/fizetes/fogaszati-asszisztens/
+7231;Nyomdai előkészítő;;534459;355415;487116;556169;555457;523786;427567;https://mire-eleg.pages.dev/fizetes/nyomdai-elokeszito/
+4113;Gépíró, szövegszerkesztő;;534003;355112;429772;467399;525553;583742;427202;https://mire-eleg.pages.dev/fizetes/gepiro-szovegszerkeszto/
+7233;Könyvkötő;;532203;353915;501092;558981;539030;525713;425762;https://mire-eleg.pages.dev/fizetes/konyvkoto/
+5241;Vezető takarító;;531389;353374;522348;510893;518019;549414;425111;https://mire-eleg.pages.dev/fizetes/vezeto-takarito/
+5123;Telefonos (multimédiás) értékesítési ügynök;telesales, telefonos értékesítő, telemarketinges;530280;352636;518391;549826;558635;483112;424224;https://mire-eleg.pages.dev/fizetes/telesales/
+4211;Banki pénztáros;banki pénztáros;529998;352448;545383;492854;536185;533942;423998;https://mire-eleg.pages.dev/fizetes/banki-penztaros/
+7539;Egyéb építési szakipari foglalkozású;;528936;351743;519880;548309;533582;519843;423148;https://mire-eleg.pages.dev/fizetes/egyeb-epitesi-szakipari-foglalkozasu/
+6121;Szarvasmarha-, ló-, sertés-, juhtartó és -tenyésztő;állattenyésztő, állatgondozó;528538;351477;519701;539113;537978;521284;422830;https://mire-eleg.pages.dev/fizetes/allattenyeszto/
+5129;Egyéb, máshova nem sorolható kereskedelmi foglalkozású;;527390;350714;492228;549668;540545;521128;421912;https://mire-eleg.pages.dev/fizetes/egyeb-mashova-nem-sorolhato-kereskedelmi-foglalkozasu/
+5229;Egyéb személygondozási foglalkozású;;525551;349491;498276;515307;562795;511933;420440;https://mire-eleg.pages.dev/fizetes/egyeb-szemelygondozasi-foglalkozasu/
+8421;Mezőgazdasági, erdőgazdasági, növényvédő gép kezelője;traktoros, mezőgazdasági gépkezelő;524508;348798;501534;527808;530791;531484;419606;https://mire-eleg.pages.dev/fizetes/traktoros/
+5114;Kölcsönző;;523766;348304;536617;611669;520089;479828;419012;https://mire-eleg.pages.dev/fizetes/kolcsonzo/
+9223;Rakodómunkás;rakodó, rakodómunkás, raktári dolgozó, komissiózó;523410;348067;508760;535968;532715;516816;418728;https://mire-eleg.pages.dev/fizetes/rakodo/
+8326;Mozigépész, vetítőgépész;;522858;347700;;;;;418286;https://mire-eleg.pages.dev/fizetes/mozigepesz-vetitogepesz/
+6122;Baromfitartó és -tenyésztő;;520840;346359;492331;560622;523425;510194;416672;https://mire-eleg.pages.dev/fizetes/baromfitarto-es-tenyeszto/
+3713;Fényképész;fotós, fényképész;515558;342846;551856;545567;508157;482747;412446;https://mire-eleg.pages.dev/fizetes/fotos/
+3515;Ifjúságsegítő;;512029;340500;480770;484639;505547;531742;409623;https://mire-eleg.pages.dev/fizetes/ifjusagsegito/
+5233;Idegenvezető;idegenvezető;511248;339980;472799;571613;535538;479032;408998;https://mire-eleg.pages.dev/fizetes/idegenvezeto/
+5254;Vagyonőr, testőr;biztonsági őr, vagyonőr, testőr;511131;339902;515809;532181;532679;496440;408904;https://mire-eleg.pages.dev/fizetes/biztonsagi-or/
+6230;Halászati foglalkozású;;510532;339504;479994;474069;536736;510044;408425;https://mire-eleg.pages.dev/fizetes/halaszati-foglalkozasu/
+7224;Kárpitos;kárpitos;509876;339068;501482;552993;522362;484519;407900;https://mire-eleg.pages.dev/fizetes/karpitos/
+4112;Általános irodai adminisztrátor;adminisztrátor, irodai asszisztens, irodai adminisztrátor;509390;338744;490947;510023;505914;520421;407512;https://mire-eleg.pages.dev/fizetes/adminisztrator/
+9232;Mérőóra-leolvasó és hasonló egyszerű foglalkozású;;509138;338576;477263;510305;510482;513014;407310;https://mire-eleg.pages.dev/fizetes/meroora-leolvaso-es-hasonlo-egyszeru-foglalkozasu/
+5243;Épületgondnok;gondnok, házmester, épületgondnok;508237;337977;487896;526249;512863;505313;406589;https://mire-eleg.pages.dev/fizetes/gondnok/
+7531;Szigetelő;szigetelő, hőszigetelő;507207;337293;480442;478487;530151;523566;405765;https://mire-eleg.pages.dev/fizetes/szigetelo/
+3717;Kulturális intézményi szaktechnikus;;504268;335338;479634;509927;498967;511067;403414;https://mire-eleg.pages.dev/fizetes/kulturalis-intezmenyi-szaktechnikus/
+6124;Kisállattartó és -tenyésztő;;503648;334926;472248;522686;506635;507084;402918;https://mire-eleg.pages.dev/fizetes/kisallattarto-es-tenyeszto/
+3341;Állatorvosi asszisztens;;500536;332857;449154;499549;514184;548960;400428;https://mire-eleg.pages.dev/fizetes/allatorvosi-asszisztens/
+7413;Keramikus;;499655;332271;417304;452076;501357;524004;399724;https://mire-eleg.pages.dev/fizetes/keramikus/
+4136;Iratkezelő, irattáros;;498422;331451;431929;479972;516390;506264;398737;https://mire-eleg.pages.dev/fizetes/iratkezelo-irattaros/
+7115;Borász és egyéb szeszesital-gyártó, szikvízkészítő;;497003;330507;500712;523046;496888;479182;397602;https://mire-eleg.pages.dev/fizetes/borasz-es-egyeb-szeszesital-gyarto-szikvizkeszito/
+6116;Gyógynövénytermesztő;;496585;330229;;;;;397268;https://mire-eleg.pages.dev/fizetes/gyogynovenytermeszto/
+7533;Épület-, építménybádogos;bádogos;496289;330033;446757;491300;493625;510120;397031;https://mire-eleg.pages.dev/fizetes/badogos/
+3716;Lakberendező, dekoratőr;lakberendező, dekoratőr;495584;329563;469720;524684;492134;493278;396467;https://mire-eleg.pages.dev/fizetes/lakberendezo/
+9238;Parkolóőr;;494619;328921;507278;512676;501925;475440;395695;https://mire-eleg.pages.dev/fizetes/parkoloor/
+7225;Kádár, bognár;;494294;328706;;;;521151;395435;https://mire-eleg.pages.dev/fizetes/kadar-bognar/
+3711;Segédszínész, statiszta;;494214;328652;;;;;395371;https://mire-eleg.pages.dev/fizetes/segedszinesz-statiszta/
+4222;Recepciós;recepciós;493026;327862;473637;516096;511362;484512;394420;https://mire-eleg.pages.dev/fizetes/recepcios/
+7111;Húsfeldolgozó;hentes, húsfeldolgozó, csontozó;488247;324684;462007;506506;497837;484566;390597;https://mire-eleg.pages.dev/fizetes/hentes/
+9115;Ablaktisztító;;482206;320667;;;;481008;385764;https://mire-eleg.pages.dev/fizetes/ablaktisztito/
+5117;Bolti pénztáros, jegypénztáros;pénztáros, kasszás, bolti pénztáros;480896;319796;465395;475291;483135;492258;384716;https://mire-eleg.pages.dev/fizetes/penztaros/
+7112;Gyümölcs- és zöldségfeldolgozó, -tartósító;;479950;319166;464022;495458;472264;484205;383960;https://mire-eleg.pages.dev/fizetes/gyumolcs-es-zoldsegfeldolgozo-tartosito/
+5291;Járművezető-oktató;autósoktató, gépjárművezető-oktató;479418;318813;;;435460;504960;383534;https://mire-eleg.pages.dev/fizetes/autosoktato/
+3513;Szociális gondozó, szakgondozó;szociális gondozó, idősgondozó, ápoló-gondozó;478744;318364;452493;452004;473131;493202;382995;https://mire-eleg.pages.dev/fizetes/szocialis-gondozo/
+8123;Bőrkikészítő és -feldolgozó gép kezelője és gyártósor mellett dolgozó;;475903;316476;480513;510038;466723;461228;380722;https://mire-eleg.pages.dev/fizetes/borkikeszito-es-feldolgozo-gep-kezeloje-es-gyartosor-mellett-dolgozo/
+8121;Textilipari gép kezelője és gyártósor mellett dolgozó;;472875;314462;468523;490733;483744;461439;378300;https://mire-eleg.pages.dev/fizetes/textilipari-gep-kezeloje-es-gyartosor-mellett-dolgozo/
+3332;Fizioterápiás asszisztens, masszőr;masszőr, gyógymasszőr;472692;314340;444499;454253;448684;511740;378153;https://mire-eleg.pages.dev/fizetes/masszor/
+7512;Gipszkartonozó, stukkózó;gipszkartonozó, gipszkartonszerelő;472573;314261;545858;485633;462392;447055;378058;https://mire-eleg.pages.dev/fizetes/gipszkartonozo/
+7114;Pék, édesiparitermék-gyártó;pék;471844;313776;456504;480116;482310;464143;377475;https://mire-eleg.pages.dev/fizetes/pek/
+2615;Ügyvéd;ügyvéd, ügyvédjelölt;471208;313354;510738;505244;449074;456120;376966;https://mire-eleg.pages.dev/fizetes/ugyved/
+7415;Hangszerkészítő;;469866;312461;;;;520543;375892;https://mire-eleg.pages.dev/fizetes/hangszerkeszito/
+5293;Temetkezési foglalkozású;;469512;312225;441481;468081;483653;466755;375609;https://mire-eleg.pages.dev/fizetes/temetkezesi-foglalkozasu/
+7221;Famegmunkáló;;469228;312037;458895;510161;443870;474242;375382;https://mire-eleg.pages.dev/fizetes/famegmunkalo/
+3511;Szociális segítő;;469222;312033;428267;445311;474514;482200;375377;https://mire-eleg.pages.dev/fizetes/szocialis-segito/
+7532;Tetőfedő;tetőfedő;469006;311889;469906;426986;446516;539402;375204;https://mire-eleg.pages.dev/fizetes/tetofedo/
+3334;Ortopédiai eszközkészítő;;468755;311722;;510988;477674;455386;375004;https://mire-eleg.pages.dev/fizetes/ortopediai-eszkozkeszito/
+3722;Fitnesz- és rekreációs program irányítója;fitneszedző, személyi edző, személyi tréner;465486;309548;432459;522603;472339;439079;372388;https://mire-eleg.pages.dev/fizetes/fitneszedzo/
+7519;Egyéb építőmesteri foglalkozású;;460960;306538;502748;460240;451924;460372;368768;https://mire-eleg.pages.dev/fizetes/egyeb-epitomesteri-foglalkozasu/
+5121;Üzemanyagtöltő állomás kezelője;benzinkutas, töltőállomás-kezelő, kútkezelő;460480;306219;444758;457748;465598;470740;368384;https://mire-eleg.pages.dev/fizetes/benzinkutas/
+5292;Hobbiállat-gondozó, -kozmetikus;;458972;305216;415766;503074;460981;470027;367177;https://mire-eleg.pages.dev/fizetes/hobbiallat-gondozo-kozmetikus/
+3410;Oktatási asszisztens;pedagógiai asszisztens, oktatási asszisztens;458728;305054;453806;452151;454835;470266;366982;https://mire-eleg.pages.dev/fizetes/pedagogiai-asszisztens/
+7915;Kéményseprő, épületszerkezet-tisztító;kéményseprő;458697;305033;;474714;446183;464748;366957;https://mire-eleg.pages.dev/fizetes/kemenysepro/
+3335;Látszerész;látszerész, optikus;458526;304920;424828;477844;449863;467555;366820;https://mire-eleg.pages.dev/fizetes/latszeresz/
+4133;Könyvtári, levéltári nyilvántartó;;458027;304588;458253;435553;471097;458579;366421;https://mire-eleg.pages.dev/fizetes/konyvtari-leveltari-nyilvantarto/
+7411;Címfestő;;452539;300938;;;;;362031;https://mire-eleg.pages.dev/fizetes/cimfesto/
+7536;Kőfaragó, műköves;;451401;300182;394661;419619;444503;478274;361120;https://mire-eleg.pages.dev/fizetes/kofarago-mukoves/
+8417;Tehergépkocsi-vezető, kamionsofőr;kamionsofőr, tehergépkocsi-vezető, kamionos, teherautó-sofőr;451171;300028;421968;443255;456966;455900;360936;https://mire-eleg.pages.dev/fizetes/kamionsofor/
+9221;Pedálos vagy kézi hajtású gépek vezetője;;450664;299691;;;450162;445554;360531;https://mire-eleg.pages.dev/fizetes/pedalos-vagy-kezi-hajtasu-gepek-vezetoje/
+9225;Kézi csomagoló;csomagoló, kézi csomagoló;450344;299478;444166;446541;459091;449825;360275;https://mire-eleg.pages.dev/fizetes/csomagolo/
+9310;Egyszerű ipari foglalkozású;betanított munkás, segédmunkás (ipar), gyári munkás;448231;298073;446811;465591;447697;436664;358584;https://mire-eleg.pages.dev/fizetes/betanitott-munkas/
+5113;Bolti eladó;eladó, bolti eladó, eladó-pénztáros, árufeltöltő-eladó;447845;297817;464586;466472;446770;427809;358276;https://mire-eleg.pages.dev/fizetes/elado/
+3333;Fogtechnikus;fogtechnikus;447639;297680;412040;458109;445872;459840;358111;https://mire-eleg.pages.dev/fizetes/fogtechnikus/
+5134;Szakács;szakács;446982;297243;418167;447285;456067;461346;357585;https://mire-eleg.pages.dev/fizetes/szakacs/
+7535;Festő és mázoló;festő, szobafestő, szobafestő-mázoló;444260;295433;414721;437792;446269;452484;355408;https://mire-eleg.pages.dev/fizetes/festo/
+7513;Ács;ács;444227;295411;432800;440368;442191;452836;355381;https://mire-eleg.pages.dev/fizetes/acs/
+7538;Üvegező;;442221;294077;;490525;423384;418455;353776;https://mire-eleg.pages.dev/fizetes/uvegezo/
+5221;Gyermekfelügyelő, dajka;dajka, gyermekfelügyelő, bébiszitter;441910;293870;433962;431065;439789;448446;353528;https://mire-eleg.pages.dev/fizetes/dajka/
+5242;Házvezető;;438361;291510;;450376;421114;442059;350688;https://mire-eleg.pages.dev/fizetes/hazvezeto/
+7216;Bőrdíszműves, bőröndös, bőrtermékkészítő, -javító;;437563;290980;390742;417384;445571;452813;350050;https://mire-eleg.pages.dev/fizetes/bordiszmuves-borondos-bortermekkeszito-javito/
+4226;Lakossági kérdező, összeíró;;436475;290256;;;434966;483808;349180;https://mire-eleg.pages.dev/fizetes/lakossagi-kerdezo-osszeiro/
+5219;Egyéb személyi szolgáltatási foglalkozású;;434887;289200;406317;434875;426213;456552;347909;https://mire-eleg.pages.dev/fizetes/egyeb-szemelyi-szolgaltatasi-foglalkozasu/
+6111;Szántóföldinövény-termesztő;;434730;289095;416089;437208;432609;438898;347784;https://mire-eleg.pages.dev/fizetes/szantofoldinoveny-termeszto/
+7514;Épületasztalos;épületasztalos;433675;288394;398969;425335;430360;445942;346940;https://mire-eleg.pages.dev/fizetes/epuletasztalos/
+7335;Kerékpár-karbantartó, -javító;;432539;287638;430920;458245;429066;412494;346031;https://mire-eleg.pages.dev/fizetes/kerekpar-karbantarto-javito/
+6119;Egyéb növénytermesztési foglalkozású;;430650;286382;430192;455101;418723;428273;344520;https://mire-eleg.pages.dev/fizetes/egyeb-novenytermesztesi-foglalkozasu/
+8327;Mosodai gép kezelője;;429937;285908;419315;424190;437368;429549;343949;https://mire-eleg.pages.dev/fizetes/mosodai-gep-kezeloje/
+7511;Kőműves;kőműves;428737;285110;399535;422023;427299;437317;342989;https://mire-eleg.pages.dev/fizetes/komuves/
+7213;Kalapos, kesztyűs;;425166;282735;;;;415498;340132;https://mire-eleg.pages.dev/fizetes/kalapos-kesztyus/
+7534;Burkoló;burkoló, hidegburkoló, parkettás;425047;282656;394372;423795;422624;438637;340037;https://mire-eleg.pages.dev/fizetes/burkolo/
+7223;Bútorasztalos;asztalos, bútorasztalos;424555;282329;402239;424338;423337;434245;339644;https://mire-eleg.pages.dev/fizetes/asztalos/
+6220;Vadgazdálkodási foglalkozású;;423646;281724;425287;429338;425425;419110;338916;https://mire-eleg.pages.dev/fizetes/vadgazdalkodasi-foglalkozasu/
+6114;Szőlő-, gyümölcstermesztő;;422532;280984;436468;455782;419554;405873;338025;https://mire-eleg.pages.dev/fizetes/szolo-gyumolcstermeszto/
+6212;Fakitermelő (favágó);favágó, fakitermelő;421919;280576;445814;422009;423805;411199;337535;https://mire-eleg.pages.dev/fizetes/favago/
+7222;Faesztergályos;;418398;278234;;;398178;423892;334718;https://mire-eleg.pages.dev/fizetes/faesztergalyos/
+5111;Kereskedő;kereskedő;416094;276703;420669;424061;413283;415435;332875;https://mire-eleg.pages.dev/fizetes/kereskedo/
+5132;Pincér;pincér, felszolgáló;415983;276629;403655;417529;424981;436146;332786;https://mire-eleg.pages.dev/fizetes/pincer/
+9235;Gyorséttermi eladó;gyorséttermi dolgozó, gyorséttermi eladó;415225;276124;425545;401363;404457;387756;332180;https://mire-eleg.pages.dev/fizetes/gyorsettermi-dolgozo/
+5135;Cukrász;cukrász;414610;275715;379334;425537;438230;433222;331688;https://mire-eleg.pages.dev/fizetes/cukrasz/
+6115;Dísznövény-, virág- és faiskolai kertész, csemetenevelő;kertész, dísznövénykertész;414237;275467;403798;416213;410617;419012;331389;https://mire-eleg.pages.dev/fizetes/kertesz/
+9212;Hulladékosztályozó;;413485;274967;398208;421174;418327;414489;330788;https://mire-eleg.pages.dev/fizetes/hulladekosztalyozo/
+9231;Portás, telepőr, egyszerű őr;portás, éjjeliőr;413339;274870;422867;422656;424792;408206;330671;https://mire-eleg.pages.dev/fizetes/portas/
+9114;Járműtakarító;;413134;274734;386051;404878;428916;432970;330507;https://mire-eleg.pages.dev/fizetes/jarmutakarito/
+7217;Cipész, cipőkészítő, -javító;;410663;273091;328749;391259;403548;422777;328530;https://mire-eleg.pages.dev/fizetes/cipesz-cipokeszito-javito/
+9211;Szemétgyűjtő, utcaseprő;kukás, szemétszállító, utcaseprő;404860;269232;429993;423392;423323;373819;323888;https://mire-eleg.pages.dev/fizetes/kukas/
+7419;Egyéb kézműipari foglalkozású;;403364;268237;406164;423409;390315;404354;322691;https://mire-eleg.pages.dev/fizetes/egyeb-kezmuipari-foglalkozasu/
+7211;Szabásminta-készítő;;401887;267255;;;406531;396234;321509;https://mire-eleg.pages.dev/fizetes/szabasminta-keszito/
+7212;Szabó, varró;varrónő, szabó;400278;266185;362554;383307;408700;398724;320222;https://mire-eleg.pages.dev/fizetes/varrono/
+5223;Házi gondozó;házi gondozó, házi segítségnyújtó;398648;265101;363948;382081;396274;406840;318918;https://mire-eleg.pages.dev/fizetes/hazi-gondozo/
+5131;Vendéglős;;390176;259467;382633;395150;384964;393908;312140;https://mire-eleg.pages.dev/fizetes/vendeglos/
+7412;Ékszerkészítő, ötvös, drágakőcsiszoló;;388468;258331;402846;419925;401547;370416;310774;https://mire-eleg.pages.dev/fizetes/ekszerkeszito-otvos-dragakocsiszolo/
+5116;Piaci, utcai étel- és italárus;;386886;257279;370455;417700;379410;386895;309508;https://mire-eleg.pages.dev/fizetes/piaci-utcai-etel-es-italarus/
+5133;Pultos;pultos, barista, bartender, csapos;386328;256908;386674;391759;385545;379628;309062;https://mire-eleg.pages.dev/fizetes/pultos/
+5212;Kozmetikus;kozmetikus;386294;256886;353567;400067;403475;418342;309035;https://mire-eleg.pages.dev/fizetes/kozmetikus/
+9113;Kézi mosó, vasaló;;381087;253423;356516;363941;382074;390522;304869;https://mire-eleg.pages.dev/fizetes/kezi-moso-vasalo/
+6113;Zöldségtermesztő;;378803;251904;379069;413266;348325;385396;303042;https://mire-eleg.pages.dev/fizetes/zoldsegtermeszto/
+5213;Manikűrös, pedikűrös;műkörmös, manikűrös, pedikűrös;378751;251869;342666;389792;397498;378697;303000;https://mire-eleg.pages.dev/fizetes/mukormos/
+9224;Pultfeltöltő, árufeltöltő;árufeltöltő, polcfeltöltő;377575;251088;363569;373323;383617;388323;302060;https://mire-eleg.pages.dev/fizetes/arufeltolto/
+9234;Hordár, csomagkihordó;csomagkihordó, futár, kézbesítő;377166;250815;367673;375092;386688;390345;301732;https://mire-eleg.pages.dev/fizetes/csomagkihordo/
+8124;Cipőgyártó gép kezelője és gyártósor mellett dolgozó;;376047;250071;368650;374097;388969;371057;300837;https://mire-eleg.pages.dev/fizetes/cipogyarto-gep-kezeloje-es-gyartosor-mellett-dolgozo/
+8122;Ruházati gép kezelője és gyártósor mellett dolgozó;;370330;246269;352658;354824;378691;369472;296264;https://mire-eleg.pages.dev/fizetes/ruhazati-gep-kezeloje-es-gyartosor-mellett-dolgozo/
+5211;Fodrász;fodrász, borbély;369835;245941;318489;390687;376145;407500;295868;https://mire-eleg.pages.dev/fizetes/fodrasz/
+6130;Vegyes profilú gazdálkodó;;369418;245663;282014;368807;392597;405645;295534;https://mire-eleg.pages.dev/fizetes/vegyes-profilu-gazdalkodo/
+9329;Egyéb egyszerű építőipari foglalkozású;segédmunkás, építőipari segédmunkás;364723;242541;356961;369932;367691;363359;291778;https://mire-eleg.pages.dev/fizetes/segedmunkas/
+9112;Intézményi takarító és kisegítő;takarító, takarítónő, intézményi takarító;361884;240652;352848;353559;362587;365292;289507;https://mire-eleg.pages.dev/fizetes/takarito/
+9233;Hivatalsegéd, kézbesítő;postás, hivatalsegéd;361194;240194;308015;345629;359719;375951;288955;https://mire-eleg.pages.dev/fizetes/postas/
+9236;Konyhai kisegítő;konyhai kisegítő, mosogató, konyhalány;349398;232349;331065;338542;351953;359105;279518;https://mire-eleg.pages.dev/fizetes/konyhai-kisegito/
+5115;Piaci, utcai árus;;349084;232140;350033;351062;361140;342261;279267;https://mire-eleg.pages.dev/fizetes/piaci-utcai-arus/
+6211;Erdészeti foglalkozású;;349082;232140;354369;351198;358383;342322;279265;https://mire-eleg.pages.dev/fizetes/erdeszeti-foglalkozasu/
+9119;Egyéb takarító és kisegítő;;347673;231202;339789;331853;346351;354015;278138;https://mire-eleg.pages.dev/fizetes/egyeb-takarito-es-kisegito/
+7418;Textilműves, hímző, csipkeverő;;347244;230917;;;;349327;277795;https://mire-eleg.pages.dev/fizetes/textilmuves-himzo-csipkevero/
+9331;Egyszerű mezőgazdasági foglalkozású;mezőgazdasági idénymunkás, mezőgazdasági segédmunkás;340084;226155;355338;344046;337953;331585;272067;https://mire-eleg.pages.dev/fizetes/mezogazdasagi-idenymunkas/
+9321;Kubikos;;306882;204077;352035;314131;297733;293182;245505;https://mire-eleg.pages.dev/fizetes/kubikos/
+9332;Egyszerű erdészeti, vadászati és halászati foglalkozású;;298441;198463;300507;298230;305147;293585;238752;https://mire-eleg.pages.dev/fizetes/egyszeru-erdeszeti-vadaszati-es-halaszati-foglalkozasu/
+9239;Egyéb, máshova nem sorolható egyszerű szolgáltatási és szállítási foglalkozású;;253600;168644;252106;243288;255380;258855;202880;https://mire-eleg.pages.dev/fizetes/egyeb-mashova-nem-sorolhato-egyszeru-szolgaltatasi-es-szallitasi-foglalkozasu/
+7417;Nád- és fűzfeldolgozó, seprű-, kefegyártó;;248865;165495;;;;;199092;https://mire-eleg.pages.dev/fizetes/nad-es-fuzfeldolgozo-sepru-kefegyarto/

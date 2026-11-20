@@ -1,0 +1,533 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bérküszöb-kereső 2026: a FEOR-átlagbér 80%-a harmadik országbeli munkavállalóknál</title>
+<meta name="description" content="Keresd ki FEOR-kód vagy név alapján, mekkora alapbért kell legalább fizetni harmadik országbeli munkavállalónak: a KSH 2025. évi átlagkeresetének 80 százaléka 461 foglalkozásra, a jogszabályhellyel.">
+<link rel="canonical" href="https://mire-eleg.pages.dev/berkuszob-kereso/">
+<meta name="robots" content="noindex">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="hu_HU">
+<meta property="og:site_name" content="Mire elég?">
+<meta property="og:title" content="Bérküszöb-kereső 2026: a FEOR-átlagbér 80%-a harmadik országbeli munkavállalóknál">
+<meta property="og:description" content="Keresd ki FEOR-kód vagy név alapján, mekkora alapbért kell legalább fizetni harmadik országbeli munkavállalónak: a KSH 2025. évi átlagkeresetének 80 százaléka 461 foglalkozásra, a jogszabályhellyel.">
+<meta property="og:url" content="https://mire-eleg.pages.dev/berkuszob-kereso/">
+<meta name="theme-color" content="#0B6B43">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/alap.css?v=d4bbe971">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Mennyi a bérküszöb harmadik országbeli munkavállalónál?","acceptedAnswer":{"@type":"Answer","text":"Az alapbérnek meg kell haladnia a FEOR-kód szerinti foglalkozás országos bruttó átlagkeresetének 80 százalékát. Példa: a „Mechanikaigép-összeszerelő” (FEOR 8211) átlaga 578 224 Ft, a küszöb 462 579 Ft, ennél magasabb alapbér kell."}},{"@type":"Question","name":"Melyik év átlagkeresetével kell számolni?","acceptedAnswer":{"@type":"Answer","text":"A KSH által legutóbb közzétett éves adattal. Ez most a 2025. évi, amelyet a KSH a 20.1.1.52. számú táblában közöl. Amikor megjelenik az új év, ez az oldal magától átáll rá."}},{"@type":"Question","name":"Elég, ha a bér pontosan az átlag 80 százaléka?","acceptedAnswer":{"@type":"Answer","text":"A rendelet szövege szerint az alapbér akkor lényegesen alacsonyabb, ha nem haladja meg az átlag nyolcvan százalékát. A pontosan 80 százalékos alapbér tehát még kevés, legalább egy forinttal többnek kell lennie."}},{"@type":"Question","name":"A pótlékok és a prémium beleszámítanak?","acceptedAnswer":{"@type":"Answer","text":"A rendelet az alapbért (illetményt, díjazást) veti össze az átlagkeresettel. A KSH átlagkeresete viszont a pótlékokat és a prémiumot is tartalmazza, ezért a küszöb a gyakorlatban szigorúbb, mint amilyennek elsőre látszik."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Főoldal","item":"https://mire-eleg.pages.dev/"},{"@type":"ListItem","position":2,"name":"Bérküszöb-kereső","item":"https://mire-eleg.pages.dev/berkuszob-kereso/"}]}</script>
+</head>
+<body>
+<a class="ugras" href="#tartalom">Ugrás a tartalomra</a>
+<header class="fej">
+  <a class="logo" href="/" aria-label="Mire elég? – főoldal"><svg class="jel" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 3h20v24l-3.3-2-3.4 2-3.3-2-3.3 2-3.4-2L6 27z" fill="var(--zold)"/><path d="M11 10h10M11 15h10M11 20h5" stroke="var(--papir)" stroke-width="2.2" stroke-linecap="round"/><circle cx="21" cy="20" r="1.6" fill="var(--sarga)"/></svg><span>mire elég<i>?</i></span></a>
+  <nav aria-label="Fő menü"><a href="/foglalkozasok/">Foglalkozások</a><a href="/brutto-netto-kalkulator/">Bruttó–nettó</a><a href="/mire-eleg/">Mire elég?</a><a href="/berkuszob-kereso/" aria-current="page">Bérküszöb</a></nav>
+</header>
+<main id="tartalom">
+<nav class="morzsa" aria-label="Morzsamenü"><a href="/">Főoldal</a><span>Bérküszöb-kereső</span></nav>
+<h1>Bérküszöb-kereső harmadik országbeli munkavállalókhoz</h1>
+<p class="bevezeto">Írd be a FEOR-kódot vagy a foglalkozás nevét, és megkapod az országos bruttó átlagkeresetet, annak 80 százalékát, és a legkisebb alapbért, amely megfelel a szabálynak.</p>
+<div class="kalk">
+  <form class="urlap" data-kuszob onsubmit="return false">
+    <div class="mezo"><label for="bk-fog">FEOR-kód vagy foglalkozás</label><input id="bk-fog" type="search" autocomplete="off" placeholder="pl. 8211 vagy összeszerelő" aria-controls="bk-lista"><ul id="bk-lista" class="k-lista" hidden></ul></div>
+    <div class="mezo"><label for="bk-ber">A tervezett havi alapbér <small>nem kötelező</small></label><div class="be"><input id="bk-ber" name="ber" inputmode="numeric" autocomplete="off"><span>Ft</span></div></div>
+    <p class="minta-sor"><button type="button" class="gomb masod" data-minta='{"fog":"8211","ber":468000}'>Minta betöltése</button><span>Minta: Mechanikaigép-összeszerelő (8211).</span></p>
+  </form>
+  <div class="szalag eredmeny" data-kuszob-eredmeny aria-live="polite">
+    <p class="szalag-fej">Bérküszöb · KSH 2025</p>
+    <p class="ures">Válassz foglalkozást, és itt megjelenik a küszöb.</p>
+  </div>
+</div>
+<script type="application/json" id="adat">{"arany":0.8,"ev":2025,"letoltve":"2026-11-20"}</script>
+<section class="szoveg"><h2>Mit mond a jogszabály?</h2>
+<p>A kormányhivatal megtagadhatja a munkavállalási engedélyt, illetve az összevont engedélyhez kért szakhatósági állásfoglalásban nem támogatja a foglalkoztatást, ha a megjelölt alapbér lényegesen alacsonyabb a tevékenységre vonatkozó országos bruttó átlagkeresetnél. Lényegesen alacsonyabb az alapbér, ha nem haladja meg az átlagkereset nyolcvan százalékát. Az országos bruttó átlagkereset a KSH által a FEOR-kód szerinti foglalkozásra közzétett, teljes munkaidős bruttó átlagkereset.</p>
+<ul><li>A szabály az alapbérre vonatkozik (ideértve az illetményt és a díjazást), a pótlékok és a prémium nem számítanak bele.</li><li>A küszöböt meg kell haladni: a pontosan 80 százalékos alapbér még lényegesen alacsonyabbnak minősül.</li><li>A munkavállalási engedélynél a hatóság mérlegel, az alacsony bér megtagadási ok lehet. Az összevont engedélynél a szakhatósági állásfoglalás feltétele.</li><li>Vannak mentességek: akinek nem kell engedély (a rendelet 15. §-a), arra a bérvizsgálat sem vonatkozik. Az EU Kék Kártyára külön, magasabb bérminimum érvényes.</li><li>2026. június 6. óta új vendégmunkás-tartózkodási engedély iránti kérelem nem nyújtható be (92/2026. (VI. 5.) Korm. rendelet); a 2026. június 5-én érvényes engedélyek meghosszabbíthatók.</li></ul>
+<p class="forras">Jogszabály: <a href="https://njt.jog.gov.hu/jogszabaly/2013-445-20-22" rel="noopener">445/2013. (XI. 28.) Korm. rendelet 2. § 13. pont, 6. § (2) bek. g) pont és (3) bek., 20. § (5) bek. d) pont és (6) bek.</a>, a Nemzeti Jogszabálytárban 2025. július 1. óta hatályos szöveg. Ellenőrizve: 2026. november 20.</p>
+<p class="forras">Forrás: <a href="https://www.ksh.hu/stadat_files/mun/hu/mun0208.html" rel="noopener">KSH STADAT 20.1.1.52. Teljes munkaidőben alkalmazásban állók bruttó átlagkeresete foglalkozások szerint</a>, 2025. évi adat. Letöltve: 2026. november 20.</p>
+<p class="apro">Ez az oldal tájékoztatás, a konkrét engedélyügyben a kormányhivatal dönt. A tábla a KSH legutóbb közzétett éves adatát mutatja; a KSH évente egyszer, jellemzően tavasszal frissíti.</p>
+</section>
+<section><h2>Az összes FEOR-kód küszöbe</h2>
+<p><a class="gomb masod" href="/adatok/berkuszob.csv" download>Letöltés CSV-ben</a></p>
+<div class="gordul"><table class="nagy-tabla"><thead><tr><th>FEOR</th><th>Foglalkozás</th><th>Bruttó átlag, 2025</th><th>80%</th><th>Legkisebb megfelelő alapbér</th></tr></thead><tbody>
+<tr id="k0110"><td>0110</td><th><a href="/fizetes/hivatasos-katonatiszt/">Fegyveres szervek felsőfokú képesítést igénylő foglalkozásai</a></th><td>1 316 438 Ft</td><td>1 053 150 Ft</td><td>1 053 151 Ft</td></tr>
+<tr id="k0210"><td>0210</td><th><a href="/fizetes/katona/">Fegyveres szervek középfokú képesítést igénylő foglalkozásai</a></th><td>821 948 Ft</td><td>657 558 Ft</td><td>657 559 Ft</td></tr>
+<tr id="k0310"><td>0310</td><th><a href="/fizetes/fegyveres-szervek-kozepfoku-kepesitest-nem-igenylo-foglalkozasai/">Fegyveres szervek középfokú képesítést nem igénylő foglalkozásai</a></th><td>734 659 Ft</td><td>587 727 Ft</td><td>587 728 Ft</td></tr>
+<tr id="k1110"><td>1110</td><th><a href="/fizetes/orszaggyulesi-kepviselo/">Törvényhozó, miniszter, államtitkár</a></th><td>2 548 701 Ft</td><td>2 038 960 Ft</td><td>2 038 961 Ft</td></tr>
+<tr id="k1121"><td>1121</td><th><a href="/fizetes/orszagos-es-teruleti-kozigazgatas-igazsagszolgaltatas-vezetoje/">Országos és területi közigazgatás, igazságszolgáltatás vezetője</a></th><td>1 495 486 Ft</td><td>1 196 388 Ft</td><td>1 196 389 Ft</td></tr>
+<tr id="k1122"><td>1122</td><th><a href="/fizetes/polgarmester/">Helyi önkormányzat választott vezetője</a></th><td>1 346 173 Ft</td><td>1 076 938 Ft</td><td>1 076 939 Ft</td></tr>
+<tr id="k1123"><td>1123</td><th><a href="/fizetes/jegyzo/">Helyi önkormányzat kinevezett vezetője</a></th><td>1 222 458 Ft</td><td>977 966 Ft</td><td>977 967 Ft</td></tr>
+<tr id="k1131"><td>1131</td><th><a href="/fizetes/tarsadalmi-erdek-kepviseleti-es-egyeb-szervezet-vezetoje/">Társadalmi (érdek-képviseleti) és egyéb szervezet vezetője</a></th><td>1 378 583 Ft</td><td>1 102 866 Ft</td><td>1 102 867 Ft</td></tr>
+<tr id="k1210"><td>1210</td><th><a href="/fizetes/ugyvezeto-igazgato/">Gazdasági, költségvetési szervezet vezetője (igazgató, elnök, ügyvezető igazgató)</a></th><td>1 239 216 Ft</td><td>991 372 Ft</td><td>991 373 Ft</td></tr>
+<tr id="k1311"><td>1311</td><th><a href="/fizetes/mezogazdasagi-erdeszeti-halaszati-es-vadaszati-tevekenyseget-folytato-egyseg-vezetoje/">Mezőgazdasági, erdészeti, halászati és vadászati tevékenységet folytató egység vezetője</a></th><td>917 174 Ft</td><td>733 739 Ft</td><td>733 740 Ft</td></tr>
+<tr id="k1312"><td>1312</td><th><a href="/fizetes/gyarigazgato/">Ipari tevékenységet folytató egység vezetője</a></th><td>1 488 741 Ft</td><td>1 190 992 Ft</td><td>1 190 993 Ft</td></tr>
+<tr id="k1313"><td>1313</td><th><a href="/fizetes/epitesvezeto/">Építőipari tevékenységet folytató egység vezetője</a></th><td>948 596 Ft</td><td>758 876 Ft</td><td>758 877 Ft</td></tr>
+<tr id="k1321"><td>1321</td><th><a href="/fizetes/logisztikai-vezeto/">Szállítási, logisztikai és raktározási tevékenységet folytató egység vezetője</a></th><td>1 228 118 Ft</td><td>982 494 Ft</td><td>982 495 Ft</td></tr>
+<tr id="k1322"><td>1322</td><th><a href="/fizetes/informatikai-vezeto/">Informatikai és telekommunikációs tevékenységet folytató egység vezetője</a></th><td>1 991 839 Ft</td><td>1 593 471 Ft</td><td>1 593 472 Ft</td></tr>
+<tr id="k1323"><td>1323</td><th><a href="/fizetes/bankfiokvezeto/">Pénzintézeti tevékenységet folytató egység vezetője</a></th><td>2 201 458 Ft</td><td>1 761 166 Ft</td><td>1 761 167 Ft</td></tr>
+<tr id="k1324"><td>1324</td><th><a href="/fizetes/szocialis-tevekenyseget-folytato-egyseg-vezetoje/">Szociális tevékenységet folytató egység vezetője</a></th><td>787 257 Ft</td><td>629 805 Ft</td><td>629 806 Ft</td></tr>
+<tr id="k1325"><td>1325</td><th><a href="/fizetes/gyermekgondozasi-tevekenyseget-folytato-egyseg-vezetoje/">Gyermekgondozási tevékenységet folytató egység vezetője</a></th><td>886 160 Ft</td><td>708 928 Ft</td><td>708 929 Ft</td></tr>
+<tr id="k1326"><td>1326</td><th><a href="/fizetes/idosgondozasi-tevekenyseget-folytato-egyseg-vezetoje/">Idősgondozási tevékenységet folytató egység vezetője</a></th><td>792 483 Ft</td><td>633 986 Ft</td><td>633 987 Ft</td></tr>
+<tr id="k1327"><td>1327</td><th><a href="/fizetes/korhazigazgato/">Egészségügyi tevékenységet folytató egység vezetője</a></th><td>1 829 402 Ft</td><td>1 463 521 Ft</td><td>1 463 522 Ft</td></tr>
+<tr id="k1328"><td>1328</td><th><a href="/fizetes/iskolaigazgato/">Oktatási-nevelési tevékenységet folytató egység vezetője</a></th><td>1 203 654 Ft</td><td>962 923 Ft</td><td>962 924 Ft</td></tr>
+<tr id="k1329"><td>1329</td><th><a href="/fizetes/egyeb-szolgaltatast-nyujto-egyseg-vezetoje/">Egyéb szolgáltatást nyújtó egység vezetője</a></th><td>1 080 502 Ft</td><td>864 401 Ft</td><td>864 402 Ft</td></tr>
+<tr id="k1331"><td>1331</td><th><a href="/fizetes/szallodaigazgato/">Szálláshely-szolgáltatási tevékenységet folytató egység vezetője</a></th><td>1 052 726 Ft</td><td>842 180 Ft</td><td>842 181 Ft</td></tr>
+<tr id="k1332"><td>1332</td><th><a href="/fizetes/etteremvezeto/">Vendéglátó tevékenységet folytató egység vezetője</a></th><td>654 250 Ft</td><td>523 400 Ft</td><td>523 401 Ft</td></tr>
+<tr id="k1333"><td>1333</td><th><a href="/fizetes/boltvezeto/">Kereskedelmi tevékenységet folytató egység vezetője</a></th><td>918 445 Ft</td><td>734 756 Ft</td><td>734 757 Ft</td></tr>
+<tr id="k1334"><td>1334</td><th><a href="/fizetes/uzleti-szolgaltatasi-tevekenyseget-folytato-egyseg-vezetoje/">Üzleti szolgáltatási tevékenységet folytató egység vezetője</a></th><td>1 525 364 Ft</td><td>1 220 291 Ft</td><td>1 220 292 Ft</td></tr>
+<tr id="k1335"><td>1335</td><th><a href="/fizetes/kulturalis-tevekenyseget-folytato-egyseg-vezetoje/">Kulturális tevékenységet folytató egység vezetője</a></th><td>890 181 Ft</td><td>712 144 Ft</td><td>712 145 Ft</td></tr>
+<tr id="k1336"><td>1336</td><th><a href="/fizetes/sport-es-rekreacios-tevekenyseget-folytato-egyseg-vezetoje/">Sport- és rekreációs tevékenységet folytató egység vezetője</a></th><td>833 594 Ft</td><td>666 875 Ft</td><td>666 876 Ft</td></tr>
+<tr id="k1339"><td>1339</td><th><a href="/fizetes/egyeb-kereskedelmi-vendeglato-es-hasonlo-szolgaltatasi-tevekenyseget-folytato-egyseg-vezetoje/">Egyéb kereskedelmi, vendéglátó és hasonló szolgáltatási tevékenységet folytató egység vezetője</a></th><td>829 178 Ft</td><td>663 342 Ft</td><td>663 343 Ft</td></tr>
+<tr id="k1411"><td>1411</td><th><a href="/fizetes/penzugyi-igazgato/">Számviteli és pénzügyi tevékenységet folytató egység vezetője</a></th><td>1 736 137 Ft</td><td>1 388 909 Ft</td><td>1 388 910 Ft</td></tr>
+<tr id="k1412"><td>1412</td><th><a href="/fizetes/hr-vezeto/">Személyzeti vezető, humánpolitikai egység vezetője</a></th><td>1 831 361 Ft</td><td>1 465 088 Ft</td><td>1 465 089 Ft</td></tr>
+<tr id="k1413"><td>1413</td><th><a href="/fizetes/kutatasi-es-fejlesztesi-tevekenyseget-folytato-egyseg-vezetoje/">Kutatási és fejlesztési tevékenységet folytató egység vezetője</a></th><td>1 848 637 Ft</td><td>1 478 909 Ft</td><td>1 478 910 Ft</td></tr>
+<tr id="k1414"><td>1414</td><th><a href="/fizetes/vallalati-strategiatervezesi-egyseg-vezetoje/">Vállalati stratégiatervezési egység vezetője</a></th><td>1 841 393 Ft</td><td>1 473 114 Ft</td><td>1 473 115 Ft</td></tr>
+<tr id="k1415"><td>1415</td><th><a href="/fizetes/ertekesitesi-vezeto/">Értékesítési és marketingtevékenységet folytató egység vezetője</a></th><td>1 696 745 Ft</td><td>1 357 396 Ft</td><td>1 357 397 Ft</td></tr>
+<tr id="k1416"><td>1416</td><th><a href="/fizetes/reklam-pr-es-egyeb-kommunikacios-tevekenyseget-folytato-egyseg-vezetoje/">Reklám-, PR- és egyéb kommunikációs tevékenységet folytató egység vezetője</a></th><td>1 454 243 Ft</td><td>1 163 394 Ft</td><td>1 163 395 Ft</td></tr>
+<tr id="k1419"><td>1419</td><th><a href="/fizetes/egyeb-gazdasagi-tevekenyseget-segito-egyseg-vezetoje/">Egyéb gazdasági tevékenységet segítő egység vezetője</a></th><td>1 501 738 Ft</td><td>1 201 390 Ft</td><td>1 201 391 Ft</td></tr>
+<tr id="k2111"><td>2111</td><th><a href="/fizetes/banyamernok/">Bányamérnök</a></th><td>1 145 210 Ft</td><td>916 168 Ft</td><td>916 169 Ft</td></tr>
+<tr id="k2112"><td>2112</td><th><a href="/fizetes/koho-es-anyagmernok/">Kohó- és anyagmérnök</a></th><td>1 094 179 Ft</td><td>875 343 Ft</td><td>875 344 Ft</td></tr>
+<tr id="k2113"><td>2113</td><th><a href="/fizetes/elelmiszer-ipari-mernok/">Élelmiszer-ipari mérnök</a></th><td>854 400 Ft</td><td>683 520 Ft</td><td>683 521 Ft</td></tr>
+<tr id="k2114"><td>2114</td><th><a href="/fizetes/fa-es-konnyuipari-mernok/">Fa- és könnyűipari mérnök</a></th><td>838 974 Ft</td><td>671 179 Ft</td><td>671 180 Ft</td></tr>
+<tr id="k2115"><td>2115</td><th><a href="/fizetes/epitesz/">Építészmérnök</a></th><td>835 446 Ft</td><td>668 356 Ft</td><td>668 357 Ft</td></tr>
+<tr id="k2116"><td>2116</td><th><a href="/fizetes/epitomernok/">Építőmérnök</a></th><td>1 096 827 Ft</td><td>877 461 Ft</td><td>877 462 Ft</td></tr>
+<tr id="k2117"><td>2117</td><th><a href="/fizetes/vegyeszmernok/">Vegyészmérnök</a></th><td>1 087 124 Ft</td><td>869 699 Ft</td><td>869 700 Ft</td></tr>
+<tr id="k2118"><td>2118</td><th><a href="/fizetes/gepeszmernok/">Gépészmérnök</a></th><td>1 117 271 Ft</td><td>893 816 Ft</td><td>893 817 Ft</td></tr>
+<tr id="k2121"><td>2121</td><th><a href="/fizetes/villamosmernok/">Villamosmérnök (energetikai mérnök)</a></th><td>1 238 587 Ft</td><td>990 869 Ft</td><td>990 870 Ft</td></tr>
+<tr id="k2122"><td>2122</td><th><a href="/fizetes/elektronikai-mernok/">Villamosmérnök (elektronikai mérnök)</a></th><td>1 235 768 Ft</td><td>988 614 Ft</td><td>988 615 Ft</td></tr>
+<tr id="k2123"><td>2123</td><th><a href="/fizetes/telekommunikacios-mernok/">Telekommunikációs mérnök</a></th><td>1 276 573 Ft</td><td>1 021 258 Ft</td><td>1 021 259 Ft</td></tr>
+<tr id="k2131"><td>2131</td><th><a href="/fizetes/mezogazdasagi-mernok/">Mezőgazdasági mérnök</a></th><td>851 060 Ft</td><td>680 848 Ft</td><td>680 849 Ft</td></tr>
+<tr id="k2132"><td>2132</td><th><a href="/fizetes/erdo-es-termeszetvedelmi-mernok/">Erdő- és természetvédelmi mérnök</a></th><td>889 846 Ft</td><td>711 876 Ft</td><td>711 877 Ft</td></tr>
+<tr id="k2133"><td>2133</td><th><a href="/fizetes/taj-es-kertepiteszmernok/">Táj- és kertépítészmérnök</a></th><td>707 842 Ft</td><td>566 273 Ft</td><td>566 274 Ft</td></tr>
+<tr id="k2134"><td>2134</td><th><a href="/fizetes/telepules-es-kozlekedestervezo-mernok/">Település- és közlekedéstervező mérnök</a></th><td>954 766 Ft</td><td>763 812 Ft</td><td>763 813 Ft</td></tr>
+<tr id="k2135"><td>2135</td><th><a href="/fizetes/foldmero/">Földmérő és térinformatikus</a></th><td>778 832 Ft</td><td>623 065 Ft</td><td>623 066 Ft</td></tr>
+<tr id="k2136"><td>2136</td><th><a href="/fizetes/grafikus/">Grafikus és multimédia-tervező</a></th><td>847 098 Ft</td><td>677 678 Ft</td><td>677 679 Ft</td></tr>
+<tr id="k2137"><td>2137</td><th><a href="/fizetes/minosegbiztositasi-mernok/">Minőségbiztosítási mérnök</a></th><td>1 131 883 Ft</td><td>905 506 Ft</td><td>905 507 Ft</td></tr>
+<tr id="k2139"><td>2139</td><th><a href="/fizetes/egyeb-mashova-nem-sorolhato-mernok/">Egyéb, máshova nem sorolható mérnök</a></th><td>1 237 258 Ft</td><td>989 806 Ft</td><td>989 807 Ft</td></tr>
+<tr id="k2141"><td>2141</td><th><a href="/fizetes/rendszerelemzo/">Rendszerelemző (informatikai)</a></th><td>1 355 026 Ft</td><td>1 084 020 Ft</td><td>1 084 021 Ft</td></tr>
+<tr id="k2142"><td>2142</td><th><a href="/fizetes/programozo/">Szoftverfejlesztő</a></th><td>1 364 606 Ft</td><td>1 091 684 Ft</td><td>1 091 685 Ft</td></tr>
+<tr id="k2143"><td>2143</td><th><a href="/fizetes/webfejleszto/">Hálózat- és multimédia-fejlesztő</a></th><td>1 102 824 Ft</td><td>882 259 Ft</td><td>882 260 Ft</td></tr>
+<tr id="k2144"><td>2144</td><th><a href="/fizetes/alkalmazasprogramozo/">Alkalmazásprogramozó</a></th><td>1 093 150 Ft</td><td>874 520 Ft</td><td>874 521 Ft</td></tr>
+<tr id="k2149"><td>2149</td><th><a href="/fizetes/szoftvertesztelo/">Egyéb szoftver- és alkalmazásfejlesztő, -elemző</a></th><td>1 349 764 Ft</td><td>1 079 811 Ft</td><td>1 079 812 Ft</td></tr>
+<tr id="k2151"><td>2151</td><th><a href="/fizetes/adatbazis-adminisztrator/">Adatbázis-tervező és -üzemeltető</a></th><td>1 229 809 Ft</td><td>983 847 Ft</td><td>983 848 Ft</td></tr>
+<tr id="k2152"><td>2152</td><th><a href="/fizetes/rendszergazda/">Rendszergazda</a></th><td>937 570 Ft</td><td>750 056 Ft</td><td>750 057 Ft</td></tr>
+<tr id="k2153"><td>2153</td><th><a href="/fizetes/halozati-mernok/">Számítógép-hálózati elemző, üzemeltető</a></th><td>1 175 867 Ft</td><td>940 693 Ft</td><td>940 694 Ft</td></tr>
+<tr id="k2159"><td>2159</td><th><a href="/fizetes/egyeb-adatbazis-es-halozati-elemzo-uzemelteto/">Egyéb adatbázis- és hálózati elemző, üzemeltető</a></th><td>1 251 168 Ft</td><td>1 000 934 Ft</td><td>1 000 935 Ft</td></tr>
+<tr id="k2161"><td>2161</td><th><a href="/fizetes/fizikus/">Fizikus</a></th><td>1 265 101 Ft</td><td>1 012 080 Ft</td><td>1 012 081 Ft</td></tr>
+<tr id="k2163"><td>2163</td><th><a href="/fizetes/meteorologus/">Meteorológus</a></th><td>970 381 Ft</td><td>776 304 Ft</td><td>776 305 Ft</td></tr>
+<tr id="k2164"><td>2164</td><th><a href="/fizetes/kemikus/">Kémikus</a></th><td>1 091 544 Ft</td><td>873 235 Ft</td><td>873 236 Ft</td></tr>
+<tr id="k2165"><td>2165</td><th><a href="/fizetes/geologus/">Geológus</a></th><td>1 082 600 Ft</td><td>866 080 Ft</td><td>866 081 Ft</td></tr>
+<tr id="k2166"><td>2166</td><th><a href="/fizetes/matematikus/">Matematikus</a></th><td>1 420 336 Ft</td><td>1 136 268 Ft</td><td>1 136 269 Ft</td></tr>
+<tr id="k2167"><td>2167</td><th><a href="/fizetes/biologus/">Biológus, botanikus, zoológus és rokon foglalkozású</a></th><td>1 005 233 Ft</td><td>804 186 Ft</td><td>804 187 Ft</td></tr>
+<tr id="k2168"><td>2168</td><th><a href="/fizetes/kornyezetfelmero-tanacsado/">Környezetfelmérő, -tanácsadó</a></th><td>898 780 Ft</td><td>719 024 Ft</td><td>719 025 Ft</td></tr>
+<tr id="k2169"><td>2169</td><th><a href="/fizetes/egyeb-termeszettudomanyi-foglalkozasu/">Egyéb természettudományi foglalkozású</a></th><td>1 030 395 Ft</td><td>824 316 Ft</td><td>824 317 Ft</td></tr>
+<tr id="k2211"><td>2211</td><th><a href="/fizetes/haziorvos/">Általános orvos</a></th><td>1 410 897 Ft</td><td>1 128 717 Ft</td><td>1 128 718 Ft</td></tr>
+<tr id="k2212"><td>2212</td><th><a href="/fizetes/szakorvos/">Szakorvos</a></th><td>2 109 502 Ft</td><td>1 687 601 Ft</td><td>1 687 602 Ft</td></tr>
+<tr id="k2213"><td>2213</td><th><a href="/fizetes/fogorvos/">Fogorvos, fogszakorvos</a></th><td>1 001 990 Ft</td><td>801 592 Ft</td><td>801 593 Ft</td></tr>
+<tr id="k2214"><td>2214</td><th><a href="/fizetes/gyogyszeresz/">Gyógyszerész, szakgyógyszerész</a></th><td>990 165 Ft</td><td>792 132 Ft</td><td>792 133 Ft</td></tr>
+<tr id="k2221"><td>2221</td><th><a href="/fizetes/kornyezet-es-foglalkozas-egeszsegugyi-foglalkozasu/">Környezet- és foglalkozás-egészségügyi foglalkozású</a></th><td>717 884 Ft</td><td>574 307 Ft</td><td>574 308 Ft</td></tr>
+<tr id="k2222"><td>2222</td><th><a href="/fizetes/optometrista/">Optometrista</a></th><td>676 100 Ft</td><td>540 880 Ft</td><td>540 881 Ft</td></tr>
+<tr id="k2223"><td>2223</td><th><a href="/fizetes/dietetikus/">Dietetikus és táplálkozási tanácsadó</a></th><td>641 490 Ft</td><td>513 192 Ft</td><td>513 193 Ft</td></tr>
+<tr id="k2224"><td>2224</td><th><a href="/fizetes/gyogytornasz/">Gyógytornász</a></th><td>642 060 Ft</td><td>513 648 Ft</td><td>513 649 Ft</td></tr>
+<tr id="k2225"><td>2225</td><th><a href="/fizetes/vedono/">Védőnő</a></th><td>759 443 Ft</td><td>607 554 Ft</td><td>607 555 Ft</td></tr>
+<tr id="k2226"><td>2226</td><th><a href="/fizetes/mentotiszt/">Mentőtiszt</a></th><td>1 256 477 Ft</td><td>1 005 181 Ft</td><td>1 005 182 Ft</td></tr>
+<tr id="k2227"><td>2227</td><th><a href="/fizetes/logopedus/">Hallás- és beszédterapeuta</a></th><td>816 013 Ft</td><td>652 810 Ft</td><td>652 811 Ft</td></tr>
+<tr id="k2228"><td>2228</td><th><a href="/fizetes/alternativ-gyogymodot-alkalmazo/">Alternatív gyógymódot alkalmazó</a></th><td>1 040 706 Ft</td><td>832 564 Ft</td><td>832 565 Ft</td></tr>
+<tr id="k2229"><td>2229</td><th><a href="/fizetes/egyeb-human-egeszsegugyi-tars-foglalkozasu/">Egyéb humán-egészségügyi (társ)foglalkozású</a></th><td>1 244 161 Ft</td><td>995 328 Ft</td><td>995 329 Ft</td></tr>
+<tr id="k2231"><td>2231</td><th><a href="/fizetes/diplomas-apolo/">Ápoló (felsőfokú képzettséghez kapcsolódó)</a></th><td>999 985 Ft</td><td>799 988 Ft</td><td>799 989 Ft</td></tr>
+<tr id="k2232"><td>2232</td><th><a href="/fizetes/szuleszno-diplomas/">Szülész(nő) (felsőfokú képzettséghez kapcsolódó)</a></th><td>854 405 Ft</td><td>683 524 Ft</td><td>683 525 Ft</td></tr>
+<tr id="k2241"><td>2241</td><th><a href="/fizetes/allatorvos/">Állatorvos</a></th><td>697 262 Ft</td><td>557 809 Ft</td><td>557 810 Ft</td></tr>
+<tr id="k2242"><td>2242</td><th><a href="/fizetes/novenyorvos-novenyvedelmi-szakerto/">Növényorvos (növényvédelmi szakértő)</a></th><td>803 297 Ft</td><td>642 637 Ft</td><td>642 638 Ft</td></tr>
+<tr id="k2311"><td>2311</td><th><a href="/fizetes/szocialpolitikus/">Szociálpolitikus</a></th><td>749 812 Ft</td><td>599 849 Ft</td><td>599 850 Ft</td></tr>
+<tr id="k2312"><td>2312</td><th><a href="/fizetes/szocialis-munkas/">Szociális munkás és tanácsadó</a></th><td>586 724 Ft</td><td>469 379 Ft</td><td>469 380 Ft</td></tr>
+<tr id="k2410"><td>2410</td><th><a href="/fizetes/egyetemi-oktato/">Egyetemi, főiskolai oktató, tanár</a></th><td>1 002 028 Ft</td><td>801 622 Ft</td><td>801 623 Ft</td></tr>
+<tr id="k2421"><td>2421</td><th><a href="/fizetes/kozepiskolai-tanar/">Középiskolai tanár</a></th><td>877 998 Ft</td><td>702 398 Ft</td><td>702 399 Ft</td></tr>
+<tr id="k2422"><td>2422</td><th><a href="/fizetes/szakoktato/">Középfokú nevelési-oktatási intézményi szakoktató, gyakorlati oktató</a></th><td>859 141 Ft</td><td>687 312 Ft</td><td>687 313 Ft</td></tr>
+<tr id="k2431"><td>2431</td><th><a href="/fizetes/tanito/">Általános iskolai tanár, tanító</a></th><td>822 507 Ft</td><td>658 005 Ft</td><td>658 006 Ft</td></tr>
+<tr id="k2432"><td>2432</td><th><a href="/fizetes/ovono/">Csecsemő- és kisgyermeknevelő, óvodapedagógus</a></th><td>731 112 Ft</td><td>584 889 Ft</td><td>584 890 Ft</td></tr>
+<tr id="k2441"><td>2441</td><th><a href="/fizetes/gyogypedagogus/">Gyógypedagógus</a></th><td>786 358 Ft</td><td>629 086 Ft</td><td>629 087 Ft</td></tr>
+<tr id="k2442"><td>2442</td><th><a href="/fizetes/konduktor/">Konduktor</a></th><td>739 688 Ft</td><td>591 750 Ft</td><td>591 751 Ft</td></tr>
+<tr id="k2491"><td>2491</td><th><a href="/fizetes/pedagogiai-szakerto-szaktanacsado/">Pedagógiai szakértő, szaktanácsadó</a></th><td>766 978 Ft</td><td>613 582 Ft</td><td>613 583 Ft</td></tr>
+<tr id="k2492"><td>2492</td><th><a href="/fizetes/nyelvtanar/">Nyelvtanár (iskolarendszeren kívül)</a></th><td>576 148 Ft</td><td>460 918 Ft</td><td>460 919 Ft</td></tr>
+<tr id="k2493"><td>2493</td><th><a href="/fizetes/zenetanar-iskolarendszeren-kivul/">Zenetanár (iskolarendszeren kívül)</a></th><td>765 711 Ft</td><td>612 568 Ft</td><td>612 569 Ft</td></tr>
+<tr id="k2494"><td>2494</td><th><a href="/fizetes/egyeb-muveszetek-tanara-iskolarendszeren-kivul/">Egyéb művészetek tanára (iskolarendszeren kívül)</a></th><td>769 856 Ft</td><td>615 884 Ft</td><td>615 885 Ft</td></tr>
+<tr id="k2499"><td>2499</td><th><a href="/fizetes/egyeb-szakkepzett-oktato-nevelo/">Egyéb szakképzett oktató, nevelő</a></th><td>751 443 Ft</td><td>601 154 Ft</td><td>601 155 Ft</td></tr>
+<tr id="k2511"><td>2511</td><th><a href="/fizetes/penzugyi-elemzo/">Pénzügyi elemző és befektetési tanácsadó</a></th><td>1 244 775 Ft</td><td>995 820 Ft</td><td>995 821 Ft</td></tr>
+<tr id="k2512"><td>2512</td><th><a href="/fizetes/adotanacsado/">Adótanácsadó, adószakértő</a></th><td>1 234 466 Ft</td><td>987 572 Ft</td><td>987 573 Ft</td></tr>
+<tr id="k2513"><td>2513</td><th><a href="/fizetes/konyvelo-merlegkepes/">Könyvvizsgáló, könyvelő, könyvszakértő</a></th><td>906 836 Ft</td><td>725 468 Ft</td><td>725 469 Ft</td></tr>
+<tr id="k2514"><td>2514</td><th><a href="/fizetes/kontroller/">Kontroller</a></th><td>1 173 051 Ft</td><td>938 440 Ft</td><td>938 441 Ft</td></tr>
+<tr id="k2521"><td>2521</td><th><a href="/fizetes/szervezetfejleszto/">Szervezetirányítási elemző, szervező</a></th><td>1 277 336 Ft</td><td>1 021 868 Ft</td><td>1 021 869 Ft</td></tr>
+<tr id="k2522"><td>2522</td><th><a href="/fizetes/uzleti-elemzo/">Üzletpolitikai elemző, szervező</a></th><td>1 023 319 Ft</td><td>818 655 Ft</td><td>818 656 Ft</td></tr>
+<tr id="k2523"><td>2523</td><th><a href="/fizetes/hr-es/">Személyzeti és pályaválasztási szakértő</a></th><td>1 034 947 Ft</td><td>827 957 Ft</td><td>827 958 Ft</td></tr>
+<tr id="k2524"><td>2524</td><th><a href="/fizetes/trener/">Képzési és személyzetfejlesztési szakértő</a></th><td>958 819 Ft</td><td>767 055 Ft</td><td>767 056 Ft</td></tr>
+<tr id="k2531"><td>2531</td><th><a href="/fizetes/marketinges/">Piackutató, reklám- és marketingtevékenységet tervező, szervező</a></th><td>1 091 070 Ft</td><td>872 856 Ft</td><td>872 857 Ft</td></tr>
+<tr id="k2532"><td>2532</td><th><a href="/fizetes/pr-os/">PR-tevékenységet tervező, szervező</a></th><td>957 924 Ft</td><td>766 339 Ft</td><td>766 340 Ft</td></tr>
+<tr id="k2533"><td>2533</td><th><a href="/fizetes/ertekesito/">Kereskedelmi tervező, szervező</a></th><td>1 134 156 Ft</td><td>907 324 Ft</td><td>907 325 Ft</td></tr>
+<tr id="k2534"><td>2534</td><th><a href="/fizetes/it-ertekesito/">Informatikai és telekommunikációs technológiai termékek értékesítését tervező, szervező</a></th><td>1 532 243 Ft</td><td>1 225 794 Ft</td><td>1 225 795 Ft</td></tr>
+<tr id="k2611"><td>2611</td><th><a href="/fizetes/jogasz/">Jogász, jogtanácsos</a></th><td>1 115 095 Ft</td><td>892 076 Ft</td><td>892 077 Ft</td></tr>
+<tr id="k2612"><td>2612</td><th><a href="/fizetes/ugyesz/">Ügyész, ügyészségi fogalmazó</a></th><td>1 556 410 Ft</td><td>1 245 128 Ft</td><td>1 245 129 Ft</td></tr>
+<tr id="k2613"><td>2613</td><th><a href="/fizetes/biro/">Bíró, bírósági fogalmazó</a></th><td>1 524 483 Ft</td><td>1 219 586 Ft</td><td>1 219 587 Ft</td></tr>
+<tr id="k2614"><td>2614</td><th><a href="/fizetes/kozjegyzo/">Közjegyző</a></th><td>767 161 Ft</td><td>613 728 Ft</td><td>613 729 Ft</td></tr>
+<tr id="k2615"><td>2615</td><th><a href="/fizetes/ugyved/">Ügyvéd</a></th><td>471 208 Ft</td><td>376 966 Ft</td><td>376 967 Ft</td></tr>
+<tr id="k2619"><td>2619</td><th><a href="/fizetes/egyeb-jogi-foglalkozasu/">Egyéb jogi foglalkozású</a></th><td>888 417 Ft</td><td>710 733 Ft</td><td>710 734 Ft</td></tr>
+<tr id="k2621"><td>2621</td><th><a href="/fizetes/filozofus-politologus/">Filozófus, politológus</a></th><td>937 498 Ft</td><td>749 998 Ft</td><td>749 999 Ft</td></tr>
+<tr id="k2622"><td>2622</td><th><a href="/fizetes/tortenesz-regesz/">Történész, régész</a></th><td>678 184 Ft</td><td>542 547 Ft</td><td>542 548 Ft</td></tr>
+<tr id="k2623"><td>2623</td><th><a href="/fizetes/neprajzkutato/">Néprajzkutató</a></th><td>625 582 Ft</td><td>500 465 Ft</td><td>500 466 Ft</td></tr>
+<tr id="k2624"><td>2624</td><th><a href="/fizetes/kozgazdasz/">Elemző közgazdász</a></th><td>1 336 948 Ft</td><td>1 069 558 Ft</td><td>1 069 559 Ft</td></tr>
+<tr id="k2625"><td>2625</td><th><a href="/fizetes/statisztikus/">Statisztikus</a></th><td>825 393 Ft</td><td>660 314 Ft</td><td>660 315 Ft</td></tr>
+<tr id="k2626"><td>2626</td><th><a href="/fizetes/szociologus-demografus/">Szociológus, demográfus</a></th><td>781 613 Ft</td><td>625 290 Ft</td><td>625 291 Ft</td></tr>
+<tr id="k2627"><td>2627</td><th><a href="/fizetes/fordito/">Nyelvész, fordító, tolmács</a></th><td>728 534 Ft</td><td>582 827 Ft</td><td>582 828 Ft</td></tr>
+<tr id="k2628"><td>2628</td><th><a href="/fizetes/pszichologus/">Pszichológus</a></th><td>897 165 Ft</td><td>717 732 Ft</td><td>717 733 Ft</td></tr>
+<tr id="k2629"><td>2629</td><th><a href="/fizetes/egyeb-tarsadalomtudomanyi-foglalkozasu/">Egyéb társadalomtudományi foglalkozású</a></th><td>836 756 Ft</td><td>669 404 Ft</td><td>669 405 Ft</td></tr>
+<tr id="k2711"><td>2711</td><th><a href="/fizetes/konyvtaros/">Könyvtáros, informatikus könyvtáros</a></th><td>543 729 Ft</td><td>434 983 Ft</td><td>434 984 Ft</td></tr>
+<tr id="k2712"><td>2712</td><th><a href="/fizetes/leveltaros/">Levéltáros</a></th><td>578 314 Ft</td><td>462 651 Ft</td><td>462 652 Ft</td></tr>
+<tr id="k2713"><td>2713</td><th><a href="/fizetes/muzeologus-muzeumi-gyujtemenygondnok/">Muzeológus, múzeumi gyűjteménygondnok</a></th><td>576 271 Ft</td><td>461 016 Ft</td><td>461 017 Ft</td></tr>
+<tr id="k2714"><td>2714</td><th><a href="/fizetes/kulturalis-szervezo/">Kulturális szervező</a></th><td>655 736 Ft</td><td>524 588 Ft</td><td>524 589 Ft</td></tr>
+<tr id="k2715"><td>2715</td><th><a href="/fizetes/konyv-es-lapkiado-szerkesztoje/">Könyv- és lapkiadó szerkesztője</a></th><td>740 115 Ft</td><td>592 092 Ft</td><td>592 093 Ft</td></tr>
+<tr id="k2716"><td>2716</td><th><a href="/fizetes/ujsagiro/">Újságíró, rádióműsor-, televízióműsor-szerkesztő</a></th><td>766 783 Ft</td><td>613 426 Ft</td><td>613 427 Ft</td></tr>
+<tr id="k2717"><td>2717</td><th><a href="/fizetes/edzo/">Szakképzett edző, sportszervező, -irányító</a></th><td>727 437 Ft</td><td>581 949 Ft</td><td>581 950 Ft</td></tr>
+<tr id="k2719"><td>2719</td><th><a href="/fizetes/egyeb-kulturalis-es-sportfoglalkozasu-felsofoku-kepzettseghez-kapcsolodo/">Egyéb kulturális és sportfoglalkozású (felsőfokú képzettséghez kapcsolódó)</a></th><td>727 587 Ft</td><td>582 069 Ft</td><td>582 070 Ft</td></tr>
+<tr id="k2721"><td>2721</td><th><a href="/fizetes/iro-ujsagiro-nelkul/">Író (újságíró nélkül)</a></th><td>928 959 Ft</td><td>743 167 Ft</td><td>743 168 Ft</td></tr>
+<tr id="k2723"><td>2723</td><th><a href="/fizetes/iparmuvesz-gyartmany-es-ruhatervezo/">Iparművész, gyártmány- és ruhatervező</a></th><td>625 569 Ft</td><td>500 455 Ft</td><td>500 456 Ft</td></tr>
+<tr id="k2724"><td>2724</td><th><a href="/fizetes/zenesz/">Zeneszerző, zenész, énekes</a></th><td>745 720 Ft</td><td>596 576 Ft</td><td>596 577 Ft</td></tr>
+<tr id="k2725"><td>2725</td><th><a href="/fizetes/rendezo-operator/">Rendező, operatőr</a></th><td>822 162 Ft</td><td>657 729 Ft</td><td>657 730 Ft</td></tr>
+<tr id="k2726"><td>2726</td><th><a href="/fizetes/szinesz/">Színész, bábművész</a></th><td>693 412 Ft</td><td>554 729 Ft</td><td>554 730 Ft</td></tr>
+<tr id="k2727"><td>2727</td><th><a href="/fizetes/tancmuvesz-koreografus/">Táncművész, koreográfus</a></th><td>678 856 Ft</td><td>543 084 Ft</td><td>543 085 Ft</td></tr>
+<tr id="k2729"><td>2729</td><th><a href="/fizetes/egyeb-alkoto-es-eloado-muveszi-foglalkozasu-felsofoku-kepzettseghez-kapcsolodo/">Egyéb alkotó- és előadó-művészi foglalkozású (felsőfokú képzettséghez kapcsolódó)</a></th><td>744 703 Ft</td><td>595 762 Ft</td><td>595 763 Ft</td></tr>
+<tr id="k2910"><td>2910</td><th><a href="/fizetes/egyeb-magasan-kepzett-ugyintezo/">Egyéb magasan képzett ügyintéző</a></th><td>943 819 Ft</td><td>755 055 Ft</td><td>755 056 Ft</td></tr>
+<tr id="k3111"><td>3111</td><th><a href="/fizetes/banyaszati-technikus/">Bányászati technikus</a></th><td>835 150 Ft</td><td>668 120 Ft</td><td>668 121 Ft</td></tr>
+<tr id="k3112"><td>3112</td><th><a href="/fizetes/koho-es-anyagtechnikus/">Kohó- és anyagtechnikus</a></th><td>796 892 Ft</td><td>637 513 Ft</td><td>637 514 Ft</td></tr>
+<tr id="k3113"><td>3113</td><th><a href="/fizetes/elelmiszer-ipari-technikus/">Élelmiszer-ipari technikus</a></th><td>699 232 Ft</td><td>559 385 Ft</td><td>559 386 Ft</td></tr>
+<tr id="k3114"><td>3114</td><th><a href="/fizetes/fa-es-konnyuipari-technikus/">Fa- és könnyűipari technikus</a></th><td>570 817 Ft</td><td>456 653 Ft</td><td>456 654 Ft</td></tr>
+<tr id="k3115"><td>3115</td><th><a href="/fizetes/vegyesztechnikus/">Vegyésztechnikus</a></th><td>674 553 Ft</td><td>539 642 Ft</td><td>539 643 Ft</td></tr>
+<tr id="k3116"><td>3116</td><th><a href="/fizetes/gepesztechnikus/">Gépésztechnikus</a></th><td>815 489 Ft</td><td>652 391 Ft</td><td>652 392 Ft</td></tr>
+<tr id="k3117"><td>3117</td><th><a href="/fizetes/epitesztechnikus/">Építő- és építésztechnikus</a></th><td>538 498 Ft</td><td>430 798 Ft</td><td>430 799 Ft</td></tr>
+<tr id="k3121"><td>3121</td><th><a href="/fizetes/villamosipari-technikus/">Villamosipari technikus (energetikai technikus)</a></th><td>927 293 Ft</td><td>741 834 Ft</td><td>741 835 Ft</td></tr>
+<tr id="k3122"><td>3122</td><th><a href="/fizetes/villamosipari-technikus-elektronikai-technikus/">Villamosipari technikus (elektronikai technikus)</a></th><td>789 252 Ft</td><td>631 401 Ft</td><td>631 402 Ft</td></tr>
+<tr id="k3131"><td>3131</td><th><a href="/fizetes/mezogazdasagi-technikus/">Mezőgazdasági technikus</a></th><td>677 774 Ft</td><td>542 219 Ft</td><td>542 220 Ft</td></tr>
+<tr id="k3132"><td>3132</td><th><a href="/fizetes/erdo-es-termeszetvedelmi-technikus/">Erdő- és természetvédelmi technikus</a></th><td>653 670 Ft</td><td>522 936 Ft</td><td>522 937 Ft</td></tr>
+<tr id="k3133"><td>3133</td><th><a href="/fizetes/foldmero-es-terinformatikai-technikus/">Földmérő és térinformatikai technikus</a></th><td>642 920 Ft</td><td>514 336 Ft</td><td>514 337 Ft</td></tr>
+<tr id="k3134"><td>3134</td><th><a href="/fizetes/kornyezetvedelmi-technikus/">Környezetvédelmi technikus</a></th><td>706 583 Ft</td><td>565 266 Ft</td><td>565 267 Ft</td></tr>
+<tr id="k3135"><td>3135</td><th><a href="/fizetes/minosegellenor/">Minőségbiztosítási technikus</a></th><td>726 656 Ft</td><td>581 324 Ft</td><td>581 325 Ft</td></tr>
+<tr id="k3136"><td>3136</td><th><a href="/fizetes/muszaki-rajzolo/">Műszaki rajzoló, szerkesztő</a></th><td>693 503 Ft</td><td>554 802 Ft</td><td>554 803 Ft</td></tr>
+<tr id="k3139"><td>3139</td><th><a href="/fizetes/egyeb-mashova-nem-sorolhato-technikus/">Egyéb, máshova nem sorolható technikus</a></th><td>816 801 Ft</td><td>653 440 Ft</td><td>653 441 Ft</td></tr>
+<tr id="k3141"><td>3141</td><th><a href="/fizetes/informatikus/">Informatikai és kommunikációs rendszereket kezelő technikus</a></th><td>895 645 Ft</td><td>716 516 Ft</td><td>716 517 Ft</td></tr>
+<tr id="k3142"><td>3142</td><th><a href="/fizetes/it-helpdesk/">Informatikai és kommunikációs rendszerek felhasználóit támogató technikus</a></th><td>951 276 Ft</td><td>761 020 Ft</td><td>761 021 Ft</td></tr>
+<tr id="k3143"><td>3143</td><th><a href="/fizetes/szamitogephalozat-es-rendszertechnikus/">Számítógéphálózat- és rendszertechnikus</a></th><td>921 073 Ft</td><td>736 858 Ft</td><td>736 859 Ft</td></tr>
+<tr id="k3144"><td>3144</td><th><a href="/fizetes/webrendszer-halozati-technikus/">Webrendszer- (hálózati) technikus</a></th><td>671 701 Ft</td><td>537 360 Ft</td><td>537 361 Ft</td></tr>
+<tr id="k3145"><td>3145</td><th><a href="/fizetes/musorszoro-es-audiovizualis-technikus/">Műsorszóró és audiovizuális technikus</a></th><td>771 070 Ft</td><td>616 856 Ft</td><td>616 857 Ft</td></tr>
+<tr id="k3146"><td>3146</td><th><a href="/fizetes/telekommunikacios-technikus/">Telekommunikációs technikus</a></th><td>855 180 Ft</td><td>684 144 Ft</td><td>684 145 Ft</td></tr>
+<tr id="k3151"><td>3151</td><th><a href="/fizetes/energetikai-eromuvi-berendezes-vezerloje/">Energetikai (erőművi) berendezés vezérlője</a></th><td>1 153 981 Ft</td><td>923 184 Ft</td><td>923 185 Ft</td></tr>
+<tr id="k3152"><td>3152</td><th><a href="/fizetes/egeto-viz-es-csatornamuvi-berendezes-vezerloje/">Égető-, víz- és csatornaművi berendezés vezérlője</a></th><td>789 142 Ft</td><td>631 313 Ft</td><td>631 314 Ft</td></tr>
+<tr id="k3153"><td>3153</td><th><a href="/fizetes/vegyipari-alapanyag-feldolgozo-berendezes-vezerloje/">Vegyipari alapanyag-feldolgozó berendezés vezérlője</a></th><td>807 464 Ft</td><td>645 971 Ft</td><td>645 972 Ft</td></tr>
+<tr id="k3154"><td>3154</td><th><a href="/fizetes/koolaj-es-foldgazfinomito-berendezes-vezerloje/">Kőolaj- és földgázfinomító berendezés vezérlője</a></th><td>1 081 157 Ft</td><td>864 925 Ft</td><td>864 926 Ft</td></tr>
+<tr id="k3155"><td>3155</td><th><a href="/fizetes/femgyartasi-berendezes-vezerloje/">Fémgyártási berendezés vezérlője</a></th><td>773 527 Ft</td><td>618 821 Ft</td><td>618 822 Ft</td></tr>
+<tr id="k3159"><td>3159</td><th><a href="/fizetes/egyeb-folyamatiranyito-berendezes-vezerloje/">Egyéb folyamatirányító berendezés vezérlője</a></th><td>787 827 Ft</td><td>630 261 Ft</td><td>630 262 Ft</td></tr>
+<tr id="k3161"><td>3161</td><th><a href="/fizetes/termelesiranyito/">Munka- és termelésszervező</a></th><td>861 762 Ft</td><td>689 409 Ft</td><td>689 410 Ft</td></tr>
+<tr id="k3162"><td>3162</td><th><a href="/fizetes/energetikus/">Energetikus</a></th><td>968 078 Ft</td><td>774 462 Ft</td><td>774 463 Ft</td></tr>
+<tr id="k3163"><td>3163</td><th><a href="/fizetes/munkavedelmi-eloado/">Munkavédelmi és üzembiztonsági foglalkozású</a></th><td>837 167 Ft</td><td>669 733 Ft</td><td>669 734 Ft</td></tr>
+<tr id="k3171"><td>3171</td><th><a href="/fizetes/tengeri-es-belvizi-hajoparancsnok-fedelzeti-tiszt/">Tengeri és belvízi hajóparancsnok, fedélzeti tiszt</a></th><td>884 563 Ft</td><td>707 650 Ft</td><td>707 651 Ft</td></tr>
+<tr id="k3172"><td>3172</td><th><a href="/fizetes/pilota/">Légijármű-vezető, hajózómérnök</a></th><td>3 201 941 Ft</td><td>2 561 552 Ft</td><td>2 561 553 Ft</td></tr>
+<tr id="k3173"><td>3173</td><th><a href="/fizetes/legiiranyito/">Légiforgalmi irányító</a></th><td>3 912 766 Ft</td><td>3 130 212 Ft</td><td>3 130 213 Ft</td></tr>
+<tr id="k3190"><td>3190</td><th><a href="/fizetes/egyeb-muszaki-foglalkozasu/">Egyéb műszaki foglalkozású</a></th><td>806 604 Ft</td><td>645 283 Ft</td><td>645 284 Ft</td></tr>
+<tr id="k3211"><td>3211</td><th><a href="/fizetes/banyaszati-szakmai-iranyito-felugyelo/">Bányászati szakmai irányító, felügyelő</a></th><td>980 015 Ft</td><td>784 012 Ft</td><td>784 013 Ft</td></tr>
+<tr id="k3212"><td>3212</td><th><a href="/fizetes/muvezeto/">Feldolgozóipari szakmai irányító, felügyelő</a></th><td>910 549 Ft</td><td>728 439 Ft</td><td>728 440 Ft</td></tr>
+<tr id="k3213"><td>3213</td><th><a href="/fizetes/epitoipari-muvezeto/">Építőipari szakmai irányító, felügyelő</a></th><td>889 768 Ft</td><td>711 814 Ft</td><td>711 815 Ft</td></tr>
+<tr id="k3221"><td>3221</td><th><a href="/fizetes/irodavezeto/">Irodai szakmai irányító, felügyelő</a></th><td>817 432 Ft</td><td>653 945 Ft</td><td>653 946 Ft</td></tr>
+<tr id="k3222"><td>3222</td><th><a href="/fizetes/sef/">Konyhafőnök, séf</a></th><td>682 816 Ft</td><td>546 252 Ft</td><td>546 253 Ft</td></tr>
+<tr id="k3311"><td>3311</td><th><a href="/fizetes/apolo/">Ápoló, szakápoló</a></th><td>774 595 Ft</td><td>619 676 Ft</td><td>619 677 Ft</td></tr>
+<tr id="k3312"><td>3312</td><th><a href="/fizetes/szuleszno/">Szülész(nő)i tevékenység segítője</a></th><td>803 882 Ft</td><td>643 105 Ft</td><td>643 106 Ft</td></tr>
+<tr id="k3321"><td>3321</td><th><a href="/fizetes/egeszsegugyi-asszisztens/">Általános egészségügyi asszisztens</a></th><td>720 387 Ft</td><td>576 309 Ft</td><td>576 310 Ft</td></tr>
+<tr id="k3322"><td>3322</td><th><a href="/fizetes/egeszsegugyi-dokumentator/">Egészségügyi dokumentátor</a></th><td>538 605 Ft</td><td>430 884 Ft</td><td>430 885 Ft</td></tr>
+<tr id="k3323"><td>3323</td><th><a href="/fizetes/rontgenasszisztens/">Orvosi képalkotó diagnosztikai és terápiás berendezések kezelője</a></th><td>871 982 Ft</td><td>697 585 Ft</td><td>697 586 Ft</td></tr>
+<tr id="k3324"><td>3324</td><th><a href="/fizetes/laborasszisztens/">Orvosi laboratóriumi asszisztens</a></th><td>768 726 Ft</td><td>614 980 Ft</td><td>614 981 Ft</td></tr>
+<tr id="k3325"><td>3325</td><th><a href="/fizetes/fogaszati-asszisztens/">Fogászati asszisztens</a></th><td>535 366 Ft</td><td>428 292 Ft</td><td>428 293 Ft</td></tr>
+<tr id="k3326"><td>3326</td><th><a href="/fizetes/gyogyszertari-asszisztens/">Gyógyszertári és gyógyszerellátási asszisztens</a></th><td>594 960 Ft</td><td>475 968 Ft</td><td>475 969 Ft</td></tr>
+<tr id="k3331"><td>3331</td><th><a href="/fizetes/kornyezet-es-foglalkozas-egeszsegugyi-kiegeszito-foglalkozasu/">Környezet- és foglalkozás-egészségügyi kiegészítő foglalkozású</a></th><td>707 041 Ft</td><td>565 632 Ft</td><td>565 633 Ft</td></tr>
+<tr id="k3332"><td>3332</td><th><a href="/fizetes/masszor/">Fizioterápiás asszisztens, masszőr</a></th><td>472 692 Ft</td><td>378 153 Ft</td><td>378 154 Ft</td></tr>
+<tr id="k3333"><td>3333</td><th><a href="/fizetes/fogtechnikus/">Fogtechnikus</a></th><td>447 639 Ft</td><td>358 111 Ft</td><td>358 112 Ft</td></tr>
+<tr id="k3334"><td>3334</td><th><a href="/fizetes/ortopediai-eszkozkeszito/">Ortopédiai eszközkészítő</a></th><td>468 755 Ft</td><td>375 004 Ft</td><td>375 005 Ft</td></tr>
+<tr id="k3335"><td>3335</td><th><a href="/fizetes/latszeresz/">Látszerész</a></th><td>458 526 Ft</td><td>366 820 Ft</td><td>366 821 Ft</td></tr>
+<tr id="k3339"><td>3339</td><th><a href="/fizetes/egyeb-humanegeszsegugyhoz-kapcsolodo-foglalkozasu/">Egyéb, humánegészségügyhöz kapcsolódó foglalkozású</a></th><td>769 263 Ft</td><td>615 410 Ft</td><td>615 411 Ft</td></tr>
+<tr id="k3341"><td>3341</td><th><a href="/fizetes/allatorvosi-asszisztens/">Állatorvosi asszisztens</a></th><td>500 536 Ft</td><td>400 428 Ft</td><td>400 429 Ft</td></tr>
+<tr id="k3342"><td>3342</td><th><a href="/fizetes/novenyorvosi-novenyvedelmi-asszisztens/">Növényorvosi (növényvédelmi) asszisztens</a></th><td>627 743 Ft</td><td>502 194 Ft</td><td>502 195 Ft</td></tr>
+<tr id="k3410"><td>3410</td><th><a href="/fizetes/pedagogiai-asszisztens/">Oktatási asszisztens</a></th><td>458 728 Ft</td><td>366 982 Ft</td><td>366 983 Ft</td></tr>
+<tr id="k3511"><td>3511</td><th><a href="/fizetes/szocialis-segito/">Szociális segítő</a></th><td>469 222 Ft</td><td>375 377 Ft</td><td>375 378 Ft</td></tr>
+<tr id="k3513"><td>3513</td><th><a href="/fizetes/szocialis-gondozo/">Szociális gondozó, szakgondozó</a></th><td>478 744 Ft</td><td>382 995 Ft</td><td>382 996 Ft</td></tr>
+<tr id="k3514"><td>3514</td><th><a href="/fizetes/jelnyelvi-tolmacs/">Jelnyelvi tolmács</a></th><td>563 215 Ft</td><td>450 572 Ft</td><td>450 573 Ft</td></tr>
+<tr id="k3515"><td>3515</td><th><a href="/fizetes/ifjusagsegito/">Ifjúságsegítő</a></th><td>512 029 Ft</td><td>409 623 Ft</td><td>409 624 Ft</td></tr>
+<tr id="k3520"><td>3520</td><th><a href="/fizetes/munkaero-piaci-szolgaltatasi-ugyintezo/">Munkaerő-piaci szolgáltatási ügyintéző</a></th><td>657 673 Ft</td><td>526 138 Ft</td><td>526 139 Ft</td></tr>
+<tr id="k3611"><td>3611</td><th><a href="/fizetes/penzugyi-ugyintezo/">Pénzügyi ügyintéző (a pénzintézeti ügyintéző kivételével)</a></th><td>703 512 Ft</td><td>562 809 Ft</td><td>562 810 Ft</td></tr>
+<tr id="k3612"><td>3612</td><th><a href="/fizetes/banki-ugyintezo/">Pénzintézeti ügyintéző</a></th><td>855 103 Ft</td><td>684 082 Ft</td><td>684 083 Ft</td></tr>
+<tr id="k3613"><td>3613</td><th><a href="/fizetes/broker/">Tőzsde- és pénzügyi ügynök, bróker</a></th><td>1 780 991 Ft</td><td>1 424 792 Ft</td><td>1 424 793 Ft</td></tr>
+<tr id="k3614"><td>3614</td><th><a href="/fizetes/szamviteli-ugyintezo/">Számviteli ügyintéző</a></th><td>769 592 Ft</td><td>615 673 Ft</td><td>615 674 Ft</td></tr>
+<tr id="k3615"><td>3615</td><th><a href="/fizetes/statisztikai-ugyintezo/">Statisztikai ügyintéző</a></th><td>727 876 Ft</td><td>582 300 Ft</td><td>582 301 Ft</td></tr>
+<tr id="k3616"><td>3616</td><th><a href="/fizetes/karszakerto/">Értékbecslő, kárbecslő, kárszakértő</a></th><td>658 666 Ft</td><td>526 932 Ft</td><td>526 933 Ft</td></tr>
+<tr id="k3621"><td>3621</td><th><a href="/fizetes/biztositasi-ugynok/">Biztosítási ügynök, ügyintéző</a></th><td>688 680 Ft</td><td>550 944 Ft</td><td>550 945 Ft</td></tr>
+<tr id="k3622"><td>3622</td><th><a href="/fizetes/kereskedelmi-ugyintezo/">Kereskedelmi ügyintéző</a></th><td>711 358 Ft</td><td>569 086 Ft</td><td>569 087 Ft</td></tr>
+<tr id="k3623"><td>3623</td><th><a href="/fizetes/beszerzo/">Anyaggazdálkodó, felvásárló</a></th><td>819 396 Ft</td><td>655 516 Ft</td><td>655 517 Ft</td></tr>
+<tr id="k3624"><td>3624</td><th><a href="/fizetes/ugynok-a-biztositasi-ugynok-kivetelevel/">Ügynök (a biztosítási ügynök kivételével)</a></th><td>885 469 Ft</td><td>708 375 Ft</td><td>708 376 Ft</td></tr>
+<tr id="k3631"><td>3631</td><th><a href="/fizetes/rendezvenyszervezo/">Konferencia- és rendezvényszervező</a></th><td>632 705 Ft</td><td>506 164 Ft</td><td>506 165 Ft</td></tr>
+<tr id="k3632"><td>3632</td><th><a href="/fizetes/marketingasszisztens/">Marketing- és PR-ügyintéző</a></th><td>709 026 Ft</td><td>567 220 Ft</td><td>567 221 Ft</td></tr>
+<tr id="k3633"><td>3633</td><th><a href="/fizetes/ingatlanos/">Ingatlanügynök, ingatlanforgalmazási ügyintéző</a></th><td>558 264 Ft</td><td>446 611 Ft</td><td>446 612 Ft</td></tr>
+<tr id="k3639"><td>3639</td><th><a href="/fizetes/egyeb-mashova-nem-sorolhato-uzleti-jellegu-szolgaltatas-ugyintezoje/">Egyéb, máshova nem sorolható üzleti jellegű szolgáltatás ügyintézője</a></th><td>770 936 Ft</td><td>616 748 Ft</td><td>616 749 Ft</td></tr>
+<tr id="k3641"><td>3641</td><th><a href="/fizetes/szemelyi-asszisztens/">Személyi asszisztens</a></th><td>711 375 Ft</td><td>569 100 Ft</td><td>569 101 Ft</td></tr>
+<tr id="k3642"><td>3642</td><th><a href="/fizetes/jogi-asszisztens/">Jogi asszisztens</a></th><td>613 964 Ft</td><td>491 171 Ft</td><td>491 172 Ft</td></tr>
+<tr id="k3649"><td>3649</td><th><a href="/fizetes/egyeb-igazgatasi-es-jogi-asszisztens/">Egyéb igazgatási és jogi asszisztens</a></th><td>665 203 Ft</td><td>532 162 Ft</td><td>532 163 Ft</td></tr>
+<tr id="k3651"><td>3651</td><th><a href="/fizetes/penzugyor/">Vám- és pénzügyőr</a></th><td>767 562 Ft</td><td>614 049 Ft</td><td>614 050 Ft</td></tr>
+<tr id="k3652"><td>3652</td><th><a href="/fizetes/adougyintezo/">Adó- és illetékhivatali ügyintéző</a></th><td>764 684 Ft</td><td>611 747 Ft</td><td>611 748 Ft</td></tr>
+<tr id="k3653"><td>3653</td><th><a href="/fizetes/tarsadalombiztositasi-es-segelyezesi-hatosagi-ugyintezo/">Társadalombiztosítási és segélyezési hatósági ügyintéző</a></th><td>540 647 Ft</td><td>432 517 Ft</td><td>432 518 Ft</td></tr>
+<tr id="k3654"><td>3654</td><th><a href="/fizetes/hatosagi-engedelyek-kiadasaval-foglalkozo-ugyintezo/">Hatósági engedélyek kiadásával foglalkozó ügyintéző</a></th><td>577 741 Ft</td><td>462 192 Ft</td><td>462 193 Ft</td></tr>
+<tr id="k3655"><td>3655</td><th><a href="/fizetes/nyomozo/">Nyomozó</a></th><td>790 767 Ft</td><td>632 613 Ft</td><td>632 614 Ft</td></tr>
+<tr id="k3656"><td>3656</td><th><a href="/fizetes/vegrehajto-adossagbehajto/">Végrehajtó, adósságbehajtó</a></th><td>750 160 Ft</td><td>600 128 Ft</td><td>600 129 Ft</td></tr>
+<tr id="k3659"><td>3659</td><th><a href="/fizetes/egyeb-hatosagi-ugyintezo/">Egyéb hatósági ügyintéző</a></th><td>650 152 Ft</td><td>520 121 Ft</td><td>520 122 Ft</td></tr>
+<tr id="k3711"><td>3711</td><th><a href="/fizetes/segedszinesz-statiszta/">Segédszínész, statiszta</a></th><td>494 214 Ft</td><td>395 371 Ft</td><td>395 372 Ft</td></tr>
+<tr id="k3712"><td>3712</td><th><a href="/fizetes/segedrendezo/">Segédrendező</a></th><td>650 652 Ft</td><td>520 521 Ft</td><td>520 522 Ft</td></tr>
+<tr id="k3713"><td>3713</td><th><a href="/fizetes/fotos/">Fényképész</a></th><td>515 558 Ft</td><td>412 446 Ft</td><td>412 447 Ft</td></tr>
+<tr id="k3714"><td>3714</td><th><a href="/fizetes/diszletezo-diszito/">Díszletező, díszítő</a></th><td>649 159 Ft</td><td>519 327 Ft</td><td>519 328 Ft</td></tr>
+<tr id="k3715"><td>3715</td><th><a href="/fizetes/kiegeszito-filmgyartasi-es-szinhazi-foglalkozasu/">Kiegészítő filmgyártási és színházi foglalkozású</a></th><td>776 341 Ft</td><td>621 072 Ft</td><td>621 073 Ft</td></tr>
+<tr id="k3716"><td>3716</td><th><a href="/fizetes/lakberendezo/">Lakberendező, dekoratőr</a></th><td>495 584 Ft</td><td>396 467 Ft</td><td>396 468 Ft</td></tr>
+<tr id="k3717"><td>3717</td><th><a href="/fizetes/kulturalis-intezmenyi-szaktechnikus/">Kulturális intézményi szaktechnikus</a></th><td>504 268 Ft</td><td>403 414 Ft</td><td>403 415 Ft</td></tr>
+<tr id="k3719"><td>3719</td><th><a href="/fizetes/egyeb-muveszeti-es-kulturalis-foglalkozasu/">Egyéb művészeti és kulturális foglalkozású</a></th><td>606 934 Ft</td><td>485 547 Ft</td><td>485 548 Ft</td></tr>
+<tr id="k3721"><td>3721</td><th><a href="/fizetes/sportolo/">Sportoló</a></th><td>1 858 719 Ft</td><td>1 486 975 Ft</td><td>1 486 976 Ft</td></tr>
+<tr id="k3722"><td>3722</td><th><a href="/fizetes/fitneszedzo/">Fitnesz- és rekreációs program irányítója</a></th><td>465 486 Ft</td><td>372 388 Ft</td><td>372 389 Ft</td></tr>
+<tr id="k3910"><td>3910</td><th><a href="/fizetes/egyeb-ugyintezo/">Egyéb ügyintéző</a></th><td>607 412 Ft</td><td>485 929 Ft</td><td>485 930 Ft</td></tr>
+<tr id="k4111"><td>4111</td><th><a href="/fizetes/titkarno/">Titkár(nő)</a></th><td>596 429 Ft</td><td>477 143 Ft</td><td>477 144 Ft</td></tr>
+<tr id="k4112"><td>4112</td><th><a href="/fizetes/adminisztrator/">Általános irodai adminisztrátor</a></th><td>509 390 Ft</td><td>407 512 Ft</td><td>407 513 Ft</td></tr>
+<tr id="k4113"><td>4113</td><th><a href="/fizetes/gepiro-szovegszerkeszto/">Gépíró, szövegszerkesztő</a></th><td>534 003 Ft</td><td>427 202 Ft</td><td>427 203 Ft</td></tr>
+<tr id="k4114"><td>4114</td><th><a href="/fizetes/adatrogzito/">Adatrögzítő, kódoló</a></th><td>564 883 Ft</td><td>451 906 Ft</td><td>451 907 Ft</td></tr>
+<tr id="k4121"><td>4121</td><th><a href="/fizetes/konyvelo/">Könyvelő (analitikus)</a></th><td>738 455 Ft</td><td>590 764 Ft</td><td>590 765 Ft</td></tr>
+<tr id="k4122"><td>4122</td><th><a href="/fizetes/berszamfejto/">Bérelszámoló</a></th><td>710 915 Ft</td><td>568 732 Ft</td><td>568 733 Ft</td></tr>
+<tr id="k4123"><td>4123</td><th><a href="/fizetes/penzugyi-statisztikai-biztositasi-adminisztrator/">Pénzügyi, statisztikai, biztosítási adminisztrátor</a></th><td>618 948 Ft</td><td>495 158 Ft</td><td>495 159 Ft</td></tr>
+<tr id="k4129"><td>4129</td><th><a href="/fizetes/egyeb-szamviteli-foglalkozasu/">Egyéb számviteli foglalkozású</a></th><td>837 378 Ft</td><td>669 902 Ft</td><td>669 903 Ft</td></tr>
+<tr id="k4131"><td>4131</td><th><a href="/fizetes/raktari-adminisztrator/">Készlet- és anyagnyilvántartó</a></th><td>613 673 Ft</td><td>490 938 Ft</td><td>490 939 Ft</td></tr>
+<tr id="k4132"><td>4132</td><th><a href="/fizetes/szallitmanyozo/">Szállítási, szállítmányozási nyilvántartó</a></th><td>676 325 Ft</td><td>541 060 Ft</td><td>541 061 Ft</td></tr>
+<tr id="k4133"><td>4133</td><th><a href="/fizetes/konyvtari-leveltari-nyilvantarto/">Könyvtári, levéltári nyilvántartó</a></th><td>458 027 Ft</td><td>366 421 Ft</td><td>366 422 Ft</td></tr>
+<tr id="k4134"><td>4134</td><th><a href="/fizetes/hr-adminisztrator/">Humánpolitikai adminisztrátor</a></th><td>798 968 Ft</td><td>639 174 Ft</td><td>639 175 Ft</td></tr>
+<tr id="k4136"><td>4136</td><th><a href="/fizetes/iratkezelo-irattaros/">Iratkezelő, irattáros</a></th><td>498 422 Ft</td><td>398 737 Ft</td><td>398 738 Ft</td></tr>
+<tr id="k4190"><td>4190</td><th><a href="/fizetes/egyeb-mashova-nem-sorolhato-irodai-ugyviteli-foglalkozasu/">Egyéb, máshova nem sorolható irodai, ügyviteli foglalkozású</a></th><td>630 249 Ft</td><td>504 199 Ft</td><td>504 200 Ft</td></tr>
+<tr id="k4211"><td>4211</td><th><a href="/fizetes/banki-penztaros/">Banki pénztáros</a></th><td>529 998 Ft</td><td>423 998 Ft</td><td>423 999 Ft</td></tr>
+<tr id="k4212"><td>4212</td><th><a href="/fizetes/szerencsejatek-szervezo/">Szerencsejáték-szervező</a></th><td>710 242 Ft</td><td>568 193 Ft</td><td>568 194 Ft</td></tr>
+<tr id="k4221"><td>4221</td><th><a href="/fizetes/utazasszervezo/">Utazásszervező, tanácsadó</a></th><td>610 158 Ft</td><td>488 126 Ft</td><td>488 127 Ft</td></tr>
+<tr id="k4222"><td>4222</td><th><a href="/fizetes/recepcios/">Recepciós</a></th><td>493 026 Ft</td><td>394 420 Ft</td><td>394 421 Ft</td></tr>
+<tr id="k4223"><td>4223</td><th><a href="/fizetes/szallodai-recepcios/">Szállodai recepciós</a></th><td>535 378 Ft</td><td>428 302 Ft</td><td>428 303 Ft</td></tr>
+<tr id="k4224"><td>4224</td><th><a href="/fizetes/ugyfelszolgalatos/">Ügyfél- (vevő)tájékoztató</a></th><td>648 629 Ft</td><td>518 903 Ft</td><td>518 904 Ft</td></tr>
+<tr id="k4225"><td>4225</td><th><a href="/fizetes/call-centeres/">Ügyfélszolgálati központ tájékoztatója</a></th><td>625 223 Ft</td><td>500 178 Ft</td><td>500 179 Ft</td></tr>
+<tr id="k4226"><td>4226</td><th><a href="/fizetes/lakossagi-kerdezo-osszeiro/">Lakossági kérdező, összeíró</a></th><td>436 475 Ft</td><td>349 180 Ft</td><td>349 181 Ft</td></tr>
+<tr id="k4229"><td>4229</td><th><a href="/fizetes/egyeb-ugyfelkapcsolati-foglalkozasu/">Egyéb ügyfélkapcsolati foglalkozású</a></th><td>666 261 Ft</td><td>533 008 Ft</td><td>533 009 Ft</td></tr>
+<tr id="k5111"><td>5111</td><th><a href="/fizetes/kereskedo/">Kereskedő</a></th><td>416 094 Ft</td><td>332 875 Ft</td><td>332 876 Ft</td></tr>
+<tr id="k5112"><td>5112</td><th><a href="/fizetes/vezeto-elado/">Vezető eladó</a></th><td>575 032 Ft</td><td>460 025 Ft</td><td>460 026 Ft</td></tr>
+<tr id="k5113"><td>5113</td><th><a href="/fizetes/elado/">Bolti eladó</a></th><td>447 845 Ft</td><td>358 276 Ft</td><td>358 277 Ft</td></tr>
+<tr id="k5114"><td>5114</td><th><a href="/fizetes/kolcsonzo/">Kölcsönző</a></th><td>523 766 Ft</td><td>419 012 Ft</td><td>419 013 Ft</td></tr>
+<tr id="k5115"><td>5115</td><th><a href="/fizetes/piaci-utcai-arus/">Piaci, utcai árus</a></th><td>349 084 Ft</td><td>279 267 Ft</td><td>279 268 Ft</td></tr>
+<tr id="k5116"><td>5116</td><th><a href="/fizetes/piaci-utcai-etel-es-italarus/">Piaci, utcai étel- és italárus</a></th><td>386 886 Ft</td><td>309 508 Ft</td><td>309 509 Ft</td></tr>
+<tr id="k5117"><td>5117</td><th><a href="/fizetes/penztaros/">Bolti pénztáros, jegypénztáros</a></th><td>480 896 Ft</td><td>384 716 Ft</td><td>384 717 Ft</td></tr>
+<tr id="k5121"><td>5121</td><th><a href="/fizetes/benzinkutas/">Üzemanyagtöltő állomás kezelője</a></th><td>460 480 Ft</td><td>368 384 Ft</td><td>368 385 Ft</td></tr>
+<tr id="k5122"><td>5122</td><th><a href="/fizetes/aru-es-divatbemutato/">Áru- és divatbemutató</a></th><td>549 287 Ft</td><td>439 429 Ft</td><td>439 430 Ft</td></tr>
+<tr id="k5123"><td>5123</td><th><a href="/fizetes/telesales/">Telefonos (multimédiás) értékesítési ügynök</a></th><td>530 280 Ft</td><td>424 224 Ft</td><td>424 225 Ft</td></tr>
+<tr id="k5129"><td>5129</td><th><a href="/fizetes/egyeb-mashova-nem-sorolhato-kereskedelmi-foglalkozasu/">Egyéb, máshova nem sorolható kereskedelmi foglalkozású</a></th><td>527 390 Ft</td><td>421 912 Ft</td><td>421 913 Ft</td></tr>
+<tr id="k5131"><td>5131</td><th><a href="/fizetes/vendeglos/">Vendéglős</a></th><td>390 176 Ft</td><td>312 140 Ft</td><td>312 141 Ft</td></tr>
+<tr id="k5132"><td>5132</td><th><a href="/fizetes/pincer/">Pincér</a></th><td>415 983 Ft</td><td>332 786 Ft</td><td>332 787 Ft</td></tr>
+<tr id="k5133"><td>5133</td><th><a href="/fizetes/pultos/">Pultos</a></th><td>386 328 Ft</td><td>309 062 Ft</td><td>309 063 Ft</td></tr>
+<tr id="k5134"><td>5134</td><th><a href="/fizetes/szakacs/">Szakács</a></th><td>446 982 Ft</td><td>357 585 Ft</td><td>357 586 Ft</td></tr>
+<tr id="k5135"><td>5135</td><th><a href="/fizetes/cukrasz/">Cukrász</a></th><td>414 610 Ft</td><td>331 688 Ft</td><td>331 689 Ft</td></tr>
+<tr id="k5211"><td>5211</td><th><a href="/fizetes/fodrasz/">Fodrász</a></th><td>369 835 Ft</td><td>295 868 Ft</td><td>295 869 Ft</td></tr>
+<tr id="k5212"><td>5212</td><th><a href="/fizetes/kozmetikus/">Kozmetikus</a></th><td>386 294 Ft</td><td>309 035 Ft</td><td>309 036 Ft</td></tr>
+<tr id="k5213"><td>5213</td><th><a href="/fizetes/mukormos/">Manikűrös, pedikűrös</a></th><td>378 751 Ft</td><td>303 000 Ft</td><td>303 001 Ft</td></tr>
+<tr id="k5219"><td>5219</td><th><a href="/fizetes/egyeb-szemelyi-szolgaltatasi-foglalkozasu/">Egyéb személyi szolgáltatási foglalkozású</a></th><td>434 887 Ft</td><td>347 909 Ft</td><td>347 910 Ft</td></tr>
+<tr id="k5221"><td>5221</td><th><a href="/fizetes/dajka/">Gyermekfelügyelő, dajka</a></th><td>441 910 Ft</td><td>353 528 Ft</td><td>353 529 Ft</td></tr>
+<tr id="k5222"><td>5222</td><th><a href="/fizetes/segedapolo/">Segédápoló, műtőssegéd</a></th><td>629 653 Ft</td><td>503 722 Ft</td><td>503 723 Ft</td></tr>
+<tr id="k5223"><td>5223</td><th><a href="/fizetes/hazi-gondozo/">Házi gondozó</a></th><td>398 648 Ft</td><td>318 918 Ft</td><td>318 919 Ft</td></tr>
+<tr id="k5229"><td>5229</td><th><a href="/fizetes/egyeb-szemelygondozasi-foglalkozasu/">Egyéb személygondozási foglalkozású</a></th><td>525 551 Ft</td><td>420 440 Ft</td><td>420 441 Ft</td></tr>
+<tr id="k5231"><td>5231</td><th><a href="/fizetes/kalauz/">Kalauz, menetjegyellenőr</a></th><td>710 498 Ft</td><td>568 398 Ft</td><td>568 399 Ft</td></tr>
+<tr id="k5232"><td>5232</td><th><a href="/fizetes/legiutas-kisero/">Utaskísérő (repülőn, hajón)</a></th><td>768 851 Ft</td><td>615 080 Ft</td><td>615 081 Ft</td></tr>
+<tr id="k5233"><td>5233</td><th><a href="/fizetes/idegenvezeto/">Idegenvezető</a></th><td>511 248 Ft</td><td>408 998 Ft</td><td>408 999 Ft</td></tr>
+<tr id="k5241"><td>5241</td><th><a href="/fizetes/vezeto-takarito/">Vezető takarító</a></th><td>531 389 Ft</td><td>425 111 Ft</td><td>425 112 Ft</td></tr>
+<tr id="k5242"><td>5242</td><th><a href="/fizetes/hazvezeto/">Házvezető</a></th><td>438 361 Ft</td><td>350 688 Ft</td><td>350 689 Ft</td></tr>
+<tr id="k5243"><td>5243</td><th><a href="/fizetes/gondnok/">Épületgondnok</a></th><td>508 237 Ft</td><td>406 589 Ft</td><td>406 590 Ft</td></tr>
+<tr id="k5251"><td>5251</td><th><a href="/fizetes/rendor/">Rendőr</a></th><td>749 209 Ft</td><td>599 367 Ft</td><td>599 368 Ft</td></tr>
+<tr id="k5252"><td>5252</td><th><a href="/fizetes/tuzolto/">Tűzoltó</a></th><td>638 993 Ft</td><td>511 194 Ft</td><td>511 195 Ft</td></tr>
+<tr id="k5253"><td>5253</td><th><a href="/fizetes/bortonor/">Büntetés-végrehajtási őr</a></th><td>693 375 Ft</td><td>554 700 Ft</td><td>554 701 Ft</td></tr>
+<tr id="k5254"><td>5254</td><th><a href="/fizetes/biztonsagi-or/">Vagyonőr, testőr</a></th><td>511 131 Ft</td><td>408 904 Ft</td><td>408 905 Ft</td></tr>
+<tr id="k5255"><td>5255</td><th><a href="/fizetes/termeszetvedelmi-or/">Természetvédelmi őr</a></th><td>548 375 Ft</td><td>438 700 Ft</td><td>438 701 Ft</td></tr>
+<tr id="k5256"><td>5256</td><th><a href="/fizetes/kozterulet-felugyelo/">Közterület-felügyelő</a></th><td>663 555 Ft</td><td>530 844 Ft</td><td>530 845 Ft</td></tr>
+<tr id="k5259"><td>5259</td><th><a href="/fizetes/egyeb-szemely-es-vagyonvedelmi-foglalkozasu/">Egyéb személy- és vagyonvédelmi foglalkozású</a></th><td>626 509 Ft</td><td>501 207 Ft</td><td>501 208 Ft</td></tr>
+<tr id="k5291"><td>5291</td><th><a href="/fizetes/autosoktato/">Járművezető-oktató</a></th><td>479 418 Ft</td><td>383 534 Ft</td><td>383 535 Ft</td></tr>
+<tr id="k5292"><td>5292</td><th><a href="/fizetes/hobbiallat-gondozo-kozmetikus/">Hobbiállat-gondozó, -kozmetikus</a></th><td>458 972 Ft</td><td>367 177 Ft</td><td>367 178 Ft</td></tr>
+<tr id="k5293"><td>5293</td><th><a href="/fizetes/temetkezesi-foglalkozasu/">Temetkezési foglalkozású</a></th><td>469 512 Ft</td><td>375 609 Ft</td><td>375 610 Ft</td></tr>
+<tr id="k5299"><td>5299</td><th><a href="/fizetes/egyeb-mashova-nem-sorolhato-szolgaltatasi-foglalkozasu/">Egyéb, máshova nem sorolható szolgáltatási foglalkozású</a></th><td>536 774 Ft</td><td>429 419 Ft</td><td>429 420 Ft</td></tr>
+<tr id="k6111"><td>6111</td><th><a href="/fizetes/szantofoldinoveny-termeszto/">Szántóföldinövény-termesztő</a></th><td>434 730 Ft</td><td>347 784 Ft</td><td>347 785 Ft</td></tr>
+<tr id="k6113"><td>6113</td><th><a href="/fizetes/zoldsegtermeszto/">Zöldségtermesztő</a></th><td>378 803 Ft</td><td>303 042 Ft</td><td>303 043 Ft</td></tr>
+<tr id="k6114"><td>6114</td><th><a href="/fizetes/szolo-gyumolcstermeszto/">Szőlő-, gyümölcstermesztő</a></th><td>422 532 Ft</td><td>338 025 Ft</td><td>338 026 Ft</td></tr>
+<tr id="k6115"><td>6115</td><th><a href="/fizetes/kertesz/">Dísznövény-, virág- és faiskolai kertész, csemetenevelő</a></th><td>414 237 Ft</td><td>331 389 Ft</td><td>331 390 Ft</td></tr>
+<tr id="k6116"><td>6116</td><th><a href="/fizetes/gyogynovenytermeszto/">Gyógynövénytermesztő</a></th><td>496 585 Ft</td><td>397 268 Ft</td><td>397 269 Ft</td></tr>
+<tr id="k6119"><td>6119</td><th><a href="/fizetes/egyeb-novenytermesztesi-foglalkozasu/">Egyéb növénytermesztési foglalkozású</a></th><td>430 650 Ft</td><td>344 520 Ft</td><td>344 521 Ft</td></tr>
+<tr id="k6121"><td>6121</td><th><a href="/fizetes/allattenyeszto/">Szarvasmarha-, ló-, sertés-, juhtartó és -tenyésztő</a></th><td>528 538 Ft</td><td>422 830 Ft</td><td>422 831 Ft</td></tr>
+<tr id="k6122"><td>6122</td><th><a href="/fizetes/baromfitarto-es-tenyeszto/">Baromfitartó és -tenyésztő</a></th><td>520 840 Ft</td><td>416 672 Ft</td><td>416 673 Ft</td></tr>
+<tr id="k6124"><td>6124</td><th><a href="/fizetes/kisallattarto-es-tenyeszto/">Kisállattartó és -tenyésztő</a></th><td>503 648 Ft</td><td>402 918 Ft</td><td>402 919 Ft</td></tr>
+<tr id="k6130"><td>6130</td><th><a href="/fizetes/vegyes-profilu-gazdalkodo/">Vegyes profilú gazdálkodó</a></th><td>369 418 Ft</td><td>295 534 Ft</td><td>295 535 Ft</td></tr>
+<tr id="k6211"><td>6211</td><th><a href="/fizetes/erdeszeti-foglalkozasu/">Erdészeti foglalkozású</a></th><td>349 082 Ft</td><td>279 265 Ft</td><td>279 266 Ft</td></tr>
+<tr id="k6212"><td>6212</td><th><a href="/fizetes/favago/">Fakitermelő (favágó)</a></th><td>421 919 Ft</td><td>337 535 Ft</td><td>337 536 Ft</td></tr>
+<tr id="k6220"><td>6220</td><th><a href="/fizetes/vadgazdalkodasi-foglalkozasu/">Vadgazdálkodási foglalkozású</a></th><td>423 646 Ft</td><td>338 916 Ft</td><td>338 917 Ft</td></tr>
+<tr id="k6230"><td>6230</td><th><a href="/fizetes/halaszati-foglalkozasu/">Halászati foglalkozású</a></th><td>510 532 Ft</td><td>408 425 Ft</td><td>408 426 Ft</td></tr>
+<tr id="k7111"><td>7111</td><th><a href="/fizetes/hentes/">Húsfeldolgozó</a></th><td>488 247 Ft</td><td>390 597 Ft</td><td>390 598 Ft</td></tr>
+<tr id="k7112"><td>7112</td><th><a href="/fizetes/gyumolcs-es-zoldsegfeldolgozo-tartosito/">Gyümölcs- és zöldségfeldolgozó, -tartósító</a></th><td>479 950 Ft</td><td>383 960 Ft</td><td>383 961 Ft</td></tr>
+<tr id="k7113"><td>7113</td><th><a href="/fizetes/tejfeldolgozo-tejtermekgyarto/">Tejfeldolgozó, tejtermékgyártó</a></th><td>613 923 Ft</td><td>491 138 Ft</td><td>491 139 Ft</td></tr>
+<tr id="k7114"><td>7114</td><th><a href="/fizetes/pek/">Pék, édesiparitermék-gyártó</a></th><td>471 844 Ft</td><td>377 475 Ft</td><td>377 476 Ft</td></tr>
+<tr id="k7115"><td>7115</td><th><a href="/fizetes/borasz-es-egyeb-szeszesital-gyarto-szikvizkeszito/">Borász és egyéb szeszesital-gyártó, szikvízkészítő</a></th><td>497 003 Ft</td><td>397 602 Ft</td><td>397 603 Ft</td></tr>
+<tr id="k7211"><td>7211</td><th><a href="/fizetes/szabasminta-keszito/">Szabásminta-készítő</a></th><td>401 887 Ft</td><td>321 509 Ft</td><td>321 510 Ft</td></tr>
+<tr id="k7212"><td>7212</td><th><a href="/fizetes/varrono/">Szabó, varró</a></th><td>400 278 Ft</td><td>320 222 Ft</td><td>320 223 Ft</td></tr>
+<tr id="k7213"><td>7213</td><th><a href="/fizetes/kalapos-kesztyus/">Kalapos, kesztyűs</a></th><td>425 166 Ft</td><td>340 132 Ft</td><td>340 133 Ft</td></tr>
+<tr id="k7216"><td>7216</td><th><a href="/fizetes/bordiszmuves-borondos-bortermekkeszito-javito/">Bőrdíszműves, bőröndös, bőrtermékkészítő, -javító</a></th><td>437 563 Ft</td><td>350 050 Ft</td><td>350 051 Ft</td></tr>
+<tr id="k7217"><td>7217</td><th><a href="/fizetes/cipesz-cipokeszito-javito/">Cipész, cipőkészítő, -javító</a></th><td>410 663 Ft</td><td>328 530 Ft</td><td>328 531 Ft</td></tr>
+<tr id="k7221"><td>7221</td><th><a href="/fizetes/famegmunkalo/">Famegmunkáló</a></th><td>469 228 Ft</td><td>375 382 Ft</td><td>375 383 Ft</td></tr>
+<tr id="k7222"><td>7222</td><th><a href="/fizetes/faesztergalyos/">Faesztergályos</a></th><td>418 398 Ft</td><td>334 718 Ft</td><td>334 719 Ft</td></tr>
+<tr id="k7223"><td>7223</td><th><a href="/fizetes/asztalos/">Bútorasztalos</a></th><td>424 555 Ft</td><td>339 644 Ft</td><td>339 645 Ft</td></tr>
+<tr id="k7224"><td>7224</td><th><a href="/fizetes/karpitos/">Kárpitos</a></th><td>509 876 Ft</td><td>407 900 Ft</td><td>407 901 Ft</td></tr>
+<tr id="k7225"><td>7225</td><th><a href="/fizetes/kadar-bognar/">Kádár, bognár</a></th><td>494 294 Ft</td><td>395 435 Ft</td><td>395 436 Ft</td></tr>
+<tr id="k7231"><td>7231</td><th><a href="/fizetes/nyomdai-elokeszito/">Nyomdai előkészítő</a></th><td>534 459 Ft</td><td>427 567 Ft</td><td>427 568 Ft</td></tr>
+<tr id="k7232"><td>7232</td><th><a href="/fizetes/nyomdasz/">Nyomdász, nyomdai gépmester</a></th><td>644 580 Ft</td><td>515 664 Ft</td><td>515 665 Ft</td></tr>
+<tr id="k7233"><td>7233</td><th><a href="/fizetes/konyvkoto/">Könyvkötő</a></th><td>532 203 Ft</td><td>425 762 Ft</td><td>425 763 Ft</td></tr>
+<tr id="k7310"><td>7310</td><th><a href="/fizetes/femontominta-keszito/">Fémöntőminta-készítő</a></th><td>580 234 Ft</td><td>464 187 Ft</td><td>464 188 Ft</td></tr>
+<tr id="k7321"><td>7321</td><th><a href="/fizetes/lakatos/">Lakatos</a></th><td>593 418 Ft</td><td>474 734 Ft</td><td>474 735 Ft</td></tr>
+<tr id="k7322"><td>7322</td><th><a href="/fizetes/szerszamkeszito/">Szerszámkészítő</a></th><td>850 316 Ft</td><td>680 252 Ft</td><td>680 253 Ft</td></tr>
+<tr id="k7323"><td>7323</td><th><a href="/fizetes/cnc-forgacsolo/">Forgácsoló</a></th><td>759 633 Ft</td><td>607 706 Ft</td><td>607 707 Ft</td></tr>
+<tr id="k7324"><td>7324</td><th><a href="/fizetes/femcsiszolo-koszorus-szerszamkoszorus/">Fémcsiszoló, köszörűs, szerszámköszörűs</a></th><td>612 583 Ft</td><td>490 066 Ft</td><td>490 067 Ft</td></tr>
+<tr id="k7325"><td>7325</td><th><a href="/fizetes/hegeszto/">Hegesztő, lángvágó</a></th><td>616 250 Ft</td><td>493 000 Ft</td><td>493 001 Ft</td></tr>
+<tr id="k7326"><td>7326</td><th><a href="/fizetes/kovacs/">Kovács</a></th><td>620 753 Ft</td><td>496 602 Ft</td><td>496 603 Ft</td></tr>
+<tr id="k7327"><td>7327</td><th><a href="/fizetes/fenyezo/">Festékszóró, fényező</a></th><td>612 571 Ft</td><td>490 056 Ft</td><td>490 057 Ft</td></tr>
+<tr id="k7328"><td>7328</td><th><a href="/fizetes/fem-es-egyeb-tartoszerkezet-szerelo/">Fém- és egyéb tartószerkezet-szerelő</a></th><td>592 480 Ft</td><td>473 984 Ft</td><td>473 985 Ft</td></tr>
+<tr id="k7331"><td>7331</td><th><a href="/fizetes/autoszerelo/">Gépjármű- és motorkarbantartó, -javító</a></th><td>565 231 Ft</td><td>452 184 Ft</td><td>452 185 Ft</td></tr>
+<tr id="k7332"><td>7332</td><th><a href="/fizetes/repulogepmotor-karbantarto-javito/">Repülőgépmotor-karbantartó, -javító</a></th><td>1 071 656 Ft</td><td>857 324 Ft</td><td>857 325 Ft</td></tr>
+<tr id="k7333"><td>7333</td><th><a href="/fizetes/karbantarto/">Mezőgazdasági és ipari gép (motor) karbantartója, javítója</a></th><td>695 625 Ft</td><td>556 500 Ft</td><td>556 501 Ft</td></tr>
+<tr id="k7334"><td>7334</td><th><a href="/fizetes/muszeresz/">Mechanikaigép-karbantartó, -javító (műszerész)</a></th><td>774 436 Ft</td><td>619 548 Ft</td><td>619 549 Ft</td></tr>
+<tr id="k7335"><td>7335</td><th><a href="/fizetes/kerekpar-karbantarto-javito/">Kerékpár-karbantartó, -javító</a></th><td>432 539 Ft</td><td>346 031 Ft</td><td>346 032 Ft</td></tr>
+<tr id="k7341"><td>7341</td><th><a href="/fizetes/villamos-karbantarto/">Villamos gépek és készülékek műszerésze, javítója</a></th><td>736 032 Ft</td><td>588 825 Ft</td><td>588 826 Ft</td></tr>
+<tr id="k7342"><td>7342</td><th><a href="/fizetes/elektronikai-muszeresz/">Informatikai és telekommunikációs berendezések műszerésze, javítója</a></th><td>605 556 Ft</td><td>484 444 Ft</td><td>484 445 Ft</td></tr>
+<tr id="k7343"><td>7343</td><th><a href="/fizetes/villamoshalozat-szerelo/">Elektromoshálózat-szerelő, -javító</a></th><td>790 169 Ft</td><td>632 135 Ft</td><td>632 136 Ft</td></tr>
+<tr id="k7411"><td>7411</td><th><a href="/fizetes/cimfesto/">Címfestő</a></th><td>452 539 Ft</td><td>362 031 Ft</td><td>362 032 Ft</td></tr>
+<tr id="k7412"><td>7412</td><th><a href="/fizetes/ekszerkeszito-otvos-dragakocsiszolo/">Ékszerkészítő, ötvös, drágakőcsiszoló</a></th><td>388 468 Ft</td><td>310 774 Ft</td><td>310 775 Ft</td></tr>
+<tr id="k7413"><td>7413</td><th><a href="/fizetes/keramikus/">Keramikus</a></th><td>499 655 Ft</td><td>399 724 Ft</td><td>399 725 Ft</td></tr>
+<tr id="k7414"><td>7414</td><th><a href="/fizetes/uveggyarto/">Üveggyártó</a></th><td>659 257 Ft</td><td>527 405 Ft</td><td>527 406 Ft</td></tr>
+<tr id="k7415"><td>7415</td><th><a href="/fizetes/hangszerkeszito/">Hangszerkészítő</a></th><td>469 866 Ft</td><td>375 892 Ft</td><td>375 893 Ft</td></tr>
+<tr id="k7416"><td>7416</td><th><a href="/fizetes/szor-es-tollfeldolgozo/">Szőr- és tollfeldolgozó</a></th><td>571 599 Ft</td><td>457 279 Ft</td><td>457 280 Ft</td></tr>
+<tr id="k7417"><td>7417</td><th><a href="/fizetes/nad-es-fuzfeldolgozo-sepru-kefegyarto/">Nád- és fűzfeldolgozó, seprű-, kefegyártó</a></th><td>248 865 Ft</td><td>199 092 Ft</td><td>199 093 Ft</td></tr>
+<tr id="k7418"><td>7418</td><th><a href="/fizetes/textilmuves-himzo-csipkevero/">Textilműves, hímző, csipkeverő</a></th><td>347 244 Ft</td><td>277 795 Ft</td><td>277 796 Ft</td></tr>
+<tr id="k7419"><td>7419</td><th><a href="/fizetes/egyeb-kezmuipari-foglalkozasu/">Egyéb kézműipari foglalkozású</a></th><td>403 364 Ft</td><td>322 691 Ft</td><td>322 692 Ft</td></tr>
+<tr id="k7420"><td>7420</td><th><a href="/fizetes/finommechanikai-muszeresz/">Finommechanikai műszerész</a></th><td>644 898 Ft</td><td>515 918 Ft</td><td>515 919 Ft</td></tr>
+<tr id="k7511"><td>7511</td><th><a href="/fizetes/komuves/">Kőműves</a></th><td>428 737 Ft</td><td>342 989 Ft</td><td>342 990 Ft</td></tr>
+<tr id="k7512"><td>7512</td><th><a href="/fizetes/gipszkartonozo/">Gipszkartonozó, stukkózó</a></th><td>472 573 Ft</td><td>378 058 Ft</td><td>378 059 Ft</td></tr>
+<tr id="k7513"><td>7513</td><th><a href="/fizetes/acs/">Ács</a></th><td>444 227 Ft</td><td>355 381 Ft</td><td>355 382 Ft</td></tr>
+<tr id="k7514"><td>7514</td><th><a href="/fizetes/epuletasztalos/">Épületasztalos</a></th><td>433 675 Ft</td><td>346 940 Ft</td><td>346 941 Ft</td></tr>
+<tr id="k7515"><td>7515</td><th><a href="/fizetes/epitmenyszerkezet-szerelo/">Építményszerkezet-szerelő</a></th><td>632 910 Ft</td><td>506 328 Ft</td><td>506 329 Ft</td></tr>
+<tr id="k7519"><td>7519</td><th><a href="/fizetes/egyeb-epitomesteri-foglalkozasu/">Egyéb építőmesteri foglalkozású</a></th><td>460 960 Ft</td><td>368 768 Ft</td><td>368 769 Ft</td></tr>
+<tr id="k7521"><td>7521</td><th><a href="/fizetes/vizvezetek-szerelo/">Vezeték- és csőhálózat-szerelő (víz, gáz, fűtés)</a></th><td>558 143 Ft</td><td>446 514 Ft</td><td>446 515 Ft</td></tr>
+<tr id="k7522"><td>7522</td><th><a href="/fizetes/klimaszerelo/">Szellőző-, hűtő- és klimatizálóberendezés-szerelő</a></th><td>579 057 Ft</td><td>463 245 Ft</td><td>463 246 Ft</td></tr>
+<tr id="k7523"><td>7523</td><th><a href="/fizetes/liftszerelo/">Felvonószerelő</a></th><td>722 218 Ft</td><td>577 774 Ft</td><td>577 775 Ft</td></tr>
+<tr id="k7524"><td>7524</td><th><a href="/fizetes/villanyszerelo/">Épületvillamossági szerelő, villanyszerelő</a></th><td>597 301 Ft</td><td>477 840 Ft</td><td>477 841 Ft</td></tr>
+<tr id="k7529"><td>7529</td><th><a href="/fizetes/egyeb-epitesi-szerelesi-foglalkozasu/">Egyéb építési, szerelési foglalkozású</a></th><td>542 131 Ft</td><td>433 704 Ft</td><td>433 705 Ft</td></tr>
+<tr id="k7531"><td>7531</td><th><a href="/fizetes/szigetelo/">Szigetelő</a></th><td>507 207 Ft</td><td>405 765 Ft</td><td>405 766 Ft</td></tr>
+<tr id="k7532"><td>7532</td><th><a href="/fizetes/tetofedo/">Tetőfedő</a></th><td>469 006 Ft</td><td>375 204 Ft</td><td>375 205 Ft</td></tr>
+<tr id="k7533"><td>7533</td><th><a href="/fizetes/badogos/">Épület-, építménybádogos</a></th><td>496 289 Ft</td><td>397 031 Ft</td><td>397 032 Ft</td></tr>
+<tr id="k7534"><td>7534</td><th><a href="/fizetes/burkolo/">Burkoló</a></th><td>425 047 Ft</td><td>340 037 Ft</td><td>340 038 Ft</td></tr>
+<tr id="k7535"><td>7535</td><th><a href="/fizetes/festo/">Festő és mázoló</a></th><td>444 260 Ft</td><td>355 408 Ft</td><td>355 409 Ft</td></tr>
+<tr id="k7536"><td>7536</td><th><a href="/fizetes/kofarago-mukoves/">Kőfaragó, műköves</a></th><td>451 401 Ft</td><td>361 120 Ft</td><td>361 121 Ft</td></tr>
+<tr id="k7538"><td>7538</td><th><a href="/fizetes/uvegezo/">Üvegező</a></th><td>442 221 Ft</td><td>353 776 Ft</td><td>353 777 Ft</td></tr>
+<tr id="k7539"><td>7539</td><th><a href="/fizetes/egyeb-epitesi-szakipari-foglalkozasu/">Egyéb építési szakipari foglalkozású</a></th><td>528 936 Ft</td><td>423 148 Ft</td><td>423 149 Ft</td></tr>
+<tr id="k7911"><td>7911</td><th><a href="/fizetes/ipari-buvar/">Ipari búvár</a></th><td>695 465 Ft</td><td>556 372 Ft</td><td>556 373 Ft</td></tr>
+<tr id="k7914"><td>7914</td><th><a href="/fizetes/kartevoirto-gyomirto/">Kártevőirtó, gyomirtó</a></th><td>551 462 Ft</td><td>441 169 Ft</td><td>441 170 Ft</td></tr>
+<tr id="k7915"><td>7915</td><th><a href="/fizetes/kemenysepro/">Kéményseprő, épületszerkezet-tisztító</a></th><td>458 697 Ft</td><td>366 957 Ft</td><td>366 958 Ft</td></tr>
+<tr id="k7919"><td>7919</td><th><a href="/fizetes/egyeb-mashova-nem-sorolhato-ipari-es-epitoipari-foglalkozasu/">Egyéb, máshova nem sorolható ipari és építőipari foglalkozású</a></th><td>640 192 Ft</td><td>512 153 Ft</td><td>512 154 Ft</td></tr>
+<tr id="k8111"><td>8111</td><th><a href="/fizetes/elelmiszeripari-gepkezelo/">Élelmiszer-, italgyártó gép kezelője</a></th><td>651 162 Ft</td><td>520 929 Ft</td><td>520 930 Ft</td></tr>
+<tr id="k8112"><td>8112</td><th><a href="/fizetes/dohanygyarto-gep-kezeloje/">Dohánygyártó gép kezelője</a></th><td>621 811 Ft</td><td>497 448 Ft</td><td>497 449 Ft</td></tr>
+<tr id="k8121"><td>8121</td><th><a href="/fizetes/textilipari-gep-kezeloje-es-gyartosor-mellett-dolgozo/">Textilipari gép kezelője és gyártósor mellett dolgozó</a></th><td>472 875 Ft</td><td>378 300 Ft</td><td>378 301 Ft</td></tr>
+<tr id="k8122"><td>8122</td><th><a href="/fizetes/ruhazati-gep-kezeloje-es-gyartosor-mellett-dolgozo/">Ruházati gép kezelője és gyártósor mellett dolgozó</a></th><td>370 330 Ft</td><td>296 264 Ft</td><td>296 265 Ft</td></tr>
+<tr id="k8123"><td>8123</td><th><a href="/fizetes/borkikeszito-es-feldolgozo-gep-kezeloje-es-gyartosor-mellett-dolgozo/">Bőrkikészítő és -feldolgozó gép kezelője és gyártósor mellett dolgozó</a></th><td>475 903 Ft</td><td>380 722 Ft</td><td>380 723 Ft</td></tr>
+<tr id="k8124"><td>8124</td><th><a href="/fizetes/cipogyarto-gep-kezeloje-es-gyartosor-mellett-dolgozo/">Cipőgyártó gép kezelője és gyártósor mellett dolgozó</a></th><td>376 047 Ft</td><td>300 837 Ft</td><td>300 838 Ft</td></tr>
+<tr id="k8125"><td>8125</td><th><a href="/fizetes/fafeldolgozo-gep-kezeloje-es-gyartosor-mellett-dolgozo/">Fafeldolgozó gép kezelője és gyártósor mellett dolgozó</a></th><td>540 262 Ft</td><td>432 209 Ft</td><td>432 210 Ft</td></tr>
+<tr id="k8126"><td>8126</td><th><a href="/fizetes/papir-es-celluloztermek-gyarto-gep-kezeloje-es-gyartosor-mellett-dolgozo/">Papír- és cellulóztermék-gyártó gép kezelője és gyártósor mellett dolgozó</a></th><td>670 935 Ft</td><td>536 748 Ft</td><td>536 749 Ft</td></tr>
+<tr id="k8131"><td>8131</td><th><a href="/fizetes/koolaj-es-foldgazfeldolgozo-gep-kezeloje/">Kőolaj- és földgázfeldolgozó gép kezelője</a></th><td>963 628 Ft</td><td>770 902 Ft</td><td>770 903 Ft</td></tr>
+<tr id="k8132"><td>8132</td><th><a href="/fizetes/vegyi-alapanyagot-es-termeket-gyarto-gep-kezeloje/">Vegyi alapanyagot és terméket gyártó gép kezelője</a></th><td>812 143 Ft</td><td>649 714 Ft</td><td>649 715 Ft</td></tr>
+<tr id="k8133"><td>8133</td><th><a href="/fizetes/gyogyszergyarto-gep-kezeloje/">Gyógyszergyártó gép kezelője</a></th><td>797 381 Ft</td><td>637 904 Ft</td><td>637 905 Ft</td></tr>
+<tr id="k8134"><td>8134</td><th><a href="/fizetes/mutragya-es-novenyvedoszer-gyarto-gep-kezeloje/">Műtrágya- és növényvédőszer-gyártó gép kezelője</a></th><td>796 512 Ft</td><td>637 209 Ft</td><td>637 210 Ft</td></tr>
+<tr id="k8135"><td>8135</td><th><a href="/fizetes/muanyagfeldolgozo/">Műanyagtermék-gyártó gép kezelője</a></th><td>565 720 Ft</td><td>452 576 Ft</td><td>452 577 Ft</td></tr>
+<tr id="k8136"><td>8136</td><th><a href="/fizetes/gumitermekgyarto-gep-kezeloje/">Gumitermékgyártó gép kezelője</a></th><td>685 601 Ft</td><td>548 480 Ft</td><td>548 481 Ft</td></tr>
+<tr id="k8137"><td>8137</td><th><a href="/fizetes/foto-es-mozgofilmlaborans/">Fotó- és mozgófilmlaboráns</a></th><td>543 481 Ft</td><td>434 784 Ft</td><td>434 785 Ft</td></tr>
+<tr id="k8141"><td>8141</td><th><a href="/fizetes/keramiaipari-termeket-gyarto-gep-kezeloje/">Kerámiaipari terméket gyártó gép kezelője</a></th><td>572 882 Ft</td><td>458 305 Ft</td><td>458 306 Ft</td></tr>
+<tr id="k8142"><td>8142</td><th><a href="/fizetes/uveget-es-uvegtermeket-gyarto-gep-kezeloje/">Üveget és üvegterméket gyártó gép kezelője</a></th><td>568 314 Ft</td><td>454 651 Ft</td><td>454 652 Ft</td></tr>
+<tr id="k8143"><td>8143</td><th><a href="/fizetes/cement-ko-es-egyeb-asvanyianyag-feldolgozo-gep-kezeloje/">Cement-, kő- és egyéb ásványianyag-feldolgozó gép kezelője</a></th><td>688 825 Ft</td><td>551 060 Ft</td><td>551 061 Ft</td></tr>
+<tr id="k8144"><td>8144</td><th><a href="/fizetes/papiripari-alapanyagot-gyarto-gep-kezeloje/">Papíripari alapanyagot gyártó gép kezelője</a></th><td>713 717 Ft</td><td>570 973 Ft</td><td>570 974 Ft</td></tr>
+<tr id="k8151"><td>8151</td><th><a href="/fizetes/femipari-gepkezelo/">Fémfeldolgozó gép kezelője</a></th><td>650 320 Ft</td><td>520 256 Ft</td><td>520 257 Ft</td></tr>
+<tr id="k8152"><td>8152</td><th><a href="/fizetes/femmegmunkalo-feluletkezelo-gep-kezeloje/">Fémmegmunkáló, felületkezelő gép kezelője</a></th><td>610 783 Ft</td><td>488 626 Ft</td><td>488 627 Ft</td></tr>
+<tr id="k8190"><td>8190</td><th><a href="/fizetes/gepkezelo/">Egyéb, máshova nem sorolható feldolgozóipari gép kezelője</a></th><td>660 193 Ft</td><td>528 154 Ft</td><td>528 155 Ft</td></tr>
+<tr id="k8211"><td>8211</td><th><a href="/fizetes/osszeszerelo/">Mechanikaigép-összeszerelő</a></th><td>578 224 Ft</td><td>462 579 Ft</td><td>462 580 Ft</td></tr>
+<tr id="k8212"><td>8212</td><th><a href="/fizetes/elektronikai-osszeszerelo/">Villamosberendezés-összeszerelő</a></th><td>537 144 Ft</td><td>429 715 Ft</td><td>429 716 Ft</td></tr>
+<tr id="k8219"><td>8219</td><th><a href="/fizetes/betanitott-osszeszerelo/">Egyéb termék-összeszerelő</a></th><td>644 412 Ft</td><td>515 529 Ft</td><td>515 530 Ft</td></tr>
+<tr id="k8311"><td>8311</td><th><a href="/fizetes/szilardasvany-kitermelo-gep-kezeloje-szen-ko/">Szilárdásvány-kitermelő gép kezelője (szén, kő)</a></th><td>772 494 Ft</td><td>617 995 Ft</td><td>617 996 Ft</td></tr>
+<tr id="k8312"><td>8312</td><th><a href="/fizetes/kutfuro-melyfuro-gep-kezeloje-koolaj-foldgaz-viz/">Kútfúró, mélyfúró gép kezelője (kőolaj, földgáz, víz)</a></th><td>959 480 Ft</td><td>767 584 Ft</td><td>767 585 Ft</td></tr>
+<tr id="k8321"><td>8321</td><th><a href="/fizetes/energetikai-gep-kezeloje/">Energetikai gép kezelője</a></th><td>894 307 Ft</td><td>715 445 Ft</td><td>715 446 Ft</td></tr>
+<tr id="k8322"><td>8322</td><th><a href="/fizetes/vizgazdalkodasi-gep-kezeloje/">Vízgazdálkodási gép kezelője</a></th><td>646 948 Ft</td><td>517 558 Ft</td><td>517 559 Ft</td></tr>
+<tr id="k8323"><td>8323</td><th><a href="/fizetes/kazangepkezelo/">Kazángépkezelő</a></th><td>626 177 Ft</td><td>500 941 Ft</td><td>500 942 Ft</td></tr>
+<tr id="k8324"><td>8324</td><th><a href="/fizetes/sugarmentesito-gep-berendezes-kezeloje/">Sugármentesítő gép, berendezés kezelője</a></th><td>1 176 493 Ft</td><td>941 194 Ft</td><td>941 195 Ft</td></tr>
+<tr id="k8325"><td>8325</td><th><a href="/fizetes/csomagologep-kezelo/">Csomagoló-, palackozó- és címkézőgép kezelője</a></th><td>636 090 Ft</td><td>508 872 Ft</td><td>508 873 Ft</td></tr>
+<tr id="k8326"><td>8326</td><th><a href="/fizetes/mozigepesz-vetitogepesz/">Mozigépész, vetítőgépész</a></th><td>522 858 Ft</td><td>418 286 Ft</td><td>418 287 Ft</td></tr>
+<tr id="k8327"><td>8327</td><th><a href="/fizetes/mosodai-gep-kezeloje/">Mosodai gép kezelője</a></th><td>429 937 Ft</td><td>343 949 Ft</td><td>343 950 Ft</td></tr>
+<tr id="k8329"><td>8329</td><th><a href="/fizetes/egyeb-mashova-nem-sorolhato-helyhez-kotott-gep-kezeloje/">Egyéb, máshova nem sorolható, helyhez kötött gép kezelője</a></th><td>631 490 Ft</td><td>505 192 Ft</td><td>505 193 Ft</td></tr>
+<tr id="k8411"><td>8411</td><th><a href="/fizetes/mozdonyvezeto/">Mozdonyvezető</a></th><td>1 039 104 Ft</td><td>831 283 Ft</td><td>831 284 Ft</td></tr>
+<tr id="k8412"><td>8412</td><th><a href="/fizetes/vasutijarmu-vezeteshez-kapcsolodo-foglalkozasu/">Vasútijármű-vezetéshez kapcsolódó foglalkozású</a></th><td>730 337 Ft</td><td>584 269 Ft</td><td>584 270 Ft</td></tr>
+<tr id="k8413"><td>8413</td><th><a href="/fizetes/villamosvezeto/">Villamosvezető</a></th><td>821 955 Ft</td><td>657 564 Ft</td><td>657 565 Ft</td></tr>
+<tr id="k8415"><td>8415</td><th><a href="/fizetes/trolibuszvezeto/">Trolibuszvezető</a></th><td>826 596 Ft</td><td>661 276 Ft</td><td>661 277 Ft</td></tr>
+<tr id="k8416"><td>8416</td><th><a href="/fizetes/sofor/">Személygépkocsi-vezető</a></th><td>558 107 Ft</td><td>446 485 Ft</td><td>446 486 Ft</td></tr>
+<tr id="k8417"><td>8417</td><th><a href="/fizetes/kamionsofor/">Tehergépkocsi-vezető, kamionsofőr</a></th><td>451 171 Ft</td><td>360 936 Ft</td><td>360 937 Ft</td></tr>
+<tr id="k8418"><td>8418</td><th><a href="/fizetes/buszsofor/">Autóbuszvezető</a></th><td>674 243 Ft</td><td>539 394 Ft</td><td>539 395 Ft</td></tr>
+<tr id="k8419"><td>8419</td><th><a href="/fizetes/egyeb-jarmuvezeto-es-kapcsolodo-foglalkozasu/">Egyéb járművezető és kapcsolódó foglalkozású</a></th><td>596 473 Ft</td><td>477 178 Ft</td><td>477 179 Ft</td></tr>
+<tr id="k8421"><td>8421</td><th><a href="/fizetes/traktoros/">Mezőgazdasági, erdőgazdasági, növényvédő gép kezelője</a></th><td>524 508 Ft</td><td>419 606 Ft</td><td>419 607 Ft</td></tr>
+<tr id="k8422"><td>8422</td><th><a href="/fizetes/foldmunkagep-kezelo/">Földmunkagép és hasonló könnyű- és nehézgép kezelője</a></th><td>577 877 Ft</td><td>462 301 Ft</td><td>462 302 Ft</td></tr>
+<tr id="k8423"><td>8423</td><th><a href="/fizetes/koztisztasagi-telepulestisztasagi-gep-kezeloje/">Köztisztasági, településtisztasági gép kezelője</a></th><td>674 444 Ft</td><td>539 555 Ft</td><td>539 556 Ft</td></tr>
+<tr id="k8424"><td>8424</td><th><a href="/fizetes/darukezelo/">Daru, felvonó és hasonló anyagmozgató gép kezelője</a></th><td>635 452 Ft</td><td>508 361 Ft</td><td>508 362 Ft</td></tr>
+<tr id="k8425"><td>8425</td><th><a href="/fizetes/targoncas/">Targoncavezető</a></th><td>628 460 Ft</td><td>502 768 Ft</td><td>502 769 Ft</td></tr>
+<tr id="k8430"><td>8430</td><th><a href="/fizetes/hajoszemelyzet-kormanyos-matroz/">Hajószemélyzet, kormányos, matróz</a></th><td>623 520 Ft</td><td>498 816 Ft</td><td>498 817 Ft</td></tr>
+<tr id="k9112"><td>9112</td><th><a href="/fizetes/takarito/">Intézményi takarító és kisegítő</a></th><td>361 884 Ft</td><td>289 507 Ft</td><td>289 508 Ft</td></tr>
+<tr id="k9113"><td>9113</td><th><a href="/fizetes/kezi-moso-vasalo/">Kézi mosó, vasaló</a></th><td>381 087 Ft</td><td>304 869 Ft</td><td>304 870 Ft</td></tr>
+<tr id="k9114"><td>9114</td><th><a href="/fizetes/jarmutakarito/">Járműtakarító</a></th><td>413 134 Ft</td><td>330 507 Ft</td><td>330 508 Ft</td></tr>
+<tr id="k9115"><td>9115</td><th><a href="/fizetes/ablaktisztito/">Ablaktisztító</a></th><td>482 206 Ft</td><td>385 764 Ft</td><td>385 765 Ft</td></tr>
+<tr id="k9119"><td>9119</td><th><a href="/fizetes/egyeb-takarito-es-kisegito/">Egyéb takarító és kisegítő</a></th><td>347 673 Ft</td><td>278 138 Ft</td><td>278 139 Ft</td></tr>
+<tr id="k9211"><td>9211</td><th><a href="/fizetes/kukas/">Szemétgyűjtő, utcaseprő</a></th><td>404 860 Ft</td><td>323 888 Ft</td><td>323 889 Ft</td></tr>
+<tr id="k9212"><td>9212</td><th><a href="/fizetes/hulladekosztalyozo/">Hulladékosztályozó</a></th><td>413 485 Ft</td><td>330 788 Ft</td><td>330 789 Ft</td></tr>
+<tr id="k9221"><td>9221</td><th><a href="/fizetes/pedalos-vagy-kezi-hajtasu-gepek-vezetoje/">Pedálos vagy kézi hajtású gépek vezetője</a></th><td>450 664 Ft</td><td>360 531 Ft</td><td>360 532 Ft</td></tr>
+<tr id="k9223"><td>9223</td><th><a href="/fizetes/rakodo/">Rakodómunkás</a></th><td>523 410 Ft</td><td>418 728 Ft</td><td>418 729 Ft</td></tr>
+<tr id="k9224"><td>9224</td><th><a href="/fizetes/arufeltolto/">Pultfeltöltő, árufeltöltő</a></th><td>377 575 Ft</td><td>302 060 Ft</td><td>302 061 Ft</td></tr>
+<tr id="k9225"><td>9225</td><th><a href="/fizetes/csomagolo/">Kézi csomagoló</a></th><td>450 344 Ft</td><td>360 275 Ft</td><td>360 276 Ft</td></tr>
+<tr id="k9231"><td>9231</td><th><a href="/fizetes/portas/">Portás, telepőr, egyszerű őr</a></th><td>413 339 Ft</td><td>330 671 Ft</td><td>330 672 Ft</td></tr>
+<tr id="k9232"><td>9232</td><th><a href="/fizetes/meroora-leolvaso-es-hasonlo-egyszeru-foglalkozasu/">Mérőóra-leolvasó és hasonló egyszerű foglalkozású</a></th><td>509 138 Ft</td><td>407 310 Ft</td><td>407 311 Ft</td></tr>
+<tr id="k9233"><td>9233</td><th><a href="/fizetes/postas/">Hivatalsegéd, kézbesítő</a></th><td>361 194 Ft</td><td>288 955 Ft</td><td>288 956 Ft</td></tr>
+<tr id="k9234"><td>9234</td><th><a href="/fizetes/csomagkihordo/">Hordár, csomagkihordó</a></th><td>377 166 Ft</td><td>301 732 Ft</td><td>301 733 Ft</td></tr>
+<tr id="k9235"><td>9235</td><th><a href="/fizetes/gyorsettermi-dolgozo/">Gyorséttermi eladó</a></th><td>415 225 Ft</td><td>332 180 Ft</td><td>332 181 Ft</td></tr>
+<tr id="k9236"><td>9236</td><th><a href="/fizetes/konyhai-kisegito/">Konyhai kisegítő</a></th><td>349 398 Ft</td><td>279 518 Ft</td><td>279 519 Ft</td></tr>
+<tr id="k9238"><td>9238</td><th><a href="/fizetes/parkoloor/">Parkolóőr</a></th><td>494 619 Ft</td><td>395 695 Ft</td><td>395 696 Ft</td></tr>
+<tr id="k9239"><td>9239</td><th><a href="/fizetes/egyeb-mashova-nem-sorolhato-egyszeru-szolgaltatasi-es-szallitasi-foglalkozasu/">Egyéb, máshova nem sorolható egyszerű szolgáltatási és szállítási foglalkozású</a></th><td>253 600 Ft</td><td>202 880 Ft</td><td>202 881 Ft</td></tr>
+<tr id="k9310"><td>9310</td><th><a href="/fizetes/betanitott-munkas/">Egyszerű ipari foglalkozású</a></th><td>448 231 Ft</td><td>358 584 Ft</td><td>358 585 Ft</td></tr>
+<tr id="k9321"><td>9321</td><th><a href="/fizetes/kubikos/">Kubikos</a></th><td>306 882 Ft</td><td>245 505 Ft</td><td>245 506 Ft</td></tr>
+<tr id="k9329"><td>9329</td><th><a href="/fizetes/segedmunkas/">Egyéb egyszerű építőipari foglalkozású</a></th><td>364 723 Ft</td><td>291 778 Ft</td><td>291 779 Ft</td></tr>
+<tr id="k9331"><td>9331</td><th><a href="/fizetes/mezogazdasagi-idenymunkas/">Egyszerű mezőgazdasági foglalkozású</a></th><td>340 084 Ft</td><td>272 067 Ft</td><td>272 068 Ft</td></tr>
+<tr id="k9332"><td>9332</td><th><a href="/fizetes/egyszeru-erdeszeti-vadaszati-es-halaszati-foglalkozasu/">Egyszerű erdészeti, vadászati és halászati foglalkozású</a></th><td>298 441 Ft</td><td>238 752 Ft</td><td>238 753 Ft</td></tr>
+</tbody></table></div>
+<p class="forras">Forrás: <a href="https://www.ksh.hu/stadat_files/mun/hu/mun0208.html" rel="noopener">KSH STADAT 20.1.1.52. Teljes munkaidőben alkalmazásban állók bruttó átlagkeresete foglalkozások szerint</a>, 2025. évi adat. Letöltve: 2026. november 20.</p></section>
+<section class="gyik"><h2>Gyakori kérdések</h2><details><summary>Mennyi a bérküszöb harmadik országbeli munkavállalónál?</summary><p>Az alapbérnek meg kell haladnia a FEOR-kód szerinti foglalkozás országos bruttó átlagkeresetének 80 százalékát. Példa: a „Mechanikaigép-összeszerelő” (FEOR 8211) átlaga 578 224 Ft, a küszöb 462 579 Ft, ennél magasabb alapbér kell.</p></details><details><summary>Melyik év átlagkeresetével kell számolni?</summary><p>A KSH által legutóbb közzétett éves adattal. Ez most a 2025. évi, amelyet a KSH a 20.1.1.52. számú táblában közöl. Amikor megjelenik az új év, ez az oldal magától átáll rá.</p></details><details><summary>Elég, ha a bér pontosan az átlag 80 százaléka?</summary><p>A rendelet szövege szerint az alapbér akkor lényegesen alacsonyabb, ha nem haladja meg az átlag nyolcvan százalékát. A pontosan 80 százalékos alapbér tehát még kevés, legalább egy forinttal többnek kell lennie.</p></details><details><summary>A pótlékok és a prémium beleszámítanak?</summary><p>A rendelet az alapbért (illetményt, díjazást) veti össze az átlagkeresettel. A KSH átlagkeresete viszont a pótlékokat és a prémiumot is tartalmazza, ezért a küszöb a gyakorlatban szigorúbb, mint amilyennek elsőre látszik.</p></details></section>
+</main>
+<footer class="lab">
+  <div class="lab-sor">
+    <a class="logo" href="/"><svg class="jel" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 3h20v24l-3.3-2-3.4 2-3.3-2-3.3 2-3.4-2L6 27z" fill="var(--zold)"/><path d="M11 10h10M11 15h10M11 20h5" stroke="var(--papir)" stroke-width="2.2" stroke-linecap="round"/><circle cx="21" cy="20" r="1.6" fill="var(--sarga)"/></svg><span>mire elég<i>?</i></span></a>
+    <p>Fizetések foglalkozásonként, és hogy mire elég belőlük.</p>
+  </div>
+  <nav aria-label="Lábléc">
+    <a href="/foglalkozasok/">Minden foglalkozás</a><a href="/brutto-netto-kalkulator/">Bruttó–nettó kalkulátor</a><a href="/mire-eleg/">Mire elég?</a><a href="/berkuszob-kereso/">Bérküszöb-kereső</a><a href="/forrasok/">Források és módszertan</a><a href="/adatok/">Letölthető adatok</a><a href="/impresszum/">Impresszum, adatkezelés</a>
+  </nav>
+  <p class="lab-apro">Az adatok utolsó ellenőrzése: 2026. november 20.. A keresetek a KSH hivatalos adatai, a nettó bér saját számítás a hatályos szabályok alapján. Tájékoztató jellegű, nem minősül adó- vagy jogi tanácsadásnak.</p>
+</footer>
+<script type="module" src="/assets/app.mjs?v=d4bbe971"></script>
+</body>
+</html>

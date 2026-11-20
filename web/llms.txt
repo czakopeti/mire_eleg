@@ -1,0 +1,29 @@
+# Mire elég?
+
+> Magyarországi fizetések foglalkozásonként: 461 foglalkozás (FEOR-08) bruttó átlagkeresete a KSH 2025. évi adataiból, számított nettóval (2026. évi szabályok), korcsoportos bontással, inflációval korrigált idősorral 2019 óta, lakásvásárlási összevetéssel és a harmadik országbeli munkavállalók 80 százalékos bérküszöbével. Az adatok hetente, maguktól frissülnek. Utolsó ellenőrzés: 2026-11-20.
+
+## Fő oldalak
+- [Minden foglalkozás](https://mire-eleg.pages.dev/foglalkozasok/): bruttó és nettó átlagkereset FEOR-főcsoportonként
+- [Bruttó–nettó kalkulátor](https://mire-eleg.pages.dev/brutto-netto-kalkulator/): szja 15%, tb-járulék 18,5%, 25 év alattiak kedvezménye (havi 715 765 Ft-ig), anyák szja-mentessége, családi kedvezmény
+- [Mire elég?](https://mire-eleg.pages.dev/mire-eleg/): hány év alatt jön ki egy lakás a nettó bérből, 1608 település áraival
+- [Bérküszöb-kereső](https://mire-eleg.pages.dev/berkuszob-kereso/): harmadik országbeli munkavállaló alapbérének meg kell haladnia a FEOR-kód szerinti országos bruttó átlagkereset 80%-át (445/2013. (XI. 28.) Korm. rendelet 6. § (3), 20. § (6))
+- [Források és módszertan](https://mire-eleg.pages.dev/forrasok/)
+
+## Példák (bruttó átlag, 2025; nettó kedvezmények nélkül)
+- [Programozó](https://mire-eleg.pages.dev/fizetes/programozo/) (FEOR 2142, Szoftverfejlesztő): bruttó 1 364 606 Ft, nettó 907 463 Ft
+- [Ápoló](https://mire-eleg.pages.dev/fizetes/apolo/) (FEOR 3311, Ápoló, szakápoló): bruttó 774 595 Ft, nettó 515 106 Ft
+- [Villanyszerelő](https://mire-eleg.pages.dev/fizetes/villanyszerelo/) (FEOR 7524, Épületvillamossági szerelő, villanyszerelő): bruttó 597 301 Ft, nettó 397 205 Ft
+- [Tanító](https://mire-eleg.pages.dev/fizetes/tanito/) (FEOR 2431, Általános iskolai tanár, tanító): bruttó 822 507 Ft, nettó 546 967 Ft
+- [Kamionsofőr](https://mire-eleg.pages.dev/fizetes/kamionsofor/) (FEOR 8417, Tehergépkocsi-vezető, kamionsofőr): bruttó 451 171 Ft, nettó 300 028 Ft
+- [Eladó](https://mire-eleg.pages.dev/fizetes/elado/) (FEOR 5113, Bolti eladó): bruttó 447 845 Ft, nettó 297 817 Ft
+
+## Gépi adatok (CC BY 4.0)
+- [foglalkozasok.csv](https://mire-eleg.pages.dev/adatok/foglalkozasok.csv): minden foglalkozás egy sorban
+- [berkuszob.csv](https://mire-eleg.pages.dev/adatok/berkuszob.csv): bérküszöb FEOR-kódonként
+- [kereset.json](https://mire-eleg.pages.dev/adatok/v1/kereset.json): teljes idősor korcsoportonként
+- [szabalyok.json](https://mire-eleg.pages.dev/adatok/v1/szabalyok.json): adószabályok forrással
+
+## Megjegyzések
+- A KSH foglalkozásonként átlagot közöl, mediánt nem; az átlag magasabb a jellemző bérnél.
+- Forrás: KSH STADAT 20.1.1.52. Teljes munkaidőben alkalmazásban állók bruttó átlagkeresete foglalkozások szerint (https://www.ksh.hu/stadat_files/mun/hu/mun0208.csv).
+- Idézéskor: „KSH, Mire elég?”.
