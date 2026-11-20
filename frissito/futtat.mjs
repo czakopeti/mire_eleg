@@ -15,6 +15,7 @@ const MA = new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Budapest' 
 export const FORRASOK = {
   kereset: { url: 'https://www.ksh.hu/stadat_files/mun/hu/mun0208.csv', lap: 'https://www.ksh.hu/stadat_files/mun/hu/mun0208.html', nev: 'KSH STADAT 20.1.1.52. Teljes munkaidőben alkalmazásban állók bruttó átlagkeresete foglalkozások szerint', fajl: 'mun0208.csv' },
   netto: { url: 'https://www.ksh.hu/stadat_files/mun/hu/mun0188.csv', lap: 'https://www.ksh.hu/stadat_files/mun/hu/mun0188.html', nev: 'KSH STADAT 20.1.1.58. Nettó átlagkereset a munkavállalók főbb demográfiai jellemzői szerint', fajl: 'mun0188.csv' },
+  orszagos: { url: 'https://www.ksh.hu/stadat_files/mun/hu/mun0143.csv', lap: 'https://www.ksh.hu/stadat_files/mun/hu/mun0143.html', nev: 'KSH STADAT 20.2.1.39. Főbb kereseti adatok, havonta és kumulálva', fajl: 'mun0143.csv' },
   inflacio: { url: 'https://www.ksh.hu/stadat_files/ara/hu/ara0001.csv', lap: 'https://www.ksh.hu/stadat_files/ara/hu/ara0001.html', nev: 'KSH STADAT 1.1.1.1. Főbb ármutatók (fogyasztóiár-index)', fajl: 'ara0001.csv' },
   lakasar: { url: 'https://ingatlanmerleg.hu/adatok/lakasarak/arak.json', lap: 'https://ingatlanmerleg.hu/lakasarak/', nev: 'Ingatlanmérleg: településenkénti lakásárak (KSH Ingatlanadattár alapján)', fajl: 'arak.json' },
   auto: { url: 'https://autozom.hu/adatok/v1/nav-uzemanyagar.json', lap: 'https://autozom.hu/nav-uzemanyagar/', nev: 'autózom: NAV havi üzemanyagárak', fajl: 'nav-uzemanyagar.json' },
@@ -64,6 +65,11 @@ await lepes('KSH foglalkozásonkénti keresetek (mun0208)', async () => {
 await lepes('KSH országos nettó átlagkereset (mun0188)', async () => {
   const t = K.nettoTabla(K.dekodol(await leker(FORRASOK.netto)));
   await ir('netto_orszagos.json', { forras: { nev: FORRASOK.netto.nev, url: FORRASOK.netto.lap, fajl: FORRASOK.netto.url }, letoltve: MA, ellenorizve: MA, ...t }, await olvas('netto_orszagos.json'));
+});
+
+await lepes('KSH országos átlag és medián (mun0143)', async () => {
+  const t = K.orszagosHavi(K.dekodol(await leker(FORRASOK.orszagos)));
+  await ir('orszagos.json', { forras: { nev: FORRASOK.orszagos.nev, url: FORRASOK.orszagos.lap, fajl: FORRASOK.orszagos.url }, letoltve: MA, ellenorizve: MA, ...t }, await olvas('orszagos.json'));
 });
 
 await lepes('KSH fogyasztóiár-index (ara0001)', async () => {

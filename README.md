@@ -4,7 +4,7 @@ Magyar fizetésoldal foglalkozásonként, a KSH hivatalos adataiból: minden fog
 
 Statikus oldal. Nincs adatbázis, nincs szerver, nincs süti, nincs fizetős szolgáltatás. Az űrlapok üresen nyílnak.
 
-**Állapot:** első működő változat, tesztnévvel (`config.json`: `eles: false`, minden oldal noindex).
+**Állapot:** működő változat négy eszközzel (Hol állsz?, összehasonlítás, megfizethetőségi térkép, nyertesek és vesztesek), tesztnévvel (`config.json`: `eles: false`, minden oldal noindex).
 
 ## Mi frissül magától?
 
@@ -12,6 +12,7 @@ Statikus oldal. Nincs adatbázis, nincs szerver, nincs süti, nincs fizetős szo
 |---|---|---|
 | Keresetek foglalkozásonként, korcsoportonként | KSH STADAT mun0208 (20.1.1.52) | `frissito/futtat.mjs` letölti, ellenőrzi; új évnél minden oldal átáll |
 | Országos nettó átlag | KSH mun0188 (20.1.1.58) | ugyanígy |
+| Országos átlag és medián (év eleje óta) | KSH mun0143 (20.2.1.39) | ugyanígy |
 | Infláció (reálbér) | KSH ara0001 (1.1.1.1) | ugyanígy |
 | Lakásárak településenként, mai becsléssel | ingatlanmerleg.hu/adatok/lakasarak/arak.json | ugyanígy |
 | Üzemanyagár | autozom.hu/adatok/v1/nav-uzemanyagar.json | ugyanígy |
@@ -31,6 +32,7 @@ Ha egy letöltés hibás vagy hihetetlen (kevés sor, más táblacím, elszállt
 | `frissito/futtat.mjs`, `frissito/figyelo.mjs` | Heti letöltés, illetve a jogszabályforrások figyelése. |
 | `forras/js/szamitas.mjs` | Számítási mag: nettó, lakás, autó, bérküszöb, reálérték. A böngésző, az építő és a tesztek is ezt használják. |
 | `forras/oldalak.mjs`, `forras/sablon.mjs` | Az oldalak szövege, kerete és az ábrák. |
+| `forras/geo/` | A térkép települési és kerületi határai (az Ingatlanmérleg tárolójából átvéve). |
 | `web/` | A kész oldal. A Cloudflare Pages ezt szolgálja ki. Az `epit.mjs` írja. |
 
 ## Parancsok (Node 22, nincs függőség)

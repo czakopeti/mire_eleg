@@ -1,5 +1,5 @@
 // Page contents. Every number comes from the data files; nothing is typed in by hand.
-import { esc, datum, evBan, evOs, forras, korOszlopok, trendVonal, nagy } from './sablon.mjs';
+import { esc, datum, evBan, evOs, forras, korOszlopok, trendVonal, szoras, megyeTerkep, nagy } from './sablon.mjs';
 import * as S from './js/szamitas.mjs';
 const { ft, szamHu, szazalek, idotartam } = S;
 
@@ -22,8 +22,8 @@ const gyik = lista => `<section class="gyik"><h2>Gyakori kérdések</h2>${lista.
 const gyikLd = lista => ({ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: lista.map(([k, v]) => ({ '@type': 'Question', name: k, acceptedAnswer: { '@type': 'Answer', text: v.replace(/<[^>]+>/g, '') } })) });
 const sor = (cimke, ertek, osztaly = '') => `<div class="szalag-sor ${osztaly}"><span>${cimke}</span><b>${ertek}</b></div>`;
 
-const kereso = (helyorzo = 'Foglalkozás neve vagy FEOR-kódja') => `<div class="kereso" data-kereso>
-  <label for="k-be">Keresd meg a foglalkozásodat</label>
+const kereso = (helyorzo = 'Foglalkozás neve vagy FEOR-kódja', cimke = 'Keresd meg a foglalkozásodat', mod = '') => `<div class="kereso" data-kereso="${mod}">
+  <label for="k-be">${cimke}</label>
   <input id="k-be" type="search" autocomplete="off" placeholder="${helyorzo}" aria-controls="k-lista" inputmode="search">
   <ul id="k-lista" class="k-lista" hidden></ul>
 </div>`;
@@ -31,42 +31,47 @@ const kereso = (helyorzo = 'Foglalkozás neve vagy FEOR-kódja') => `<div class=
 // ------------------------------------------------------------------ home
 export function fooldal(A) {
   const top = A.rangsor.slice(0, 8), also = A.rangsor.slice(-8).reverse();
-  const nott = [...A.fog].filter(f => f.realValt != null).sort((a, b) => b.realValt - a.realValt).slice(0, 8);
-  const m = A.minta;
-  const lista = (cim, fogl, ertek, megj) => `<section class="lista"><h3>${cim}</h3><ol>${fogl.map(f => `<li>${fogLink(f)}<b>${ertek(f)}</b></li>`).join('')}</ol><p class="apro">${megj}</p></section>`;
+  const valt = A.fog.filter(f => f.realValt != null);
+  const nott = [...valt].sort((a, b) => b.realValt - a.realValt).slice(0, 8);
+  const nyert = valt.filter(f => f.realValt > 0).length;
+  const m = A.minta, f = m.f;
+  const lista = (cim, fogl, ertek, megj) => `<section class="lista"><h3>${cim}</h3><ol>${fogl.map(g => `<li>${fogLink(g)}<b>${ertek(g)}</b></li>`).join('')}</ol><p class="apro">${megj}</p></section>`;
   return {
     ut: '', cim: `Mire elég a fizetésed? Fizetések foglalkozásonként ${A.utolso}`,
     leiras: `${A.fog.length} foglalkozás bruttó és nettó átlagkeresete a KSH ${A.utolso}. évi adataiból: korcsoportok, reálbér ${A.evek[0]} óta, és hogy hány év alatt jön ki belőle egy lakás.`,
     jsonld: [{ '@context': 'https://schema.org', '@type': 'WebSite', name: A.cfg.marka, url: `${A.cfg.domain}/`, inLanguage: 'hu', description: A.cfg.szlogen },
       { '@context': 'https://schema.org', '@type': 'Dataset', name: `Bruttó és nettó átlagkeresetek foglalkozásonként, ${A.evek[0]}–${A.utolso}`, description: `A teljes munkaidőben alkalmazásban állók bruttó átlagkeresete ${A.fog.length} FEOR-08 foglalkozásra, korcsoportonként, a KSH adataiból, számított nettóval és bérküszöbbel.`, url: `${A.cfg.domain}/adatok/`, license: 'https://creativecommons.org/licenses/by/4.0/', isBasedOn: A.ker.forras.url, temporalCoverage: `${A.evek[0]}/${A.utolso}`, dateModified: A.ker.letoltve, creator: { '@type': 'Organization', name: A.cfg.marka } }],
-    tartalom: `<section class="hos">
-  <div>
-    <p class="felirat">${A.fog.length} foglalkozás · KSH, ${A.utolso}. évi adatok</p>
+    tartalom: `<section class="hos teljes">
+  <div class="hos-szoveg">
     <h1>Mire elég a fizetésed?</h1>
-    <p class="bevezeto">Megmutatjuk, mennyit keresnek ma a szakmádban, mennyi marad ebből nettóban, hogyan változott a bér értéke ${A.evek[0]} óta, és hány év alatt jön ki belőle egy lakás a településeden.</p>
-    ${kereso()}
-    <p class="gyors">Gyakran keresett: ${A.nepszeru.map(fogLink).join('')}</p>
+    <p class="bevezeto">${A.fog.length} szakma hivatalos béradata egy helyen. Írd be a tiédet, és kinyomtatjuk a bérszalagját: mennyi a bruttó, mennyi marad belőle, és hol áll a többi szakma között.</p>
+    ${kereso('pl. ápoló, programozó, 7524', 'Írd be a szakmádat', 'szalag')}
+    <p class="gyors">${A.nepszeru.map(g => `<button type="button" data-hos-kod="${g.kod}">${esc(g.nev)}</button>`).join('')}</p>
   </div>
-  <aside class="szalag minta" aria-label="Minta egy foglalkozás adataiból">
-    <p class="szalag-fej">Minta · ${esc(m.f.nev)}</p>
-    ${sor('Bruttó átlagkereset', ft(m.f.brutto))}
-    ${sor('Nettó, kedvezmények nélkül', ft(m.f.netto))}
-    ${sor(`Reálbér ${A.evek[0]} óta`, elojel(m.f.realValt))}
-    ${sor(`50 m² lakás, ${esc(m.t.n)}`, idotartam(m.lakas.honap), 'ossz')}
-    <p class="szalag-lab">${idotartam(m.lakas.honap)} alatt jönne ki a teljes nettó bérből. <a href="/fizetes/${m.f.slug}/">A részletek</a></p>
+  <aside class="szalag hos-szalag" data-hos-szalag aria-live="polite">
+    <p class="szalag-fej">Minta: ${esc(f.nev.toLocaleLowerCase('hu'))}<span>KSH, ${A.utolso}</span></p>
+    ${sor('Bruttó átlagkereset', ft(f.brutto))}
+    ${sor('Szja (15%)', `− ${ft(f.nbont.szja)}`)}
+    ${sor('Tb-járulék (18,5%)', `− ${ft(f.nbont.tb)}`)}
+    ${sor('Nettó', `<span data-szamlal="${f.netto}">${ft(f.netto)}</span>`, 'ossz')}
+    <p class="szalag-lab">A ${A.rangsor.length} szakma között a ${f.rang}. A bér vásárlóértéke ${A.evek[0]} óta ${elojel(f.realValt)}. <a href="/fizetes/${f.slug}/">A teljes oldal</a></p>
   </aside>
 </section>
-<section class="eszkozok">
-  <a class="eszkoz" href="/brutto-netto-kalkulator/"><h2>Bruttó–nettó kalkulátor</h2><p>A ${evOs(A.szEv)} szabályokkal: 25 év alattiak, anyák és a családi kedvezmény.</p></a>
-  <a class="eszkoz" href="/mire-eleg/"><h2>Mire elég?</h2><p>Lakás és autó a fizetésedből, ${A.lak.tel.length} település áraival.</p></a>
-  <a class="eszkoz" href="/berkuszob-kereso/"><h2>Bérküszöb-kereső</h2><p>HR-eseknek: a harmadik országbeli munkavállalók 80%-os bérküszöbe FEOR-kódonként.</p></a>
+<section class="bento" aria-label="Eszközök">
+  <a class="csempe nagy" href="/terkep/"><div><h2>Hol ér a legtöbbet a fizetésed?</h2><p>Térkép ${A.lak.tel.length} település lakásáraival. Megmutatja, a te béredből hol hány év alatt jön ki egy lakás.</p></div>${megyeTerkep(A.geo.vb, A.geo.m)}</a>
+  <a class="csempe" href="/hol-allsz/"><h2>Hol állsz?</h2><p>Hasonlítsd a béredet a szakmád, a korosztályod és az ország átlagához.</p><p class="csempe-szam"><b>${ft(A.orsz.bruttoMedian)}</b>az országos bruttó medián, ${A.orsz.ev}. ${esc(A.orsz.idoszak)}</p></a>
+  <a class="csempe" href="/nyertesek-vesztesek/"><h2>Nyertesek és vesztesek</h2><p>${valt.length} szakmából ${nyert}-ben ér többet a bér, mint ${evBan(A.evek[0])}.</p>${szoras(A.fog, { mini: true })}</a>
+  <a class="csempe" href="/osszehasonlitas/"><h2>Szakmák egymás mellett</h2><p>Két-három foglalkozás bére, pályaíve és reálbére egy ábrán.</p></a>
+  <a class="csempe" href="/brutto-netto-kalkulator/"><h2>Bruttó–nettó kalkulátor</h2><p>A ${evOs(A.szEv)} szabályokkal, családi és anyakedvezménnyel.</p></a>
+  <a class="csempe" href="/berkuszob-kereso/"><h2>Bérküszöb-kereső</h2><p>HR-eseknek: a 80%-os küszöb FEOR-kódonként.</p></a>
 </section>
 <section class="harom">
-  ${lista('A legjobban fizető foglalkozások', top, f => ft(f.brutto), `Bruttó átlagkereset, ${A.utolso}.`)}
-  ${lista('A legkevésbé fizetők', also, f => ft(f.brutto), `Bruttó átlagkereset, ${A.utolso}.`)}
-  ${lista(`Itt nőtt a legtöbbet a reálbér`, nott, f => elojel(f.realValt), `${A.evek[0]}–${A.utolso}, inflációval korrigálva.`)}
+  ${lista('A legjobban fizető foglalkozások', top, g => ft(g.brutto), `Bruttó átlagkereset, ${A.utolso}.`)}
+  ${lista('A legkevésbé fizetők', also, g => ft(g.brutto), `Bruttó átlagkereset, ${A.utolso}.`)}
+  ${lista(`Itt nőtt a legtöbbet a reálbér`, nott, g => elojel(g.realValt), `${A.evek[0]}–${A.utolso}, inflációval korrigálva.`)}
 </section>
 ${kerForras(A)}
+${forras({ ...A.orsz.forras, letoltve: A.orsz.ellenorizve }, `országos medián, ${A.orsz.ev}. ${A.orsz.idoszak}`)}
 <section class="szoveg">
   <h2>Miben más ez, mint egy fizetési toplista?</h2>
   <p>A számok a KSH hivatalos adatai. Minden foglalkozásnak saját oldala van a köznapi nevével együtt, így a „programozó” és a „villanyszerelő” is megtalálható akkor is, ha a hivatalos FEOR-megnevezést nem ismered.</p>
@@ -115,13 +120,13 @@ export function foglalkozas(A, f) {
     }, gyikLd(kerdesek)],
     tartalom: `<article class="fog">
 <header class="fog-fej">
-  <p class="felirat">FEOR ${f.kod} · ${esc(FOCSOPORT[f.kod[0]])}</p>
+  <p class="cimkek"><span>FEOR ${f.kod}</span><a href="/foglalkozasok/#cs${f.kod[0]}">${esc(FOCSOPORT[f.kod[0]])}</a></p>
   <h1>${egy ? `Mennyit keres ${esc(egy)}?` : `${esc(f.n)}: fizetés ${A.utolso}`}</h1>
   ${f.alias ? `<p class="hivatalos">Hivatalos megnevezés: <b>${esc(f.n)}</b>${f.aliasok.length > 1 ? `. Így is keresik: ${f.aliasok.slice(1).map(esc).join(', ')}` : ''}.</p>` : ''}
 </header>
 <div class="ketto">
   <div class="szalag">
-    <p class="szalag-fej">Havi átlagkereset · ${A.utolso}</p>
+    <p class="szalag-fej">Havi átlagkereset<span>KSH, ${A.utolso}</span></p>
     ${sor('Bruttó', ft(f.brutto))}
     ${sor('Szja (15%)', `− ${ft(f.nbont.szja)}`)}
     ${sor('Tb-járulék (18,5%)', `− ${ft(f.nbont.tb)}`)}
@@ -136,6 +141,7 @@ export function foglalkozas(A, f) {
   </div>
 </div>
 ${kerForras(A)}
+<p class="muveletek"><a class="gomb" href="/hol-allsz/?f=${f.kod}">Hol állsz ebben a szakmában?</a><a class="gomb masod" href="/osszehasonlitas/?a=${f.kod}">Összehasonlítás más szakmával</a><a class="gomb masod" href="/terkep/?f=${f.kod}">Térképen</a></p>
 
 ${vanKor ? `<section>
   <h2>Pályaív: mennyit keresnek korcsoportonként?</h2>
@@ -248,7 +254,7 @@ export function kalkulator(A) {
     <p class="minta-sor"><button type="button" class="gomb masod" data-minta='{"brutto":${mb},"eltartottak":"2"}'>Minta betöltése</button><span>Minta: bruttó ${szamHu(mb)} Ft, két gyermek.</span></p>
   </form>
   <div class="szalag eredmeny" data-netto-eredmeny aria-live="polite">
-    <p class="szalag-fej">Havi elszámolás · ${A.szEv}</p>
+    <p class="szalag-fej">Havi elszámolás<span>${A.szEv}</span></p>
     <p class="ures">Írd be a bruttó béredet, és itt megjelenik a levezetés.</p>
   </div>
 </div>
@@ -283,7 +289,7 @@ export function mireEleg(A) {
       <div class="mezo"><label for="me-auto">Az autó ára</label><div class="be"><input id="me-auto" name="autoar" inputmode="numeric" autocomplete="off"><span>Ft</span></div></div>
       <div class="mezo fel"><label for="me-km">Havi futás</label><div class="be"><input id="me-km" name="km" inputmode="numeric" autocomplete="off"><span>km</span></div></div>
       <div class="mezo fel"><label for="me-fogy">Fogyasztás</label><div class="be"><input id="me-fogy" name="fogy" inputmode="decimal" autocomplete="off"><span>l/100 km</span></div></div>
-      <div class="csipek" role="radiogroup" aria-label="Üzemanyag"><label><input type="radio" name="uza" value="benzin" checked><span>Benzin · ${A.auto.benzin} Ft/l</span></label><label><input type="radio" name="uza" value="dizel"><span>Dízel · ${A.auto.dizel} Ft/l</span></label></div>
+      <div class="csipek" role="radiogroup" aria-label="Üzemanyag"><label><input type="radio" name="uza" value="benzin" checked><span>Benzin, ${A.auto.benzin} Ft/l</span></label><label><input type="radio" name="uza" value="dizel"><span>Dízel, ${A.auto.dizel} Ft/l</span></label></div>
     </fieldset>
     <p class="minta-sor"><button type="button" class="gomb masod" data-minta='{"fog":"${m.f.kod}","tel":"${m.t.kod}","autoar":6000000,"km":1200,"fogy":"6,5"}'>Minta betöltése</button><span>Minta: ${esc(m.f.nev.toLocaleLowerCase('hu'))}, ${esc(m.t.n)}, 6 millió forintos autó.</span></p>
   </form>
@@ -327,7 +333,7 @@ export function berkuszob(A) {
     <p class="minta-sor"><button type="button" class="gomb masod" data-minta='{"fog":"${pl.kod}","ber":${Math.round(pk.hatar / 1000) * 1000 + 5000}}'>Minta betöltése</button><span>Minta: ${esc(pl.n)} (${pl.kod}).</span></p>
   </form>
   <div class="szalag eredmeny" data-kuszob-eredmeny aria-live="polite">
-    <p class="szalag-fej">Bérküszöb · KSH ${A.utolso}</p>
+    <p class="szalag-fej">Bérküszöb<span>KSH, ${A.utolso}</span></p>
     <p class="ures">Válassz foglalkozást, és itt megjelenik a küszöb.</p>
   </div>
 </div>
@@ -349,6 +355,126 @@ ${gyik(kerdesek)}`,
   };
 }
 
+
+// ------------------------------------------------------------------ where do you stand
+export function holAllsz(A) {
+  const m = A.minta.f;
+  const kerdesek = [
+    ['Mihez hasonlítjátok a béremet?', `A szakmád ${A.utolso}. évi országos bruttó átlagához, a korcsoportod átlagához (KSH, foglalkozásonként négy korcsoport), valamint a teljes munkaidős alkalmazottak országos átlagához és mediánjához (${A.orsz.ev}. ${A.orsz.idoszak}).`],
+    ['Miért nem mondjátok meg, hogy a szakmám hány százaléka keres nálam kevesebbet?', 'Ehhez a szakmán belüli bérek eloszlása kellene, amit a KSH nem közöl, csak az átlagot. Amit pontosan tudunk: a béred az átlag hány százaléka, és hány szakma átlagát előzi meg.'],
+    ['Mi a különbség az átlag és a medián között?', `A medián az a bér, amelynél a dolgozók fele többet, fele kevesebbet keres. Az országos bruttó medián ${ft(A.orsz.bruttoMedian)}, az átlag ${ft(A.orsz.bruttoAtlag)}: az átlagot a kiugróan magas bérek húzzák fel.`],
+  ];
+  return {
+    ut: 'hol-allsz/', cim: 'Hol állsz a fizetéseddel? Hasonlítsd a szakmád és a korosztályod átlagához',
+    leiras: `Írd be a szakmádat és a bruttó béredet: megmutatjuk, hol állsz a szakmád, a korcsoportod és az ország átlagához képest, és hány szakma átlagát előzöd meg a ${A.fog.length}-ből.`,
+    morzsa: [['hol-allsz/', 'Hol állsz?']], jsonld: [gyikLd(kerdesek)],
+    tartalom: `<h1>Hol állsz a fizetéseddel?</h1>
+<p class="bevezeto">Add meg a szakmádat és a havi bruttódat. Megmutatjuk, hol vagy a szakmád, a korosztályod és az ország átlagához képest.</p>
+<div class="kalk">
+  <form class="urlap" data-hol onsubmit="return false">
+    <div class="mezo"><label for="ha-fog">A szakmád</label><input id="ha-fog" type="search" autocomplete="off" placeholder="Foglalkozás neve vagy FEOR-kódja" aria-controls="ha-lista"><ul id="ha-lista" class="k-lista" hidden></ul></div>
+    <div class="mezo"><label for="ha-brutto">Havi bruttó béred</label><div class="be"><input id="ha-brutto" name="brutto" inputmode="numeric" autocomplete="off"><span>Ft</span></div></div>
+    <fieldset><legend>Korcsoportod <small>nem kötelező</small></legend>
+      <div class="csipek" role="radiogroup" aria-label="Korcsoport">${['30 alatt', '30–39', '40–49', '50 felett'].map((c, i) => `<label><input type="radio" name="kor" value="${i}"><span>${c}</span></label>`).join('')}</div>
+    </fieldset>
+    <p class="minta-sor"><button type="button" class="gomb masod" data-minta='{"fog":"${m.kod}","brutto":${Math.round(m.brutto * 1.12 / 10000) * 10000},"kor":"1"}'>Minta betöltése</button><span>Minta: ${esc(m.nev.toLocaleLowerCase('hu'))}, 30–39 éves.</span></p>
+  </form>
+  <div class="szalag eredmeny" data-hol-eredmeny aria-live="polite">
+    <p class="szalag-fej">Hol állsz?</p>
+    <p class="ures">Válaszd ki a szakmádat, és írd be a bruttódat.</p>
+  </div>
+</div>
+<figure class="szeles" data-hol-abra hidden></figure>
+${adatBlokk('adat', { sz: A.sz, ev: A.utolso, db: A.fog.length, orsz: { ev: A.orsz.ev, idoszak: A.orsz.idoszak, atlag: A.orsz.bruttoAtlag, median: A.orsz.bruttoMedian } })}
+${kerForras(A)}
+${forras({ ...A.orsz.forras, letoltve: A.orsz.ellenorizve }, `országos átlag és medián, ${A.orsz.ev}. ${A.orsz.idoszak}`)}
+${gyik(kerdesek)}`,
+  };
+}
+
+// ------------------------------------------------------------------ compare occupations
+export function osszehasonlitas(A) {
+  const p = ['2142', '3311', '7524'].map(k => A.kodra[k]).filter(Boolean);
+  return {
+    ut: 'osszehasonlitas/', cim: 'Szakmák összehasonlítása: fizetés, pályaív és reálbér egymás mellett',
+    leiras: `Hasonlíts össze két vagy három foglalkozást: bruttó és nettó átlagkereset, korcsoportos pályaív és a bér vásárlóértékének változása ${A.evek[0]} óta, a KSH adataiból.`,
+    morzsa: [['osszehasonlitas/', 'Összehasonlítás']],
+    tartalom: `<h1>Szakmák egymás mellett</h1>
+<p class="bevezeto">Válassz két vagy három foglalkozást. Megmutatjuk a bérüket, azt, hogy melyik korban mennyit fizetnek, és hogyan változott a bérük értéke ${A.evek[0]} óta.</p>
+<form class="urlap harmas" data-ossze onsubmit="return false">
+  ${['Első', 'Második', 'Harmadik'].map((c, i) => `<div class="mezo"><label for="oh-${i}">${c} foglalkozás${i === 2 ? ' <small>nem kötelező</small>' : ''}</label><input id="oh-${i}" type="search" autocomplete="off" placeholder="Foglalkozás neve" aria-controls="oh-l${i}"><ul id="oh-l${i}" class="k-lista" hidden></ul></div>`).join('')}
+  <p class="minta-sor"><button type="button" class="gomb masod" data-minta='${JSON.stringify(p.map(f => f.kod))}'>Minta betöltése</button><span>Minta: ${p.map(f => esc(f.nev.toLocaleLowerCase('hu'))).join(', ')}.</span></p>
+</form>
+<div data-ossze-eredmeny aria-live="polite"><p class="ures-doboz">Válassz legalább két foglalkozást, és itt megjelenik az összevetés.</p></div>
+${adatBlokk('adat', { sz: A.sz, szEv: A.szEv, index: A.inf.index, db: A.fog.length })}
+${kerForras(A)}
+${forras({ ...A.inf.forras, letoltve: A.inf.ellenorizve }, 'éves fogyasztóiár-index a reálbérhez')}
+<p class="apro">${szabalyJegy(A)}.</p>`,
+  };
+}
+
+// ------------------------------------------------------------------ affordability map
+export function terkep(A) {
+  const m = A.minta.f;
+  return {
+    ut: 'terkep/', cim: 'Megfizethetőségi térkép: hol ér a legtöbbet a fizetésed?',
+    leiras: `Térkép ${A.lak.tel.length} település és budapesti kerület lakásáraival. Válassz foglalkozást vagy írd be a nettódat, és megmutatja, hol hány év alatt jön ki egy 50 négyzetméteres lakás.`,
+    morzsa: [['terkep/', 'Térkép']],
+    tartalom: `<h1>Hol ér a legtöbbet a fizetésed?</h1>
+<p class="bevezeto">A térkép alapból a lakások négyzetméterárát mutatja. Válassz foglalkozást vagy írd be a nettódat, és átvált arra, hogy hol hány év alatt jön ki a béredből egy 50 négyzetméteres lakás.</p>
+<form class="urlap soros" data-terkep onsubmit="return false">
+  <div class="mezo"><label for="tk-fog">Foglalkozás</label><input id="tk-fog" type="search" autocomplete="off" placeholder="Foglalkozás neve vagy FEOR-kódja" aria-controls="tk-lista"><ul id="tk-lista" class="k-lista" hidden></ul></div>
+  <div class="mezo"><label for="tk-netto">vagy a saját havi nettód</label><div class="be"><input id="tk-netto" name="netto" inputmode="numeric" autocomplete="off"><span>Ft</span></div></div>
+  <p class="minta-sor"><button type="button" class="gomb masod" data-minta='{"fog":"${m.kod}"}'>Minta betöltése</button><span>Minta: ${esc(m.nev.toLocaleLowerCase('hu'))}.</span></p>
+</form>
+<div class="terkep-doboz">
+  <div class="terkep-fej"><p class="terkep-cim" data-tk-cim>Lakások négyzetméterára</p><div class="jelkulcs" data-tk-kulcs></div></div>
+  <div class="terkep-racs">
+    <div class="terkep-nagy" data-tk-orszag><p class="ures">A térkép betöltéséhez JavaScript kell.</p></div>
+    <div class="terkep-bp"><p>Budapest kerületei</p><div data-tk-bp></div></div>
+  </div>
+  <p class="terkep-info" data-tk-info aria-live="polite">Vidd az egeret egy település fölé, vagy koppints rá.</p>
+</div>
+${lakForras(A)}
+<div class="ketlista" data-tk-listak hidden></div>
+${adatBlokk('adat', { lakEv: A.lak.utolsoEv, becsles: A.lak.becslesCimke, kerEv: A.utolso })}
+<section class="szoveg"><h2>Hogyan olvasd a térképet?</h2>
+<p>A sötétebb zöld drágább lakást, illetve több évnyi bért jelent. A szürke településeken az elmúlt három évben túl kevés adásvétel volt ahhoz, hogy árat közöljünk.</p>
+<p>A bér a foglalkozás országos átlaga, amely mindenhol ugyanaz: a KSH foglalkozásonként csak országos adatot közöl. A térkép ezért azt mutatja, mennyit ér ugyanaz a fizetés különböző helyeken. A valóságban a bérek Budapesten magasabbak, kistelepüléseken alacsonyabbak az országos átlagnál.</p>
+<p>Az évek száma azt jelenti, hány évnyi teljes nettó bér fedezi egy 50 négyzetméteres lakás becsült mai árát. A kis forgalmú települések ára néhány adásvételből jön, ezért ott óvatosan kezeld.</p>
+${kerForras(A)}</section>`,
+  };
+}
+
+// ------------------------------------------------------------------ winners and losers
+export function nyertesek(A) {
+  const p = A.fog.filter(f => f.realValt != null);
+  const rend = [...p].sort((a, b) => b.realValt - a.realValt);
+  const nyert = p.filter(f => f.realValt > 0).length, veszt = p.length - nyert;
+  const med = rend[Math.floor(rend.length / 2)].realValt;
+  const e0 = A.evek[0];
+  const tabla = (cim, lista) => `<section><h2>${cim}</h2><div class="gordul"><table><thead><tr><th>Foglalkozás</th><th>Bruttó, ${e0}</th><th>Bruttó, ${A.utolso}</th><th>Reálbér</th></tr></thead><tbody>${lista.map(f => `<tr><th>${fogLink(f)}</th><td>${ft(f.e[0])}</td><td>${ft(f.brutto)}</td><td>${elojel(f.realValt)}</td></tr>`).join('')}</tbody></table></div></section>`;
+  const csop = k => { const l = p.filter(f => f.kod[0] === String(k)).map(f => f.realValt).sort((a, b) => a - b); return l.length ? l[Math.floor(l.length / 2)] : null; };
+  return {
+    ut: 'nyertesek-vesztesek/', cim: `Nyertesek és vesztesek: melyik szakmában ér többet a fizetés, mint ${evBan(e0)}?`,
+    leiras: `${p.length} foglalkozás reálbére ${e0} és ${A.utolso} között egy ábrán: ${nyert} szakmában nőtt, ${veszt} szakmában csökkent a bér vásárlóértéke. KSH-adatok, inflációval korrigálva.`,
+    morzsa: [['nyertesek-vesztesek/', 'Nyertesek és vesztesek']],
+    tartalom: `<h1>Nyertesek és vesztesek ${e0} óta</h1>
+<p class="bevezeto">${p.length} szakmából ${nyert}-ben ér ma többet a fizetés, mint ${evBan(e0)}, ${veszt === 0 ? 'és egyben sem ér kevesebbet' : `${veszt}-ben kevesebbet ér`}. A tipikus szakmában a bér vásárlóértéke ${szamHu(Math.abs(med) * 100, 1)}%-kal ${med >= 0 ? 'nőtt' : 'csökkent'}.</p>
+<div class="csipek szuro" data-szoras-szuro role="group" aria-label="Kiemelés főcsoport szerint"><button type="button" class="csip akt" data-cs="">Mind</button>${[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map(k => `<button type="button" class="csip" data-cs="${k}">${esc(FOCSOPORT[k])}</button>`).join('')}</div>
+<figure class="szeles szoras-doboz">${szoras(A.fog, { elsoEv: e0, utolsoEv: A.utolso })}<div class="buborek" data-szoras-buborek hidden></div></figure>
+<p class="apro">Minden pont egy foglalkozás. Jobbra a jobban fizetők, feljebb azok, ahol többet nőtt a bér értéke. A nulla vonal alatt a bér kevesebbet ér, mint ${evBan(e0)}. Kattints egy pontra a szakma oldaláért.</p>
+${kerForras(A)}
+${forras({ ...A.inf.forras, letoltve: A.inf.ellenorizve }, 'éves fogyasztóiár-index')}
+<section><h2>Szakmacsoportonként</h2><div class="gordul"><table><thead><tr><th>Főcsoport</th><th>Foglalkozások száma</th><th>Tipikus reálbér-változás</th></tr></thead><tbody>${[1, 2, 3, 4, 5, 6, 7, 8, 9, 0].map(k => [k, csop(k), p.filter(f => f.kod[0] === String(k)).length]).filter(x => x[1] != null).sort((a, b) => b[1] - a[1]).map(([k, v, n]) => `<tr><th>${esc(FOCSOPORT[k])}</th><td>${n}</td><td>${elojel(v)}</td></tr>`).join('')}</tbody></table></div><p class="apro">A tipikus érték a csoport középső (medián) foglalkozásának változása.</p></section>
+${tabla('A 15 legnagyobb nyertes', rend.slice(0, 15))}
+${tabla(veszt >= 15 ? 'A 15 legnagyobb vesztes' : 'A 15 leggyengébb', rend.slice(-15).reverse())}
+<section class="szoveg"><h2>Hogyan számoltunk?</h2>
+<p>A ${e0}. évi bruttó átlagkeresetet a közbeeső évek inflációjával a ${A.utolso}. évi árszintre szoroztuk, és ehhez mértük a ${A.utolso}. évi bért. A változás a bruttó bérre vonatkozik; a nettó kedvezmények nélkül ugyanilyen arányban mozog.</p>
+<p>A nagy ugrások mögött gyakran központi béremelés áll (például az egészségügyben és az oktatásban), vagy az, hogy egy kis létszámú foglalkozásban megváltozott a dolgozók összetétele.</p></section>`,
+  };
+}
+
 // ------------------------------------------------------------------ sources, data, imprint
 export function forrasok(A) {
   const adat = (cim, d, megj) => `<li><b>${cim}.</b> ${megj} <span class="forras-sor"><a href="${esc(d.forras.url)}" rel="noopener">${esc(d.forras.nev)}</a> · <a href="${esc(d.forras.fajl)}" rel="noopener">nyers fájl</a> · letöltve: ${datum(d.letoltve)} · utoljára ellenőrizve: ${datum(d.ellenorizve)}</span></li>`;
@@ -360,6 +486,7 @@ export function forrasok(A) {
 <section><h2 id="adatok">Adatok</h2><ul class="szabalyok">
 ${adat('Keresetek foglalkozásonként', A.ker, `${A.fog.length} foglalkozás (FEOR-08, négy számjegy), ${A.evek[0]}–${A.utolso}, négy korcsoport. A teljes munkaidőben alkalmazásban állók havi bruttó átlagkeresete. A KSH évente frissíti.`)}
 ${adat('Országos nettó átlagkereset', A.nettoO, 'Az összehasonlításhoz használt országos nettó átlag, kedvezményekkel együtt.')}
+${adat('Országos átlag és medián', A.orsz, `A teljes munkaidős alkalmazottak országos bruttó átlaga és mediánja az év eleje óta (${A.orsz.ev}. ${A.orsz.idoszak}). A „Hol állsz?” oldal ehhez hasonlít.`)}
 ${adat('Infláció', A.inf, `Éves fogyasztóiár-index. A reálbért úgy kapjuk, hogy a korábbi évek bérét a közbeeső évek inflációjával a ${A.utolso}. évi árszintre szorozzuk.`)}
 ${adat('Lakásárak', A.lak, `${A.lak.tel.length} település és budapesti kerület négyzetméterára (${A.lak.utolsoEv}), a KSH Ingatlanadattár alapján, az Ingatlanmérleg mai becslésével.`)}
 ${adat('Üzemanyagár', A.auto, 'A NAV havi üzemanyagára az autózom nyilvános adatfájljából.')}

@@ -1,140 +1,196 @@
-/* Mire elég? – "bérszalag" look: warm paper, banknote green, amber highlight. See DIZAJN.md. */
-@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/assets/fonts/fraunces-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: "Fraunces"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/assets/fonts/fraunces-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/instrument-sans-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
-@font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-display: swap; src: url(/assets/fonts/instrument-sans-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+/* Mire elég? – see DIZAJN.md. White surfaces, deep green band, one typeface, the payslip as the signature element. */
+@font-face { font-family: "Geist"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/assets/fonts/geist-latin-ext-wght-normal.woff2) format("woff2"); unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF; }
+@font-face { font-family: "Geist"; font-style: normal; font-weight: 100 900; font-display: swap; src: url(/assets/fonts/geist-latin-wght-normal.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 :root {
-  --papir: #F6F1E7; --lap: #FFFDF8; --tinta: #17231C; --halk: #56625A; --vonal: #DDD5C4;
-  --zold: #0B6B43; --zold-halk: #E3EFE6; --sarga: #C9820A; --sarga-halk: #FBEBC8; --piros: #A8321F;
-  --cim: "Fraunces", Georgia, "Times New Roman", serif; --szoveg: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --alap: #FFFFFF; --lap: #FFFFFF; --kod: #F1F4F2; --tinta: #101613; --halk: #5B655F; --vonal: #DFE4E0;
+  --zold: #0B6B43; --mely: #073B28; --menta: #CDF2DA; --sarga: #C9820A; --kek: #3B5BDB; --piros: #B3261E;
+  --t0: #D3EBDA; --t1: #A6D5B6; --t2: #62B283; --t3: #24825A; --t4: #073B28; --tn: #EDEEEE;
+  --betu: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --arny: 0 1px 2px rgb(16 22 19 / .06), 0 24px 48px -24px rgb(16 22 19 / .28);
   color-scheme: light dark;
 }
 @media (prefers-color-scheme: dark) {
-  :root { --papir: #121814; --lap: #1A221D; --tinta: #ECE7DA; --halk: #A3ADA4; --vonal: #303A33; --zold: #2FA06E; --zold-halk: #1D2E25; --sarga: #BA7F14; --sarga-halk: #3A2E14; --piros: #E0705C; }
+  :root { --alap: #0E1411; --lap: #161C18; --kod: #1B231E; --tinta: #E8ECE9; --halk: #9BA6A0; --vonal: #2A342E; --zold: #2FA06E; --mely: #0A2A1D; --menta: #173826; --sarga: #BA7F14; --kek: #5673E8; --piros: #F0786A;
+    --t0: #1D3A2B; --t1: #256B48; --t2: #2FA06E; --t3: #7CCBA0; --t4: #D2F1DF; --tn: #1B231E; --arny: 0 1px 2px rgb(0 0 0 / .4), 0 24px 48px -24px rgb(0 0 0 / .7); }
 }
+@view-transition { navigation: auto; }
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 1rem; }
-body { margin: 0; background: var(--papir); color: var(--tinta); font: 400 1.0625rem/1.6 var(--szoveg); font-variant-numeric: tabular-nums; }
-main { max-width: 68rem; margin: 0 auto; padding: 0 1.25rem 4rem; }
-a { color: var(--zold); text-underline-offset: .18em; text-decoration-thickness: 1px; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 5rem; overflow-x: clip; }
+body { margin: 0; background: var(--alap); color: var(--tinta); font: 400 1.0625rem/1.6 var(--betu); font-variant-numeric: tabular-nums; -webkit-font-smoothing: antialiased; }
+main { max-width: 70rem; margin: 0 auto; padding: 0 1.25rem 5rem; }
+.teljes { margin-inline: calc(50% - 50vw); padding-inline: max(1.25rem, calc(50vw - 33.75rem)); }
+a { color: var(--zold); text-underline-offset: .2em; text-decoration-thickness: 1px; }
 a:hover { text-decoration-thickness: 2px; }
-:focus-visible { outline: 3px solid var(--sarga); outline-offset: 2px; border-radius: 4px; }
-h1, h2, h3 { font-family: var(--cim); font-weight: 600; line-height: 1.12; letter-spacing: -.015em; text-wrap: balance; margin: 0; }
-h1 { font-size: clamp(2.1rem, 5.4vw, 3.5rem); font-variation-settings: "opsz" 144; }
-h2 { font-size: clamp(1.45rem, 3vw, 1.9rem); margin: 3.2rem 0 .8rem; }
-h3 { font-size: 1.2rem; }
-p { margin: .7rem 0; } section > p, .szoveg p, .bevezeto { max-width: 44rem; }
-.bevezeto { font-size: 1.18rem; color: var(--halk); margin-top: 1rem; }
-.felirat { font-size: .9rem; color: var(--zold); font-weight: 600; margin: 0 0 .5rem; }
+:focus-visible { outline: 3px solid var(--zold); outline-offset: 2px; border-radius: 6px; }
+h1, h2, h3 { font-weight: 650; line-height: 1.08; letter-spacing: -.035em; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.3rem, 6vw, 4rem); letter-spacing: -.045em; }
+h2 { font-size: clamp(1.5rem, 3.2vw, 2.1rem); margin: 4rem 0 .9rem; }
+h3 { font-size: 1.15rem; letter-spacing: -.02em; }
+p { margin: .7rem 0; } section > p, .szoveg p, .bevezeto { max-width: 42rem; }
+.bevezeto { font-size: 1.2rem; line-height: 1.5; color: var(--halk); margin-top: 1.1rem; }
 .apro, .forras, .forras-sor { font-size: .84rem; color: var(--halk); }
-.forras { margin: .5rem 0 0; padding-left: .7rem; border-left: 2px solid var(--vonal); max-width: none; }
+.forras { margin: .6rem 0 0; max-width: none; } .forras a, .apro a, .forras-sor a { color: inherit; }
 .forras-sor { display: block; margin-top: .2rem; }
-.ugras { position: absolute; left: -999px; } .ugras:focus { left: 1rem; top: 1rem; background: var(--lap); padding: .5rem 1rem; z-index: 9; }
+.ugras { position: absolute; left: -999px; } .ugras:focus { left: 1rem; top: 1rem; background: var(--lap); padding: .5rem 1rem; z-index: 99; }
 
 /* header, footer */
-.fej { max-width: 68rem; margin: 0 auto; padding: 1rem 1.25rem; display: flex; align-items: center; gap: 1rem 2rem; flex-wrap: wrap; }
-.logo { display: inline-flex; align-items: center; gap: .55rem; font: 600 1.35rem/1 var(--cim); color: var(--tinta); text-decoration: none; letter-spacing: -.02em; white-space: nowrap; }
-.logo i { font-style: normal; color: var(--sarga); } .jel { width: 1.7rem; height: 1.7rem; }
-.fej nav { display: flex; gap: .2rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; max-width: 100%; }
-.fej nav a { padding: .45rem .8rem; border-radius: 99px; color: var(--tinta); text-decoration: none; font-weight: 500; font-size: .97rem; white-space: nowrap; }
-.fej nav a:hover { background: var(--zold-halk); } .fej nav a[aria-current] { background: var(--tinta); color: var(--papir); }
-.morzsa { font-size: .85rem; color: var(--halk); margin: .4rem 0 1.4rem; display: flex; flex-wrap: wrap; gap: .4rem; }
-.morzsa a { color: var(--halk); } .morzsa a::after { content: "/"; margin-left: .4rem; opacity: .6; display: inline-block; }
-.lab { border-top: 1px dashed var(--vonal); margin-top: 2rem; padding: 2rem 1.25rem 3rem; max-width: 68rem; margin-inline: auto; }
-.lab-sor { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; align-items: baseline; } .lab-sor p { margin: 0; color: var(--halk); }
-.lab nav { display: flex; flex-wrap: wrap; gap: .4rem 1.4rem; margin: 1.2rem 0; } .lab nav a { color: var(--tinta); font-size: .95rem; }
-.lab-apro { font-size: .82rem; color: var(--halk); max-width: 50rem; }
+.fej { position: sticky; top: 0; z-index: 20; background: color-mix(in srgb, var(--alap) 82%, transparent); backdrop-filter: saturate(1.6) blur(14px); -webkit-backdrop-filter: saturate(1.6) blur(14px); border-bottom: 1px solid color-mix(in srgb, var(--vonal) 70%, transparent); }
+.fej-bel { max-width: 70rem; margin: 0 auto; padding: .7rem 1.25rem; display: flex; align-items: center; gap: .6rem 2rem; }
+.logo { display: inline-flex; align-items: center; gap: .55rem; font-weight: 650; font-size: 1.12rem; color: var(--tinta); text-decoration: none; letter-spacing: -.03em; white-space: nowrap; }
+.jel { width: 1.75rem; height: 1.75rem; }
+.fej nav { display: flex; gap: .1rem; margin-left: auto; overflow-x: auto; scrollbar-width: none; mask-image: linear-gradient(90deg, #000 calc(100% - 1.5rem), #0000); padding-right: 1rem; }
+.fej nav::-webkit-scrollbar { display: none; }
+.fej nav a { padding: .4rem .7rem; border-radius: 8px; color: var(--halk); text-decoration: none; font-weight: 500; font-size: .93rem; white-space: nowrap; transition: color .15s, background .15s; }
+.fej nav a:hover { color: var(--tinta); background: var(--kod); } .fej nav a[aria-current] { color: var(--tinta); background: var(--kod); }
+@media (max-width: 52rem) { .fej-bel { flex-wrap: wrap; } .fej nav { margin-left: -.7rem; flex-basis: 100%; } }
+.morzsa { font-size: .85rem; color: var(--halk); margin: 1.4rem 0 1.6rem; display: flex; flex-wrap: wrap; gap: .4rem; }
+.morzsa a { color: var(--halk); text-decoration: none; } .morzsa a:hover { color: var(--tinta); } .morzsa a::after { content: "/"; margin-left: .4rem; opacity: .5; display: inline-block; }
+.lab { background: var(--kod); margin-top: 3rem; } .lab-bel { max-width: 70rem; margin: 0 auto; padding: 3rem 1.25rem 3.5rem; }
+.lab-sor { display: flex; flex-wrap: wrap; gap: .4rem 1.5rem; align-items: center; } .lab-sor p { margin: 0; color: var(--halk); }
+.lab nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(13.5rem, 1fr)); gap: .5rem 1.5rem; margin: 1.8rem 0; } .lab nav a { color: var(--tinta); font-size: .95rem; text-decoration: none; } .lab nav a:hover { text-decoration: underline; }
+.lab-apro { font-size: .82rem; color: var(--halk); max-width: 50rem; margin: 0; }
 
-/* the payslip card */
-.szalag { background: var(--lap); padding: 1.4rem 1.4rem 1.9rem; position: relative; border-radius: 6px 6px 0 0; box-shadow: 0 1px 0 var(--vonal), 0 18px 40px -22px rgb(23 35 28 / .35);
-  --fog: 9px; -webkit-mask: linear-gradient(#000 0 0) top / 100% calc(100% - var(--fog)) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(var(--fog) * 2) var(--fog) repeat-x; mask: linear-gradient(#000 0 0) top / 100% calc(100% - var(--fog)) no-repeat, conic-gradient(from -45deg at bottom, #0000, #000 1deg 89deg, #0000 90deg) bottom / calc(var(--fog) * 2) var(--fog) repeat-x; }
-.szalag-fej { font-size: .82rem; font-weight: 600; color: var(--halk); margin: 0 0 .7rem; padding-bottom: .7rem; border-bottom: 1px dashed var(--vonal); }
+/* the payslip card: the one signature element */
+.szalag { background: var(--lap); color: var(--tinta); padding: 1.5rem 1.5rem 2rem; position: relative; border-radius: 14px 14px 0 0; filter: drop-shadow(0 1px 1px rgb(16 22 19 / .08)) drop-shadow(0 22px 28px rgb(16 22 19 / .16)); }
+.szalag::after { content: ""; position: absolute; left: 0; right: 0; bottom: -9px; height: 10px; background: conic-gradient(from -45deg at bottom, #0000, var(--lap) 1deg 89deg, #0000 90deg) bottom / 18px 10px repeat-x; }
+@media (prefers-color-scheme: dark) { .szalag { outline: 1px solid var(--vonal); outline-offset: -1px; } }
+.szalag-fej { display: flex; justify-content: space-between; gap: 1rem; font-size: .84rem; font-weight: 600; margin: 0 0 .6rem; padding-bottom: .8rem; border-bottom: 1.5px dashed var(--vonal); } .szalag-fej span { color: var(--halk); font-weight: 400; }
 .szalag-sor { display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: .42rem 0; }
-.szalag-sor span { color: var(--halk); } .szalag-sor b { font-weight: 600; white-space: nowrap; text-align: right; }
+.szalag-sor > span { color: var(--halk); } .szalag-sor b { font-weight: 600; white-space: nowrap; text-align: right; }
 .szalag-sor.halk b { font-weight: 400; color: var(--halk); }
-.szalag-sor.ossz { margin-top: .5rem; padding: .8rem .9rem; background: var(--sarga-halk); border-radius: 6px; align-items: center; }
-.szalag-sor.ossz span { color: var(--tinta); font-weight: 600; } .szalag-sor.ossz b { font: 600 clamp(1.5rem, 4.2vw, 2rem)/1.1 var(--cim); }
-.szalag-lab, .szalag-jegy { font-size: .84rem; color: var(--halk); margin: .8rem 0 0; }
+.szalag-sor.ossz { margin-top: .6rem; padding: .9rem 1rem; background: var(--menta); border-radius: 10px; align-items: center; }
+.szalag-sor.ossz > span { color: var(--tinta); font-weight: 600; } .szalag-sor.ossz b { font-size: clamp(1.6rem, 4.4vw, 2.1rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.1; }
+.szalag-lab, .szalag-jegy { font-size: .84rem; color: var(--halk); margin: .9rem 0 0; }
 .szalag .ures { color: var(--halk); padding: 1.2rem 0; margin: 0; }
-.szalag.keskeny { max-width: 30rem; margin: 1rem 0; }
-.itelet { padding: .7rem .9rem; border-radius: 6px; margin: .8rem 0 0; background: var(--zold-halk); } .itelet.rossz { background: color-mix(in srgb, var(--piros) 14%, var(--lap)); }
+.szalag.keskeny { max-width: 30rem; margin: 1.2rem 0 1.6rem; }
+.itelet { padding: .8rem 1rem; border-radius: 10px; margin: .8rem 0 0; background: var(--menta); } .itelet.rossz { background: color-mix(in srgb, var(--piros) 14%, var(--lap)); }
 .itelet b { color: var(--zold); } .itelet.rossz b { color: var(--piros); }
+.szalag.nyom { animation: nyom .7s cubic-bezier(.2, .8, .2, 1) both; }
+@keyframes nyom { from { clip-path: inset(0 0 100% 0); translate: 0 -14px; } to { clip-path: inset(0 -40px -60px -40px); translate: 0 0; } }
 
 /* home */
-.hos { display: grid; gap: 2.5rem; padding: 2rem 0 1rem; align-items: start; }
-@media (min-width: 56rem) { .hos { grid-template-columns: 1.35fr 1fr; gap: 3.5rem; padding-top: 3.5rem; } .hos .minta { transform: rotate(1.4deg); margin-top: 1rem; } }
-.gyors { font-size: .92rem; color: var(--halk); display: flex; flex-wrap: wrap; gap: .4rem .5rem; align-items: center; }
-.gyors a { background: var(--lap); border: 1px solid var(--vonal); padding: .2rem .7rem; border-radius: 99px; text-decoration: none; color: var(--tinta); }
-.gyors a:hover { border-color: var(--zold); }
-.eszkozok { display: grid; gap: 1rem; margin: 2.5rem 0; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); }
-.eszkoz { display: block; padding: 1.3rem 1.4rem; border: 1px solid var(--vonal); border-radius: 10px; text-decoration: none; color: var(--tinta); background: var(--lap); transition: border-color .15s, transform .15s; }
-.eszkoz:hover { border-color: var(--zold); transform: translateY(-2px); } .eszkoz h2 { margin: 0 0 .3rem; font-size: 1.3rem; color: var(--zold); } .eszkoz p { margin: 0; color: var(--halk); font-size: .96rem; }
-.harom { display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); margin-top: 3rem; }
-.lista h3 { margin-bottom: .6rem; } .lista ol { list-style: none; margin: 0; padding: 0; counter-reset: n; }
-.lista li { counter-increment: n; display: flex; gap: .6rem; align-items: baseline; padding: .45rem 0; border-bottom: 1px dashed var(--vonal); }
+.hos { background: var(--mely); color: #fff; display: grid; gap: 2.5rem; padding-top: 3rem; padding-bottom: 0; align-items: start; }
+.hos h1 { font-size: clamp(2.6rem, 7.2vw, 5rem); }
+.hos .bevezeto { color: rgb(255 255 255 / .78); }
+.hos-szalag { margin-bottom: -2.5rem; }
+@media (min-width: 58rem) { .hos { grid-template-columns: 1.3fr 1fr; gap: 4rem; padding-top: 5rem; } .hos-szoveg { padding-bottom: 5rem; } .hos-szalag { margin: .5rem 0 -4rem; rotate: 1.2deg; } }
+.hos .kereso label { color: #fff; } .hos .kereso input { border-color: transparent; background: #fff; color: #101613; }
+.hos .kereso input:focus { box-shadow: 0 0 0 4px rgb(205 242 218 / .45); }
+.gyors { display: flex; flex-wrap: wrap; gap: .45rem; margin: 1rem 0 0; }
+.gyors button { font: 500 .9rem var(--betu); color: #fff; background: rgb(255 255 255 / .1); border: 1px solid rgb(255 255 255 / .22); padding: .3rem .8rem; border-radius: 99px; cursor: pointer; transition: background .15s; }
+.gyors button:hover { background: rgb(255 255 255 / .22); }
+.bento { display: grid; gap: 1rem; margin: 6rem 0 1rem; grid-template-columns: repeat(6, 1fr); }
+.csempe { grid-column: span 6; display: flex; flex-direction: column; gap: .3rem; padding: 1.5rem; border-radius: 18px; text-decoration: none; color: var(--tinta); background: var(--kod); transition: background .2s; overflow: hidden; position: relative; }
+.csempe:hover { background: var(--menta); } .csempe h2 { margin: 0; font-size: 1.35rem; } .csempe p { margin: 0; color: var(--halk); font-size: .98rem; max-width: 26rem; }
+.csempe-szam { margin-top: auto !important; padding-top: 1.2rem; font-size: .84rem !important; } .csempe-szam b { display: block; font-size: 1.9rem; font-weight: 700; letter-spacing: -.04em; color: var(--tinta); line-height: 1.1; }
+.csempe .szoras.mini { margin-top: auto; padding-top: .8rem; width: 100%; height: auto; }
+@media (min-width: 44rem) { .csempe { grid-column: span 3; } .csempe.nagy { grid-column: span 6; flex-direction: row; align-items: center; justify-content: space-between; gap: 2rem; min-height: 15rem; } .csempe.nagy h2 { font-size: 2rem; } .csempe.nagy p { margin-top: .5rem; } }
+@media (min-width: 64rem) { .csempe { grid-column: span 2; } .csempe.nagy { grid-column: span 4; grid-row: span 2; } .csempe:nth-child(2), .csempe:nth-child(3) { grid-column: span 2; } }
+.mini-terkep { width: min(100%, 24rem); height: auto; flex: none; } .mini-terkep path { fill: var(--t1); stroke: var(--kod); stroke-width: 1.4; transition: fill .2s; } .csempe:hover .mini-terkep path { fill: var(--t2); stroke: var(--menta); }
+.harom { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr)); margin-top: 4.5rem; }
+.lista h3 { margin-bottom: .7rem; } .lista ol { list-style: none; margin: 0; padding: 0; counter-reset: n; }
+.lista li { counter-increment: n; display: flex; gap: .7rem; align-items: baseline; padding: .5rem 0; border-bottom: 1px solid var(--vonal); }
 .lista li::before { content: counter(n); color: var(--halk); font-size: .82rem; min-width: 1.1rem; } .lista li a { flex: 1; color: var(--tinta); text-decoration: none; } .lista li a:hover { color: var(--zold); text-decoration: underline; }
 .lista li b { font-weight: 600; white-space: nowrap; }
 
 /* search / combobox */
 .kereso, .mezo, .mini { position: relative; }
-.kereso { margin: 1.6rem 0 1rem; max-width: 34rem; }
-.kereso label, .mezo label, .mini label, fieldset legend { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .35rem; }
+.kereso { margin: 1.8rem 0 0; max-width: 34rem; }
+.kereso label, .mezo label, .mini label, fieldset legend { display: block; font-weight: 600; font-size: .93rem; margin-bottom: .4rem; }
 label small, legend small, .kapcs small { font-weight: 400; color: var(--halk); font-size: .84rem; }
-input[type=search], .be input, select { width: 100%; font: 500 1.1rem var(--szoveg); color: var(--tinta); background: var(--lap); border: 1.5px solid var(--vonal); border-radius: 10px; padding: .8rem 1rem; appearance: none; }
-input:focus, select:focus { outline: none; border-color: var(--zold); box-shadow: 0 0 0 3px var(--sarga-halk); }
-.kereso input { font-size: 1.2rem; padding: 1rem 1.2rem; border-color: var(--tinta); }
-input::placeholder { color: var(--halk); opacity: .75; font-weight: 400; }
-.be { position: relative; } .be input { padding-right: 5.2rem; font-family: var(--cim); font-size: 1.35rem; font-weight: 600; } .be span { position: absolute; right: 1rem; top: 50%; translate: 0 -50%; color: var(--halk); font-size: .95rem; pointer-events: none; }
+input[type=search], .be input, select { width: 100%; font: 500 1.08rem var(--betu); color: var(--tinta); background: var(--lap); border: 1.5px solid var(--vonal); border-radius: 12px; padding: .8rem 1rem; appearance: none; transition: border-color .15s, box-shadow .15s; }
+input:focus, select:focus { outline: none; border-color: var(--zold); box-shadow: 0 0 0 4px color-mix(in srgb, var(--zold) 18%, transparent); }
+.kereso input { font-size: 1.2rem; padding: 1.05rem 1.25rem; border-radius: 14px; }
+input::placeholder { color: var(--halk); opacity: .7; font-weight: 400; }
+input[type=search]::-webkit-search-cancel-button { display: none; }
+.be { position: relative; } .be input { padding-right: 5.2rem; font-size: 1.3rem; font-weight: 650; letter-spacing: -.02em; } .be span { position: absolute; right: 1rem; top: 50%; translate: 0 -50%; color: var(--halk); font-size: .93rem; pointer-events: none; }
 select { background-image: linear-gradient(45deg, transparent 50%, var(--halk) 50%), linear-gradient(135deg, var(--halk) 50%, transparent 50%); background-position: calc(100% - 1.25rem) 55%, calc(100% - .9rem) 55%; background-size: .36rem .36rem; background-repeat: no-repeat; }
-.k-lista { list-style: none; margin: .3rem 0 0; padding: .3rem; position: absolute; z-index: 5; left: 0; right: 0; background: var(--lap); border: 1.5px solid var(--tinta); border-radius: 10px; box-shadow: 0 16px 36px -18px rgb(0 0 0 / .45); max-height: 22rem; overflow: auto; }
-.k-lista li { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .55rem .7rem; border-radius: 7px; cursor: pointer; }
-.k-lista li:hover, .k-lista li.akt { background: var(--sarga-halk); } .k-lista li.nincs { cursor: default; color: var(--halk); background: none; }
-.k-lista small { display: block; color: var(--halk); font-size: .8rem; } .k-lista b { white-space: nowrap; font-weight: 600; font-size: .95rem; }
+.k-lista { list-style: none; margin: .4rem 0 0; padding: .35rem; position: absolute; z-index: 15; left: 0; right: 0; background: var(--lap); color: var(--tinta); border: 1px solid var(--vonal); border-radius: 14px; box-shadow: var(--arny); max-height: 22rem; overflow: auto; }
+.k-lista li { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: .55rem .75rem; border-radius: 9px; cursor: pointer; }
+.k-lista li:hover, .k-lista li.akt { background: var(--kod); } .k-lista li.nincs { cursor: default; color: var(--halk); background: none; }
+.k-lista small { display: block; color: var(--halk); font-size: .8rem; } .k-lista b { white-space: nowrap; font-weight: 600; font-size: .93rem; }
 
 /* calculators */
-.kalk { display: grid; gap: 1.5rem; margin: 2rem 0; align-items: start; }
-@media (min-width: 56rem) { .kalk { grid-template-columns: 1fr 1fr; gap: 2.5rem; } .kalk .eredmeny { position: sticky; top: 1rem; } }
-.urlap { display: grid; gap: 1.1rem; grid-template-columns: 1fr 1fr; background: color-mix(in srgb, var(--vonal) 35%, var(--papir)); padding: 1.4rem; border-radius: 14px; }
+.kalk { display: grid; gap: 2rem; margin: 2.2rem 0 3rem; align-items: start; }
+@media (min-width: 56rem) { .kalk { grid-template-columns: 1fr 1fr; gap: 3rem; } .kalk .eredmeny { position: sticky; top: 5rem; } }
+.urlap { display: grid; gap: 1.1rem; grid-template-columns: 1fr 1fr; background: var(--kod); padding: 1.5rem; border-radius: 18px; }
 .urlap > *, fieldset > * { grid-column: 1 / -1; } .urlap .fel { grid-column: span 1; }
 @media (max-width: 26rem) { .urlap .fel { grid-column: 1 / -1; } }
-fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: .9rem; grid-template-columns: 1fr 1fr; min-width: 0; } fieldset legend { font-family: var(--cim); font-size: 1.15rem; padding: 0; margin-bottom: .2rem; }
-fieldset + fieldset, .mezo + fieldset, fieldset + .mezo { padding-top: 1rem; border-top: 1px dashed var(--vonal); }
+.urlap.soros, .urlap.harmas { margin: 2rem 0; } @media (min-width: 48rem) { .urlap.soros > .mezo { grid-column: span 1; } .urlap.harmas { grid-template-columns: repeat(3, 1fr); } .urlap.harmas > .mezo { grid-column: span 1; } }
+fieldset { border: 0; padding: 0; margin: 0; display: grid; gap: .9rem; grid-template-columns: 1fr 1fr; min-width: 0; } fieldset legend { padding: 0; margin-bottom: .1rem; }
 .kapcs { display: flex; gap: .7rem; align-items: flex-start; cursor: pointer; font-weight: 500; } .kapcs span { display: grid; }
 .kapcs input { appearance: none; flex: none; width: 2.6rem; height: 1.5rem; border-radius: 99px; background: var(--vonal); position: relative; margin: .1rem 0 0; transition: background .15s; cursor: pointer; }
-.kapcs input::after { content: ""; position: absolute; inset: 3px auto 3px 3px; aspect-ratio: 1; border-radius: 50%; background: var(--lap); transition: translate .15s; }
+.kapcs input::after { content: ""; position: absolute; inset: 3px auto 3px 3px; aspect-ratio: 1; border-radius: 50%; background: #fff; transition: translate .15s; box-shadow: 0 1px 2px rgb(0 0 0 / .25); }
 .kapcs input:checked { background: var(--zold); } .kapcs input:checked::after { translate: 1.1rem 0; }
-.csipek { display: flex; flex-wrap: wrap; gap: .5rem; } .csipek input { position: absolute; opacity: 0; }
-.csipek span { display: block; padding: .5rem .95rem; border: 1.5px solid var(--vonal); border-radius: 99px; background: var(--lap); cursor: pointer; font-size: .95rem; }
-.csipek input:checked + span { background: var(--tinta); color: var(--papir); border-color: var(--tinta); } .csipek input:focus-visible + span { outline: 3px solid var(--sarga); }
+.csipek { display: flex; flex-wrap: wrap; gap: .45rem; } .csipek input { position: absolute; opacity: 0; }
+.csipek label span, .csip { display: block; font: 500 .93rem var(--betu); color: var(--tinta); padding: .45rem .9rem; border: 1.5px solid var(--vonal); border-radius: 99px; background: var(--lap); cursor: pointer; transition: background .15s, border-color .15s; }
+.csipek input:checked + span, .csip.akt { background: var(--tinta); color: var(--alap); border-color: var(--tinta); } .csipek input:focus-visible + span { outline: 3px solid var(--zold); outline-offset: 2px; }
+.szuro { margin: 1.6rem 0 1rem; } .szuro .csip { font-size: .85rem; padding: .35rem .75rem; }
 .minta-sor { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; margin: 0; font-size: .86rem; color: var(--halk); }
-.gomb { display: inline-block; font: 600 .95rem var(--szoveg); padding: .6rem 1.1rem; border-radius: 99px; border: 1.5px solid var(--tinta); background: var(--tinta); color: var(--papir); text-decoration: none; cursor: pointer; }
-.gomb.masod { background: transparent; color: var(--tinta); } .gomb.masod:hover { background: var(--sarga-halk); }
-.mini { margin: 1.4rem 0; max-width: 30rem; } .mini-eredmeny { background: var(--zold-halk); padding: .9rem 1rem; border-radius: 10px; } .mini-eredmeny small { display: block; color: var(--halk); margin-top: .3rem; }
+.gomb { display: inline-block; font: 600 .95rem var(--betu); padding: .65rem 1.15rem; border-radius: 99px; border: 1.5px solid var(--tinta); background: var(--tinta); color: var(--alap); text-decoration: none; cursor: pointer; transition: background .15s, color .15s; }
+.gomb:hover { background: var(--zold); border-color: var(--zold); color: #fff; } .gomb.masod { background: transparent; color: var(--tinta); border-color: var(--vonal); } .gomb.masod:hover { background: var(--kod); border-color: var(--tinta); color: var(--tinta); }
+.muveletek { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.6rem 0 0; max-width: none; }
+.mini { margin: 1.4rem 0; max-width: 30rem; } .mini-eredmeny { background: var(--menta); padding: .9rem 1rem; border-radius: 12px; } .mini-eredmeny small { display: block; color: var(--halk); margin-top: .3rem; }
+.ures-doboz { border: 1.5px dashed var(--vonal); border-radius: 18px; padding: 3rem 1.5rem; text-align: center; color: var(--halk); max-width: none; }
 
 /* occupation page */
-.fog-fej { padding: 1rem 0 1.6rem; } .hivatalos { color: var(--halk); }
-.ketto { display: grid; gap: 1.6rem; align-items: start; } @media (min-width: 52rem) { .ketto { grid-template-columns: 1.05fr 1fr; gap: 2.5rem; } }
-.tenyek { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--vonal); border: 1px solid var(--vonal); border-radius: 10px; overflow: hidden; }
-.teny { background: var(--papir); padding: 1rem 1.1rem; display: grid; gap: .1rem; } .teny span, .teny small { font-size: .82rem; color: var(--halk); } .teny b { font: 600 1.7rem/1.15 var(--cim); }
-figure { margin: 1.4rem 0 .6rem; background: var(--lap); border: 1px solid var(--vonal); border-radius: 10px; padding: 1rem .6rem .4rem; max-width: 40rem; }
-.abra { width: 100%; height: auto; display: block; font-family: var(--szoveg); }
-.abra .tengely { stroke: var(--halk); stroke-width: 1; } .abra .racs { stroke: var(--vonal); stroke-width: 1; stroke-dasharray: 3 4; }
-.abra .oszlop { fill: var(--zold); } .abra .oszlop.csucs { fill: var(--sarga); } .abra .oszlop:hover, .abra .pont:hover { opacity: .8; }
+.fog-fej { padding: 0 0 2rem; } .hivatalos { color: var(--halk); }
+.cimkek { display: flex; flex-wrap: wrap; gap: .4rem; margin: 0 0 1rem; } .cimkek > * { font-size: .82rem; font-weight: 500; padding: .2rem .65rem; border-radius: 99px; background: var(--kod); color: var(--halk); text-decoration: none; } .cimkek span { background: var(--menta); color: var(--tinta); }
+.ketto { display: grid; gap: 2rem; align-items: start; margin-bottom: 1.8rem; } @media (min-width: 52rem) { .ketto { grid-template-columns: 1.05fr 1fr; gap: 3rem; } }
+.tenyek { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; }
+.teny { background: var(--kod); border-radius: 14px; padding: 1.1rem 1.2rem; display: grid; gap: .15rem; align-content: start; } .teny span, .teny small { font-size: .82rem; color: var(--halk); } .teny b { font-size: 1.9rem; font-weight: 700; letter-spacing: -.045em; line-height: 1.15; }
+figure { margin: 1.5rem 0 .6rem; background: var(--lap); border: 1px solid var(--vonal); border-radius: 18px; padding: 1.2rem .8rem .5rem; max-width: 40rem; position: relative; } figure.szeles { max-width: none; }
+.abra { width: 100%; height: auto; display: block; font-family: var(--betu); }
+.abra .tengely { stroke: var(--halk); stroke-width: 1; } .abra .racs { stroke: var(--vonal); stroke-width: 1; } .abra .nulla { stroke: var(--tinta); stroke-width: 1.2; }
+.abra .oszlop { fill: var(--zold); } .abra .oszlop.csucs { fill: var(--sarga); } .abra .oszlop.s1 { fill: var(--sarga); } .abra .oszlop.s2 { fill: var(--kek); }
 .abra text { fill: var(--tinta); font-size: 13px; } .abra .d-ertek { font-weight: 600; font-size: 14px; } .abra .d-al, .abra .d-nincs { fill: var(--halk); font-size: 12px; } .abra .d-nev { fill: var(--halk); font-size: 12.5px; font-weight: 500; }
-.abra .vonal { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; } .abra .vonal.nevl { stroke: var(--zold); } .abra .vonal.real { stroke: var(--sarga); stroke-dasharray: 6 5; }
-.abra .pont { stroke: var(--lap); stroke-width: 2; } .abra .pont.nevl { fill: var(--zold); } .abra .pont.real { fill: var(--sarga); }
-.jelmagy { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; font-size: .84rem; color: var(--halk); margin: .2rem .6rem .6rem; }
-.jelmagy .j { display: inline-block; width: 1.6rem; height: 0; border-top: 2px solid var(--zold); vertical-align: middle; margin-right: .45rem; } .jelmagy .j.real { border-top: 2px dashed var(--sarga); }
-.gordul { overflow-x: auto; margin: 1rem 0 .4rem; border: 1px solid var(--vonal); border-radius: 10px; background: var(--lap); }
-table { border-collapse: collapse; width: 100%; font-size: .95rem; } th, td { padding: .6rem .9rem; text-align: right; border-bottom: 1px solid var(--vonal); white-space: nowrap; }
-th:first-child, td:first-child { text-align: left; } tbody th { font-weight: 500; white-space: normal; } thead th { font-size: .82rem; color: var(--halk); font-weight: 600; background: var(--papir); } tbody tr:last-child > * { border-bottom: 0; }
+.abra .vonal { fill: none; stroke-width: 2; stroke-linejoin: round; stroke-linecap: round; } .abra .vonal.nevl, .abra .vonal.s0 { stroke: var(--zold); } .abra .vonal.real, .abra .vonal.s1 { stroke: var(--sarga); stroke-dasharray: 6 5; } .abra .vonal.s2 { stroke: var(--kek); stroke-dasharray: 2 5; }
+.abra .pont { stroke: var(--lap); stroke-width: 2; } .abra .pont.nevl, .abra .pont.s0 { fill: var(--zold); } .abra .pont.real, .abra .pont.s1 { fill: var(--sarga); } .abra .pont.s2 { fill: var(--kek); }
+.jelmagy { display: flex; flex-wrap: wrap; gap: .3rem 1.4rem; font-size: .84rem; color: var(--halk); margin: .4rem .6rem .6rem; max-width: none; }
+.jelmagy .j { display: inline-block; width: 1.6rem; height: 0; border-top: 2px solid var(--zold); vertical-align: middle; margin-right: .45rem; } .jelmagy .j.real, .jelmagy .j.s1 { border-top: 2px dashed var(--sarga); } .jelmagy .j.s2 { border-top: 2px dotted var(--kek); }
+.jelmagy .n { display: inline-block; width: .8rem; height: .8rem; border-radius: 3px; background: var(--zold); vertical-align: -1px; margin-right: .45rem; } .jelmagy .n.s1 { background: var(--sarga); } .jelmagy .n.s2 { background: var(--kek); }
+/* charts draw in once, when they scroll into view */
+.js [data-latvany] .oszlop { transform-box: fill-box; transform-origin: 50% 100%; transform: scaleY(0); transition: transform .8s cubic-bezier(.2, .8, .2, 1) calc(var(--i, 0) * 80ms); }
+.js [data-latvany] .rajz { clip-path: inset(-10px 100% -10px -10px); transition: clip-path 1.2s cubic-bezier(.4, 0, .2, 1); }
+.js [data-latvany] .kesobb { opacity: 0; transition: opacity .4s .8s; }
+.js [data-latvany].lat .oszlop { transform: none; } .js [data-latvany].lat .rajz { clip-path: inset(-10px -10px -10px -10px); } .js [data-latvany].lat .kesobb { opacity: 1; }
+.gordul { overflow-x: auto; margin: 1rem 0 .4rem; border: 1px solid var(--vonal); border-radius: 14px; background: var(--lap); }
+table { border-collapse: collapse; width: 100%; font-size: .95rem; } th, td { padding: .65rem 1rem; text-align: right; border-bottom: 1px solid var(--vonal); white-space: nowrap; }
+th:first-child, td:first-child { text-align: left; } tbody th { font-weight: 500; white-space: normal; } tbody th a { color: var(--tinta); text-decoration: none; } tbody th a:hover { color: var(--zold); text-decoration: underline; }
+thead th { font-size: .82rem; color: var(--halk); font-weight: 500; background: var(--kod); } tbody tr:last-child > * { border-bottom: 0; } tbody tr:hover > * { background: color-mix(in srgb, var(--kod) 55%, transparent); }
 .nagy-tabla th small { display: block; color: var(--halk); font-weight: 400; font-size: .8rem; } .nagy-tabla td:nth-child(2) { text-align: left; }
-.kuszob-doboz { border: 1px dashed var(--halk); border-radius: 12px; padding: .2rem 1.4rem 1.4rem; margin-top: 3rem; } .kuszob-doboz h2 { margin-top: 1.4rem; }
-.rokon { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0 2rem; } .rokon li { display: flex; justify-content: space-between; gap: 1rem; padding: .5rem 0; border-bottom: 1px dashed var(--vonal); } .rokon span { white-space: nowrap; color: var(--halk); }
-.gyik details { border-bottom: 1px solid var(--vonal); max-width: 46rem; } .gyik summary { cursor: pointer; padding: .9rem 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
-.gyik summary::after { content: "+"; font: 400 1.4rem/1 var(--cim); color: var(--zold); } .gyik details[open] summary::after { content: "–"; } .gyik summary::-webkit-details-marker { display: none; } .gyik details p { margin: 0 0 1rem; color: var(--halk); }
+.kuszob-doboz { background: var(--kod); border-radius: 18px; padding: .2rem 1.5rem 1.6rem; margin-top: 4rem; } .kuszob-doboz h2 { margin-top: 1.6rem; }
+.rokon { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 0 2.5rem; } .rokon li { display: flex; justify-content: space-between; gap: 1rem; padding: .55rem 0; border-bottom: 1px solid var(--vonal); } .rokon a { color: var(--tinta); text-decoration: none; } .rokon a:hover { color: var(--zold); text-decoration: underline; } .rokon span { white-space: nowrap; color: var(--halk); }
+.gyik details { border-bottom: 1px solid var(--vonal); max-width: 46rem; } .gyik summary { cursor: pointer; padding: 1rem 0; font-weight: 600; list-style: none; display: flex; justify-content: space-between; gap: 1rem; }
+.gyik summary::after { content: "+"; font-weight: 400; font-size: 1.4rem; line-height: 1; color: var(--halk); transition: rotate .2s; } .gyik details[open] summary::after { rotate: 45deg; } .gyik summary::-webkit-details-marker { display: none; } .gyik details p { margin: 0 0 1.1rem; color: var(--halk); }
 .szabalyok { padding-left: 1.1rem; max-width: 50rem; } .szabalyok li { margin: .8rem 0; } .szabalyok ul { margin-top: .4rem; }
-.ugro { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1rem 0; } .ugro a { font-size: .86rem; padding: .25rem .7rem; border: 1px solid var(--vonal); border-radius: 99px; text-decoration: none; color: var(--tinta); background: var(--lap); }
-@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
-@media print { .fej nav, .lab nav, .kereso, .minta-sor, .mini { display: none; } body { background: #fff; } .szalag { box-shadow: none; border: 1px solid #999; -webkit-mask: none; mask: none; } }
+.ugro { display: flex; flex-wrap: wrap; gap: .4rem; margin: 1.4rem 0; } .ugro a { font-size: .86rem; padding: .3rem .75rem; border-radius: 99px; text-decoration: none; color: var(--tinta); background: var(--kod); } .ugro a:hover { background: var(--menta); }
+
+/* scatter */
+.szoras-doboz { padding: 1rem .6rem .4rem; overflow-x: auto; } .szoras-doboz .szoras { min-width: 640px; }
+.sz-pont { fill: var(--zold); fill-opacity: .6; stroke: var(--lap); stroke-width: 1; transition: fill-opacity .2s, r .15s; cursor: pointer; } .sz-pont.veszt { fill: var(--sarga); }
+.szoras a:hover .sz-pont, .szoras a:focus .sz-pont { fill-opacity: 1; r: 7px; } .szoras.szurt .sz-pont:not(.kiemelt) { fill-opacity: .1; } .szoras.szurt .sz-pont.kiemelt { fill-opacity: .9; } .szoras.szurt .sz-felirat { opacity: .25; }
+.szoras.mini .sz-pont { stroke: none; fill-opacity: .7; cursor: inherit; } .szoras.mini .nulla { stroke: var(--halk); stroke-dasharray: 3 3; }
+.buborek { position: absolute; z-index: 5; pointer-events: none; background: var(--tinta); color: var(--alap); font-size: .85rem; line-height: 1.35; padding: .5rem .7rem; border-radius: 10px; max-width: 16rem; translate: -50% calc(-100% - 12px); } .buborek b { display: block; }
+
+/* map */
+.terkep-doboz { border: 1px solid var(--vonal); border-radius: 18px; padding: 1.2rem; margin: 1rem 0; background: var(--lap); }
+.terkep-fej { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: .6rem 2rem; margin-bottom: .8rem; } .terkep-cim { font-weight: 650; font-size: 1.15rem; letter-spacing: -.02em; margin: 0; }
+.jelkulcs { display: flex; flex-wrap: wrap; gap: .3rem .9rem; font-size: .8rem; color: var(--halk); } .jelkulcs i { display: inline-block; width: .85rem; height: .85rem; border-radius: 3px; vertical-align: -2px; margin-right: .35rem; }
+.terkep-racs { display: grid; gap: 1rem; align-items: end; } @media (min-width: 60rem) { .terkep-racs { grid-template-columns: 1fr 15rem; } }
+.terkep-nagy { overflow-x: auto; } .terkep-nagy svg { width: 100%; min-width: 640px; height: auto; display: block; } .terkep-bp svg { width: 100%; max-width: 20rem; height: auto; display: block; } .terkep-bp p { font-size: .84rem; color: var(--halk); margin: 0 0 .3rem; }
+.tk path { stroke: var(--lap); stroke-width: .35; transition: fill .5s; cursor: pointer; } .terkep-bp .tk path { stroke-width: 1.2; } .tk path:hover, .tk path.akt { stroke: var(--tinta); stroke-width: 1.4; }
+.tk .t0 { fill: var(--t0); } .tk .t1 { fill: var(--t1); } .tk .t2 { fill: var(--t2); } .tk .t3 { fill: var(--t3); } .tk .t4 { fill: var(--t4); } .tk .tn { fill: var(--tn); cursor: default; }
+.terkep-info { margin: 1rem 0 0; padding: .8rem 1rem; background: var(--kod); border-radius: 12px; font-size: .95rem; max-width: none; min-height: 3.2rem; } .terkep-info b { font-weight: 650; }
+.ketlista { display: grid; gap: 2.5rem; grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr)); margin-top: 3rem; }
+
+/* "where do you stand" strip and comparison cards */
+.st-vonas { stroke: var(--halk); stroke-opacity: .35; stroke-width: 1; } .st-te { fill: var(--zold); stroke: var(--lap); stroke-width: 2.5; } .st-szakma { stroke: var(--sarga); stroke-width: 2.5; } .st-median { stroke: var(--tinta); stroke-width: 1.5; stroke-dasharray: 3 3; }
+.kartyak { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); margin: 2rem 0; }
+.kartya { border-radius: 18px; background: var(--kod); padding: 1.3rem 1.4rem; display: grid; gap: .1rem; border-top: 5px solid var(--zold); } .kartya.s1 { border-top-color: var(--sarga); } .kartya.s2 { border-top-color: var(--kek); }
+.kartya h3 a { color: var(--tinta); text-decoration: none; } .kartya h3 a:hover { text-decoration: underline; } .kartya small { color: var(--halk); font-size: .82rem; } .kartya b { font-size: 1.9rem; font-weight: 700; letter-spacing: -.045em; margin-top: .6rem; line-height: 1.1; } .kartya dl { margin: .9rem 0 0; display: grid; grid-template-columns: 1fr auto; gap: .25rem 1rem; font-size: .93rem; } .kartya dt { color: var(--halk); } .kartya dd { margin: 0; font-weight: 600; text-align: right; }
+.ket-abra { display: grid; gap: 1rem; } @media (min-width: 56rem) { .ket-abra { grid-template-columns: 1fr 1fr; } } .ket-abra figure { max-width: none; margin: 0; } .ket-abra h3 { margin: 0 .5rem .6rem; }
+
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition: none !important; animation: none !important; } @view-transition { navigation: none; } }
+@media print { .fej nav, .lab nav, .kereso, .minta-sor, .mini, .muveletek { display: none; } .fej { position: static; } .szalag { filter: none; border: 1px solid #999; } }

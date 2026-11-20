@@ -180,3 +180,25 @@ export function fiatalHatar(html, ev) {
   const v = Number(m[1].replace(/\s/g, ''));
   return v > 300000 && v < 3000000 ? v : null;
 }
+
+/**
+ * mun0143: national monthly earnings. We use the latest filled row of the "cumulated by month" block
+ * (January–X), because a single month is distorted by bonuses.
+ * Returns { ev, idoszak, bruttoAtlag, bruttoMedian, nettoAtlag }
+ */
+export function orszagosHavi(szoveg) {
+  const sorok = csv(szoveg);
+  const fej = sorok.find(s => s[0] === 'Év');
+  if (!fej || !/bruttó átlagkeresete, Ft/i.test(fej[2] || '') || !/bruttó medián/i.test(fej[4] || '') || !/nettó átlagkeresete, Ft/i.test(fej[6] || '')) throw new Error('mun0143: az oszlopok sorrendje megváltozott.');
+  const kezd = sorok.findIndex(s => /^Havi kumulált/i.test(s[0] || ''));
+  if (kezd < 0) throw new Error('mun0143: nincs „Havi kumulált adatok” blokk.');
+  let ev = null, ki = null;
+  for (const s of sorok.slice(kezd + 1)) {
+    if (/kumulált/i.test(s[0] || '')) break;
+    if (/^\d{4}/.test(s[0] || '')) ev = Number(s[0].slice(0, 4));
+    const a = szam(s[2]), m = szam(s[4]), n = szam(s[6]);
+    if (ev && a != null && m != null && n != null) ki = { ev, idoszak: s[1], bruttoAtlag: a, bruttoMedian: m, nettoAtlag: n };
+  }
+  if (!ki || ki.bruttoMedian < 200000 || ki.bruttoMedian > ki.bruttoAtlag || ki.bruttoAtlag > 5000000) throw new Error('mun0143: hiányzó vagy hihetetlen országos adatok.');
+  return ki;
+}

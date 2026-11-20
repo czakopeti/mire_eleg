@@ -48,3 +48,10 @@ test('real data: model is consistent', async () => {
   for (const f of A.fog) { assert.ok(f.netto > 0 && f.netto < f.brutto); assert.ok(Math.abs(f.netto / f.brutto - 0.665) < 0.001); }
   assert.equal(A.kodra['2142'].brutto, ker.fog['2142'].e.at(-1));
 });
+
+test('mun0143 parser: latest filled cumulated row, year carried over', () => {
+  const fej = 'Év;Időszak;Teljes munkaidőben alkalmazásban állók bruttó átlagkeresete, Ft/fő/hó;x;Teljes munkaidőben alkalmazásban állók bruttó medián keresete, Ft/fő/hó;x;Teljes munkaidőben alkalmazásban állók nettó átlagkeresete, Ft/fő/hó';
+  const t = `cím;;\n${fej}\nHavonta;;\n2026.;január;840 570;126,3;598 744;111,0;585 674\nHavi kumulált adatok;;\n2026.;január–január;840 570;126,3;598 744;111,0;585 674\n;január–szeptember;762 202;110,3;609 020;109,5;534 255\n;január–október;;;;;\nNegyedéves kumulált adatok;;\n2026.;I.;1;1;1;1;1\n`;
+  assert.deepEqual(K.orszagosHavi(t), { ev: 2026, idoszak: 'január–szeptember', bruttoAtlag: 762202, bruttoMedian: 609020, nettoAtlag: 534255 });
+  assert.throws(() => K.orszagosHavi(t.replace('bruttó medián', 'valami')), /oszlopok/);
+});

@@ -13,7 +13,7 @@ const J = async f => JSON.parse(await readFile(join(GY, f), 'utf8'));
 const WEB = join(GY, 'web');
 
 export async function adatModell() {
-  const [cfg, ker, nettoO, inf, lak, auto, szabalyok, nevek, allapot] = await Promise.all(['config.json', 'data/kereset.json', 'data/netto_orszagos.json', 'data/inflacio.json', 'data/lakasar.json', 'data/auto.json', 'data/szabalyok.json', 'data/nevek.json', 'data/allapot.json'].map(J));
+  const [cfg, ker, nettoO, inf, lak, auto, szabalyok, nevek, allapot, orsz, geoO] = await Promise.all(['config.json', 'data/kereset.json', 'data/netto_orszagos.json', 'data/inflacio.json', 'data/lakasar.json', 'data/auto.json', 'data/szabalyok.json', 'data/nevek.json', 'data/allapot.json', 'data/orszagos.json', 'forras/geo/orszag.json'].map(J));
   const maEv = Number(new Date().toLocaleDateString('sv-SE', { timeZone: 'Europe/Budapest' }).slice(0, 4));
   // Tax rules: this year's if present, otherwise the latest known year (and the page says so).
   const szEvek = Object.keys(szabalyok.evek).map(Number).sort((a, b) => a - b);
@@ -48,8 +48,8 @@ export async function adatModell() {
   const mf = kodra['7524'] || rangsor[Math.floor(rangsor.length / 2)];
   const mt = lak.tel.find(t => t.n === 'Debrecen') || lak.tel[0];
   const minta = { f: mf, t: mt, lakas: S.lakas({ nettoHavi: mf.netto, m2Ft: S.m2Ar(mt) }) };
-  const frissitve = [ker, nettoO, inf, lak, auto].map(d => d.ellenorizve).sort().pop();
-  return { cfg, ker, nettoO, inf, lak, auto, szabalyok, sz, szEv, szElteres, maEv, evek, utolso, fog, rangsor, kodra, nepszeru, minta, frissitve: allapot.futott || frissitve, orszagNetto: nettoO.osszesen.at(-1), nettoEv: nettoO.evek.at(-1) };
+  const frissitve = [ker, nettoO, inf, lak, auto, orsz].map(d => d.ellenorizve).sort().pop();
+  return { orsz, geo: { vb: geoO.vb, m: geoO.m }, cfg, ker, nettoO, inf, lak, auto, szabalyok, sz, szEv, szElteres, maEv, evek, utolso, fog, rangsor, kodra, nepszeru, minta, frissitve: allapot.futott || frissitve, orszagNetto: nettoO.osszesen.at(-1), nettoEv: nettoO.evek.at(-1) };
 }
 
 const csvSor = a => a.map(x => { const s = String(x ?? ''); return /[";\n]/.test(s) ? `"${s.replace(/"/g, '""')}"` : s; }).join(';');
@@ -70,11 +70,12 @@ async function epit() {
   await writeFile(join(WEB, 'assets/szamitas.mjs'), mag);
   await cp(join(GY, 'forras/fonts'), join(WEB, 'assets/fonts'), { recursive: true });
   await cp(join(GY, 'forras/kepek/favicon.svg'), join(WEB, 'assets/favicon.svg'));
+  await cp(join(GY, 'forras/geo'), join(WEB, 'assets/geo'), { recursive: true });
 
   // data for the browser and for download
   const b = A.szabalyok.berkuszob.arany;
-  await writeFile(join(WEB, 'adatok/kereso.json'), JSON.stringify(A.fog.map(f => [f.kod, f.nev, f.slug, f.alias ? [f.n, ...f.aliasok.slice(1)].join('|') : '', f.brutto, f.netto])));
-  await writeFile(join(WEB, 'adatok/telepulesek.json'), JSON.stringify(A.lak.tel.map(t => [t.kod, t.n, t.m, S.m2Ar(t), t.ev, t.szorzo ? 1 : 0, t.tipus])));
+  await writeFile(join(WEB, 'adatok/kereso.json'), JSON.stringify(A.fog.map(f => [f.kod, f.nev, f.slug, f.alias ? [f.n, ...f.aliasok.slice(1)].join('|') : '', f.brutto, f.netto, f.rang, f.realValt == null ? null : Math.round(f.realValt * 1000) / 1000, f.k.at(-1)])));
+  await writeFile(join(WEB, 'adatok/telepulesek.json'), JSON.stringify(A.lak.tel.map(t => [t.kod, t.n, t.m, S.m2Ar(t), t.ev, t.szorzo ? 1 : 0, t.tipus, t.db])));
   await writeFile(join(WEB, 'adatok/v1/kereset.json'), JSON.stringify({ leiras: 'Teljes munkaidőben alkalmazásban állók bruttó átlagkeresete foglalkozásonként (FEOR-08), Ft/fő/hó. e: együtt, évenként; k: korcsoportonként, évenként.', licenc: 'CC BY 4.0', forras: A.ker.forras, letoltve: A.ker.letoltve, ellenorizve: A.ker.ellenorizve, evek: A.evek, korcsoportok: A.ker.korcsoportok, foglalkozasok: Object.fromEntries(A.fog.map(f => [f.kod, { nev: f.n, koznapi: f.aliasok, url: `${A.cfg.domain}/fizetes/${f.slug}/`, e: f.e, k: f.k }])) }));
   await writeFile(join(WEB, 'adatok/v1/szabalyok.json'), JSON.stringify({ licenc: 'CC BY 4.0', ...A.szabalyok }, null, 1));
   const fej = `# Forrás: ${A.ker.forras.nev}; ${A.utolso}. évi adat; letöltve: ${A.ker.ellenorizve}; ${A.cfg.domain}`;
@@ -83,7 +84,7 @@ async function epit() {
 
   // pages
   const k = { cfg: A.cfg, v, frissitve: A.frissitve };
-  const lapok = [O.fooldal(A), O.foglalkozasok(A), O.kalkulator(A), O.mireEleg(A), O.berkuszob(A), O.forrasok(A), O.adatok(A), O.impresszum(A), ...A.fog.map(f => O.foglalkozas(A, f))];
+  const lapok = [O.fooldal(A), O.foglalkozasok(A), O.holAllsz(A), O.osszehasonlitas(A), O.terkep(A), O.nyertesek(A), O.kalkulator(A), O.mireEleg(A), O.berkuszob(A), O.forrasok(A), O.adatok(A), O.impresszum(A), ...A.fog.map(f => O.foglalkozas(A, f))];
   for (const l of lapok) {
     const mappa = join(WEB, l.ut);
     await mkdir(mappa, { recursive: true });
@@ -102,6 +103,10 @@ async function epit() {
 
 ## Fő oldalak
 - [Minden foglalkozás](${d}/foglalkozasok/): bruttó és nettó átlagkereset FEOR-főcsoportonként
+- [Hol állsz?](${d}/hol-allsz/): a saját bér összevetése a szakma, a korcsoport és az ország átlagával, mediánjával
+- [Szakmák összehasonlítása](${d}/osszehasonlitas/): két-három foglalkozás bére, pályaíve, reálbére
+- [Megfizethetőségi térkép](${d}/terkep/): hol hány év alatt jön ki egy lakás egy adott bérből
+- [Nyertesek és vesztesek](${d}/nyertesek-vesztesek/): minden szakma reálbér-változása ${A.evek[0]} óta
 - [Bruttó–nettó kalkulátor](${d}/brutto-netto-kalkulator/): szja 15%, tb-járulék 18,5%, 25 év alattiak kedvezménye (havi ${S.ft(A.sz.fiatal25.ertek)}-ig), anyák szja-mentessége, családi kedvezmény
 - [Mire elég?](${d}/mire-eleg/): hány év alatt jön ki egy lakás a nettó bérből, ${A.lak.tel.length} település áraival
 - [Bérküszöb-kereső](${d}/berkuszob-kereso/): harmadik országbeli munkavállaló alapbérének meg kell haladnia a FEOR-kód szerinti országos bruttó átlagkereset 80%-át (445/2013. (XI. 28.) Korm. rendelet 6. § (3), 20. § (6))

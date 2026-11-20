@@ -13,24 +13,27 @@
 <meta property="og:title" content="Fizetések foglalkozásonként 2025: 461 szakma bruttó és nettó átlagkeresete">
 <meta property="og:description" content="Az összes foglalkozás bruttó és nettó átlagkeresete a KSH 2025. évi adataiból, FEOR-főcsoportonként, a legjobban fizetőtől a legkevésbé fizetőig.">
 <meta property="og:url" content="https://mire-eleg.pages.dev/foglalkozasok/">
-<meta name="theme-color" content="#0B6B43">
+<meta name="theme-color" content="#073B28">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
-<link rel="preload" href="/assets/fonts/instrument-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="/assets/fonts/fraunces-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/alap.css?v=d4bbe971">
+<link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/geist-latin-ext-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/alap.css?v=ac3608a8">
+<script>document.documentElement.classList.add('js')</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Főoldal","item":"https://mire-eleg.pages.dev/"},{"@type":"ListItem","position":2,"name":"Foglalkozások","item":"https://mire-eleg.pages.dev/foglalkozasok/"}]}</script>
 </head>
 <body>
 <a class="ugras" href="#tartalom">Ugrás a tartalomra</a>
 <header class="fej">
-  <a class="logo" href="/" aria-label="Mire elég? – főoldal"><svg class="jel" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 3h20v24l-3.3-2-3.4 2-3.3-2-3.3 2-3.4-2L6 27z" fill="var(--zold)"/><path d="M11 10h10M11 15h10M11 20h5" stroke="var(--papir)" stroke-width="2.2" stroke-linecap="round"/><circle cx="21" cy="20" r="1.6" fill="var(--sarga)"/></svg><span>mire elég<i>?</i></span></a>
-  <nav aria-label="Fő menü"><a href="/foglalkozasok/" aria-current="page">Foglalkozások</a><a href="/brutto-netto-kalkulator/">Bruttó–nettó</a><a href="/mire-eleg/">Mire elég?</a><a href="/berkuszob-kereso/">Bérküszöb</a></nav>
+  <div class="fej-bel">
+    <a class="logo" href="/" aria-label="Mire elég?, főoldal"><svg class="jel" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--zold)"/><path d="M10 7h12v18l-2-1.3-2 1.3-2-1.3-2 1.3-2-1.3-2 1.3z" fill="#fff"/><path d="M13 12h6M13 16h6" stroke="var(--zold)" stroke-width="1.8" stroke-linecap="round"/></svg><span>mire elég?</span></a>
+    <nav aria-label="Fő menü"><a href="/foglalkozasok/" aria-current="page">Foglalkozások</a><a href="/hol-allsz/">Hol állsz?</a><a href="/osszehasonlitas/">Összehasonlítás</a><a href="/terkep/">Térkép</a><a href="/nyertesek-vesztesek/">Nyertesek</a><a href="/brutto-netto-kalkulator/">Kalkulátor</a><a href="/berkuszob-kereso/">Bérküszöb</a></nav>
+  </div>
 </header>
 <main id="tartalom">
 <nav class="morzsa" aria-label="Morzsamenü"><a href="/">Főoldal</a><span>Foglalkozások</span></nav>
 <h1>Fizetések foglalkozásonként</h1>
 <p class="bevezeto">461 foglalkozás bruttó és nettó átlagkeresete a KSH 2025. évi adataiból. Csoportonként a legmagasabb átlagtól haladunk lefelé.</p>
-<div class="kereso" data-kereso>
+<div class="kereso" data-kereso="">
   <label for="k-be">Keresd meg a foglalkozásodat</label>
   <input id="k-be" type="search" autocomplete="off" placeholder="Foglalkozás neve vagy FEOR-kódja" aria-controls="k-lista" inputmode="search">
   <ul id="k-lista" class="k-lista" hidden></ul>
@@ -531,15 +534,17 @@
 <p class="apro">A nettó a 2026-os szabályokkal számolt saját érték (15% szja, 18,5% tb-járulék, kedvezmények nélkül). <a href="/forrasok/#szabalyok">A szabályok forrásai</a>.</p>
 </main>
 <footer class="lab">
-  <div class="lab-sor">
-    <a class="logo" href="/"><svg class="jel" viewBox="0 0 32 32" aria-hidden="true"><path d="M6 3h20v24l-3.3-2-3.4 2-3.3-2-3.3 2-3.4-2L6 27z" fill="var(--zold)"/><path d="M11 10h10M11 15h10M11 20h5" stroke="var(--papir)" stroke-width="2.2" stroke-linecap="round"/><circle cx="21" cy="20" r="1.6" fill="var(--sarga)"/></svg><span>mire elég<i>?</i></span></a>
-    <p>Fizetések foglalkozásonként, és hogy mire elég belőlük.</p>
+  <div class="lab-bel">
+    <div class="lab-sor">
+      <a class="logo" href="/"><svg class="jel" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="9" fill="var(--zold)"/><path d="M10 7h12v18l-2-1.3-2 1.3-2-1.3-2 1.3-2-1.3-2 1.3z" fill="#fff"/><path d="M13 12h6M13 16h6" stroke="var(--zold)" stroke-width="1.8" stroke-linecap="round"/></svg><span>mire elég?</span></a>
+      <p>Fizetések foglalkozásonként, és hogy mire elég belőlük.</p>
+    </div>
+    <nav aria-label="Lábléc">
+      <a href="/foglalkozasok/">Minden foglalkozás</a><a href="/hol-allsz/">Hol állsz?</a><a href="/osszehasonlitas/">Szakmák összehasonlítása</a><a href="/terkep/">Megfizethetőségi térkép</a><a href="/nyertesek-vesztesek/">Nyertesek és vesztesek</a><a href="/brutto-netto-kalkulator/">Bruttó–nettó kalkulátor</a><a href="/mire-eleg/">Mire elég?</a><a href="/berkuszob-kereso/">Bérküszöb-kereső</a><a href="/forrasok/">Források és módszertan</a><a href="/adatok/">Letölthető adatok</a><a href="/impresszum/">Impresszum, adatkezelés</a>
+    </nav>
+    <p class="lab-apro">Az adatok utolsó ellenőrzése: 2026. november 20.. A keresetek a KSH hivatalos adatai, a nettó bér saját számítás a hatályos szabályok alapján. Tájékoztató jellegű, nem minősül adó- vagy jogi tanácsadásnak.</p>
   </div>
-  <nav aria-label="Lábléc">
-    <a href="/foglalkozasok/">Minden foglalkozás</a><a href="/brutto-netto-kalkulator/">Bruttó–nettó kalkulátor</a><a href="/mire-eleg/">Mire elég?</a><a href="/berkuszob-kereso/">Bérküszöb-kereső</a><a href="/forrasok/">Források és módszertan</a><a href="/adatok/">Letölthető adatok</a><a href="/impresszum/">Impresszum, adatkezelés</a>
-  </nav>
-  <p class="lab-apro">Az adatok utolsó ellenőrzése: 2026. november 20.. A keresetek a KSH hivatalos adatai, a nettó bér saját számítás a hatályos szabályok alapján. Tájékoztató jellegű, nem minősül adó- vagy jogi tanácsadásnak.</p>
 </footer>
-<script type="module" src="/assets/app.mjs?v=d4bbe971"></script>
+<script type="module" src="/assets/app.mjs?v=ac3608a8"></script>
 </body>
 </html>
