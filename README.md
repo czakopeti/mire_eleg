@@ -43,7 +43,7 @@ node epit.mjs                 # web/ felépítése
 
 ## Cloudflare Pages (ingyenes csomag)
 
-1. Workers & Pages → Create → Pages → Connect to Git → ez a tároló.
+1. Workers & Pages → Create → Pages → Connect to Git → `czakopeti/mire_eleg`.
 2. Framework preset: None. Build command: üres. Build output directory: `web`.
 3. A kapott `.pages.dev` címet írd a `config.json` `domain` mezőjébe, ha eltér.
 

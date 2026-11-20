@@ -26,7 +26,7 @@ async function leker(f) {
   let hiba;
   for (let i = 0; i < 3; i++) {
     try {
-      const r = await fetch(f.url, { headers: { 'user-agent': 'mire-eleg-frissito (github.com/czakopeti/mire-eleg)' }, signal: AbortSignal.timeout(40000) });
+      const r = await fetch(f.url, { headers: { 'user-agent': 'mire-eleg-frissito (github.com/czakopeti/mire_eleg)' }, signal: AbortSignal.timeout(40000) });
       if (!r.ok) throw new Error(`HTTP ${r.status}`);
       return Buffer.from(await r.arrayBuffer());
     } catch (e) { hiba = e; await new Promise(r => setTimeout(r, 3000 * (i + 1))); }
