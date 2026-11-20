@@ -7,7 +7,10 @@
         "nev": "Személyi jövedelemadó",
         "szoveg": "Az összevont adóalap 15 százaléka.",
         "hely": "Szja tv. 8. § (1)",
-        "forras": { "nev": "1995. évi CXVII. törvény a személyi jövedelemadóról (Nemzeti Jogszabálytár)", "url": "https://njt.jog.gov.hu/jogszabaly/1995-117-00-00" },
+        "forras": {
+          "nev": "1995. évi CXVII. törvény a személyi jövedelemadóról (Nemzeti Jogszabálytár)",
+          "url": "https://njt.jog.gov.hu/jogszabaly/1995-117-00-00"
+        },
         "ellenorizve": "2026-11-20"
       },
       "tb": {
@@ -15,7 +18,10 @@
         "nev": "Társadalombiztosítási járulék",
         "szoveg": "A bruttó bér 18,5 százaléka, felső határ nélkül.",
         "hely": "Tbj. 25. § (2)",
-        "forras": { "nev": "2019. évi CXXII. törvény a társadalombiztosítás ellátásaira jogosultakról (Nemzeti Jogszabálytár)", "url": "https://njt.jog.gov.hu/jogszabaly/2019-122-00-00" },
+        "forras": {
+          "nev": "2019. évi CXXII. törvény a társadalombiztosítás ellátásaira jogosultakról (Nemzeti Jogszabálytár)",
+          "url": "https://njt.jog.gov.hu/jogszabaly/2019-122-00-00"
+        },
         "ellenorizve": "2026-11-20"
       },
       "fiatal25": {
@@ -23,26 +29,74 @@
         "nev": "25 év alatti fiatalok kedvezménye",
         "szoveg": "A 25. életév betöltésének hónapjáig a bér havi 715 765 forintig mentes az szja alól, ami legfeljebb havi 107 365 forint megtakarítás. A határ fölötti rész után 15 százalék szja jár.",
         "hely": "Szja tv. 29/F. §",
-        "forras": { "nev": "NAV: 25 év alatti fiatalok kedvezménye", "url": "https://nav.gov.hu/ado/szja/25-ev-alatti-fiatalok-kedvezmenye" },
+        "forras": {
+          "nev": "NAV: 25 év alatti fiatalok kedvezménye",
+          "url": "https://nav.gov.hu/ado/szja/25-ev-alatti-fiatalok-kedvezmenye"
+        },
         "kulcs": "715 765",
         "ellenorizve": "2026-11-20"
       },
       "csaladi": {
-        "ertek": [133340, 266660, 440000],
+        "ertek": [
+          133340,
+          266660,
+          440000
+        ],
         "nev": "Családi kedvezmény",
         "szoveg": "Az adóalapot csökkenti, kedvezményezett eltartottanként havonta: egy eltartottnál 133 340 forinttal, kettőnél 266 660 forinttal, három vagy több eltartottnál 440 000 forinttal. Ez gyermekenként havi 20 000, 40 000, illetve 66 000 forint megtakarítás. Amit az szja-ból nem tudsz érvényesíteni, annak 15 százalékát a tb-járulékból vonhatod le (családi járulékkedvezmény).",
         "hely": "Szja tv. 29/A. § (2); Tbj. 34. §",
-        "forras": { "nev": "NAV: családi adókedvezmény-kalkulátor 2026–2029", "url": "https://nav.gov.hu/ugyfeliranytu/kalkulatorok/csaladi-adokedvezmeny-kalkulator-2026-2029" },
+        "forras": {
+          "nev": "NAV: családi adókedvezmény-kalkulátor 2026–2029",
+          "url": "https://nav.gov.hu/ugyfeliranytu/kalkulatorok/csaladi-adokedvezmeny-kalkulator-2026-2029"
+        },
         "ellenorizve": "2026-11-20"
       },
       "anyak": {
         "nev": "Anyák szja-mentessége",
         "szoveg": "A munkával szerzett jövedelem összeghatár nélkül mentes az szja alól, ha az alábbiak egyike igaz rád. A tb-járulékot ilyenkor is meg kell fizetni; a családi kedvezmény ebből vonható le.",
         "jogcimek": [
-          { "kod": "30alatt", "nev": "30 év alatti anya", "szoveg": "2026. január 1-jétől minden 30 év alatti anyának jár, aki gyermeke vagy magzata után családi kedvezményre jogosult. Összeghatár nincs.", "hely": "2025. évi XIII. törvény", "forras": { "nev": "NAV: Kedvezően változnak a 30 év alatti anyák adómentességének szabályai", "url": "https://nav.gov.hu/szja/ujdonsagok-tudnivalok/Kedvezoen_valtoznak_a_30_ev_alatti_anyak_adomentessegenek_szabalyai" }, "kulcs": "30 év alatti anya" },
-          { "kod": "2gyerek", "nev": "Két gyermeket nevelő, 40 év alatti anya", "szoveg": "2026. január 1-jétől azoknak a kétgyermekes anyáknak jár, akik a 40. életévüket 2025. december 31. után töltik be. 2027-től az 50, 2028-tól a 60 év alattiak, 2029-től minden kétgyermekes anya jogosult.", "hely": "2025. évi XIV. törvény", "forras": { "nev": "NAV: Két gyermeket nevelő anyák kedvezménye", "url": "https://nav.gov.hu/ado/szja/Ket_gyermeket_nevelo_anyak_kedvezmenye" }, "kulcs": "40. életévüket" },
-          { "kod": "3gyerek", "nev": "Három gyermeket nevelő anya", "szoveg": "2025. október 1-jétől jár, életkortól függetlenül.", "hely": "2025. évi XV. törvény", "forras": { "nev": "NAV: Januártól a 40 év alatti kétgyerekes anyák is csatlakoznak az szja-mentességhez (összefoglaló az anyakedvezményekről)", "url": "https://nav.gov.hu/sajtoszoba/hirek/Januartol_a_40_ev_alatti_ketgyerekes_anyak_is_csatlakoznak_az_szja-mentesseghez" } },
-          { "kod": "4gyerek", "nev": "Négy vagy több gyermeket nevelő anya", "szoveg": "Életkortól függetlenül jár, összeghatár nélkül.", "hely": "Szja tv. 29/D. §", "forras": { "nev": "NAV: Januártól a 40 év alatti kétgyerekes anyák is csatlakoznak az szja-mentességhez (összefoglaló az anyakedvezményekről)", "url": "https://nav.gov.hu/sajtoszoba/hirek/Januartol_a_40_ev_alatti_ketgyerekes_anyak_is_csatlakoznak_az_szja-mentesseghez" } }
+          {
+            "kod": "30alatt",
+            "nev": "30 év alatti anya",
+            "szoveg": "2026. január 1-jétől minden 30 év alatti anyának jár, aki gyermeke vagy magzata után családi kedvezményre jogosult. Összeghatár nincs.",
+            "hely": "2025. évi XIII. törvény",
+            "forras": {
+              "nev": "NAV: Kedvezően változnak a 30 év alatti anyák adómentességének szabályai",
+              "url": "https://nav.gov.hu/szja/ujdonsagok-tudnivalok/Kedvezoen_valtoznak_a_30_ev_alatti_anyak_adomentessegenek_szabalyai"
+            },
+            "kulcs": "30 év alatti anya"
+          },
+          {
+            "kod": "2gyerek",
+            "nev": "Két gyermeket nevelő, 40 év alatti anya",
+            "szoveg": "2026. január 1-jétől azoknak a kétgyermekes anyáknak jár, akik a 40. életévüket 2025. december 31. után töltik be. 2027-től az 50, 2028-tól a 60 év alattiak, 2029-től minden kétgyermekes anya jogosult.",
+            "hely": "2025. évi XIV. törvény",
+            "forras": {
+              "nev": "NAV: Két gyermeket nevelő anyák kedvezménye",
+              "url": "https://nav.gov.hu/ado/szja/Ket_gyermeket_nevelo_anyak_kedvezmenye"
+            },
+            "kulcs": "40. életévüket"
+          },
+          {
+            "kod": "3gyerek",
+            "nev": "Három gyermeket nevelő anya",
+            "szoveg": "2025. október 1-jétől jár, életkortól függetlenül.",
+            "hely": "2025. évi XV. törvény",
+            "forras": {
+              "nev": "NAV: Januártól a 40 év alatti kétgyerekes anyák is csatlakoznak az szja-mentességhez (összefoglaló az anyakedvezményekről)",
+              "url": "https://nav.gov.hu/sajtoszoba/hirek/Januartol_a_40_ev_alatti_ketgyerekes_anyak_is_csatlakoznak_az_szja-mentesseghez"
+            }
+          },
+          {
+            "kod": "4gyerek",
+            "nev": "Négy vagy több gyermeket nevelő anya",
+            "szoveg": "Életkortól függetlenül jár, összeghatár nélkül.",
+            "hely": "Szja tv. 29/D. §",
+            "forras": {
+              "nev": "NAV: Januártól a 40 év alatti kétgyerekes anyák is csatlakoznak az szja-mentességhez (összefoglaló az anyakedvezményekről)",
+              "url": "https://nav.gov.hu/sajtoszoba/hirek/Januartol_a_40_ev_alatti_ketgyerekes_anyak_is_csatlakoznak_az_szja-mentesseghez"
+            }
+          }
         ],
         "ellenorizve": "2026-11-20"
       },
@@ -58,7 +112,10 @@
     "nev": "Harmadik országbeli munkavállaló bérküszöbe",
     "szoveg": "A kormányhivatal megtagadhatja a munkavállalási engedélyt, illetve az összevont engedélyhez kért szakhatósági állásfoglalásban nem támogatja a foglalkoztatást, ha a megjelölt alapbér lényegesen alacsonyabb a tevékenységre vonatkozó országos bruttó átlagkeresetnél. Lényegesen alacsonyabb az alapbér, ha nem haladja meg az átlagkereset nyolcvan százalékát. Az országos bruttó átlagkereset a KSH által a FEOR-kód szerinti foglalkozásra közzétett, teljes munkaidős bruttó átlagkereset.",
     "hely": "445/2013. (XI. 28.) Korm. rendelet 2. § 13. pont, 6. § (2) bek. g) pont és (3) bek., 20. § (5) bek. d) pont és (6) bek.",
-    "forras": { "nev": "445/2013. (XI. 28.) Korm. rendelet (Nemzeti Jogszabálytár)", "url": "https://njt.jog.gov.hu/jogszabaly/2013-445-20-22" },
+    "forras": {
+      "nev": "445/2013. (XI. 28.) Korm. rendelet (Nemzeti Jogszabálytár)",
+      "url": "https://njt.jog.gov.hu/jogszabaly/2013-445-20-22"
+    },
     "szovegallapot": "2025-07-01",
     "kulcs": "nyolcvan százalékát",
     "megjegyzesek": [
