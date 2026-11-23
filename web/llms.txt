@@ -1,6 +1,6 @@
 # Mire elég?
 
-> Magyarországi fizetések foglalkozásonként: 461 foglalkozás (FEOR-08) bruttó átlagkeresete a KSH 2025. évi adataiból, számított nettóval (2026. évi szabályok), korcsoportos bontással, inflációval korrigált idősorral 2019 óta, lakásvásárlási összevetéssel és a harmadik országbeli munkavállalók 80 százalékos bérküszöbével. Az adatok hetente, maguktól frissülnek. Utolsó ellenőrzés: 2026-11-20.
+> Magyarországi fizetések foglalkozásonként: 461 foglalkozás (FEOR-08) bruttó átlagkeresete a KSH 2025. évi adataiból, számított nettóval (2026. évi szabályok), korcsoportos bontással, inflációval korrigált idősorral 2019 óta, lakásvásárlási összevetéssel és a harmadik országbeli munkavállalók 80 százalékos bérküszöbével. Az adatok hetente, maguktól frissülnek. Utolsó ellenőrzés: 2026-11-23.
 
 ## Fő oldalak
 - [Minden foglalkozás](https://mire-eleg.pages.dev/foglalkozasok/): bruttó és nettó átlagkereset FEOR-főcsoportonként
